@@ -9,7 +9,7 @@ export class ServicesService {
       {name:"Definition service" , url:"Definition-service"},
       {name:"Definition injection de dépendances" , url:"Definition-injection-dependances"},
       {name:"Hiérarchie injection de dépendances" , url:"Hierarchie"},
-      {name:"Utilisation" , url:"Utilisation"},      
+      {name:"Utilisation" , url:"Utilisation"}  
     ]
   }
 }

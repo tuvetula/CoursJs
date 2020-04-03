@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DataBindingService } from '../shared/services/data-binding.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: "app-composant-container",
@@ -7,12 +9,17 @@ import { DataBindingService } from '../shared/services/data-binding.service';
   styleUrls: ["./composant-container.component.css"]
 })
 export class ComposantContainerComponent implements OnInit {
-  public componentMenu: { name: string; url: string; }[];
+  public serviceName: string;
   
-
-  constructor(private dataBindingService: DataBindingService) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.componentMenu = this.dataBindingService.componentMenu;
+    const url: Observable<string> = this.activatedRoute.url.pipe(
+      map(segments => segments.join(""))
+    );
+    url.subscribe(
+      (data) => {
+        this.serviceName = data;
+      });
   }
 }

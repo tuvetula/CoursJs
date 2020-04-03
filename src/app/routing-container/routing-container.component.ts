@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ObservableService } from '../shared/services/observable.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-observables-container',
-  templateUrl: './observables-container.component.html',
-  styleUrls: ['./observables-container.component.css']
+  selector: 'app-routing-container',
+  templateUrl: './routing-container.component.html',
+  styleUrls: ['./routing-container.component.css']
 })
-export class ObservablesContainerComponent implements OnInit {
+export class RoutingContainerComponent implements OnInit {
   public serviceName: string;
-
+  
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,5 +22,4 @@ export class ObservablesContainerComponent implements OnInit {
         this.serviceName = data;
       });
   }
-
 }

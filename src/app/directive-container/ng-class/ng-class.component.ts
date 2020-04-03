@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-ng-class',
-  templateUrl: './ng-class.component.html',
-  styleUrls: ['./ng-class.component.css']
+  selector: "app-ng-class",
+  templateUrl: "./ng-class.component.html",
+  styleUrls: ["./ng-class.component.css"]
 })
 export class NgClassComponent implements OnInit {
+  public color: string = "";
 
-  public color: string = "green";
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

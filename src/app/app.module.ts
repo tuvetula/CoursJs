@@ -18,9 +18,11 @@ import { NgIfCustom } from './shared/directives/ngIfCustom.directive';
 import { IfRole } from './shared/directives/ifRole.directive';
 
 import { AuthService } from './shared/services/authService.service';
-import { DataBindingService } from './shared/services/data-binding.service';
+import { ComponentService } from './shared/services/component.service';
 import { DirectiveService } from './shared/services/directive.service';
+import { ServicesService } from './shared/services/services.service';
 import { LogService } from './shared/services/log.service';
+
 import { AddComponent } from './services-container/services-utilisation/add/add.component';
 import { PanierComponent } from './services-container/services-utilisation/panier/panier.component';
 
@@ -33,7 +35,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { DirectiveContainerComponent } from './directive-container/directive-container.component';
 import { NgIfComponent } from './directive-container/ng-if/ng-if.component';
-import { DirectiveListComponent } from './directive-container/directive-list/directive-list.component';
 import { NgForComponent } from './directive-container/ng-for/ng-for.component';
 import { NgClassComponent } from './directive-container/ng-class/ng-class.component';
 import { NgStyleComponent } from './directive-container/ng-style/ng-style.component';
@@ -52,7 +53,6 @@ import { ObservableService } from './shared/services/observable.service';
 import { FruitItemsComponent } from './composant-container/property-output/fruit-items/fruit-items.component';
 import { EncapsulationComponent } from './composant-container/encapsulation/encapsulation.component';
 import { ObservablesContainerComponent } from './observables-container/observables-container.component';
-import { ObservablesListComponent } from './observables-container/observables-list/observables-list.component';
 import { ObservablesIntroductionComponent } from './observables-container/observables-introduction/observables-introduction.component';
 import { CreationObservableComponent } from './observables-container/creation-observable/creation-observable.component';
 import { IntroductionSubjectsComponent } from './observables-container/introduction-subjects/introduction-subjects.component';
@@ -60,9 +60,7 @@ import { UtilisationSubjectsComponent } from './observables-container/utilisatio
 import { OperateursPipesRxjsComponent } from './observables-container/operateurs-pipes-rxjs/operateurs-pipes-rxjs.component';
 import { TextColorGreenDirective } from './shared/directives/text-color-green.directive';
 import { CodeFormatDirective } from './shared/directives/code-format.directive';
-import { ServicesService } from './shared/services/services.service';
 import { ServicesContainerComponent } from './services-container/services-container.component';
-import { ServicesListComponent } from './services-container/services-list/services-list.component';
 import { ServicesDefinitionComponent } from './services-container/services-definition/services-definition.component';
 import { ServicesInjectionDefinitionComponent } from './services-container/services-injection-definition/services-injection-definition.component';
 import { ServicesHierarchieComponent } from './services-container/services-hierarchie/services-hierarchie.component';
@@ -74,6 +72,23 @@ import { ViewChildChildrenComponent } from './composant-container/view-child/vie
 import { NgContentComponent } from './composant-container/ng-content/ng-content.component';
 import { NgContentChildrenComponent } from './composant-container/ng-content/ng-content-children/ng-content-children.component';
 import { ContentChildComponent } from './composant-container/content-child/content-child.component';
+import { LifeCycleOfComponentsComponent } from './composant-container/life-cycle-of-components/life-cycle-of-components.component';
+import { RoutingContainerComponent } from './routing-container/routing-container.component';
+import { RoutingIntroductionComponent } from './routing-container/routing-introduction/routing-introduction.component';
+import { RoutingService } from './shared/services/routing.service';
+import { RouterLinkComponent } from './routing-container/router-link/router-link.component';
+import { RouterLinkActiveComponent } from './routing-container/router-link-active/router-link-active.component';
+import { ParamsComponent } from './routing-container/params/params.component';
+import { QueryParamsFragmentComponent } from './routing-container/query-params-fragment/query-params-fragment.component';
+import { RoutesImbriqueesComponent } from './routing-container/routes-imbriquees/routes-imbriquees.component';
+import { RedirectionWildcardComponent } from './routing-container/redirection-wildcard/redirection-wildcard.component';
+import { SeparerFichierRoutingComponent } from './routing-container/separer-fichier-routing/separer-fichier-routing.component';
+import { GardeCanActivateComponent } from './routing-container/garde-can-activate/garde-can-activate.component';
+import { GardeCanDeactivateComponent } from './routing-container/garde-can-deactivate/garde-can-deactivate.component';
+import { GardeResolverComponent } from './routing-container/garde-resolver/garde-resolver.component';
+import { ActivatedRouteRouterComponent } from './routing-container/activated-route-router/activated-route-router.component';
+import { FormationService } from './shared/services/formation.service';
+import { ListLessonsComponent } from './list-lessons/list-lessons.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +107,6 @@ import { ContentChildComponent } from './composant-container/content-child/conte
     PropertyBindingComponent,
     DirectiveContainerComponent,
     NgIfComponent,
-    DirectiveListComponent,
     NgForComponent,
     NgClassComponent,
     NgStyleComponent,
@@ -113,7 +127,6 @@ import { ContentChildComponent } from './composant-container/content-child/conte
     FruitItemsComponent,
     EncapsulationComponent,
     ObservablesContainerComponent,
-    ObservablesListComponent,
     ObservablesIntroductionComponent,
     CreationObservableComponent,
     IntroductionSubjectsComponent,
@@ -122,7 +135,6 @@ import { ContentChildComponent } from './composant-container/content-child/conte
     TextColorGreenDirective,
     CodeFormatDirective,
     ServicesContainerComponent,
-    ServicesListComponent,
     ServicesDefinitionComponent,
     ServicesInjectionDefinitionComponent,
     ServicesHierarchieComponent,
@@ -133,7 +145,22 @@ import { ContentChildComponent } from './composant-container/content-child/conte
     ViewChildChildrenComponent,
     NgContentComponent,
     NgContentChildrenComponent,
-    ContentChildComponent
+    ContentChildComponent,
+    LifeCycleOfComponentsComponent,
+    RoutingContainerComponent,
+    RoutingIntroductionComponent,
+    RouterLinkComponent,
+    RouterLinkActiveComponent,
+    ParamsComponent,
+    QueryParamsFragmentComponent,
+    RoutesImbriqueesComponent,
+    RedirectionWildcardComponent,
+    SeparerFichierRoutingComponent,
+    GardeCanActivateComponent,
+    GardeCanDeactivateComponent,
+    GardeResolverComponent,
+    ActivatedRouteRouterComponent,
+    ListLessonsComponent
   ],
   imports: [
     BrowserModule,
@@ -141,12 +168,15 @@ import { ContentChildComponent } from './composant-container/content-child/conte
     NgbModule,
     FormsModule
   ],
-  providers: [AuthService,
+  providers: [
+    FormationService,
+    AuthService,
     LogService,
-    DataBindingService,
+    ComponentService,
     DirectiveService,
     ObservableService,
-    ServicesService
+    ServicesService,
+    RoutingService
   ],
   bootstrap: [AppComponent]
 })

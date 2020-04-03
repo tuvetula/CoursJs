@@ -25,19 +25,33 @@ import { CreationObservableComponent } from "./observables-container/creation-ob
 import { IntroductionSubjectsComponent } from "./observables-container/introduction-subjects/introduction-subjects.component";
 import { UtilisationSubjectsComponent } from "./observables-container/utilisation-subjects/utilisation-subjects.component";
 import { OperateursPipesRxjsComponent } from "./observables-container/operateurs-pipes-rxjs/operateurs-pipes-rxjs.component";
-import { ServicesDefinitionComponent } from './services-container/services-definition/services-definition.component';
-import { ServicesInjectionDefinitionComponent } from './services-container/services-injection-definition/services-injection-definition.component';
-import { ServicesHierarchieComponent } from './services-container/services-hierarchie/services-hierarchie.component';
-import { ServicesUtilisationComponent } from './services-container/services-utilisation/services-utilisation.component';
-import { ServicesContainerComponent } from './services-container/services-container.component';
-import { VariableLocaleComponent } from './composant-container/variable-locale/variable-locale.component';
-import { ViewChildComponent } from './composant-container/view-child/view-child.component';
-import { NgContentComponent } from './composant-container/ng-content/ng-content.component';
-import { ContentChildComponent } from './composant-container/content-child/content-child.component';
+import { ServicesDefinitionComponent } from "./services-container/services-definition/services-definition.component";
+import { ServicesInjectionDefinitionComponent } from "./services-container/services-injection-definition/services-injection-definition.component";
+import { ServicesHierarchieComponent } from "./services-container/services-hierarchie/services-hierarchie.component";
+import { ServicesUtilisationComponent } from "./services-container/services-utilisation/services-utilisation.component";
+import { ServicesContainerComponent } from "./services-container/services-container.component";
+import { VariableLocaleComponent } from "./composant-container/variable-locale/variable-locale.component";
+import { ViewChildComponent } from "./composant-container/view-child/view-child.component";
+import { NgContentComponent } from "./composant-container/ng-content/ng-content.component";
+import { ContentChildComponent } from "./composant-container/content-child/content-child.component";
+import { LifeCycleOfComponentsComponent } from "./composant-container/life-cycle-of-components/life-cycle-of-components.component";
+import { RoutingContainerComponent } from "./routing-container/routing-container.component";
+import { RoutingIntroductionComponent } from "./routing-container/routing-introduction/routing-introduction.component";
+import { RouterLinkComponent } from "./routing-container/router-link/router-link.component";
+import { RouterLinkActiveComponent } from "./routing-container/router-link-active/router-link-active.component";
+import { ActivatedRouteRouterComponent } from "./routing-container/activated-route-router/activated-route-router.component";
+import { ParamsComponent } from "./routing-container/params/params.component";
+import { QueryParamsFragmentComponent } from "./routing-container/query-params-fragment/query-params-fragment.component";
+import { RoutesImbriqueesComponent } from "./routing-container/routes-imbriquees/routes-imbriquees.component";
+import { RedirectionWildcardComponent } from "./routing-container/redirection-wildcard/redirection-wildcard.component";
+import { SeparerFichierRoutingComponent } from "./routing-container/separer-fichier-routing/separer-fichier-routing.component";
+import { GardeCanActivateComponent } from "./routing-container/garde-can-activate/garde-can-activate.component";
+import { GardeCanDeactivateComponent } from "./routing-container/garde-can-deactivate/garde-can-deactivate.component";
+import { GardeResolverComponent } from "./routing-container/garde-resolver/garde-resolver.component";
 
 const routes: Routes = [
   {
-    path: "Data-binding",
+    path: "Composants",
     component: ComposantContainerComponent,
     children: [
       { path: "Interpolation", component: InterpolationComponent },
@@ -47,10 +61,11 @@ const routes: Routes = [
       { path: "Property-input", component: PropertyInputComponent },
       { path: "Property-output", component: PropertyOutputComponent },
       { path: "Encapsulation", component: EncapsulationComponent },
-      { path: "Variable-locale", component: VariableLocaleComponent},
-      { path: "ViewChild" , component: ViewChildComponent},
-      { path: "NgContent" , component: NgContentComponent},
-      { path: "ContentChild" , component: ContentChildComponent}
+      { path: "Variable-locale", component: VariableLocaleComponent },
+      { path: "ViewChild", component: ViewChildComponent },
+      { path: "NgContent", component: NgContentComponent },
+      { path: "ContentChild", component: ContentChildComponent },
+      { path: "LifeCycle-of-components", component: LifeCycleOfComponentsComponent }
     ]
   },
   {
@@ -93,12 +108,39 @@ const routes: Routes = [
     component: ServicesContainerComponent,
     children: [
       { path: "Definition-service", component: ServicesDefinitionComponent },
-      { path: "Definition-injection-dependances", component: ServicesInjectionDefinitionComponent },
+      {
+        path: "Definition-injection-dependances",
+        component: ServicesInjectionDefinitionComponent
+      },
       {
         path: "Hierarchie",
         component: ServicesHierarchieComponent
       },
       { path: "Utilisation", component: ServicesUtilisationComponent }
+    ]
+  },
+  {
+    path: "Routing",
+    component: RoutingContainerComponent,
+    children: [
+      { path: "Introduction", component: RoutingIntroductionComponent },
+      { path: "RouterLink", component: RouterLinkComponent },
+      { path: "RouterLinkActive", component: RouterLinkActiveComponent },
+      {
+        path: "ActivatedRoute-Router",
+        component: ActivatedRouteRouterComponent
+      },
+      { path: "Params", component: ParamsComponent },
+      { path: "QueryParams-Fragment", component: QueryParamsFragmentComponent },
+      { path: "Routes-imbriquees", component: RoutesImbriqueesComponent },
+      { path: "Redirection-wildcard", component: RedirectionWildcardComponent },
+      {
+        path: "Separer-fichiers-routing",
+        component: SeparerFichierRoutingComponent
+      },
+      { path: "CanActivate", component: GardeCanActivateComponent },
+      { path: "CanDeactivate", component: GardeCanDeactivateComponent },
+      { path: "Resolver", component: GardeResolverComponent }
     ]
   },
   { path: "", component: HomepageComponent }

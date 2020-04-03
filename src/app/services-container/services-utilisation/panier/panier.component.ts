@@ -8,7 +8,9 @@ import { PanierService } from '../../../shared/services/panier.service';
 })
 export class PanierComponent implements OnInit {
   public panier: string[] = [];
+
   constructor(private panierService: PanierService) { }
+  
   ngOnInit(): void {
     this.panier = this.panierService.panier;
   }

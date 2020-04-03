@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DataBindingService } from '../shared/services/data-binding.service';
+import { ComponentService } from '../shared/services/component.service';
 import { DirectiveService } from '../shared/services/directive.service';
 import { ObservableService } from '../shared/services/observable.service';
 import { ServicesService } from '../shared/services/services.service';
+import { RoutingService } from '../shared/services/routing.service';
+import { FormationService } from '../shared/services/formation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,22 +12,35 @@ import { ServicesService } from '../shared/services/services.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  public formationMenu: {name:string , url:string}[];
   public componentMenu: {name:string , url:string}[];
   public directiveMenu: {name:string , url:string}[];
   public observableMenu: {name:string , url:string}[];
   public serviceMenu: {name:string , url:string}[];
+  public routingMenu: {name:string , url:string}[];
+  public formsMenu: {name:string , url:string}[];
+  public pipesMenu: {name:string , url:string}[];
+  public httpRequestMenu: {name:string , url:string}[];
+  public modulesMenu: {name:string , url:string}[];
+  public animationsMenu: {name:string , url:string}[];
+  public testsMenu: {name:string , url:string}[];
 
-  constructor(private dataBindingService: DataBindingService,
+
+  constructor(
+    private formationService: FormationService,
+    private componentService: ComponentService,
     private directiveService: DirectiveService,
     private observableService: ObservableService,
-    private servicesService: ServicesService) { }
+    private servicesService: ServicesService,
+    private routingService: RoutingService) { }
 
   ngOnInit(): void {
-    this.componentMenu = this.dataBindingService.componentMenu;
+    this.formationMenu = this.formationService.formationMenu;
+    this.componentMenu = this.componentService.componentMenu;
     this.directiveMenu = this.directiveService.directiveMenu;
     this.observableMenu = this.observableService.observableMenu;
     this.serviceMenu = this.servicesService.serviceMenu;
+    this.routingMenu = this.routingService.routingMenu;
   }
 
 }

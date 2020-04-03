@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class DataBindingService {
+export class ComponentService {
 
   public componentMenu: { name: string; url: string; }[] = [
     {name: "String Interpolation",url: "Interpolation"},
@@ -14,7 +14,8 @@ export class DataBindingService {
     {name: "Variable locale" , url:"Variable-locale"},
     {name: "ViewChild" , url:"ViewChild"},
     {name: "NgContent" , url:"NgContent"},
-    {name: "ContentChild" , url:"ContentChild"}
+    {name: "ContentChild" , url:"ContentChild"},
+    {name: "Cycle de vie des composants" , url:"LifeCycle-of-components"}
 
   ];
 
