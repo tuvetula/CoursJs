@@ -89,6 +89,7 @@ import { GardeResolverComponent } from './routing-container/garde-resolver/garde
 import { ActivatedRouteRouterComponent } from './routing-container/activated-route-router/activated-route-router.component';
 import { FormationService } from './shared/services/formation.service';
 import { ListLessonsComponent } from './list-lessons/list-lessons.component';
+import { PageNotFound404Component } from './page-not-found404/page-not-found404.component';
 
 @NgModule({
   declarations: [
@@ -160,7 +161,8 @@ import { ListLessonsComponent } from './list-lessons/list-lessons.component';
     GardeCanDeactivateComponent,
     GardeResolverComponent,
     ActivatedRouteRouterComponent,
-    ListLessonsComponent
+    ListLessonsComponent,
+    PageNotFound404Component
   ],
   imports: [
     BrowserModule,

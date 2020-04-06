@@ -48,6 +48,7 @@ import { SeparerFichierRoutingComponent } from "./routing-container/separer-fich
 import { GardeCanActivateComponent } from "./routing-container/garde-can-activate/garde-can-activate.component";
 import { GardeCanDeactivateComponent } from "./routing-container/garde-can-deactivate/garde-can-deactivate.component";
 import { GardeResolverComponent } from "./routing-container/garde-resolver/garde-resolver.component";
+import { PageNotFound404Component } from './page-not-found404/page-not-found404.component';
 
 const routes: Routes = [
   {
@@ -143,7 +144,8 @@ const routes: Routes = [
       { path: "Resolver", component: GardeResolverComponent }
     ]
   },
-  { path: "", component: HomepageComponent }
+  { path: "", component: HomepageComponent },
+  { path: "**" , component: PageNotFound404Component}
 ];
 
 @NgModule({
