@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentService } from '../shared/services/component.service';
-import { DirectiveService } from '../shared/services/directive.service';
-import { ObservableService } from '../shared/services/observable.service';
-import { ServicesService } from '../shared/services/services.service';
-import { RoutingService } from '../shared/services/routing.service';
-import { FormationService } from '../shared/services/formation.service';
-import { FormulairesService } from '../shared/services/formulaires.service';
-import { PipeService } from '../shared/services/pipe.service';
+import { ComponentService } from '../../shared/services/Angular/component.service';
+import { DirectiveService } from '../../shared/services/Angular/directive.service';
+import { ObservableService } from '../../shared/services/Angular/observable.service';
+import { ServicesService } from '../../shared/services/Angular/services.service';
+import { RoutingService } from '../../shared/services/Angular/routing.service';
+import { FormationService } from '../../shared/services/Angular/formation.service';
+import { FormulairesService } from '../../shared/services/Angular/formulaires.service';
+import { PipeService } from '../../shared/services/Angular/pipe.service';
+import { AngularService } from '../../shared/services/Angular/angular.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,7 @@ import { PipeService } from '../shared/services/pipe.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  public angularMenu: {name:string , url:string}[];
   public formationMenu: {name:string , url:string}[];
   public componentMenu: {name:string , url:string}[];
   public directiveMenu: {name:string , url:string}[];
@@ -27,8 +29,8 @@ export class NavbarComponent implements OnInit {
   public animationsMenu: {name:string , url:string}[];
   public testsMenu: {name:string , url:string}[];
 
-
   constructor(
+    private angularService: AngularService,
     private formationService: FormationService,
     private componentService: ComponentService,
     private directiveService: DirectiveService,
@@ -39,6 +41,7 @@ export class NavbarComponent implements OnInit {
     private pipeService: PipeService) { }
 
   ngOnInit(): void {
+    this.angularMenu = this.angularService.angularMenu;
     this.formationMenu = this.formationService.formationMenu;
     this.componentMenu = this.componentService.componentMenu;
     this.directiveMenu = this.directiveService.directiveMenu;

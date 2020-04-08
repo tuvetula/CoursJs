@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PipeService } from "../shared/services/pipe.service";
+import { PipeService } from "../../shared/services/Angular/pipe.service";
 import { ActivatedRoute } from "@angular/router";
 import { map } from "rxjs/operators";
 
