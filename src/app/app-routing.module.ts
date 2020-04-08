@@ -49,6 +49,26 @@ import { GardeCanActivateComponent } from "./routing-container/garde-can-activat
 import { GardeCanDeactivateComponent } from "./routing-container/garde-can-deactivate/garde-can-deactivate.component";
 import { GardeResolverComponent } from "./routing-container/garde-resolver/garde-resolver.component";
 import { PageNotFound404Component } from './page-not-found404/page-not-found404.component';
+import { FormulairesContainerComponent } from './formulaires-container/formulaires-container.component';
+import { IntroductionReactiveformComponent } from './formulaires-container/introduction-reactiveform/introduction-reactiveform.component';
+import { CreationFormulaireReactifComponent } from './formulaires-container/creation-formulaire-reactif/creation-formulaire-reactif.component';
+import { ApiFormcontrolFormgroupComponent } from './formulaires-container/api-formcontrol-formgroup/api-formcontrol-formgroup.component';
+import { ValueEtResetComponent } from './formulaires-container/value-et-reset/value-et-reset.component';
+import { ValidateursComponent } from './formulaires-container/validateurs/validateurs.component';
+import { MessageErreurComponent } from './formulaires-container/message-erreur/message-erreur.component';
+import { ClassesEtatsAbstractcontrolComponent } from './formulaires-container/classes-etats-abstractcontrol/classes-etats-abstractcontrol.component';
+import { FormgroupsImbriquesComponent } from './formulaires-container/formgroups-imbriques/formgroups-imbriques.component';
+import { FormarrayComponent } from './formulaires-container/formarray/formarray.component';
+import { FormbuilderComponent } from './formulaires-container/formbuilder/formbuilder.component';
+import { FormgroupEventemitterComponent } from './formulaires-container/formgroup-eventemitter/formgroup-eventemitter.component';
+import { FormulairesExempleComponent } from './formulaires-container/formulaires-exemple/formulaires-exemple.component';
+import { PipesContainerComponent } from './pipes-container/pipes-container.component';
+import { PipesExempleComponent } from './pipes-container/pipes-exemple/pipes-exemple.component';
+import { PipesIntroductionComponent } from './pipes-container/pipes-introduction/pipes-introduction.component';
+import { PipesUtilisationComponent } from './pipes-container/pipes-utilisation/pipes-utilisation.component';
+import { PipesPersonnaliseCreationComponent } from './pipes-container/pipes-personnalise-creation/pipes-personnalise-creation.component';
+import { PipesPursEtImpursComponent } from './pipes-container/pipes-purs-et-impurs/pipes-purs-et-impurs.component';
+import { PipesAsynchroneComponent } from './pipes-container/pipes-asynchrone/pipes-asynchrone.component';
 
 const routes: Routes = [
   {
@@ -143,6 +163,32 @@ const routes: Routes = [
       { path: "CanDeactivate", component: GardeCanDeactivateComponent },
       { path: "Resolver", component: GardeResolverComponent }
     ]
+  },
+  { path: "Formulaires",
+    component: FormulairesContainerComponent,
+    children: [
+    { path: "Introduction-ReactiveForm" , component: IntroductionReactiveformComponent},
+    { path: "Creation-formulaire-reactif" , component: CreationFormulaireReactifComponent},
+    { path: "Api-formControl-formGroup" , component: ApiFormcontrolFormgroupComponent},
+    { path: "Value-Reset" , component: ValueEtResetComponent},
+    { path: "Validateurs" , component: ValidateursComponent},
+    { path: "Messages-erreur" , component: MessageErreurComponent},
+    { path: "Classes-etats-abstractControls" , component: ClassesEtatsAbstractcontrolComponent},
+    { path: "FormGroups-imbriques" , component: FormgroupsImbriquesComponent},
+    { path: "FormArray" , component: FormarrayComponent},
+    { path: "FormBuilder" , component: FormbuilderComponent},
+    { path: "FormGroup-eventEmitter" , component: FormgroupEventemitterComponent},
+    { path: "Exemple" , component: FormulairesExempleComponent}
+  ]
+  },
+  { path: "Pipes" , component: PipesContainerComponent , children: [
+    { path: "Introduction" , component: PipesIntroductionComponent},
+    { path: "Utilisation" , component: PipesUtilisationComponent},
+    { path: "Creer-pipe-personnalise" , component: PipesPersonnaliseCreationComponent},
+    { path: "Pipes-purs-impurs" , component: PipesPursEtImpursComponent},
+    { path: "Pipe-asynchrone" , component: PipesAsynchroneComponent},
+    { path: "Exemple" , component: PipesExempleComponent},
+  ]
   },
   { path: "", component: HomepageComponent },
   { path: "**" , component: PageNotFound404Component}

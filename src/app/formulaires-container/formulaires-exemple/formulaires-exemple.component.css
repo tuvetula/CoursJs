@@ -1,0 +1,12 @@
+input.ng-touched.ng-invalid {
+  border: solid 1px red;
+}
+
+input.ng-touched.ng-valid {
+  border: solid 1px green;
+}
+
+.close {
+  cursor: pointer;
+  color: red;
+}

@@ -7,14 +7,6 @@ import { AuthService } from "./shared/services/authService.service";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
-  nom: string;
-  public text: string = "purple";
-  public background: string;
-  public secondBackground: string = "gray";
-
-  constructor(private authService: AuthService) {
-    this.nom = "Angular";
-    
-  }
+  constructor() { }
   ngOnInit() {}
 }

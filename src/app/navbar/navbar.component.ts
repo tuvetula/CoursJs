@@ -5,6 +5,8 @@ import { ObservableService } from '../shared/services/observable.service';
 import { ServicesService } from '../shared/services/services.service';
 import { RoutingService } from '../shared/services/routing.service';
 import { FormationService } from '../shared/services/formation.service';
+import { FormulairesService } from '../shared/services/formulaires.service';
+import { PipeService } from '../shared/services/pipe.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +20,7 @@ export class NavbarComponent implements OnInit {
   public observableMenu: {name:string , url:string}[];
   public serviceMenu: {name:string , url:string}[];
   public routingMenu: {name:string , url:string}[];
-  public formsMenu: {name:string , url:string}[];
+  public formulairesMenu: {name:string , url:string}[];
   public pipesMenu: {name:string , url:string}[];
   public httpRequestMenu: {name:string , url:string}[];
   public modulesMenu: {name:string , url:string}[];
@@ -32,7 +34,9 @@ export class NavbarComponent implements OnInit {
     private directiveService: DirectiveService,
     private observableService: ObservableService,
     private servicesService: ServicesService,
-    private routingService: RoutingService) { }
+    private routingService: RoutingService,
+    private formulaireService: FormulairesService,
+    private pipeService: PipeService) { }
 
   ngOnInit(): void {
     this.formationMenu = this.formationService.formationMenu;
@@ -41,6 +45,8 @@ export class NavbarComponent implements OnInit {
     this.observableMenu = this.observableService.observableMenu;
     this.serviceMenu = this.servicesService.serviceMenu;
     this.routingMenu = this.routingService.routingMenu;
+    this.formulairesMenu = this.formulaireService.formulairesMenu;
+    this.pipesMenu = this.pipeService.pipeMenu;
   }
 
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NouveauComponent } from './composant-container/nouveau/nouveau.component';
@@ -90,6 +90,28 @@ import { ActivatedRouteRouterComponent } from './routing-container/activated-rou
 import { FormationService } from './shared/services/formation.service';
 import { ListLessonsComponent } from './list-lessons/list-lessons.component';
 import { PageNotFound404Component } from './page-not-found404/page-not-found404.component';
+import { FormulairesContainerComponent } from './formulaires-container/formulaires-container.component';
+import { IntroductionReactiveformComponent } from './formulaires-container/introduction-reactiveform/introduction-reactiveform.component';
+import { CreationFormulaireReactifComponent } from './formulaires-container/creation-formulaire-reactif/creation-formulaire-reactif.component';
+import { ApiFormcontrolFormgroupComponent } from './formulaires-container/api-formcontrol-formgroup/api-formcontrol-formgroup.component';
+import { ValueEtResetComponent } from './formulaires-container/value-et-reset/value-et-reset.component';
+import { ValidateursComponent } from './formulaires-container/validateurs/validateurs.component';
+import { MessageErreurComponent } from './formulaires-container/message-erreur/message-erreur.component';
+import { ClassesEtatsAbstractcontrolComponent } from './formulaires-container/classes-etats-abstractcontrol/classes-etats-abstractcontrol.component';
+import { FormgroupsImbriquesComponent } from './formulaires-container/formgroups-imbriques/formgroups-imbriques.component';
+import { FormarrayComponent } from './formulaires-container/formarray/formarray.component';
+import { FormbuilderComponent } from './formulaires-container/formbuilder/formbuilder.component';
+import { FormgroupEventemitterComponent } from './formulaires-container/formgroup-eventemitter/formgroup-eventemitter.component';
+import { FormulairesService } from './shared/services/formulaires.service';
+import { FormulairesExempleComponent } from './formulaires-container/formulaires-exemple/formulaires-exemple.component';
+import { PipesContainerComponent } from './pipes-container/pipes-container.component';
+import { PipesIntroductionComponent } from './pipes-container/pipes-introduction/pipes-introduction.component';
+import { PipesUtilisationComponent } from './pipes-container/pipes-utilisation/pipes-utilisation.component';
+import { PipesPersonnaliseCreationComponent } from './pipes-container/pipes-personnalise-creation/pipes-personnalise-creation.component';
+import { PipesPursEtImpursComponent } from './pipes-container/pipes-purs-et-impurs/pipes-purs-et-impurs.component';
+import { PipesAsynchroneComponent } from './pipes-container/pipes-asynchrone/pipes-asynchrone.component';
+import { PipeService } from './shared/services/pipe.service';
+import { PipesExempleComponent } from './pipes-container/pipes-exemple/pipes-exemple.component';
 
 @NgModule({
   declarations: [
@@ -162,13 +184,34 @@ import { PageNotFound404Component } from './page-not-found404/page-not-found404.
     GardeResolverComponent,
     ActivatedRouteRouterComponent,
     ListLessonsComponent,
-    PageNotFound404Component
+    PageNotFound404Component,
+    FormulairesContainerComponent,
+    IntroductionReactiveformComponent,
+    CreationFormulaireReactifComponent,
+    ApiFormcontrolFormgroupComponent,
+    ValueEtResetComponent,
+    ValidateursComponent,
+    MessageErreurComponent,
+    ClassesEtatsAbstractcontrolComponent,
+    FormgroupsImbriquesComponent,
+    FormarrayComponent,
+    FormbuilderComponent,
+    FormgroupEventemitterComponent,
+    FormulairesExempleComponent,
+    PipesContainerComponent,
+    PipesIntroductionComponent,
+    PipesUtilisationComponent,
+    PipesPersonnaliseCreationComponent,
+    PipesPursEtImpursComponent,
+    PipesAsynchroneComponent,
+    PipesExempleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     FormationService,
@@ -178,7 +221,9 @@ import { PageNotFound404Component } from './page-not-found404/page-not-found404.
     DirectiveService,
     ObservableService,
     ServicesService,
-    RoutingService
+    RoutingService,
+    FormulairesService,
+    PipeService
   ],
   bootstrap: [AppComponent]
 })
