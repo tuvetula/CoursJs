@@ -14,8 +14,5 @@ export class AngularContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.menu = this.angularService.angularMenu;
-    this.menu.forEach((element) => {
-      element.url = element.url.replace("Angular/", "");
-    });
   }
 }

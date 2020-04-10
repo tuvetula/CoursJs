@@ -70,6 +70,13 @@ import { PipesPersonnaliseCreationComponent } from './angular-container/pipes-co
 import { PipesPursEtImpursComponent } from './angular-container/pipes-container/pipes-purs-et-impurs/pipes-purs-et-impurs.component';
 import { PipesAsynchroneComponent } from './angular-container/pipes-container/pipes-asynchrone/pipes-asynchrone.component';
 import { AngularContainerComponent } from './angular-container/angular-container.component';
+import { RequetesHttpContainerComponent } from './angular-container/requetes-http-container/requetes-http-container.component';
+import { HttpIntroductionComponent } from './angular-container/requetes-http-container/http-introduction/http-introduction.component';
+import { HttpUtilisationFirebaseComponent } from './angular-container/requetes-http-container/http-utilisation-firebase/http-utilisation-firebase.component';
+import { HttpFaireRequetesComponent } from './angular-container/requetes-http-container/http-faire-requetes/http-faire-requetes.component';
+import { HttpHeadersGestionErreurComponent } from './angular-container/requetes-http-container/http-headers-gestion-erreur/http-headers-gestion-erreur.component';
+import { HttpUsagesAvancesComponent } from './angular-container/requetes-http-container/http-usages-avances/http-usages-avances.component';
+import { HttpExempleComponent } from './angular-container/requetes-http-container/http-exemple/http-exemple.component';
 
 const routes: Routes = [
   { path: "Angular" , component: AngularContainerComponent , children: [
@@ -190,6 +197,15 @@ const routes: Routes = [
       { path: "Pipes-purs-impurs" , component: PipesPursEtImpursComponent},
       { path: "Pipe-asynchrone" , component: PipesAsynchroneComponent},
       { path: "Exemple" , component: PipesExempleComponent},
+    ]
+    },
+    { path: "RequetesHttp" , component: RequetesHttpContainerComponent , children: [
+      { path: "Introduction" , component: HttpIntroductionComponent},
+      { path: "Utilisation-firebase" , component: HttpUtilisationFirebaseComponent},
+      { path: "Faire-requetes-http" , component: HttpFaireRequetesComponent},
+      { path: "Headers-gestion-erreur" , component: HttpHeadersGestionErreurComponent},
+      { path: "Usage-avances" , component: HttpUsagesAvancesComponent},
+      { path: "Exemple" , component: HttpExempleComponent},
     ]
     },
   ]},

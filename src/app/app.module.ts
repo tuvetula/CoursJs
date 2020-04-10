@@ -116,6 +116,16 @@ import { AngularContainerComponent } from './angular-container/angular-container
 import { PipesExempleComponent } from './angular-container/pipes-container/pipes-exemple/pipes-exemple.component';
 import { AngularService } from './shared/services/Angular/angular.service';
 import { SousMenuComponent } from './NavBarList/sous-menu/sous-menu.component';
+import { CbPipes } from './shared/pipes/cb.pipe';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { RequetesHttpContainerComponent } from './angular-container/requetes-http-container/requetes-http-container.component';
+import { HttpIntroductionComponent } from './angular-container/requetes-http-container/http-introduction/http-introduction.component';
+import { HttpUtilisationFirebaseComponent } from './angular-container/requetes-http-container/http-utilisation-firebase/http-utilisation-firebase.component';
+import { HttpFaireRequetesComponent } from './angular-container/requetes-http-container/http-faire-requetes/http-faire-requetes.component';
+import { HttpHeadersGestionErreurComponent } from './angular-container/requetes-http-container/http-headers-gestion-erreur/http-headers-gestion-erreur.component';
+import { HttpUsagesAvancesComponent } from './angular-container/requetes-http-container/http-usages-avances/http-usages-avances.component';
+import { RequetesHttpService } from './shared/services/Angular/requetes-http.service';
+import { HttpExempleComponent } from './angular-container/requetes-http-container/http-exemple/http-exemple.component';
 
 @NgModule({
   declarations: [
@@ -210,7 +220,16 @@ import { SousMenuComponent } from './NavBarList/sous-menu/sous-menu.component';
     PipesAsynchroneComponent,
     PipesExempleComponent,
     AngularContainerComponent,
-    SousMenuComponent
+    SousMenuComponent,
+    CbPipes,
+    FilterPipe,
+    RequetesHttpContainerComponent,
+    HttpIntroductionComponent,
+    HttpUtilisationFirebaseComponent,
+    HttpFaireRequetesComponent,
+    HttpHeadersGestionErreurComponent,
+    HttpUsagesAvancesComponent,
+    HttpExempleComponent
   ],
   imports: [
     BrowserModule,
@@ -230,7 +249,8 @@ import { SousMenuComponent } from './NavBarList/sous-menu/sous-menu.component';
     ServicesService,
     RoutingService,
     FormulairesService,
-    PipeService
+    PipeService,
+    RequetesHttpService
   ],
   bootstrap: [AppComponent]
 })

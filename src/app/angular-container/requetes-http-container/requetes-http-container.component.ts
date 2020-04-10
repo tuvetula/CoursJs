@@ -3,16 +3,14 @@ import { ActivatedRoute } from "@angular/router";
 import { map } from "rxjs/operators";
 
 @Component({
-  selector: "app-pipes-container",
-  templateUrl: "./pipes-container.component.html",
-  styleUrls: ["./pipes-container.component.css"],
+  selector: "app-requetes-http-container",
+  templateUrl: "./requetes-http-container.component.html",
+  styleUrls: ["./requetes-http-container.component.css"],
 })
-export class PipesContainerComponent implements OnInit {
+export class RequetesHttpContainerComponent implements OnInit {
   public serviceName: string;
 
-  constructor(
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     const url = this.activatedRoute.url.pipe(map((data) => data.join("")));

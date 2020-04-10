@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+a.back-to-top {
+    display: none;
+    width: 48px;
+    height: 48px;
+    text-indent: -9999px;
+    position: fixed;
+    z-index: 999;
+    right: 20px;
+    bottom: 20px;
+    background-image: url("./assets/Pictures/up-arrow.png");
+  }
+  

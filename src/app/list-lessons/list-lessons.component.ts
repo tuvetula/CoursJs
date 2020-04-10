@@ -6,6 +6,7 @@ import { RoutingService } from "../shared/services/Angular/routing.service";
 import { ServicesService } from "../shared/services/Angular/services.service";
 import { FormulairesService } from "../shared/services/Angular/formulaires.service";
 import { PipeService } from "../shared/services/Angular/pipe.service";
+import { RequetesHttpService } from '../shared/services/Angular/requetes-http.service';
 
 @Component({
   selector: "app-list-lessons",
@@ -23,7 +24,8 @@ export class ListLessonsComponent implements OnInit {
     private routingService: RoutingService,
     private serviceService: ServicesService,
     private formulairesService: FormulairesService,
-    private pipeService: PipeService
+    private pipeService: PipeService,
+    private requeteHttpService: RequetesHttpService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +43,8 @@ export class ListLessonsComponent implements OnInit {
       this.listMenu = this.formulairesService.formulairesMenu;
     } else if (this.serviceName === "Pipes") {
       this.listMenu = this.pipeService.pipeMenu;
+    } else if (this.serviceName === "RequetesHttp") {
+      this.listMenu = this.requeteHttpService.requeteHttpMenu;
     }
   }
 }

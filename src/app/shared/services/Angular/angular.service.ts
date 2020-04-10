@@ -16,7 +16,7 @@ export class AngularService {
       {name: "Routing" , url: "Angular/Routing"},
       {name: "Formulaires" , url: "Angular/Formulaires"},
       {name: "Pipes" , url: "Angular/Pipes"},
-
+      {name: "Requetes Http" , url: "Angular/RequetesHttp"}
     ]
   }
 }
