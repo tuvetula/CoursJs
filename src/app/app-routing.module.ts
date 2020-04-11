@@ -48,7 +48,7 @@ import { SeparerFichierRoutingComponent } from "./angular-container/routing-cont
 import { GardeCanActivateComponent } from "./angular-container/routing-container/garde-can-activate/garde-can-activate.component";
 import { GardeCanDeactivateComponent } from "./angular-container/routing-container/garde-can-deactivate/garde-can-deactivate.component";
 import { GardeResolverComponent } from "./angular-container/routing-container/garde-resolver/garde-resolver.component";
-import { PageNotFound404Component } from './angular-container/page-not-found404/page-not-found404.component';
+import { PageNotFound404Component } from './page-not-found404/page-not-found404.component';
 import { FormulairesContainerComponent } from './angular-container/formulaires-container/formulaires-container.component';
 import { IntroductionReactiveformComponent } from './angular-container/formulaires-container/introduction-reactiveform/introduction-reactiveform.component';
 import { CreationFormulaireReactifComponent } from './angular-container/formulaires-container/creation-formulaire-reactif/creation-formulaire-reactif.component';

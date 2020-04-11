@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class ServicesService {
-  public serviceMenu: {name: string, url: string}[];
+  public serviceMenu: { name: string; url: string }[];
 
-  constructor() { 
+  constructor() {
     this.serviceMenu = [
-      {name:"Definition service" , url:"Definition-service"},
-      {name:"Definition injection de dépendances" , url:"Definition-injection-dependances"},
-      {name:"Hiérarchie injection de dépendances" , url:"Hierarchie"},
-      {name:"Utilisation" , url:"Utilisation"}  
-    ]
+      { name: "Definition service", url: "Services/Definition-service" },
+      {
+        name: "Definition injection de dépendances",
+        url: "Services/Definition-injection-dependances",
+      },
+      { name: "Hiérarchie injection de dépendances", url: "Services/Hierarchie" },
+      { name: "Utilisation", url: "Services/Utilisation" },
+    ];
   }
 }

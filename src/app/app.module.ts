@@ -87,9 +87,8 @@ import { GardeCanActivateComponent } from './angular-container/routing-container
 import { GardeCanDeactivateComponent } from './angular-container/routing-container/garde-can-deactivate/garde-can-deactivate.component';
 import { GardeResolverComponent } from './angular-container/routing-container/garde-resolver/garde-resolver.component';
 import { ActivatedRouteRouterComponent } from './angular-container/routing-container/activated-route-router/activated-route-router.component';
-import { FormationService } from './shared/services/Angular/formation.service';
-import { ListLessonsComponent } from './list-lessons/list-lessons.component';
-import { PageNotFound404Component } from './angular-container/page-not-found404/page-not-found404.component';
+import { ListMenuLeftComponent } from './NavBarList/list-menu-left/list-menu-left.component';
+import { PageNotFound404Component } from './page-not-found404/page-not-found404.component';
 import { FormulairesContainerComponent } from './angular-container/formulaires-container/formulaires-container.component';
 import { IntroductionReactiveformComponent } from './angular-container/formulaires-container/introduction-reactiveform/introduction-reactiveform.component';
 import { CreationFormulaireReactifComponent } from './angular-container/formulaires-container/creation-formulaire-reactif/creation-formulaire-reactif.component';
@@ -126,6 +125,8 @@ import { HttpHeadersGestionErreurComponent } from './angular-container/requetes-
 import { HttpUsagesAvancesComponent } from './angular-container/requetes-http-container/http-usages-avances/http-usages-avances.component';
 import { RequetesHttpService } from './shared/services/Angular/requetes-http.service';
 import { HttpExempleComponent } from './angular-container/requetes-http-container/http-exemple/http-exemple.component';
+import { SousMenuService } from './shared/services/sous-menu.service';
+import { ListLessonsService } from './shared/services/list-lessons.service';
 
 @NgModule({
   declarations: [
@@ -197,7 +198,7 @@ import { HttpExempleComponent } from './angular-container/requetes-http-containe
     GardeCanDeactivateComponent,
     GardeResolverComponent,
     ActivatedRouteRouterComponent,
-    ListLessonsComponent,
+    ListMenuLeftComponent,
     PageNotFound404Component,
     FormulairesContainerComponent,
     IntroductionReactiveformComponent,
@@ -240,7 +241,6 @@ import { HttpExempleComponent } from './angular-container/requetes-http-containe
   ],
   providers: [
     AngularService,
-    FormationService,
     AuthService,
     LogService,
     ComponentService,
@@ -250,7 +250,9 @@ import { HttpExempleComponent } from './angular-container/requetes-http-containe
     RoutingService,
     FormulairesService,
     PipeService,
-    RequetesHttpService
+    RequetesHttpService,
+    SousMenuService,
+    ListLessonsService
   ],
   bootstrap: [AppComponent]
 })

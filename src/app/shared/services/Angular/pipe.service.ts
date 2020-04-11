@@ -6,12 +6,12 @@ export class PipeService {
 
   constructor() { 
     this.pipeMenu = [
-      {name: "Introduction" , url: "Introduction"},
-      {name: "Utilisation" , url: "Utilisation"},
-      {name: "Créer un pipe personnalisé" , url: "Creer-pipe-personnalise"},
-      {name: "Pipes purs et impurs" , url: "Pipes-purs-impurs"},
-      {name: "Le pipe asynchrone" , url: "Pipe-asynchrone"},
-      {name: "Exemple" , url: "Exemple"}
+      {name: "Introduction" , url: "Pipes/Introduction"},
+      {name: "Utilisation" , url: "Pipes/Utilisation"},
+      {name: "Créer un pipe personnalisé" , url: "Pipes/Creer-pipe-personnalise"},
+      {name: "Pipes purs et impurs" , url: "Pipes/Pipes-purs-impurs"},
+      {name: "Le pipe asynchrone" , url: "Pipes/Pipe-asynchrone"},
+      {name: "Exemple" , url: "Pipes/Exemple"}
     ]
   }
 }
