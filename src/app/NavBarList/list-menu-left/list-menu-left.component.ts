@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ListLessonsService } from "../../shared/services/list-lessons.service";
+import { ListMenuLeftService } from "../../shared/services/list-menu-left.service";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -11,10 +11,10 @@ export class ListMenuLeftComponent implements OnInit, OnDestroy {
   private listLessonsSubscription: Subscription;
   public listMenu: { name: string; url: string }[];
 
-  constructor(private listLessonsService: ListLessonsService) {}
+  constructor(private listMenuLeftService: ListMenuLeftService) {}
 
   ngOnInit(): void {
-    this.listLessonsSubscription = this.listLessonsService.listMenu.subscribe(
+    this.listLessonsSubscription = this.listMenuLeftService.listMenu.subscribe(
       (listMenu) => {
         this.listMenu = listMenu;
       }

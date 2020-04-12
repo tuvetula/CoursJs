@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { UserModel } from 'src/app/shared/models/user.model';
+import { UserModel } from 'src/app/shared/models/Angular/user.model';
 
 @Component({
   selector: 'app-operateurs-pipes-rxjs',

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservableService } from '../../shared/services/Angular/observable.service';
-import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
+import { AngularService } from 'src/app/shared/services/Angular/angular.service';
 
 @Component({
   selector: 'app-observables-container',
@@ -10,18 +9,14 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./observables-container.component.css']
 })
 export class ObservablesContainerComponent implements OnInit {
-  public serviceName: string;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private listMenuLeftService: ListMenuLeftService,
+    private observableServive: ObservableService,
+    private angularService: AngularService) { }
 
   ngOnInit(): void {
-    const url: Observable<string> = this.activatedRoute.url.pipe(
-      map(segments => segments.join(""))
-    );
-    url.subscribe(
-      (data) => {
-        this.serviceName = data;
-      });
+    this.listMenuLeftService.listMenu.next(this.observableServive.observableMenu);
+    this.angularService.title.next('Observables');
   }
 
 }

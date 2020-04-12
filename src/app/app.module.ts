@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { NouveauComponent } from './angular-container/composant-container/nouveau/nouveau.component';
@@ -18,9 +19,6 @@ import { NgIfCustom } from './shared/directives/ngIfCustom.directive';
 import { IfRole } from './shared/directives/ifRole.directive';
 
 import { AuthService } from './shared/services/authService.service';
-import { ComponentService } from './shared/services/Angular/component.service';
-import { DirectiveService } from './shared/services/Angular/directive.service';
-import { ServicesService } from './shared/services/Angular/services.service';
 import { LogService } from './shared/services/log.service';
 
 import { AddComponent } from './angular-container/services-container/services-utilisation/add/add.component';
@@ -49,7 +47,6 @@ import { LiaisonProprieteDirectiveComponent } from './angular-container/directiv
 import { SurlignerLiaisonDirective } from './shared/directives/surlignageLiaison.directive';
 import { SurlignerLiaison1Directive } from './shared/directives/surlignageLiaison1.directive';
 import { DirectiveStructurelleCreationComponent } from './angular-container/directive-container/directive-structurelle-creation/directive-structurelle-creation.component';
-import { ObservableService } from './shared/services/Angular/observable.service';
 import { FruitItemsComponent } from './angular-container/composant-container/property-output/fruit-items/fruit-items.component';
 import { EncapsulationComponent } from './angular-container/composant-container/encapsulation/encapsulation.component';
 import { ObservablesContainerComponent } from './angular-container/observables-container/observables-container.component';
@@ -75,7 +72,6 @@ import { ContentChildComponent } from './angular-container/composant-container/c
 import { LifeCycleOfComponentsComponent } from './angular-container/composant-container/life-cycle-of-components/life-cycle-of-components.component';
 import { RoutingContainerComponent } from './angular-container/routing-container/routing-container.component';
 import { RoutingIntroductionComponent } from './angular-container/routing-container/routing-introduction/routing-introduction.component';
-import { RoutingService } from './shared/services/Angular/routing.service';
 import { RouterLinkComponent } from './angular-container/routing-container/router-link/router-link.component';
 import { RouterLinkActiveComponent } from './angular-container/routing-container/router-link-active/router-link-active.component';
 import { ParamsComponent } from './angular-container/routing-container/params/params.component';
@@ -101,7 +97,6 @@ import { FormgroupsImbriquesComponent } from './angular-container/formulaires-co
 import { FormarrayComponent } from './angular-container/formulaires-container/formarray/formarray.component';
 import { FormbuilderComponent } from './angular-container/formulaires-container/formbuilder/formbuilder.component';
 import { FormgroupEventemitterComponent } from './angular-container/formulaires-container/formgroup-eventemitter/formgroup-eventemitter.component';
-import { FormulairesService } from './shared/services/Angular/formulaires.service';
 import { FormulairesExempleComponent } from './angular-container/formulaires-container/formulaires-exemple/formulaires-exemple.component';
 import { PipesContainerComponent } from './angular-container/pipes-container/pipes-container.component';
 import { PipesIntroductionComponent } from './angular-container/pipes-container/pipes-introduction/pipes-introduction.component';
@@ -109,7 +104,6 @@ import { PipesUtilisationComponent } from './angular-container/pipes-container/p
 import { PipesPersonnaliseCreationComponent } from './angular-container/pipes-container/pipes-personnalise-creation/pipes-personnalise-creation.component';
 import { PipesPursEtImpursComponent } from './angular-container/pipes-container/pipes-purs-et-impurs/pipes-purs-et-impurs.component';
 import { PipesAsynchroneComponent } from './angular-container/pipes-container/pipes-asynchrone/pipes-asynchrone.component';
-import { PipeService } from './shared/services/Angular/pipe.service';
 
 import { AngularContainerComponent } from './angular-container/angular-container.component';
 import { PipesExempleComponent } from './angular-container/pipes-container/pipes-exemple/pipes-exemple.component';
@@ -123,10 +117,9 @@ import { HttpUtilisationFirebaseComponent } from './angular-container/requetes-h
 import { HttpFaireRequetesComponent } from './angular-container/requetes-http-container/http-faire-requetes/http-faire-requetes.component';
 import { HttpHeadersGestionErreurComponent } from './angular-container/requetes-http-container/http-headers-gestion-erreur/http-headers-gestion-erreur.component';
 import { HttpUsagesAvancesComponent } from './angular-container/requetes-http-container/http-usages-avances/http-usages-avances.component';
-import { RequetesHttpService } from './shared/services/Angular/requetes-http.service';
 import { HttpExempleComponent } from './angular-container/requetes-http-container/http-exemple/http-exemple.component';
-import { SousMenuService } from './shared/services/sous-menu.service';
-import { ListLessonsService } from './shared/services/list-lessons.service';
+import { ListMenuLeftService } from './shared/services/list-menu-left.service';
+import { ReqInterceptor } from './shared/Interceptor/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -237,23 +230,22 @@ import { ListLessonsService } from './shared/services/list-lessons.service';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     AngularService,
     AuthService,
     LogService,
-    ComponentService,
-    DirectiveService,
-    ObservableService,
-    ServicesService,
-    RoutingService,
-    FormulairesService,
-    PipeService,
-    RequetesHttpService,
-    SousMenuService,
-    ListLessonsService
+    ListMenuLeftService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ReqInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

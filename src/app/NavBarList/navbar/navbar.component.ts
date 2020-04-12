@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { SousMenuService } from "src/app/shared/services/sous-menu.service";
-import { ListLessonsService } from "src/app/shared/services/list-lessons.service";
+import { AngularService } from 'src/app/shared/services/Angular/angular.service';
+import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
 
 @Component({
   selector: "app-navbar",
@@ -9,13 +9,13 @@ import { ListLessonsService } from "src/app/shared/services/list-lessons.service
 })
 export class NavbarComponent implements OnInit {
   constructor(
-    private sousMenuService: SousMenuService,
-    private listLessonsService: ListLessonsService
+    private angularService: AngularService,
+    private listMenuLeftService: ListMenuLeftService
   ) {}
 
   ngOnInit(): void {}
-
-  onClickAngular() {
-    this.sousMenuService.menuClickPathname.next("Angular");
+  public onClickAngular(){
+    this.angularService.title.next('Angular');
+    this.listMenuLeftService.listMenu.next([]);
   }
 }

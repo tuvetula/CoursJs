@@ -1,25 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { ServicesService } from "src/app/shared/services/Angular/services.service";
+import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
+import { AngularService } from 'src/app/shared/services/Angular/angular.service';
 
 @Component({
-  selector: 'app-services-container',
-  templateUrl: './services-container.component.html',
-  styleUrls: ['./services-container.component.css']
+  selector: "app-services-container",
+  templateUrl: "./services-container.component.html",
+  styleUrls: ["./services-container.component.css"],
 })
 export class ServicesContainerComponent implements OnInit {
-  public serviceName: string;
-  
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private listMenuLeftService: ListMenuLeftService,
+    private servicesService: ServicesService,
+    private angularService: AngularService
+  ) {}
 
   ngOnInit(): void {
-    const url: Observable<string> = this.activatedRoute.url.pipe(
-      map(segments => segments.join(""))
-    );
-    url.subscribe(
-      (data) => {
-        this.serviceName = data;
-      });
+    this.listMenuLeftService.listMenu.next(this.servicesService.serviceMenu);
+    this.angularService.title.next('Services');
   }
 }

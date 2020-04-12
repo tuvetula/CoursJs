@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { map } from "rxjs/operators";
+import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
+import { RequetesHttpService } from "src/app/shared/services/Angular/requetes-http.service";
+import { AngularService } from 'src/app/shared/services/Angular/angular.service';
 
 @Component({
   selector: "app-requetes-http-container",
@@ -8,12 +9,16 @@ import { map } from "rxjs/operators";
   styleUrls: ["./requetes-http-container.component.css"],
 })
 export class RequetesHttpContainerComponent implements OnInit {
-  public serviceName: string;
-
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private listMenuLeftService: ListMenuLeftService,
+    private requeteHttpService: RequetesHttpService,
+    private angularService: AngularService
+  ) {}
 
   ngOnInit(): void {
-    const url = this.activatedRoute.url.pipe(map((data) => data.join("")));
-    url.subscribe((data) => (this.serviceName = data));
+    this.listMenuLeftService.listMenu.next(
+      this.requeteHttpService.requeteHttpMenu
+    );
+    this.angularService.title.next('Requêtes Http');
   }
 }

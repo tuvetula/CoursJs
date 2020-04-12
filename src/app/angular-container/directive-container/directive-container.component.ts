@@ -1,25 +1,24 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { ActivatedRoute } from "@angular/router";
+import { DirectiveService } from "src/app/shared/services/Angular/directive.service";
+import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
+import { AngularService } from 'src/app/shared/services/Angular/angular.service';
 
 @Component({
   selector: "app-directive-container",
   templateUrl: "./directive-container.component.html",
-  styleUrls: ["./directive-container.component.css"]
+  styleUrls: ["./directive-container.component.css"],
 })
 export class DirectiveContainerComponent implements OnInit {
-  public serviceName: string;
-
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private listMenuLeftService: ListMenuLeftService,
+    private directivesService: DirectiveService,
+    private angularService: AngularService
+  ) {}
 
   ngOnInit(): void {
-    const url: Observable<string> = this.activatedRoute.url.pipe(
-      map(segments => segments.join(""))
+    this.listMenuLeftService.listMenu.next(
+      this.directivesService.directiveMenu
     );
-    url.subscribe(
-      (data) => {
-        this.serviceName = data;
-      });
+    this.angularService.title.next('Directives');
   }
 }
