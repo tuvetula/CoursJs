@@ -120,6 +120,29 @@ import { HttpUsagesAvancesComponent } from './angular-container/requetes-http-co
 import { HttpExempleComponent } from './angular-container/requetes-http-container/http-exemple/http-exemple.component';
 import { ListMenuLeftService } from './shared/services/list-menu-left.service';
 import { ReqInterceptor } from './shared/Interceptor/http.interceptor';
+import { ModulesContainerComponent } from './angular-container/modules-container/modules-container.component';
+import { RootModuleComponent } from './angular-container/modules-container/root-module/root-module.component';
+import { FeatureModuleComponent } from './angular-container/modules-container/feature-module/feature-module.component';
+import { ModuleRoutingComponent } from './angular-container/modules-container/module-routing/module-routing.component';
+import { SharedModuleComponent } from './angular-container/modules-container/shared-module/shared-module.component';
+import { LazyLoadingComponent } from './angular-container/modules-container/lazy-loading/lazy-loading.component';
+import { JitAndAotComponent } from './angular-container/modules-container/jit-and-aot/jit-and-aot.component';
+import { AnimationsContainerComponent } from './angular-container/animations-container/animations-container.component';
+import { TestsContainerComponent } from './angular-container/tests-container/tests-container.component';
+import { AnimationsIntroductionComponent } from './angular-container/animations-container/animations-introduction/animations-introduction.component';
+import { FonctionsTriggerStateStyleComponent } from './angular-container/animations-container/fonctions-trigger-state-style/fonctions-trigger-state-style.component';
+import { FonctionsTransitionAnimateComponent } from './angular-container/animations-container/fonctions-transition-animate/fonctions-transition-animate.component';
+import { KeyframesGroupsComponent } from './angular-container/animations-container/keyframes-groups/keyframes-groups.component';
+import { CallbacksStartDoneComponent } from './angular-container/animations-container/callbacks-start-done/callbacks-start-done.component';
+import { AnimationsExempleComponent } from './angular-container/animations-container/animations-exemple/animations-exemple.component';
+import { TestsIntroductionComponent } from './angular-container/tests-container/tests-introduction/tests-introduction.component';
+import { TestsSetupComponent } from './angular-container/tests-container/tests-setup/tests-setup.component';
+import { EnvironnementTesterComposantsComponent } from './angular-container/tests-container/environnement-tester-composants/environnement-tester-composants.component';
+import { TesterComposantsComponent } from './angular-container/tests-container/tester-composants/tester-composants.component';
+import { DetectionChangementsMatchersComponent } from './angular-container/tests-container/detection-changements-matchers/detection-changements-matchers.component';
+import { TesterComposantsAvecDependancesComponent } from './angular-container/tests-container/tester-composants-avec-dependances/tester-composants-avec-dependances.component';
+import { TestsIsolesPipesComponent } from './angular-container/tests-container/tests-isoles-pipes/tests-isoles-pipes.component';
+import { TestsExempleComponent } from './angular-container/tests-container/tests-exemple/tests-exemple.component';
 
 @NgModule({
   declarations: [
@@ -223,7 +246,30 @@ import { ReqInterceptor } from './shared/Interceptor/http.interceptor';
     HttpFaireRequetesComponent,
     HttpHeadersGestionErreurComponent,
     HttpUsagesAvancesComponent,
-    HttpExempleComponent
+    HttpExempleComponent,
+    ModulesContainerComponent,
+    RootModuleComponent,
+    FeatureModuleComponent,
+    ModuleRoutingComponent,
+    SharedModuleComponent,
+    LazyLoadingComponent,
+    JitAndAotComponent,
+    AnimationsContainerComponent,
+    TestsContainerComponent,
+    AnimationsIntroductionComponent,
+    FonctionsTriggerStateStyleComponent,
+    FonctionsTransitionAnimateComponent,
+    KeyframesGroupsComponent,
+    CallbacksStartDoneComponent,
+    AnimationsExempleComponent,
+    TestsIntroductionComponent,
+    TestsSetupComponent,
+    EnvironnementTesterComposantsComponent,
+    TesterComposantsComponent,
+    DetectionChangementsMatchersComponent,
+    TesterComposantsAvecDependancesComponent,
+    TestsIsolesPipesComponent,
+    TestsExempleComponent,
   ],
   imports: [
     BrowserModule,

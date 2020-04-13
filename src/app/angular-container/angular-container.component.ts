@@ -10,6 +10,9 @@ import { RoutingService } from "../shared/services/Angular/routing.service";
 import { FormulairesService } from "../shared/services/Angular/formulaires.service";
 import { PipeService } from "../shared/services/Angular/pipe.service";
 import { RequetesHttpService } from "../shared/services/Angular/requetes-http.service";
+import { ModulesService } from '../shared/services/Angular/modules.service';
+import { AnimationsService } from '../shared/services/Angular/animations.service';
+import { TestsService } from '../shared/services/Angular/tests.service';
 
 @Component({
   selector: "app-angular-container",
@@ -24,6 +27,9 @@ import { RequetesHttpService } from "../shared/services/Angular/requetes-http.se
     FormulairesService,
     PipeService,
     RequetesHttpService,
+    ModulesService,
+    AnimationsService,
+    TestsService
   ],
 })
 export class AngularContainerComponent implements OnInit, OnDestroy {
