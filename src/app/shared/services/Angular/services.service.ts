@@ -12,7 +12,7 @@ export class ServicesService {
         url: "Services/Definition-injection-dependances",
       },
       { name: "Hiérarchie injection de dépendances", url: "Services/Hierarchie" },
-      { name: "Utilisation", url: "Services/Utilisation" },
+      { name: "Utilisation d'un service dans un autre service", url: "Services/Utilisation" },
     ];
   }
 }

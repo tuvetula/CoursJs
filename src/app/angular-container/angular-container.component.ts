@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AngularService } from "../shared/services/Angular/angular.service";
 import { Subscription } from "rxjs";
 import { ListMenuLeftService } from "../shared/services/list-menu-left.service";
-import { ComponentService } from "../shared/services/Angular/component.service";
+import { ComposantService } from "../shared/services/Angular/composant.service";
 import { DirectiveService } from "../shared/services/Angular/directive.service";
 import { ObservableService } from "../shared/services/Angular/observable.service";
 import { ServicesService } from "../shared/services/Angular/services.service";
@@ -10,7 +10,7 @@ import { RoutingService } from "../shared/services/Angular/routing.service";
 import { FormulairesService } from "../shared/services/Angular/formulaires.service";
 import { PipeService } from "../shared/services/Angular/pipe.service";
 import { RequetesHttpService } from "../shared/services/Angular/requetes-http.service";
-import { ModulesService } from '../shared/services/Angular/modules.service';
+import { ModuleService } from '../shared/services/Angular/module.service';
 import { AnimationsService } from '../shared/services/Angular/animations.service';
 import { TestsService } from '../shared/services/Angular/tests.service';
 
@@ -19,7 +19,7 @@ import { TestsService } from '../shared/services/Angular/tests.service';
   templateUrl: "./angular-container.component.html",
   styleUrls: ["./angular-container.component.css"],
   providers: [
-    ComponentService,
+    ComposantService,
     DirectiveService,
     ObservableService,
     ServicesService,
@@ -27,7 +27,7 @@ import { TestsService } from '../shared/services/Angular/tests.service';
     FormulairesService,
     PipeService,
     RequetesHttpService,
-    ModulesService,
+    ModuleService,
     AnimationsService,
     TestsService
   ],

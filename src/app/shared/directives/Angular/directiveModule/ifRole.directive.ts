@@ -1,12 +1,13 @@
 import { Directive, Input, TemplateRef, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '../services/authService.service';
 import { tap } from "rxjs/operators";
+import { AuthService } from 'src/app/shared/services/Angular/authService.service';
+import { Subscription } from 'rxjs';
 
 @Directive({selector: '[ifRole]'})
 
-export class IfRole implements OnInit, OnDestroy {
+export class IfRoleDirective implements OnInit, OnDestroy {
   
-  subscription;
+  private subscription: Subscription;
   
   @Input("ifRole") role : string;
 

@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class ComponentService {
-  public componentMenu: { name: string; url: string }[] = [
+export class ComposantService {
+  public composantMenu: { name: string; url: string }[] = [
     { name: "String Interpolation", url: "Composants/Interpolation" },
     { name: "Property-binding", url: "Composants/Property-binding" },
     { name: "Event-binding", url: "Composants/Event-binding" },

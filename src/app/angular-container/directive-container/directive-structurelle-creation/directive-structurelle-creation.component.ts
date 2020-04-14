@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/authService.service';
+import { AuthService } from 'src/app/shared/services/Angular/authService.service';
 
 @Component({
   selector: 'app-directive-structurelle-creation',
@@ -12,7 +12,7 @@ export class DirectiveStructurelleCreationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   public login(roleSelect: string) {
     this.authService.user.next({ role: roleSelect });
   }

@@ -1,4 +1,4 @@
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export class AuthService {
   

@@ -15,7 +15,7 @@ export class AngularService {
       {name: "Routing" , url: "Angular/Routing"},
       {name: "Formulaires" , url: "Angular/Formulaires"},
       {name: "Pipes" , url: "Angular/Pipes"},
-      {name: "Requetes Http" , url: "Angular/RequetesHttp"},
+      {name: "Requetes-Http" , url: "Angular/RequetesHttp"},
       {name: "Modules" , url: "Angular/Modules"},
       {name: "Animations" , url: "Angular/Animations"},
       {name: "Tests" , url: "Angular/Tests"},

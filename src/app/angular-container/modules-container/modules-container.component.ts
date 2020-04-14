@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModulesService } from 'src/app/shared/services/Angular/modules.service';
+import { ModuleService } from 'src/app/shared/services/Angular/module.service';
 import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
 import { AngularService } from 'src/app/shared/services/Angular/angular.service';
 
@@ -10,7 +10,7 @@ import { AngularService } from 'src/app/shared/services/Angular/angular.service'
 })
 export class ModulesContainerComponent implements OnInit {
 
-  constructor(private modulesService: ModulesService,
+  constructor(private modulesService: ModuleService,
     private listMenuLeftService: ListMenuLeftService,
     private angularService: AngularService) { }
 

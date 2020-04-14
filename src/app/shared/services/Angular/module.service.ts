@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class ModulesService {
+export class ModuleService {
   public modulesMenu: { name: string; url: string }[];
 
   constructor() {
