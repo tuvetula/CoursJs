@@ -13,6 +13,8 @@ import { RequetesHttpService } from "../shared/services/Angular/requetes-http.se
 import { ModuleService } from '../shared/services/Angular/module.service';
 import { AnimationsService } from '../shared/services/Angular/animations.service';
 import { TestsService } from '../shared/services/Angular/tests.service';
+import { Router } from '@angular/router';
+import { RouteService } from '../shared/services/route.service';
 
 @Component({
   selector: "app-angular-container",
@@ -33,18 +35,22 @@ import { TestsService } from '../shared/services/Angular/tests.service';
   ],
 })
 export class AngularContainerComponent implements OnInit, OnDestroy {
-  public menu: { name: string; url: string }[];
+  public menu: { name: string; url: string }[] = [];
   public title: string;
   private titleSubscription: Subscription;
 
   constructor(
     private listMenuLeftService: ListMenuLeftService,
-    private angularService: AngularService
+    private angularService: AngularService,
+    private router: Router,
+    private routeService: RouteService
   ) {}
 
   ngOnInit(): void {
-    //Récupération menu pour sousMenu
-    this.menu = this.angularService.angularMenu;
+    //On envoi la route actuelle pour modification navbar
+    this.routeService.currentRoute.next(this.router.url);
+    //Récupération et modification menu pour sousMenu
+    this.modifyAngularMenu();
     //Récupération title
     this.titleSubscription = this.angularService.title.subscribe((title) =>
       setTimeout(() => {
@@ -56,5 +62,16 @@ export class AngularContainerComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.listMenuLeftService.listMenu.next([]);
     this.titleSubscription.unsubscribe();
+  }
+
+  private modifyAngularMenu(): void{
+    this.angularService.angularMenu.slice().forEach(
+      (element) => {
+        this.menu.push({name: element.name , url: element.url})
+      }
+    );
+    this.menu.forEach(
+      element => element.url = element.url.slice(element.url.lastIndexOf('/') + 1)
+    );
   }
 }

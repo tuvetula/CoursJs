@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
 export class ListMenuLeftComponent implements OnInit, OnDestroy {
   private listLessonsSubscription: Subscription;
   public listMenu: { name: string; url: string }[];
+  public isMenuCollapsed: boolean = false;
 
   constructor(private listMenuLeftService: ListMenuLeftService) {}
 
@@ -19,6 +20,9 @@ export class ListMenuLeftComponent implements OnInit, OnDestroy {
         this.listMenu = listMenu;
       }
     );
+  }
+  public changeIsMenuCollapsed() {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
   }
   ngOnDestroy() {
     this.listLessonsSubscription.unsubscribe();

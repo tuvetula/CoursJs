@@ -16,12 +16,17 @@ import { ListMenuLeftService } from "./shared/services/list-menu-left.service";
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
 import { AngularService } from "./shared/services/Angular/angular.service";
+import { RouteService } from './shared/services/route.service';
+import { SousMenuCollapseComponent } from './NavBarList/navbar/sous-menu-collapse/sous-menu-collapse.component';
+import { AppliService } from './shared/services/appli.service';
+import { JavascriptService } from './shared/services/Javascript/javascript.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     NavbarComponent,
+    SousMenuCollapseComponent,
     PageNotFound404Component,
   ],
   imports: [
@@ -35,6 +40,9 @@ import { AngularService } from "./shared/services/Angular/angular.service";
   providers: [
     ListMenuLeftService,
     AngularService,
+    JavascriptService,
+    RouteService,
+    AppliService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ReqInterceptor,

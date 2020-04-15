@@ -1,3 +1,15 @@
-.nav-link{
-    cursor: pointer;
+.nav-link {
+  cursor: pointer;
 }
+.Angular {
+  background-color: rgb(226, 50, 55);
+  color: whitesmoke;
+}
+.Gray {
+  background-color: gray;
+}
+
+@media (max-width: 992px) {
+
+}
+

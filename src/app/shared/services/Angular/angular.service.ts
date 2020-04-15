@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class AngularService {
   public angularMenu: {name:string , url:string}[];
+  public angularMenuSousMenu: {name:string , url:string}[];
   public title: BehaviorSubject<string> = new BehaviorSubject('Angular');
 
   constructor() { 
@@ -19,7 +20,6 @@ export class AngularService {
       {name: "Modules" , url: "Angular/Modules"},
       {name: "Animations" , url: "Angular/Animations"},
       {name: "Tests" , url: "Angular/Tests"},
-
     ]
   }
 }

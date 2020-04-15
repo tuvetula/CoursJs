@@ -11,9 +11,6 @@ export class SousMenuComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    //Suppression prefix url pour bonne navigation avec routerLink
-    this.menu.forEach((element) => {
-      element.url = element.url.slice(element.url.lastIndexOf('/')+1)
-    });
+    
   }
 }
