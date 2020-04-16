@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
 import { PipeService } from "src/app/shared/services/Angular/pipe.service";
-import { AngularService } from 'src/app/shared/services/Angular/angular.service';
+import { AppliService } from 'src/app/shared/services/appli.service';
 
 @Component({
   selector: "app-pipes-container",
@@ -12,11 +12,11 @@ export class PipesContainerComponent implements OnInit {
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private pipesService: PipeService,
-    private angularService: AngularService
+    private appliService: AppliService
   ) {}
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.pipesService.pipeMenu);
-    this.angularService.title.next('Pipes');
+    this.appliService.title.next('Pipes');
   }
 }

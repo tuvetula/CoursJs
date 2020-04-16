@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModuleService } from 'src/app/shared/services/Angular/module.service';
 import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AngularService } from 'src/app/shared/services/Angular/angular.service';
+import { AppliService } from 'src/app/shared/services/appli.service';
 
 @Component({
   selector: 'app-modules-container',
@@ -12,11 +12,11 @@ export class ModulesContainerComponent implements OnInit {
 
   constructor(private modulesService: ModuleService,
     private listMenuLeftService: ListMenuLeftService,
-    private angularService: AngularService) { }
+    private appliService: AppliService) { }
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.modulesService.modulesMenu);
-    this.angularService.title.next("Modules");
+    this.appliService.title.next("Modules");
   }
 
 }

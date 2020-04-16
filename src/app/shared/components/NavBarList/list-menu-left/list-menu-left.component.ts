@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ListMenuLeftService } from "../../shared/services/list-menu-left.service";
+import { ListMenuLeftService } from "../../../services/list-menu-left.service";
 import { Subscription } from "rxjs";
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
 import { RoutingService } from "src/app/shared/services/Angular/routing.service";
-import { AngularService } from 'src/app/shared/services/Angular/angular.service';
+import { AppliService } from 'src/app/shared/services/appli.service';
 
 @Component({
   selector: "app-routing-container",
@@ -12,11 +12,11 @@ export class RoutingContainerComponent implements OnInit {
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private routingService: RoutingService,
-    private angularService: AngularService
+    private appliService: AppliService
   ) {}
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.routingService.routingMenu);
-    this.angularService.title.next('Routing');
+    this.appliService.title.next('Routing');
   }
 }

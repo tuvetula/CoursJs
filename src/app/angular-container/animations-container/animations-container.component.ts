@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AngularService } from 'src/app/shared/services/Angular/angular.service';
 import { AnimationsService } from 'src/app/shared/services/Angular/animations.service';
+import { AppliService } from 'src/app/shared/services/appli.service';
 
 @Component({
   selector: 'app-animations-container',
@@ -13,12 +13,12 @@ export class AnimationsContainerComponent implements OnInit {
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private animationsService: AnimationsService,
-    private angularService: AngularService
+    private appliService: AppliService
   ) { }
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.animationsService.animationsMenu);
-    this.angularService.title.next('Animations');
+    this.appliService.title.next('Animations');
   }
 
 }

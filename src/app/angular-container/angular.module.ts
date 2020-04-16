@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 
 import { ListMenuLeftModule } from "../shared/modules/listMenuLeft.module";
 import { SousMenuModule } from "../shared/modules/sousMenu.module";
+import { TitlePageModule } from '../shared/modules/titlePage.module';
 
 import { ComposantModule } from "./composant-container/composant.module";
 import { DirectiveModule } from "./directive-container/directive.module";
@@ -20,11 +21,13 @@ import { AngularRoutingModule } from './angular-routing.module';
 
 import { AngularContainerComponent } from "./angular-container.component";
 
+
 @NgModule({
   declarations: [AngularContainerComponent],
   imports: [
     CommonModule,
     RouterModule,
+    TitlePageModule,
     ListMenuLeftModule,
     SousMenuModule,
     AnimationsModule,
