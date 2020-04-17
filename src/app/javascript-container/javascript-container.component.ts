@@ -1,0 +1,18 @@
+import { Component, OnInit } from "@angular/core";
+import { AppliService } from "../shared/services/appli.service";
+
+@Component({
+  selector: "app-javascript-container",
+  templateUrl: "./javascript-container.component.html",
+  styleUrls: ["./javascript-container.component.css"],
+})
+export class JavascriptContainerComponent implements OnInit {
+  public nameSection: string = "Javascript";
+
+  constructor(private appliService: AppliService) {}
+
+  ngOnInit(): void {
+    //On paramètre la section en cours
+    this.appliService.currentSection.next(this.nameSection);
+  }
+}

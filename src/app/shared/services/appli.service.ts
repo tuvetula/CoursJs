@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AppliService {
   public appliMenu: { name: string; url: string }[];
   public title: BehaviorSubject<string> = new BehaviorSubject(null);
+  public currentSection: BehaviorSubject<string> = new BehaviorSubject(null);
 
   constructor() {
     this.appliMenu = [

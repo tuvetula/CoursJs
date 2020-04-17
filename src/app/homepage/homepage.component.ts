@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { RouteService } from '../shared/services/route.service';
+import { AppliService } from '../shared/services/appli.service';
 
 @Component({
   selector: "app-homepage",
@@ -8,11 +7,13 @@ import { RouteService } from '../shared/services/route.service';
   styleUrls: ["./homepage.component.css"],
 })
 export class HomepageComponent implements OnInit {
-  constructor(private router: Router,
-    private routeService: RouteService) {}
+  public nameSection: string = "Accueil";
+
+  constructor(
+    private appliService: AppliService) {}
 
   ngOnInit(): void {
-    //On envoi la route actuelle pour modification navbar
-    this.routeService.currentRoute.next(this.router.url);
+     //On paramètre la section en cours
+     this.appliService.currentSection.next(this.nameSection);
   }
 }

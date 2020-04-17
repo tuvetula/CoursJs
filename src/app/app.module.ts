@@ -16,7 +16,6 @@ import { ListMenuLeftService } from "./shared/services/list-menu-left.service";
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
 import { AngularService } from "./shared/services/Angular/angular.service";
-import { RouteService } from './shared/services/route.service';
 import { SousMenuCollapseComponent } from './shared/components/NavBarList/navbar/sous-menu-collapse/sous-menu-collapse.component';
 import { AppliService } from './shared/services/appli.service';
 import { JavascriptService } from './shared/services/Javascript/javascript.service';
@@ -44,7 +43,6 @@ import { JavascriptModule } from './javascript-container/javascript.module';
     AppliService,
     AngularService,
     JavascriptService,
-    RouteService,
     AppliService,
     {
       provide: HTTP_INTERCEPTORS,
