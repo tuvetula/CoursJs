@@ -9,7 +9,7 @@ import { AppliService } from 'src/app/shared/services/appli.service';
   styleUrls: ['./animations-container.component.css']
 })
 export class AnimationsContainerComponent implements OnInit {
-
+  private componentName: string = "Composants"
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private animationsService: AnimationsService,
@@ -18,7 +18,7 @@ export class AnimationsContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.animationsService.animationsMenu);
-    this.appliService.title.next('Animations');
+    this.appliService.title.next(this.componentName);
   }
 
 }

@@ -19,7 +19,7 @@ import { ModuleService } from "../shared/services/Angular/module.service";
 import { AnimationsService } from "../shared/services/Angular/animations.service";
 import { TestsService } from "../shared/services/Angular/tests.service";
 import { AppliService } from "../shared/services/appli.service";
-import { Subscription } from 'rxjs';
+import { MenuModel } from '../shared/models/menu.model';
 
 @Component({
   selector: "app-angular-container",
@@ -39,22 +39,22 @@ import { Subscription } from 'rxjs';
     TestsService,
   ],
 })
-export class AngularContainerComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class AngularContainerComponent
+  implements OnInit, OnDestroy, AfterViewChecked {
   private nameSection: string = "Angular";
-  public subscription: Subscription;
-  public menu: { name: string; url: string }[] = [];
+  public menu: MenuModel[] = [];
 
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private appliService: AppliService,
     private angularService: AngularService,
-    private cdRef : ChangeDetectorRef
+    private cdRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     //Récupération et modification menu pour sousMenu
     this.modifyAngularMenuUrl();
-    //Récupération title
+    //Configuration title
     this.appliService.title.next(this.nameSection);
     //On paramètre la section en cours
     this.appliService.currentSection.next(this.nameSection);

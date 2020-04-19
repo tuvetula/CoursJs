@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
+import { MenuModel } from '../../models/menu.model';
 
 @Injectable()
 export class ComposantService {
-  public composantMenu: { name: string; url: string }[] = [
+  public composantMenu: MenuModel[] = [
     { name: "String Interpolation", url: "Composants/Interpolation" },
     { name: "Property-binding", url: "Composants/Property-binding" },
     { name: "Event-binding", url: "Composants/Event-binding" },

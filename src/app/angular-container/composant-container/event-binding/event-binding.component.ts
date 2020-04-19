@@ -12,11 +12,9 @@ export class EventBindingComponent implements OnInit {
   constructor() {
     this.divColor = "red";
   }
-
   ngOnInit(): void {}
 
   public onClick(event: Event): void {
-    console.log(event);
     this.divColor = "blue";
   }
 
@@ -28,3 +26,4 @@ export class EventBindingComponent implements OnInit {
     this.inputValue = value;
   }
 }
+

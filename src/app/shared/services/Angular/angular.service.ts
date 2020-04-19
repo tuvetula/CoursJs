@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { MenuModel } from '../../models/menu.model';
 
 @Injectable()
 export class AngularService {
-  public angularMenu: {name:string , url:string}[];
-
+  public angularMenu: MenuModel[];
+  
   constructor() { 
     this.angularMenu = [
       {name: "Composants" , url: "Angular/Composants"},

@@ -9,6 +9,7 @@ import { AppliService } from 'src/app/shared/services/appli.service';
   styleUrls: ["./composant-container.component.css"],
 })
 export class ComposantContainerComponent implements OnInit {
+  private componentName: string = "Composants"
 
   constructor(
     private listMenuLeftService: ListMenuLeftService,
@@ -18,6 +19,6 @@ export class ComposantContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.ComposantService.composantMenu);
-    this.appliService.title.next('Composants');
+    this.appliService.title.next(this.componentName);
   }
 }
