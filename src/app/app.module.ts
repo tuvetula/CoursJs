@@ -19,6 +19,7 @@ import { JavascriptService } from './shared/services/Javascript/javascript.servi
 import { AngularService } from "./shared/services/Angular/angular.service";
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     NgbModule,
     FormsModule,
     HttpClientModule,

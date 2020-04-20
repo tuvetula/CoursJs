@@ -17,7 +17,7 @@ export class TestsContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(this.testsService.testsMenu);
-    this.appliService.title.next('Tester son application');
+    this.appliService.title.next('Tests');
   }
 
 }

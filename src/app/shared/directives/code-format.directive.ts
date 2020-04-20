@@ -45,20 +45,16 @@ export class CodeFormatDirective implements AfterContentInit {
 
   ngAfterContentInit(): void {
     let newInnerHtmlToSend: string = this.el.nativeElement.innerHTML;
-    console.log(newInnerHtmlToSend);
     newInnerHtmlToSend = this.changeInnerHtml(
       this.keywordWords,
       newInnerHtmlToSend,
       "blue"
     );
-    console.log(newInnerHtmlToSend);
     newInnerHtmlToSend = this.changeInnerHtml(
       this.functionWords,
       newInnerHtmlToSend,
       "red"
-    );
-    console.log(newInnerHtmlToSend);
-      
+    );      
   }
 
   private changeInnerHtml(

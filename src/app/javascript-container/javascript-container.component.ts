@@ -14,5 +14,7 @@ export class JavascriptContainerComponent implements OnInit {
   ngOnInit(): void {
     //On paramètre la section en cours
     this.appliService.currentAppliMenu.next(this.nameSection);
+    //On paramètre le titre de la page
+    this.appliService.title.next(this.nameSection);
   }
 }

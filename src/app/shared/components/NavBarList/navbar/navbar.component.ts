@@ -4,11 +4,23 @@ import { Subscription } from "rxjs";
 import { AppliService } from "src/app/shared/services/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/appliMenu.model";
 import { MenuModel } from "src/app/shared/models/menu.model";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from "@angular/animations";
 
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"],
+  animations: [
+    trigger("MenuDisplay", [
+      transition(":enter", [style({ opacity: 0 }), animate("500ms ease-out")]),
+    ]),
+  ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   public isNavbarThemeIsDark: boolean;
