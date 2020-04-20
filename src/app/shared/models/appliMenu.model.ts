@@ -1,6 +1,6 @@
 import { MenuModel } from './menu.model';
 
-export interface SectionMenuModel{
+export interface AppliMenuModel{
     name: string,
     url: string,
     menu: MenuModel[],

@@ -1,16 +1,22 @@
-.nav-link {
-  cursor: pointer;
-}
 .Angular {
   background-color: rgb(226, 50, 55);
-  color: whitesmoke;
 }
 .Accueil {
   background-color: rgb(208,208,208);
-  color: black;
 }
 .Javascript {
   background-color: rgb(240, 217, 29);
+}
+
+.nav-link {
+  cursor: pointer;
+
+}
+.navbarDark a{
+  color:whitesmoke;
+}
+
+.navbarLight a {
   color: black;
 }
 

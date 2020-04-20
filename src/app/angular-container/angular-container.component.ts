@@ -52,12 +52,13 @@ export class AngularContainerComponent
   ) {}
 
   ngOnInit(): void {
+    //On paramètre la section en cours
+    this.appliService.currentAppliMenu.next(this.nameSection);
     //Récupération et modification menu pour sousMenu
     this.modifyAngularMenuUrl();
     //Configuration title
     this.appliService.title.next(this.nameSection);
-    //On paramètre la section en cours
-    this.appliService.currentSection.next(this.nameSection);
+    
   }
 
   ngAfterViewChecked(): void {

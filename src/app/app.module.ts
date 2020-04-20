@@ -12,7 +12,6 @@ import { AppComponent } from "./app.component";
 import { HomepageComponent } from "./homepage/homepage.component";
 import { NavbarComponent } from "./shared/components/NavBarList/navbar/navbar.component";
 import { PageNotFound404Component } from "./page-not-found404/page-not-found404.component";
-import { SousMenuCollapseComponent } from './shared/components/NavBarList/navbar/sous-menu-collapse/sous-menu-collapse.component';
 
 import { ListMenuLeftService } from "./shared/services/list-menu-left.service";
 import { AppliService } from './shared/services/appli.service';
@@ -26,7 +25,6 @@ import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
     AppComponent,
     HomepageComponent,
     NavbarComponent,
-    SousMenuCollapseComponent,
     PageNotFound404Component,
   ],
   imports: [
