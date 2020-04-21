@@ -35,7 +35,7 @@ import {
         style({
           background: "green",
           border: "3px dotted yellow",
-          'border-radius': '200px'
+          "border-radius": "200px",
         })
       ),
       state(
@@ -43,7 +43,7 @@ import {
         style({
           background: "yellow",
           border: "3px dashed black",
-          'border-radius': '50px'
+          "border-radius": "50px",
         })
       ),
 
@@ -64,17 +64,47 @@ import {
           ])
         )
       ),
-      transition("*=>groups", group([
-        animate("3000ms 2000ms ease-out" , style({ background: 'yellow'})),
-        animate(2000 , style({ border: "3px dashed black"})),
-        animate(1000 , style({ 'border-radius': "50px"}))
-      ]))
+      transition(
+        "*=>groups",
+        group([
+          animate("3000ms 2000ms ease-out", style({ background: "yellow" })),
+          animate(2000, style({ border: "3px dashed black" })),
+          animate(1000, style({ "border-radius": "50px" })),
+        ])
+      ),
+    ]),
+    trigger("menuDisplay", [
+      state(
+        "show",
+        style({
+          width: "20%",
+          height: "200px",
+          background: "gray",
+          overflow: "visible"
+        })
+      ),
+      state(
+        "hide",
+        style({
+          width: "0px",
+          height: "200px",
+          overflow: "hidden"
+        })
+      ),
+      transition("hide<=>show", animate("1000ms ease-out")),
     ]),
   ],
 })
 export class AnimationsExempleComponent implements OnInit {
   public currentState: string = "normal";
+  public menuState: string = "hide";
   constructor() {}
 
   ngOnInit(): void {}
+  public changeDisplayMenu(): void {
+    this.menuState = this.menuState === "hide" ? "show" : "hide";
+  }
+  public methodTest(event: any): void {
+    console.log(event);
+  }
 }
