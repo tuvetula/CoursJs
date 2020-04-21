@@ -85,19 +85,19 @@ import { DetectionChangementsMatchersComponent } from "./tests-container/detecti
 import { TesterComposantsAvecDependancesComponent } from "./tests-container/tester-composants-avec-dependances/tester-composants-avec-dependances.component";
 import { TestsIsolesPipesComponent } from "./tests-container/tests-isoles-pipes/tests-isoles-pipes.component";
 import { TestsExempleComponent } from "./tests-container/tests-exemple/tests-exemple.component";
-import { ComposantContainerComponent } from './composant-container/composant-container.component';
-import { InterpolationComponent } from './composant-container/interpolation/interpolation.component';
-import { PropertyBindingComponent } from './composant-container/property-binding/property-binding.component';
-import { EventBindingComponent } from './composant-container/event-binding/event-binding.component';
-import { DoubleDataBindingComponent } from './composant-container/double-data-binding/double-data-binding.component';
-import { PropertyInputComponent } from './composant-container/property-input/property-input.component';
-import { PropertyOutputComponent } from './composant-container/property-output/property-output.component';
-import { EncapsulationComponent } from './composant-container/encapsulation/encapsulation.component';
-import { VariableLocaleComponent } from './composant-container/variable-locale/variable-locale.component';
-import { ViewChildComponent } from './composant-container/view-child/view-child.component';
-import { NgContentComponent } from './composant-container/ng-content/ng-content.component';
-import { ContentChildComponent } from './composant-container/content-child/content-child.component';
-import { LifeCycleOfComponentsComponent } from './composant-container/life-cycle-of-components/life-cycle-of-components.component';
+import { ComposantContainerComponent } from "./composant-container/composant-container.component";
+import { InterpolationComponent } from "./composant-container/interpolation/interpolation.component";
+import { PropertyBindingComponent } from "./composant-container/property-binding/property-binding.component";
+import { EventBindingComponent } from "./composant-container/event-binding/event-binding.component";
+import { DoubleDataBindingComponent } from "./composant-container/double-data-binding/double-data-binding.component";
+import { PropertyInputComponent } from "./composant-container/property-input/property-input.component";
+import { PropertyOutputComponent } from "./composant-container/property-output/property-output.component";
+import { EncapsulationComponent } from "./composant-container/encapsulation/encapsulation.component";
+import { VariableLocaleComponent } from "./composant-container/variable-locale/variable-locale.component";
+import { ViewChildComponent } from "./composant-container/view-child/view-child.component";
+import { NgContentComponent } from "./composant-container/ng-content/ng-content.component";
+import { ContentChildComponent } from "./composant-container/content-child/content-child.component";
+import { LifeCycleOfComponentsComponent } from "./composant-container/life-cycle-of-components/life-cycle-of-components.component";
 
 const routes: Route[] = [
   {
@@ -105,20 +105,28 @@ const routes: Route[] = [
     component: AngularContainerComponent,
     children: [
       {
-        path: "Composants", component: ComposantContainerComponent , children: [
-          { path: 'Interpolation' , component: InterpolationComponent },
-          { path: 'Property-binding' , component: PropertyBindingComponent },
-          { path: 'Event-binding' , component: EventBindingComponent },
-          { path: 'Double-data-binding' , component: DoubleDataBindingComponent },
-          { path: 'Property-input' , component: PropertyInputComponent },
-          { path: 'Property-output' , component: PropertyOutputComponent },
-          { path: 'Encapsulation' , component: EncapsulationComponent },
-          { path: 'Variable-locale' , component: VariableLocaleComponent },
-          { path: 'ViewChild' , component: ViewChildComponent },
-          { path: 'NgContent' , component: NgContentComponent },
-          { path: 'ContentChild' , component: ContentChildComponent },
-          { path: 'LifeCycle-of-components' , component: LifeCycleOfComponentsComponent },
-        ]
+        path: "Composants",
+        component: ComposantContainerComponent,
+        children: [
+          { path: "Interpolation", component: InterpolationComponent },
+          { path: "Property-binding", component: PropertyBindingComponent },
+          { path: "Event-binding", component: EventBindingComponent },
+          {
+            path: "Double-data-binding",
+            component: DoubleDataBindingComponent,
+          },
+          { path: "Property-input", component: PropertyInputComponent },
+          { path: "Property-output", component: PropertyOutputComponent },
+          { path: "Encapsulation", component: EncapsulationComponent },
+          { path: "Variable-locale", component: VariableLocaleComponent },
+          { path: "ViewChild", component: ViewChildComponent },
+          { path: "NgContent", component: NgContentComponent },
+          { path: "ContentChild", component: ContentChildComponent },
+          {
+            path: "LifeCycle-of-components",
+            component: LifeCycleOfComponentsComponent,
+          },
+        ],
       },
       {
         path: "Directives",

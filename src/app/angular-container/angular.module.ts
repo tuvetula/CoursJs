@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
 import { ListMenuLeftModule } from "../shared/modules/listMenuLeft.module";
-import { SousMenuModule } from "../shared/modules/sousMenu.module";
 import { TitlePageModule } from '../shared/modules/titlePage.module';
 
 import { ComposantModule } from "./composant-container/composant.module";
@@ -29,7 +28,6 @@ import { AngularContainerComponent } from "./angular-container.component";
     RouterModule,
     TitlePageModule,
     ListMenuLeftModule,
-    SousMenuModule,
     AnimationsModule,
     ComposantModule,
     DirectiveModule,

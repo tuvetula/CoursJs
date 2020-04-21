@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { DirectiveService } from "src/app/shared/services/Angular/directive.service";
 import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { AppliService } from "src/app/shared/services/appli.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-directive-container",
@@ -12,13 +13,14 @@ export class DirectiveContainerComponent implements OnInit {
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private directivesService: DirectiveService,
-    private appliService: AppliService
+    private appliService: AppliService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.listMenuLeftService.listMenu.next(
       this.directivesService.directiveMenu
     );
-    this.appliService.title.next('Directives');
+    this.appliService.title.next("Directives");
   }
 }

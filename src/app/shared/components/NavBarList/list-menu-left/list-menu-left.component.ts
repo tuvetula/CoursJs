@@ -8,7 +8,6 @@ import {
   style,
   transition,
   animate,
-  keyframes,
 } from "@angular/animations";
 
 @Component({
@@ -32,14 +31,13 @@ import {
         })
       ),
       transition("hide => show", animate("300ms")),
-      transition("show => hide", animate("100ms"))
+      transition("show => hide", animate("100ms")),
     ]),
   ],
 })
 export class ListMenuLeftComponent implements OnInit, OnDestroy {
   private listLessonsSubscription: Subscription;
   public listMenu: { name: string; url: string }[];
-  public isComponentMenuCollapsedDisplay: boolean = false;
   public selectMenu: string;
   public currentStateMenu: string = "hide";
 
@@ -51,12 +49,8 @@ export class ListMenuLeftComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.listLessonsSubscription = this.listMenuLeftService.listMenu.subscribe(
       (listMenu) => {
-        //Si le menu a charger n'est pas le même, on repli le menu et on enregistre le nouveau menu
-        if (this.listMenu !== listMenu) {
-          this.isComponentMenuCollapsedDisplay = false;
           this.currentStateMenu = "hide";
           this.listMenu = listMenu;
-        }
         //Si le nouveau menu contient des données, on change le texte du bouton
         if (this.listMenu.length > 0) {
           const url: string = this.router.url;
@@ -64,29 +58,23 @@ export class ListMenuLeftComponent implements OnInit, OnDestroy {
           const menuMatchingIndex = this.listMenu.findIndex(
             (el) => el.url.slice(el.url.lastIndexOf("/") + 1) === section
           );
+          //Si l'url d'entrée sur site est sur chapitre alors on modifie le menu sélectionné
           if (menuMatchingIndex >= 0) {
             this.selectMenu = this.listMenu[menuMatchingIndex].name;
+            //sinon on redirige vers le premier chapitre
           } else {
-            this.selectMenu = this.listMenu[0].name;
-            this.router.navigate([
-              url,
-              this.listMenu[0].url.slice(
-                this.listMenu[0].url.lastIndexOf("/") + 1
-              ),
-            ]);
+            this.selectMenu = "Sélectionner un chapitre"
+            this.currentStateMenu = "show";
           }
         }
       }
     );
   }
   public onButtonMenuCollapsedClick() {
-    this.isComponentMenuCollapsedDisplay = !this
-      .isComponentMenuCollapsedDisplay;
     this.currentStateMenu = this.currentStateMenu === "hide" ? "show" : "hide";
   }
   public onMenuCollapsedItemClick(name: string) {
     this.selectMenu = name;
-    this.isComponentMenuCollapsedDisplay = false;
     this.currentStateMenu = "hide";
   }
   ngOnDestroy() {

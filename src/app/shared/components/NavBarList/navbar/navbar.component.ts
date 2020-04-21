@@ -4,13 +4,7 @@ import { Subscription } from "rxjs";
 import { AppliService } from "src/app/shared/services/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/appliMenu.model";
 import { MenuModel } from "src/app/shared/models/menu.model";
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from "@angular/animations";
+import { trigger, style, transition, animate } from "@angular/animations";
 
 @Component({
   selector: "app-navbar",
@@ -51,6 +45,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.sectionMenu = appliMenu.menu;
       }
     );
+    //Utile pour la version lg
     this.titlePageSubscription = this.appliService.title.subscribe((title) => {
       if (title !== this.appliMenuItemSelected) {
         this.sectionMenuItemSelected = title;
