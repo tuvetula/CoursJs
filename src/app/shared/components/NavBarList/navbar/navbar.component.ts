@@ -4,7 +4,13 @@ import { Subscription } from "rxjs";
 import { AppliService } from "src/app/shared/services/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/appliMenu.model";
 import { MenuModel } from "src/app/shared/models/menu.model";
-import { trigger, style, transition, animate } from "@angular/animations";
+import {
+  trigger,
+  style,
+  transition,
+  animate,
+  state,
+} from "@angular/animations";
 
 @Component({
   selector: "app-navbar",
@@ -13,6 +19,28 @@ import { trigger, style, transition, animate } from "@angular/animations";
   animations: [
     trigger("MenuDisplay", [
       transition(":enter", [style({ opacity: 0 }), animate("500ms ease-out")]),
+    ]),
+    trigger("navbarSection", [
+      state(
+        "hide",
+        style({
+          overflow: "hidden",
+          height: "0px",
+          padding: "0px",
+        })
+      ),
+      state(
+        "show",
+        style({
+          overflow: "hidden",
+          height: "50px",
+          padding: "2px 6px 2px 6px",
+        })
+      ),
+      transition("hide <=> show", [
+        style({ padding: "2px 6px 2px 6px" }),
+        animate("200ms ease-out"),
+      ]),
     ]),
   ],
 })
@@ -29,6 +57,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private titlePageSubscription: Subscription;
   public sectionMenuItemSelected: string = "";
 
+  public currentStateSectionNavbar: string = "hide";
+
   constructor(
     private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService
@@ -43,6 +73,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.appliMenuItemSelected = appliMenu.name;
         this.isNavbarThemeIsDark = appliMenu.darkTheme;
         this.sectionMenu = appliMenu.menu;
+        this.currentStateSectionNavbar = this.sectionMenu ? "show" : "hide";
       }
     );
     //Utile pour la version lg
@@ -55,6 +86,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
   }
 
+  //Clique sur navbar AppliMenu (version lg)
+  public onNavbarButtonClick(): void {}
   //Clique sur le bouton de choix de l'appliMenu (Version mobile)(bouton en haut à gauche)
   public onAppliMenuButtonClick(): void {
     this.isAppliMenuDisplay = !this.isAppliMenuDisplay;
