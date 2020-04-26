@@ -18,6 +18,7 @@ export class AngularService {
       {name: "Modules" , url: "Angular/Modules"},
       {name: "Animations" , url: "Angular/Animations"},
       {name: "Tests" , url: "Angular/Tests"},
+      {name: "Flex-layout" , url: "Angular/FlexLayout"}
     ]
   }
 }

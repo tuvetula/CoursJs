@@ -84,7 +84,6 @@ import { TesterComposantsComponent } from "./tests-container/tester-composants/t
 import { DetectionChangementsMatchersComponent } from "./tests-container/detection-changements-matchers/detection-changements-matchers.component";
 import { TesterComposantsAvecDependancesComponent } from "./tests-container/tester-composants-avec-dependances/tester-composants-avec-dependances.component";
 import { TestsIsolesPipesComponent } from "./tests-container/tests-isoles-pipes/tests-isoles-pipes.component";
-import { TestsExempleComponent } from "./tests-container/tests-exemple/tests-exemple.component";
 import { ComposantContainerComponent } from "./composant-container/composant-container.component";
 import { InterpolationComponent } from "./composant-container/interpolation/interpolation.component";
 import { PropertyBindingComponent } from "./composant-container/property-binding/property-binding.component";
@@ -98,6 +97,13 @@ import { ViewChildComponent } from "./composant-container/view-child/view-child.
 import { NgContentComponent } from "./composant-container/ng-content/ng-content.component";
 import { ContentChildComponent } from "./composant-container/content-child/content-child.component";
 import { LifeCycleOfComponentsComponent } from "./composant-container/life-cycle-of-components/life-cycle-of-components.component";
+import { FlexLayoutContainerComponent } from './flex-layout-container/flex-layout-container.component';
+import { FlexLayoutIntroductionComponent } from './flex-layout-container/flex-layout-introduction/flex-layout-introduction.component';
+import { FlexBoxComponent } from './flex-layout-container/flex-box/flex-box.component';
+import { StaticApiComponent } from './flex-layout-container/static-api/static-api.component';
+import { ResponsiveApiComponent } from './flex-layout-container/responsive-api/responsive-api.component';
+import { FeaturesComponent } from './flex-layout-container/features/features.component';
+import { FlexLayoutExempleComponent } from './flex-layout-container/flex-layout-exemple/flex-layout-exemple.component';
 
 const routes: Route[] = [
   {
@@ -343,8 +349,19 @@ const routes: Route[] = [
             component: TesterComposantsAvecDependancesComponent,
           },
           { path: "Tests-isoles-pipes", component: TestsIsolesPipesComponent },
-          { path: "Exemple", component: TestsExempleComponent },
         ],
+      },
+      {
+        path: "FlexLayout",
+        component: FlexLayoutContainerComponent,
+        children: [
+          {path: "Introduction" , component: FlexLayoutIntroductionComponent},
+          {path: "FlexBox" , component: FlexBoxComponent},
+          {path: "StaticApi" , component: StaticApiComponent},
+          {path: "ResponsiveApi" , component: ResponsiveApiComponent},
+          {path: "Features" , component: FeaturesComponent},
+          {path: "Exemple" , component: FlexLayoutExempleComponent}
+        ]
       },
     ],
   },

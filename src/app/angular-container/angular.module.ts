@@ -15,14 +15,17 @@ import { RequetesHttpModule } from "./requetes-http-container/requetes-http.modu
 import { RoutingModule } from "./routing-container/routing.module";
 import { ServicesModule } from "./services-container/services.module";
 import { TestsModule } from "./tests-container/tests.module";
+import { FlexLayoutModule } from './flex-layout-container/flex-layout.module';
 import { AnimationsModule } from "./animations-container/animations.module";
 import { AngularRoutingModule } from './angular-routing.module';
 
 import { AngularContainerComponent } from "./angular-container.component";
+import { FlexLayoutContainerComponent } from './flex-layout-container/flex-layout-container.component';
+
 
 
 @NgModule({
-  declarations: [AngularContainerComponent],
+  declarations: [AngularContainerComponent, FlexLayoutContainerComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -39,6 +42,7 @@ import { AngularContainerComponent } from "./angular-container.component";
     RoutingModule,
     ServicesModule,
     TestsModule,
+    FlexLayoutModule,
     AngularRoutingModule
   ],
   providers: []

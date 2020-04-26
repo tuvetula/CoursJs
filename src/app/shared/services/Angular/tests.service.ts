@@ -13,7 +13,6 @@ export class TestsService {
       {name: "Détection des changements et matchers" , url: "Tests/Detection-changements-matchers"},
       {name: "Tester des composants avec des dépendances" , url: "Tests/Tester-composants-dependances"},
       {name: "Les tests isolés et tests d'un pipe" , url: "Tests/Tests-isoles-pipes"},
-      {name: "Exemple" , url: "Tests/Exemple"},
     ]
    }
 }

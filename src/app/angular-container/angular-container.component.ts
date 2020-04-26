@@ -20,6 +20,7 @@ import { AnimationsService } from "../shared/services/Angular/animations.service
 import { TestsService } from "../shared/services/Angular/tests.service";
 import { AppliService } from "../shared/services/appli.service";
 import { MenuModel } from '../shared/models/menu.model';
+import { FlexLayoutService } from '../shared/services/Angular/flex-layout.service';
 
 @Component({
   selector: "app-angular-container",
@@ -37,6 +38,7 @@ import { MenuModel } from '../shared/models/menu.model';
     ModuleService,
     AnimationsService,
     TestsService,
+    FlexLayoutService
   ],
 })
 export class AngularContainerComponent

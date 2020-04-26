@@ -10,7 +10,6 @@ import { TesterComposantsComponent } from "./tester-composants/tester-composants
 import { DetectionChangementsMatchersComponent } from "./detection-changements-matchers/detection-changements-matchers.component";
 import { TesterComposantsAvecDependancesComponent } from "./tester-composants-avec-dependances/tester-composants-avec-dependances.component";
 import { TestsIsolesPipesComponent } from "./tests-isoles-pipes/tests-isoles-pipes.component";
-import { TestsExempleComponent } from "./tests-exemple/tests-exemple.component";
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
     DetectionChangementsMatchersComponent,
     TesterComposantsAvecDependancesComponent,
     TestsIsolesPipesComponent,
-    TestsExempleComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule],
   providers: [],

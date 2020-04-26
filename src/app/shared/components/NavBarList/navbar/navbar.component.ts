@@ -25,7 +25,7 @@ import {
         "hide",
         style({
           overflow: "hidden",
-          height: "0px",
+          "max-height": "0",
           padding: "0px",
         })
       ),
@@ -33,19 +33,17 @@ import {
         "show",
         style({
           overflow: "hidden",
-          height: "50px",
+          "max-height": "80px",
           padding: "2px 6px 2px 6px",
         })
       ),
-      transition("hide <=> show", [
-        style({ padding: "2px 6px 2px 6px" }),
-        animate("200ms ease-out"),
-      ]),
+      transition("hide <=> show", animate("800ms ease-out")),
     ]),
   ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   public isNavbarThemeIsDark: boolean;
+  public currentStateSectionNavbar: string = "hide";
 
   public appliMenu: AppliMenuModel[];
   public isAppliMenuDisplay: boolean = false;
@@ -56,8 +54,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isSectionMenuDisplay: boolean = false;
   private titlePageSubscription: Subscription;
   public sectionMenuItemSelected: string = "";
-
-  public currentStateSectionNavbar: string = "hide";
 
   constructor(
     private appliService: AppliService,
@@ -87,7 +83,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   //Clique sur navbar AppliMenu (version lg)
-  public onNavbarButtonClick(): void {}
+  public onNavbarButtonClick(name: string): void {
+    this.listMenuLeftService.listMenu.next([]);
+    this.appliService.title.next(name);
+  }
+
   //Clique sur le bouton de choix de l'appliMenu (Version mobile)(bouton en haut à gauche)
   public onAppliMenuButtonClick(): void {
     this.isAppliMenuDisplay = !this.isAppliMenuDisplay;

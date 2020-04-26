@@ -8,6 +8,7 @@ import * as $ from "jquery";
 })
 export class AppComponent implements OnInit {
   constructor() {}
+
   ngOnInit() {
     $("body").prepend('<a href="#" class="back-to-top">Back to Top</a>');
     let amountScrolled = 400;
