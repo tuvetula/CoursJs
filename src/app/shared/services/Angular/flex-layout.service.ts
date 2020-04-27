@@ -10,7 +10,6 @@ export class FlexLayoutService {
       {name: 'Static api' , url: 'FlexLayout/StaticApi'},
       {name: 'Responsive api' , url: 'FlexLayout/ResponsiveApi'},
       {name: 'Features' , url: 'FlexLayout/Features'},
-      {name: 'Exemple' , url: 'FlexLayout/Exemple'},
     ]
   }
 }

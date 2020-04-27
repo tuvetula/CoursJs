@@ -1,0 +1,32 @@
+.flex-container {
+  height: 500px;
+  display: flex;
+  flex-flow: row;
+}
+.sidebar {
+  background-color: purple;
+  width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.sidebar-content {
+  background-color: yellow;
+  height: 50px;
+  margin-bottom: 2px;
+}
+.content {
+  background-color: red;
+  width: calc(100% - 200px);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.content-elem {
+  width: 150px;
+  height: 150px;
+  background-color: greenyellow;
+}
+.content-elem:last-child {
+    align-self: flex-end;
+}

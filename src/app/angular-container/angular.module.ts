@@ -15,7 +15,7 @@ import { RequetesHttpModule } from "./requetes-http-container/requetes-http.modu
 import { RoutingModule } from "./routing-container/routing.module";
 import { ServicesModule } from "./services-container/services.module";
 import { TestsModule } from "./tests-container/tests.module";
-import { FlexLayoutModule } from './flex-layout-container/flex-layout.module';
+import { FlexLayoutCoursModule } from './flex-layout-container/flex-layout.module';
 import { AnimationsModule } from "./animations-container/animations.module";
 import { AngularRoutingModule } from './angular-routing.module';
 
@@ -42,7 +42,7 @@ import { FlexLayoutContainerComponent } from './flex-layout-container/flex-layou
     RoutingModule,
     ServicesModule,
     TestsModule,
-    FlexLayoutModule,
+    FlexLayoutCoursModule,
     AngularRoutingModule
   ],
   providers: []

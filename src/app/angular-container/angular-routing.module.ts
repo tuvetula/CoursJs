@@ -103,7 +103,6 @@ import { FlexBoxComponent } from './flex-layout-container/flex-box/flex-box.comp
 import { StaticApiComponent } from './flex-layout-container/static-api/static-api.component';
 import { ResponsiveApiComponent } from './flex-layout-container/responsive-api/responsive-api.component';
 import { FeaturesComponent } from './flex-layout-container/features/features.component';
-import { FlexLayoutExempleComponent } from './flex-layout-container/flex-layout-exemple/flex-layout-exemple.component';
 
 const routes: Route[] = [
   {
@@ -360,7 +359,6 @@ const routes: Route[] = [
           {path: "StaticApi" , component: StaticApiComponent},
           {path: "ResponsiveApi" , component: ResponsiveApiComponent},
           {path: "Features" , component: FeaturesComponent},
-          {path: "Exemple" , component: FlexLayoutExempleComponent}
         ]
       },
     ],

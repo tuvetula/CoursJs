@@ -7,19 +7,17 @@ import { FlexBoxComponent } from "./flex-box/flex-box.component";
 import { StaticApiComponent } from "./static-api/static-api.component";
 import { ResponsiveApiComponent } from "./responsive-api/responsive-api.component";
 import { FeaturesComponent } from "./features/features.component";
-import { FlexLayoutExempleComponent } from "./flex-layout-exemple/flex-layout-exemple.component";
 import { FlexLayoutIntroductionComponent } from './flex-layout-introduction/flex-layout-introduction.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     FlexBoxComponent,
     StaticApiComponent,
     ResponsiveApiComponent,
     FeaturesComponent,
-    FlexLayoutExempleComponent,
     FlexLayoutIntroductionComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule],
+  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule, FlexLayoutModule],
   providers: [],
 })
-export class FlexLayoutModule {}
+export class FlexLayoutCoursModule {}
