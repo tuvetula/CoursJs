@@ -20,12 +20,11 @@ import { AnimationsModule } from "./animations-container/animations.module";
 import { AngularRoutingModule } from './angular-routing.module';
 
 import { AngularContainerComponent } from "./angular-container.component";
-import { FlexLayoutContainerComponent } from './flex-layout-container/flex-layout-container.component';
 
 
 
 @NgModule({
-  declarations: [AngularContainerComponent, FlexLayoutContainerComponent],
+  declarations: [AngularContainerComponent],
   imports: [
     CommonModule,
     RouterModule,

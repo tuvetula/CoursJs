@@ -5,7 +5,6 @@ import { PageNotFound404Component } from "./page-not-found404/page-not-found404.
 import { JavascriptContainerComponent } from "./javascript-container/javascript-container.component";
 
 const routes: Routes = [
-  { path: "Javascript", component: JavascriptContainerComponent },
   { path: "", component: HomepageComponent, pathMatch: "full" },
   { path: "**", component: PageNotFound404Component },
 ];

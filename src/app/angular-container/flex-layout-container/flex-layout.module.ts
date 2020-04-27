@@ -9,8 +9,10 @@ import { ResponsiveApiComponent } from "./responsive-api/responsive-api.componen
 import { FeaturesComponent } from "./features/features.component";
 import { FlexLayoutIntroductionComponent } from './flex-layout-introduction/flex-layout-introduction.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutContainerComponent } from './flex-layout-container.component';
 @NgModule({
   declarations: [
+    FlexLayoutContainerComponent,
     FlexBoxComponent,
     StaticApiComponent,
     ResponsiveApiComponent,
