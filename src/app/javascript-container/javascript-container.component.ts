@@ -4,13 +4,15 @@ import { ListMenuLeftService } from '../shared/services/list-menu-left.service';
 import { JavascriptService } from '../shared/services/Javascript/javascript.service';
 import { MenuModel } from '../shared/models/menu.model';
 import { BasesService } from '../shared/services/Javascript/bases.service';
+import { ConditionsBouclesService } from '../shared/services/Javascript/conditions-boucles.service';
 
 @Component({
   selector: "app-javascript-container",
   templateUrl: "./javascript-container.component.html",
   styleUrls: ["./javascript-container.component.css"],
   providers: [
-    BasesService
+    BasesService,
+    ConditionsBouclesService
   ]
 })
 export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterViewChecked {

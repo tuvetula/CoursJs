@@ -12,6 +12,12 @@ import { BasesOperateursComponent } from "./bases-container/bases-operateurs/bas
 import { BasesConversionsComponent } from "./bases-container/bases-conversions/bases-conversions.component";
 import { BasesApprofondissementOperateursComponent } from "./bases-container/bases-approfondissement-operateurs/bases-approfondissement-operateurs.component";
 import { BasesValeursReferencesComponent } from "./bases-container/bases-valeurs-references/bases-valeurs-references.component";
+import { ConditionsEtBouclesContainerComponent } from './conditions-et-boucles-container/conditions-et-boucles-container.component';
+import { IfElseElseifComponent } from './conditions-et-boucles-container/if-else-elseif/if-else-elseif.component';
+import { TernairesComponent } from './conditions-et-boucles-container/ternaires/ternaires.component';
+import { SwitchComponent } from './conditions-et-boucles-container/switch/switch.component';
+import { BouclesForComponent } from './conditions-et-boucles-container/boucles-for/boucles-for.component';
+import { BouclesWhileComponent } from './conditions-et-boucles-container/boucles-while/boucles-while.component';
 
 const routes: Route[] = [
   {
@@ -40,6 +46,15 @@ const routes: Route[] = [
             component: BasesValeursReferencesComponent,
           },
         ],
+      },
+      {
+path:"Conditions-Boucles", component: ConditionsEtBouclesContainerComponent, children:[
+  {path: "If-else-elseif" , component: IfElseElseifComponent},
+  {path: "Ternaires" , component: TernairesComponent},
+  {path: "Switch" , component: SwitchComponent},
+  {path: "Boucle-For" , component: BouclesForComponent},
+  {path: "Boucle-While" , component: BouclesWhileComponent},
+]
       },
     ],
   },

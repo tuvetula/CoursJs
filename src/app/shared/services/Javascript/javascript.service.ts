@@ -8,6 +8,7 @@ export class JavascriptService {
   constructor() {
     this.javascriptMenu = [
       { name: "Bases" , url: "Javascript/Bases"},
+      { name: "Conditions & Boucles" , url: "Javascript/Conditions-Boucles"},
       { name: "Le Dom", url: "Javascript/Dom" },
       { name: "Les évènements", url: "Javascript/Evenements" },
     ];

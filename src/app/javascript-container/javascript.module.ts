@@ -7,6 +7,9 @@ import { JavascriptRoutingModule } from './javascript-routing.module';
 import { ListMenuLeftModule } from '../shared/modules/listMenuLeft.module';
 import { TitlePageModule } from '../shared/modules/titlePage.module';
 import { RouterModule } from '@angular/router';
+import { ConditionsEtBouclesContainerComponent } from './conditions-et-boucles-container/conditions-et-boucles-container.component';
+import { IfElseElseifComponent } from './conditions-et-boucles-container/if-else-elseif/if-else-elseif.component';
+import { ConditionsEtBouclesModule } from './conditions-et-boucles-container/conditions-et-boucles.module';
 
 
 
@@ -21,6 +24,7 @@ import { RouterModule } from '@angular/router';
     ListMenuLeftModule,
     TitlePageModule,
     BasesModules,
+    ConditionsEtBouclesModule,
     JavascriptRoutingModule
   ],
   providers: []
