@@ -1,0 +1,12 @@
+#logoJavascriptHead {
+    width: 70px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+  }
+  
+  @media(max-width:992px){
+    #logoJavascriptHead {
+      display: none;
+    }
+  }
