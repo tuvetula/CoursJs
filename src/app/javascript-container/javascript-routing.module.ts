@@ -24,6 +24,17 @@ import { NombresDecimauxExposantComponent } from './nombres-container/nombres-de
 import { NombresMethodesDisponiblesGlobalComponent } from './nombres-container/nombres-methodes-disponibles-global/nombres-methodes-disponibles-global.component';
 import { NombresMethodesNumberComponent } from './nombres-container/nombres-methodes-number/nombres-methodes-number.component';
 import { NombresObjetMathComponent } from './nombres-container/nombres-objet-math/nombres-objet-math.component';
+import { StringContainerComponent } from './string-container/string-container.component';
+import { StringIntroductionComponent } from './string-container/string-introduction/string-introduction.component';
+import { StringLitterauxModeleComponent } from './string-container/string-litteraux-modele/string-litteraux-modele.component';
+import { StringProprieteIndexLengthComponent } from './string-container/string-propriete-index-length/string-propriete-index-length.component';
+import { StringMethodesDisponiblesComponent } from './string-container/string-methodes-disponibles/string-methodes-disponibles.component';
+import { StringExpressionsRationnellesComponent } from './string-container/string-expressions-rationnelles/string-expressions-rationnelles.component';
+import { ModulesJsContainerComponent } from './modules-js-container/modules-js-container.component';
+import { ModuleJsIntroductionComponent } from './modules-js-container/module-js-introduction/module-js-introduction.component';
+import { ModuleJsExporterComponent } from './modules-js-container/module-js-exporter/module-js-exporter.component';
+import { ModuleJsImporterComponent } from './modules-js-container/module-js-importer/module-js-importer.component';
+import { ModuleJsReexporterComponent } from './modules-js-container/module-js-reexporter/module-js-reexporter.component';
 
 const routes: Route[] = [
   {
@@ -69,6 +80,23 @@ const routes: Route[] = [
           {path: "Methodes-global" , component: NombresMethodesDisponiblesGlobalComponent},
           {path: "Methodes-number" , component: NombresMethodesNumberComponent},
           {path: "Objet-math" , component: NombresObjetMathComponent},
+        ]
+      },
+      {
+        path:"String", component: StringContainerComponent, children:[
+          {path: "Introduction", component: StringIntroductionComponent},
+          {path: "Litteraux-modele", component: StringLitterauxModeleComponent},
+          {path: "Proprietes-index-length", component: StringProprieteIndexLengthComponent},
+          {path: "Methodes", component: StringMethodesDisponiblesComponent},
+          {path: "Expressions-rationnelles", component: StringExpressionsRationnellesComponent},
+        ]
+      },
+      {
+        path:"ModulesJs", component: ModulesJsContainerComponent, children: [
+          {path: "Introduction" , component: ModuleJsIntroductionComponent},
+          {path: "Exporter" , component: ModuleJsExporterComponent},
+          {path: "Importer" , component: ModuleJsImporterComponent},
+          {path: "Reexporter" , component: ModuleJsReexporterComponent},
         ]
       },
     ],

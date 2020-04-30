@@ -9,8 +9,9 @@ import { TitlePageModule } from '../shared/modules/titlePage.module';
 import { RouterModule } from '@angular/router';
 import { ConditionsEtBouclesModule } from './conditions-et-boucles-container/conditions-et-boucles.module';
 import { NombresModule } from './nombres-container/nombres.module';
-
-
+import { StringModule } from './string-container/string.module';
+import { ModulesJsContainerComponent } from './modules-js-container/modules-js-container.component';
+import { ModulesJsModule } from './modules-js-container/modulesJs.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { NombresModule } from './nombres-container/nombres.module';
     BasesModule,
     ConditionsEtBouclesModule,
     NombresModule,
+    StringModule,
+    ModulesJsModule,
     JavascriptRoutingModule
   ],
   providers: []

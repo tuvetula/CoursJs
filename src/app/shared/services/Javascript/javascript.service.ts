@@ -7,9 +7,11 @@ export class JavascriptService {
 
   constructor() {
     this.javascriptMenu = [
-      { name: "Bases" , url: "Javascript/Bases"},
-      { name: "Conditions & Boucles" , url: "Javascript/Conditions-Boucles"},
-      { name: "Nombres" , url: "Javascript/Nombres"},
+      { name: "Bases", url: "Javascript/Bases" },
+      { name: "Conditions & Boucles", url: "Javascript/Conditions-Boucles" },
+      { name: "Nombres", url: "Javascript/Nombres" },
+      { name: "String", url: "Javascript/String" },
+      { name: "Modules", url: "Javascript/ModulesJs" },
       { name: "Le Dom", url: "Javascript/Dom" },
       { name: "Les évènements", url: "Javascript/Evenements" },
     ];
