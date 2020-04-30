@@ -34,4 +34,4 @@ import { BasesContainerComponent } from './bases-container.component';
     providers:[]
 })
 
-export class BasesModules {}
+export class BasesModule {}

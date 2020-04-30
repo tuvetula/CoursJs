@@ -12,7 +12,7 @@ import { ConditionsBouclesService } from '../shared/services/Javascript/conditio
   styleUrls: ["./javascript-container.component.css"],
   providers: [
     BasesService,
-    ConditionsBouclesService
+    ConditionsBouclesService,
   ]
 })
 export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterViewChecked {
@@ -41,9 +41,11 @@ export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterVie
   ngOnDestroy(): void {
     this.listMenuLeftService.listMenu.next([]);
   }
+  //Fonction verification si titre dans le service est equivalent à celui du component
   public titleIsJavascript() {
     return this.appliService.title.value === this.nameSection;
   }
+  //Pour modifier les url du menu de la section
   private modifyJavascriptMenuUrl(): void {
     this.javascriptService.javascriptMenu.slice().forEach((element) => {
       this.menu.push({ name: element.name, url: element.url });

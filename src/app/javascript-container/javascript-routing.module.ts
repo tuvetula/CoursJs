@@ -18,6 +18,12 @@ import { TernairesComponent } from './conditions-et-boucles-container/ternaires/
 import { SwitchComponent } from './conditions-et-boucles-container/switch/switch.component';
 import { BouclesForComponent } from './conditions-et-boucles-container/boucles-for/boucles-for.component';
 import { BouclesWhileComponent } from './conditions-et-boucles-container/boucles-while/boucles-while.component';
+import { NombresContainerComponent } from './nombres-container/nombres-container.component';
+import { NombresIntroductionComponent } from './nombres-container/nombres-introduction/nombres-introduction.component';
+import { NombresDecimauxExposantComponent } from './nombres-container/nombres-decimaux-exposant/nombres-decimaux-exposant.component';
+import { NombresMethodesDisponiblesGlobalComponent } from './nombres-container/nombres-methodes-disponibles-global/nombres-methodes-disponibles-global.component';
+import { NombresMethodesNumberComponent } from './nombres-container/nombres-methodes-number/nombres-methodes-number.component';
+import { NombresObjetMathComponent } from './nombres-container/nombres-objet-math/nombres-objet-math.component';
 
 const routes: Route[] = [
   {
@@ -48,13 +54,22 @@ const routes: Route[] = [
         ],
       },
       {
-path:"Conditions-Boucles", component: ConditionsEtBouclesContainerComponent, children:[
-  {path: "If-else-elseif" , component: IfElseElseifComponent},
-  {path: "Ternaires" , component: TernairesComponent},
-  {path: "Switch" , component: SwitchComponent},
-  {path: "Boucle-For" , component: BouclesForComponent},
-  {path: "Boucle-While" , component: BouclesWhileComponent},
-]
+        path:"Conditions-Boucles", component: ConditionsEtBouclesContainerComponent, children:[
+            {path: "If-else-elseif" , component: IfElseElseifComponent},
+            {path: "Ternaires" , component: TernairesComponent},
+            {path: "Switch" , component: SwitchComponent},
+            {path: "Boucle-For" , component: BouclesForComponent},
+            {path: "Boucle-While" , component: BouclesWhileComponent},
+        ]
+      },
+      {
+        path:"Nombres", component: NombresContainerComponent, children:[
+          {path: "Introduction" , component: NombresIntroductionComponent},
+          {path: "Decimaux-exposant" , component: NombresDecimauxExposantComponent},
+          {path: "Methodes-global" , component: NombresMethodesDisponiblesGlobalComponent},
+          {path: "Methodes-number" , component: NombresMethodesNumberComponent},
+          {path: "Objet-math" , component: NombresObjetMathComponent},
+        ]
       },
     ],
   },
