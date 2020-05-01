@@ -35,6 +35,18 @@ import { ModuleJsIntroductionComponent } from './modules-js-container/module-js-
 import { ModuleJsExporterComponent } from './modules-js-container/module-js-exporter/module-js-exporter.component';
 import { ModuleJsImporterComponent } from './modules-js-container/module-js-importer/module-js-importer.component';
 import { ModuleJsReexporterComponent } from './modules-js-container/module-js-reexporter/module-js-reexporter.component';
+import { DomContainerComponent } from './dom-container/dom-container.component';
+import { DomIntroductionComponent } from './dom-container/dom-introduction/dom-introduction.component';
+import { DomDomHtmlComponent } from './dom-container/dom-dom-html/dom-dom-html.component';
+import { DomSelectionnerElementsComponent } from './dom-container/dom-selectionner-elements/dom-selectionner-elements.component';
+import { DomModifierElementsComponent } from './dom-container/dom-modifier-elements/dom-modifier-elements.component';
+import { DomAttributsProprietesComponent } from './dom-container/dom-attributs-proprietes/dom-attributs-proprietes.component';
+import { DomHtmlInputElementComponent } from './dom-container/dom-html-input-element/dom-html-input-element.component';
+import { DomUtilisationCssWebpackComponent } from './dom-container/dom-utilisation-css-webpack/dom-utilisation-css-webpack.component';
+import { DomModificationStyleClassesComponent } from './dom-container/dom-modification-style-classes/dom-modification-style-classes.component';
+import { DomCreerNoeudsComponent } from './dom-container/dom-creer-noeuds/dom-creer-noeuds.component';
+import { DomPositionnerNoeudsComponent } from './dom-container/dom-positionner-noeuds/dom-positionner-noeuds.component';
+import { DomSupprimerRemplacerNoeudsComponent } from './dom-container/dom-supprimer-remplacer-noeuds/dom-supprimer-remplacer-noeuds.component';
 
 const routes: Route[] = [
   {
@@ -97,6 +109,21 @@ const routes: Route[] = [
           {path: "Exporter" , component: ModuleJsExporterComponent},
           {path: "Importer" , component: ModuleJsImporterComponent},
           {path: "Reexporter" , component: ModuleJsReexporterComponent},
+        ]
+      },
+      {
+        path:"Dom" , component: DomContainerComponent,children: [
+          {path:"Introduction" , component: DomIntroductionComponent},
+          {path:"Dom-html" , component: DomDomHtmlComponent},
+          {path:"Selectionner-elements" , component: DomSelectionnerElementsComponent},
+          {path:"Modifier-elements" , component: DomModifierElementsComponent},
+          {path:"Attributs-proprietes" , component: DomAttributsProprietesComponent},
+          {path:"HtmlInputElement" , component: DomHtmlInputElementComponent},
+          {path:"Utilisation-css-webpack" , component: DomUtilisationCssWebpackComponent},
+          {path:"Modification-style-classes" , component: DomModificationStyleClassesComponent},
+          {path:"Creer-noeuds" , component: DomCreerNoeudsComponent},
+          {path:"Positionner-noeuds" , component: DomPositionnerNoeudsComponent},
+          {path:"Supprimer-remplacer-noeuds" , component: DomSupprimerRemplacerNoeudsComponent}
         ]
       },
     ],

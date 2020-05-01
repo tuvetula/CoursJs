@@ -12,6 +12,7 @@ import { NombresModule } from './nombres-container/nombres.module';
 import { StringModule } from './string-container/string.module';
 import { ModulesJsContainerComponent } from './modules-js-container/modules-js-container.component';
 import { ModulesJsModule } from './modules-js-container/modulesJs.module';
+import { DomModule } from './dom-container/dom.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ModulesJsModule } from './modules-js-container/modulesJs.module';
     NombresModule,
     StringModule,
     ModulesJsModule,
+    DomModule,
     JavascriptRoutingModule
   ],
   providers: []
