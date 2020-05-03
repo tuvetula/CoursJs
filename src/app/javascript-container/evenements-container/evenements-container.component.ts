@@ -19,7 +19,7 @@ export class EvenementsContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this.listLeftMenuService.listMenu.next(this.evenementsService.evenementsMenu);
-    this.appliService.title.next('Evenements');
+    this.appliService.title.next('Evènements');
   }
 
 }
