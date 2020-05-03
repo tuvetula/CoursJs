@@ -12,8 +12,8 @@ export class JavascriptService {
       { name: "Nombres", url: "Javascript/Nombres" },
       { name: "String", url: "Javascript/String" },
       { name: "Modules", url: "Javascript/ModulesJs" },
-      { name: "Le Dom", url: "Javascript/Dom" },
-      { name: "Les évènements", url: "Javascript/Evenements" },
+      { name: "Dom", url: "Javascript/Dom" },
+      { name: "Evènements", url: "Javascript/Evenements" },
     ];
   }
 }

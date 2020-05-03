@@ -47,6 +47,13 @@ import { DomModificationStyleClassesComponent } from './dom-container/dom-modifi
 import { DomCreerNoeudsComponent } from './dom-container/dom-creer-noeuds/dom-creer-noeuds.component';
 import { DomPositionnerNoeudsComponent } from './dom-container/dom-positionner-noeuds/dom-positionner-noeuds.component';
 import { DomSupprimerRemplacerNoeudsComponent } from './dom-container/dom-supprimer-remplacer-noeuds/dom-supprimer-remplacer-noeuds.component';
+import { EvenementsContainerComponent } from './evenements-container/evenements-container.component';
+import { EvenementsIntroductionComponent } from './evenements-container/evenements-introduction/evenements-introduction.component';
+import { EvenementsUtilisationProprietesComponent } from './evenements-container/evenements-utilisation-proprietes/evenements-utilisation-proprietes.component';
+import { EvenementsAddEventListenerComponent } from './evenements-container/evenements-add-event-listener/evenements-add-event-listener.component';
+import { EvenementsSupprimerGestionnaireComponent } from './evenements-container/evenements-supprimer-gestionnaire/evenements-supprimer-gestionnaire.component';
+import { EvenementsBouillonementComponent } from './evenements-container/evenements-bouillonement/evenements-bouillonement.component';
+import { EvenementsEmpecherComportementComponent } from './evenements-container/evenements-empecher-comportement/evenements-empecher-comportement.component';
 
 const routes: Route[] = [
   {
@@ -124,6 +131,16 @@ const routes: Route[] = [
           {path:"Creer-noeuds" , component: DomCreerNoeudsComponent},
           {path:"Positionner-noeuds" , component: DomPositionnerNoeudsComponent},
           {path:"Supprimer-remplacer-noeuds" , component: DomSupprimerRemplacerNoeudsComponent}
+        ]
+      },
+      {
+        path:"Evenements" , component: EvenementsContainerComponent, children:[
+          {path: "Introduction" , component : EvenementsIntroductionComponent},
+          {path: "Utilisation-proprietes-dom" , component : EvenementsUtilisationProprietesComponent},
+          {path: "addEventListener" , component : EvenementsAddEventListenerComponent},
+          {path: "Supprimer-gestionnaire-evenement" , component : EvenementsSupprimerGestionnaireComponent},
+          {path: "Bouillonement-et-capture" , component : EvenementsBouillonementComponent},
+          {path: "Empecher-comportement-par-defaut" , component : EvenementsEmpecherComportementComponent},
         ]
       },
     ],

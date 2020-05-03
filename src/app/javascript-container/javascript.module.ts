@@ -13,6 +13,7 @@ import { StringModule } from './string-container/string.module';
 import { ModulesJsContainerComponent } from './modules-js-container/modules-js-container.component';
 import { ModulesJsModule } from './modules-js-container/modulesJs.module';
 import { DomModule } from './dom-container/dom.module';
+import { EvenementsModule } from './evenements-container/evenements.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DomModule } from './dom-container/dom.module';
     StringModule,
     ModulesJsModule,
     DomModule,
+    EvenementsModule,
     JavascriptRoutingModule
   ],
   providers: []
