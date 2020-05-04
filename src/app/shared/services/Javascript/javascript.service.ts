@@ -14,6 +14,7 @@ export class JavascriptService {
       { name: "Modules", url: "Javascript/ModulesJs" },
       { name: "Dom", url: "Javascript/Dom" },
       { name: "Evènements", url: "Javascript/Evenements" },
+      { name: "Asynchrone" , url: "Javascript/Asynchrone"}
     ];
   }
 }

@@ -10,10 +10,10 @@ import { RouterModule } from '@angular/router';
 import { ConditionsEtBouclesModule } from './conditions-et-boucles-container/conditions-et-boucles.module';
 import { NombresModule } from './nombres-container/nombres.module';
 import { StringModule } from './string-container/string.module';
-import { ModulesJsContainerComponent } from './modules-js-container/modules-js-container.component';
 import { ModulesJsModule } from './modules-js-container/modulesJs.module';
 import { DomModule } from './dom-container/dom.module';
 import { EvenementsModule } from './evenements-container/evenements.module';
+import { AsynchroneModule } from './asynchrone-container/asynchrone.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { EvenementsModule } from './evenements-container/evenements.module';
     ModulesJsModule,
     DomModule,
     EvenementsModule,
+    AsynchroneModule,
     JavascriptRoutingModule
   ],
   providers: []

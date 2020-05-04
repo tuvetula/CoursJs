@@ -54,6 +54,14 @@ import { EvenementsAddEventListenerComponent } from './evenements-container/even
 import { EvenementsSupprimerGestionnaireComponent } from './evenements-container/evenements-supprimer-gestionnaire/evenements-supprimer-gestionnaire.component';
 import { EvenementsBouillonementComponent } from './evenements-container/evenements-bouillonement/evenements-bouillonement.component';
 import { EvenementsEmpecherComportementComponent } from './evenements-container/evenements-empecher-comportement/evenements-empecher-comportement.component';
+import { AsynchroneContainerComponent } from './asynchrone-container/asynchrone-container.component';
+import { AsynchroneIntroductionComponent } from './asynchrone-container/asynchrone-introduction/asynchrone-introduction.component';
+import { AsynchronePromessesComponent } from './asynchrone-container/asynchrone-promesses/asynchrone-promesses.component';
+import { AsynchroneChainerPromessesComponent } from './asynchrone-container/asynchrone-chainer-promesses/asynchrone-chainer-promesses.component';
+import { AsynchroneMethodesDesPromessesComponent } from './asynchrone-container/asynchrone-methodes-des-promesses/asynchrone-methodes-des-promesses.component';
+import { AsynchronePolyfillsWebpackComponent } from './asynchrone-container/asynchrone-polyfills-webpack/asynchrone-polyfills-webpack.component';
+import { AsynchroneAsyncAwaitComponent } from './asynchrone-container/asynchrone-async-await/asynchrone-async-await.component';
+import { AsynchroneEventloopComponent } from './asynchrone-container/asynchrone-eventloop/asynchrone-eventloop.component';
 
 const routes: Route[] = [
   {
@@ -141,6 +149,17 @@ const routes: Route[] = [
           {path: "Supprimer-gestionnaire-evenement" , component : EvenementsSupprimerGestionnaireComponent},
           {path: "Bouillonement-et-capture" , component : EvenementsBouillonementComponent},
           {path: "Empecher-comportement-par-defaut" , component : EvenementsEmpecherComportementComponent},
+        ]
+      },
+      {
+        path:"Asynchrone" , component: AsynchroneContainerComponent, children:[
+          {path: "Introduction" , component: AsynchroneIntroductionComponent},
+          {path: "Promesses" , component: AsynchronePromessesComponent},
+          {path: "Chainer-promesses" , component: AsynchroneChainerPromessesComponent},
+          {path: "Methodes-promesses" , component: AsynchroneMethodesDesPromessesComponent},
+          {path: "Polyfills-webpack" , component: AsynchronePolyfillsWebpackComponent},
+          {path: "Async-await" , component: AsynchroneAsyncAwaitComponent},
+          {path: "Event-loop" , component: AsynchroneEventloopComponent},
         ]
       },
     ],
