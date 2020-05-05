@@ -62,6 +62,17 @@ import { AsynchroneMethodesDesPromessesComponent } from './asynchrone-container/
 import { AsynchronePolyfillsWebpackComponent } from './asynchrone-container/asynchrone-polyfills-webpack/asynchrone-polyfills-webpack.component';
 import { AsynchroneAsyncAwaitComponent } from './asynchrone-container/asynchrone-async-await/asynchrone-async-await.component';
 import { AsynchroneEventloopComponent } from './asynchrone-container/asynchrone-eventloop/asynchrone-eventloop.component';
+import { ReseauContainerComponent } from './reseau-container/reseau-container.component';
+import { ReseauIntroductionComponent } from './reseau-container/reseau-introduction/reseau-introduction.component';
+import { ReseauFetchComponent } from './reseau-container/reseau-fetch/reseau-fetch.component';
+import { ReseauRequetePostComponent } from './reseau-container/reseau-requete-post/reseau-requete-post.component';
+import { ReseauCorsComponent } from './reseau-container/reseau-cors/reseau-cors.component';
+import { ReseauOptionsFetchComponent } from './reseau-container/reseau-options-fetch/reseau-options-fetch.component';
+import { ReseauAnnulerRequetesComponent } from './reseau-container/reseau-annuler-requetes/reseau-annuler-requetes.component';
+import { ReseauFormDataComponent } from './reseau-container/reseau-form-data/reseau-form-data.component';
+import { ReseauWebApiUrlComponent } from './reseau-container/reseau-web-api-url/reseau-web-api-url.component';
+import { ReseauXmlhttprequestComponent } from './reseau-container/reseau-xmlhttprequest/reseau-xmlhttprequest.component';
+import { ReseauUtilisationsAvanceesXmlhttprequestComponent } from './reseau-container/reseau-utilisations-avancees-xmlhttprequest/reseau-utilisations-avancees-xmlhttprequest.component';
 
 const routes: Route[] = [
   {
@@ -160,6 +171,20 @@ const routes: Route[] = [
           {path: "Polyfills-webpack" , component: AsynchronePolyfillsWebpackComponent},
           {path: "Async-await" , component: AsynchroneAsyncAwaitComponent},
           {path: "Event-loop" , component: AsynchroneEventloopComponent},
+        ]
+      },
+      {
+        path:"Reseau" , component: ReseauContainerComponent , children:[
+          {path: "Introduction" , component: ReseauIntroductionComponent},
+          {path: "Fetch" , component: ReseauFetchComponent},
+          {path: "Requete-post" , component: ReseauRequetePostComponent},
+          {path: "Cors" , component: ReseauCorsComponent},
+          {path: "Options-fetch" , component: ReseauOptionsFetchComponent},
+          {path: "Annuler-requetes" , component: ReseauAnnulerRequetesComponent},
+          {path: "FormData" , component: ReseauFormDataComponent},
+          {path: "Web-api-url" , component: ReseauWebApiUrlComponent},
+          {path: "XMLHttpRequest" , component: ReseauXmlhttprequestComponent},
+          {path: "Utilisations-avancees-XMLHttpRequest" , component: ReseauUtilisationsAvanceesXmlhttprequestComponent},
         ]
       },
     ],
