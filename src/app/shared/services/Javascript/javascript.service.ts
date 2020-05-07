@@ -11,12 +11,14 @@ export class JavascriptService {
       { name: "Conditions & Boucles", url: "Javascript/Conditions-Boucles" },
       { name: "Nombres", url: "Javascript/Nombres" },
       { name: "String", url: "Javascript/String" },
+      { name: "Objets" , url:"Javascript/Objets"},
       { name: "Modules", url: "Javascript/ModulesJs" },
       { name: "Dom", url: "Javascript/Dom" },
       { name: "Evènements", url: "Javascript/Evenements" },
       { name: "Asynchrone" , url: "Javascript/Asynchrone"},
       { name: "Réseau" , url: "Javascript/Reseau"},
-      { name: "Date" , url: "Javascript/Date"}
+      { name: "Date" , url: "Javascript/Date"},
+      { name: "Location&History" , url: "Javascript/LocationAndHistory"}
     ];
   }
 }

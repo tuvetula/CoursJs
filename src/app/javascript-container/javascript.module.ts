@@ -16,6 +16,8 @@ import { EvenementsModule } from './evenements-container/evenements.module';
 import { AsynchroneModule } from './asynchrone-container/asynchrone.module';
 import { ReseauModule } from './reseau-container/reseau.module';
 import { DateModule } from './date-container/date.module';
+import { LocationHistoryModule } from './location-history-container/location-history.module';
+import { ObjetsModule } from './objets-container/objets.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { DateModule } from './date-container/date.module';
     AsynchroneModule,
     ReseauModule,
     DateModule,
+    LocationHistoryModule,
+    ObjetsModule,
     JavascriptRoutingModule
   ],
   providers: []

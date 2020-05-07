@@ -79,6 +79,32 @@ import { DateFormatComponent } from './date-container/date-format/date-format.co
 import { DateTimestampsComponent } from './date-container/date-timestamps/date-timestamps.component';
 import { DateApiComponent } from './date-container/date-api/date-api.component';
 import { DateAffichageComponent } from './date-container/date-affichage/date-affichage.component';
+import { LocationHistoryContainerComponent } from './location-history-container/location-history-container.component';
+import { LocationWebApiComponent } from './location-history-container/location-web-api/location-web-api.component';
+import { LocationMethodesComponent } from './location-history-container/location-methodes/location-methodes.component';
+import { LocationWebApiHistoryComponent } from './location-history-container/location-web-api-history/location-web-api-history.component';
+import { LocationStateHistoryComponent } from './location-history-container/location-state-history/location-state-history.component';
+import { ObjetsContainerComponent } from './objets-container/objets-container.component';
+import { ObservablesIntroductionComponent } from '../angular-container/observables-container/observables-introduction/observables-introduction.component';
+import { ObjetsIntroductionComponent } from './objets-container/objets-introduction/objets-introduction.component';
+import { ObjetsProprietesComponent } from './objets-container/objets-proprietes/objets-proprietes.component';
+import { ObjetsRaccourcisSyntaxiquesComponent } from './objets-container/objets-raccourcis-syntaxiques/objets-raccourcis-syntaxiques.component';
+import { ObjetsDecompositionComponent } from './objets-container/objets-decomposition/objets-decomposition.component';
+import { ObjetsTestExistenceValeurComponent } from './objets-container/objets-test-existence-valeur/objets-test-existence-valeur.component';
+import { ObjetsSupprimerProprietesComponent } from './objets-container/objets-supprimer-proprietes/objets-supprimer-proprietes.component';
+import { ObjetsFusionnerComponent } from './objets-container/objets-fusionner/objets-fusionner.component';
+import { ObjetsComparerComponent } from './objets-container/objets-comparer/objets-comparer.component';
+import { ObjetsItererComponent } from './objets-container/objets-iterer/objets-iterer.component';
+import { ObjetsFormatJsonComponent } from './objets-container/objets-format-json/objets-format-json.component';
+import { ObjetsCopierComponent } from './objets-container/objets-copier/objets-copier.component';
+import { ObjetsObjectifsDescriptionProprietesComponent } from './objets-container/objets-objectifs-description-proprietes/objets-objectifs-description-proprietes.component';
+import { ObjetsAccesseursMutateursComponent } from './objets-container/objets-accesseurs-mutateurs/objets-accesseurs-mutateurs.component';
+import { ObjetsPooConstructeursComponent } from './objets-container/objets-poo-constructeurs/objets-poo-constructeurs.component';
+import { ObjetsIntroductionPrototypesComponent } from './objets-container/objets-introduction-prototypes/objets-introduction-prototypes.component';
+import { ObjetsPatternConstructeurProprietePrototypeComponent } from './objets-container/objets-pattern-constructeur-propriete-prototype/objets-pattern-constructeur-propriete-prototype.component';
+import { ObjetsPrototypesNatifsComponent } from './objets-container/objets-prototypes-natifs/objets-prototypes-natifs.component';
+import { ObjetsUtilisationPrototypesComponent } from './objets-container/objets-utilisation-prototypes/objets-utilisation-prototypes.component';
+import { ObjetsApiObjectComponent } from './objets-container/objets-api-object/objets-api-object.component';
 
 const routes: Route[] = [
   {
@@ -133,6 +159,29 @@ const routes: Route[] = [
           {path: "Proprietes-index-length", component: StringProprieteIndexLengthComponent},
           {path: "Methodes", component: StringMethodesDisponiblesComponent},
           {path: "Expressions-rationnelles", component: StringExpressionsRationnellesComponent},
+        ]
+      },
+      {
+        path:"Objets", component: ObjetsContainerComponent, children:[
+          {path: "Introduction" , component: ObjetsIntroductionComponent},
+          {path: "Proprietes" , component: ObjetsProprietesComponent},
+          {path: "Raccourcis-syntaxiques" , component: ObjetsRaccourcisSyntaxiquesComponent},
+          {path: "Decomposition" , component: ObjetsDecompositionComponent},
+          {path: "Test-existence-valeur" , component: ObjetsTestExistenceValeurComponent},
+          {path: "Supprimer-proprietes" , component: ObjetsSupprimerProprietesComponent},
+          {path: "Fusionner" , component: ObjetsFusionnerComponent},
+          {path: "Comparer" , component: ObjetsComparerComponent},
+          {path: "Iterer" , component: ObjetsItererComponent},
+          {path: "Format-json" , component: ObjetsFormatJsonComponent},
+          {path: "Copier" , component: ObjetsCopierComponent},
+          {path: "Objectifs-description-proprietes" , component: ObjetsObjectifsDescriptionProprietesComponent},
+          {path: "Accesseurs-mutateurs" , component: ObjetsAccesseursMutateursComponent},
+          {path: "Poo-constructeurs" , component: ObjetsPooConstructeursComponent},
+          {path: "Introduction-prototypes" , component: ObjetsIntroductionPrototypesComponent},
+          {path: "Pattern-constructeur" , component: ObjetsPatternConstructeurProprietePrototypeComponent},
+          {path: "Prototypes-natifs" , component: ObjetsPrototypesNatifsComponent},
+          {path: "Utilisation-prototypes" , component: ObjetsUtilisationPrototypesComponent},
+          {path: "Api-object" , component: ObjetsApiObjectComponent},
         ]
       },
       {
@@ -200,6 +249,14 @@ const routes: Route[] = [
           {path: "Timestamps" , component: DateTimestampsComponent},
           {path: "Api" , component: DateApiComponent},
           {path: "Affichage" , component: DateAffichageComponent},
+        ]
+      },
+      {
+        path:"LocationAndHistory" , component: LocationHistoryContainerComponent , children:[
+          {path: "Web-api-location" , component : LocationWebApiComponent},
+          {path: "Methodes-location" , component : LocationMethodesComponent},
+          {path: "Web-api-history" , component : LocationWebApiHistoryComponent},
+          {path: "State-history" , component : LocationStateHistoryComponent},
         ]
       },
     ],
