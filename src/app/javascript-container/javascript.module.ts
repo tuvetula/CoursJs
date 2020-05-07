@@ -15,6 +15,7 @@ import { DomModule } from './dom-container/dom.module';
 import { EvenementsModule } from './evenements-container/evenements.module';
 import { AsynchroneModule } from './asynchrone-container/asynchrone.module';
 import { ReseauModule } from './reseau-container/reseau.module';
+import { DateModule } from './date-container/date.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ReseauModule } from './reseau-container/reseau.module';
     EvenementsModule,
     AsynchroneModule,
     ReseauModule,
+    DateModule,
     JavascriptRoutingModule
   ],
   providers: []

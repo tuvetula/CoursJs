@@ -15,7 +15,8 @@ export class JavascriptService {
       { name: "Dom", url: "Javascript/Dom" },
       { name: "Evènements", url: "Javascript/Evenements" },
       { name: "Asynchrone" , url: "Javascript/Asynchrone"},
-      { name: "Réseau" , url: "Javascript/Reseau"}
+      { name: "Réseau" , url: "Javascript/Reseau"},
+      { name: "Date" , url: "Javascript/Date"}
     ];
   }
 }

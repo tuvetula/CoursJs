@@ -73,6 +73,12 @@ import { ReseauFormDataComponent } from './reseau-container/reseau-form-data/res
 import { ReseauWebApiUrlComponent } from './reseau-container/reseau-web-api-url/reseau-web-api-url.component';
 import { ReseauXmlhttprequestComponent } from './reseau-container/reseau-xmlhttprequest/reseau-xmlhttprequest.component';
 import { ReseauUtilisationsAvanceesXmlhttprequestComponent } from './reseau-container/reseau-utilisations-avancees-xmlhttprequest/reseau-utilisations-avancees-xmlhttprequest.component';
+import { DateContainerComponent } from './date-container/date-container.component';
+import { DateDeclarationComponent } from './date-container/date-declaration/date-declaration.component';
+import { DateFormatComponent } from './date-container/date-format/date-format.component';
+import { DateTimestampsComponent } from './date-container/date-timestamps/date-timestamps.component';
+import { DateApiComponent } from './date-container/date-api/date-api.component';
+import { DateAffichageComponent } from './date-container/date-affichage/date-affichage.component';
 
 const routes: Route[] = [
   {
@@ -185,6 +191,15 @@ const routes: Route[] = [
           {path: "Web-api-url" , component: ReseauWebApiUrlComponent},
           {path: "XMLHttpRequest" , component: ReseauXmlhttprequestComponent},
           {path: "Utilisations-avancees-XMLHttpRequest" , component: ReseauUtilisationsAvanceesXmlhttprequestComponent},
+        ]
+      },
+      {
+        path:"Date" , component: DateContainerComponent , children:[
+          {path: "Declaration" , component: DateDeclarationComponent},
+          {path: "Format" , component: DateFormatComponent},
+          {path: "Timestamps" , component: DateTimestampsComponent},
+          {path: "Api" , component: DateApiComponent},
+          {path: "Affichage" , component: DateAffichageComponent},
         ]
       },
     ],

@@ -12,8 +12,11 @@ a.back-to-top {
 }
 
 .codeKeyword {
-  color: blue;
+  color: rgb(0, 119, 178);
 }
 .codeFunction {
-  color: red;
+  color: rgb(221, 74, 104);
+}
+.codeString {
+  color:rgb(102, 153, 0);
 }
