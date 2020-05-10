@@ -105,6 +105,19 @@ import { ObjetsPatternConstructeurProprietePrototypeComponent } from './objets-c
 import { ObjetsPrototypesNatifsComponent } from './objets-container/objets-prototypes-natifs/objets-prototypes-natifs.component';
 import { ObjetsUtilisationPrototypesComponent } from './objets-container/objets-utilisation-prototypes/objets-utilisation-prototypes.component';
 import { ObjetsApiObjectComponent } from './objets-container/objets-api-object/objets-api-object.component';
+import { FonctionsContainerComponent } from './fonctions-container/fonctions-container.component';
+import { FonctionsExpressionsDeclarationComponent } from './fonctions-container/fonctions-expressions-declaration/fonctions-expressions-declaration.component';
+import { FonctionsParametresArgumentsComponent } from './fonctions-container/fonctions-parametres-arguments/fonctions-parametres-arguments.component';
+import { FonctionsObjetArgumentsComponent } from './fonctions-container/fonctions-objet-arguments/fonctions-objet-arguments.component';
+import { FonctionsValeurRetourComponent } from './fonctions-container/fonctions-valeur-retour/fonctions-valeur-retour.component';
+import { FonctionsEnvironnementLexicalComponent } from './fonctions-container/fonctions-environnement-lexical/fonctions-environnement-lexical.component';
+import { FonctionsChainePorteeComponent } from './fonctions-container/fonctions-chaine-portee/fonctions-chaine-portee.component';
+import { FonctionsNamespaceComponent } from './fonctions-container/fonctions-namespace/fonctions-namespace.component';
+import { FonctionsMotclefThisComponent } from './fonctions-container/fonctions-motclef-this/fonctions-motclef-this.component';
+import { FonctionsDefinirLierThisComponent } from './fonctions-container/fonctions-definir-lier-this/fonctions-definir-lier-this.component';
+import { FonctionsFonctionsFlecheesComponent } from './fonctions-container/fonctions-fonctions-flechees/fonctions-fonctions-flechees.component';
+import { FonctionsFonctionsRappelComponent } from './fonctions-container/fonctions-fonctions-rappel/fonctions-fonctions-rappel.component';
+import { FonctionsFermeturesComponent } from './fonctions-container/fonctions-fermetures/fonctions-fermetures.component';
 
 const routes: Route[] = [
   {
@@ -182,6 +195,22 @@ const routes: Route[] = [
           {path: "Prototypes-natifs" , component: ObjetsPrototypesNatifsComponent},
           {path: "Utilisation-prototypes" , component: ObjetsUtilisationPrototypesComponent},
           {path: "Api-object" , component: ObjetsApiObjectComponent},
+        ]
+      },
+      {
+        path:"Fonctions" , component: FonctionsContainerComponent, children:[
+          {path: "Expression-fonction-declaration" , component: FonctionsExpressionsDeclarationComponent},
+          {path: "Parametres-arguments" , component: FonctionsParametresArgumentsComponent},
+          {path: "Objet-arguments-Rest" , component: FonctionsObjetArgumentsComponent},
+          {path: "Valeur-retour" , component: FonctionsValeurRetourComponent},
+          {path: "Environnement-lexical" , component: FonctionsEnvironnementLexicalComponent},
+          {path: "Chaine-de-portée" , component: FonctionsChainePorteeComponent},
+          {path: "Namespace" , component: FonctionsNamespaceComponent},
+          {path: "This" , component: FonctionsMotclefThisComponent},
+          {path: "Definir-lier-this" , component: FonctionsDefinirLierThisComponent},
+          {path: "Fonctions-flechees" , component: FonctionsFonctionsFlecheesComponent},
+          {path: "Fonctions-de-rappel" , component: FonctionsFonctionsRappelComponent},
+          {path: "Fermetures" , component: FonctionsFermeturesComponent},
         ]
       },
       {

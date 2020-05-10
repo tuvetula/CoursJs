@@ -18,6 +18,7 @@ import { ReseauModule } from './reseau-container/reseau.module';
 import { DateModule } from './date-container/date.module';
 import { LocationHistoryModule } from './location-history-container/location-history.module';
 import { ObjetsModule } from './objets-container/objets.module';
+import { FonctionsModule } from './fonctions-container/fonctions.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ObjetsModule } from './objets-container/objets.module';
     DateModule,
     LocationHistoryModule,
     ObjetsModule,
+    FonctionsModule,
     JavascriptRoutingModule
   ],
   providers: []

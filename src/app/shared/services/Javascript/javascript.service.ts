@@ -12,6 +12,7 @@ export class JavascriptService {
       { name: "Nombres", url: "Javascript/Nombres" },
       { name: "String", url: "Javascript/String" },
       { name: "Objets" , url:"Javascript/Objets"},
+      { name: "Fonctions" , url: "Javascript/Fonctions"},
       { name: "Modules", url: "Javascript/ModulesJs" },
       { name: "Dom", url: "Javascript/Dom" },
       { name: "Evènements", url: "Javascript/Evenements" },
