@@ -118,6 +118,20 @@ import { FonctionsDefinirLierThisComponent } from './fonctions-container/fonctio
 import { FonctionsFonctionsFlecheesComponent } from './fonctions-container/fonctions-fonctions-flechees/fonctions-fonctions-flechees.component';
 import { FonctionsFonctionsRappelComponent } from './fonctions-container/fonctions-fonctions-rappel/fonctions-fonctions-rappel.component';
 import { FonctionsFermeturesComponent } from './fonctions-container/fonctions-fermetures/fonctions-fermetures.component';
+import { TableauxContainerComponent } from './tableaux-container/tableaux-container.component';
+import { TableauxIntroductionComponent } from './tableaux-container/tableaux-introduction/tableaux-introduction.component';
+import { TableauxAccederProprietesComponent } from './tableaux-container/tableaux-acceder-proprietes/tableaux-acceder-proprietes.component';
+import { TableauxImbricationComponent } from './tableaux-container/tableaux-imbrication/tableaux-imbrication.component';
+import { TableauxDecompositionComponent } from './tableaux-container/tableaux-decomposition/tableaux-decomposition.component';
+import { TableauxAjouterElementsComponent } from './tableaux-container/tableaux-ajouter-elements/tableaux-ajouter-elements.component';
+import { TableauxSupprimerElementsComponent } from './tableaux-container/tableaux-supprimer-elements/tableaux-supprimer-elements.component';
+import { TableauxTrouverElementsComponent } from './tableaux-container/tableaux-trouver-elements/tableaux-trouver-elements.component';
+import { TableauxCopierComponent } from './tableaux-container/tableaux-copier/tableaux-copier.component';
+import { TableauxFusionnerComponent } from './tableaux-container/tableaux-fusionner/tableaux-fusionner.component';
+import { TableauxTrierComponent } from './tableaux-container/tableaux-trier/tableaux-trier.component';
+import { TableauxItererComponent } from './tableaux-container/tableaux-iterer/tableaux-iterer.component';
+import { TableauxIntroductionProgFonctionnelleComponent } from './tableaux-container/tableaux-introduction-prog-fonctionnelle/tableaux-introduction-prog-fonctionnelle.component';
+import { TableauxAutresMethodesComponent } from './tableaux-container/tableaux-autres-methodes/tableaux-autres-methodes.component';
 
 const routes: Route[] = [
   {
@@ -211,6 +225,23 @@ const routes: Route[] = [
           {path: "Fonctions-flechees" , component: FonctionsFonctionsFlecheesComponent},
           {path: "Fonctions-de-rappel" , component: FonctionsFonctionsRappelComponent},
           {path: "Fermetures" , component: FonctionsFermeturesComponent},
+        ]
+      },
+      {
+        path:"Tableaux", component: TableauxContainerComponent, children:[
+          {path: "Introduction" , component: TableauxIntroductionComponent},
+          {path: "Acceder-proprietes" , component: TableauxAccederProprietesComponent},
+          {path: "Imbrication" , component: TableauxImbricationComponent},
+          {path: "Decomposition" , component: TableauxDecompositionComponent},
+          {path: "Ajouter-elements" , component: TableauxAjouterElementsComponent},
+          {path: "Supprimer-elements" , component: TableauxSupprimerElementsComponent},
+          {path: "Trouver-elements" , component: TableauxTrouverElementsComponent},
+          {path: "Copier" , component: TableauxCopierComponent},
+          {path: "Fusionner" , component: TableauxFusionnerComponent},
+          {path: "Trier" , component: TableauxTrierComponent},
+          {path: "Iterer" , component: TableauxItererComponent},
+          {path: "Introduction-programmation-fonctionnelle" , component: TableauxIntroductionProgFonctionnelleComponent},
+          {path: "Autres-methodes" , component: TableauxAutresMethodesComponent},
         ]
       },
       {
