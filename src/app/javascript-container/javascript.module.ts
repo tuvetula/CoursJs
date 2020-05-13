@@ -20,6 +20,8 @@ import { LocationHistoryModule } from './location-history-container/location-his
 import { ObjetsModule } from './objets-container/objets.module';
 import { FonctionsModule } from './fonctions-container/fonctions.module';
 import { TableauxModule } from './tableaux-container/tableaux.module';
+import { ClassesModule } from './classes-container/classes.module';
+import { GestionErreurModule } from './gestion-erreur-container/gestion-erreur.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { TableauxModule } from './tableaux-container/tableaux.module';
     ObjetsModule,
     FonctionsModule,
     TableauxModule,
+    ClassesModule,
+    GestionErreurModule,
     JavascriptRoutingModule
   ],
   providers: []

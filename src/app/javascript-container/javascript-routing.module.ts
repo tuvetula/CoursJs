@@ -132,6 +132,19 @@ import { TableauxTrierComponent } from './tableaux-container/tableaux-trier/tabl
 import { TableauxItererComponent } from './tableaux-container/tableaux-iterer/tableaux-iterer.component';
 import { TableauxIntroductionProgFonctionnelleComponent } from './tableaux-container/tableaux-introduction-prog-fonctionnelle/tableaux-introduction-prog-fonctionnelle.component';
 import { TableauxAutresMethodesComponent } from './tableaux-container/tableaux-autres-methodes/tableaux-autres-methodes.component';
+import { ClassesContainerComponent } from './classes-container/classes-container.component';
+import { ClassesDeclarationComponent } from './classes-container/classes-declaration/classes-declaration.component';
+import { ClassesHeritageComponent } from './classes-container/classes-heritage/classes-heritage.component';
+import { ClassesMethodeStatiqueComponent } from './classes-container/classes-methode-statique/classes-methode-statique.component';
+import { ClassesProprietePriveeComponent } from './classes-container/classes-propriete-privee/classes-propriete-privee.component';
+import { ClassesExtendsComponent } from './classes-container/classes-extends/classes-extends.component';
+import { ClassesInstanceofComponent } from './classes-container/classes-instanceof/classes-instanceof.component';
+import { ClassesMixinsComponent } from './classes-container/classes-mixins/classes-mixins.component';
+import { GestionErreurContainerComponent } from './gestion-erreur-container/gestion-erreur-container.component';
+import { GestionErreurIntroductionComponent } from './gestion-erreur-container/gestion-erreur-introduction/gestion-erreur-introduction.component';
+import { GestionErreurEtendreObjetErrorComponent } from './gestion-erreur-container/gestion-erreur-etendre-objet-error/gestion-erreur-etendre-objet-error.component';
+import { GestionErreurDebogguerComponent } from './gestion-erreur-container/gestion-erreur-debogguer/gestion-erreur-debogguer.component';
+import { GestionErreurDebogguerVscodeComponent } from './gestion-erreur-container/gestion-erreur-debogguer-vscode/gestion-erreur-debogguer-vscode.component';
 
 const routes: Route[] = [
   {
@@ -319,6 +332,25 @@ const routes: Route[] = [
           {path: "State-history" , component : LocationStateHistoryComponent},
         ]
       },
+      {
+        path:"Classes", component: ClassesContainerComponent , children: [
+          {path: "Declaration" , component: ClassesDeclarationComponent},
+          {path: "Heritage" , component: ClassesHeritageComponent},
+          {path: "Methodes-statiques" , component: ClassesMethodeStatiqueComponent},
+          {path: "Proprietes-privees" , component: ClassesProprietePriveeComponent},
+          {path: "Etendre-objets-natifs" , component: ClassesExtendsComponent},
+          {path: "Instanceof" , component: ClassesInstanceofComponent},
+          {path: "Mixins" , component: ClassesMixinsComponent},
+        ]
+      },
+      {
+        path:"GestionErreur" , component: GestionErreurContainerComponent, children: [
+          {path: "Introduction" , component: GestionErreurIntroductionComponent},
+          {path: "Etendre-objet-error" , component: GestionErreurEtendreObjetErrorComponent},
+          {path: "Debogguer-chrome" , component: GestionErreurDebogguerComponent},
+          {path: "Debogguer-Vscode" , component: GestionErreurDebogguerVscodeComponent},
+        ]
+      }
     ],
   },
 ];

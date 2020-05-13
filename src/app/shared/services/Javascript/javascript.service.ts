@@ -20,7 +20,9 @@ export class JavascriptService {
       { name: "Asynchrone" , url: "Javascript/Asynchrone"},
       { name: "Réseau" , url: "Javascript/Reseau"},
       { name: "Date" , url: "Javascript/Date"},
-      { name: "Location&History" , url: "Javascript/LocationAndHistory"}
+      { name: "Location&History" , url: "Javascript/LocationAndHistory"},
+      { name: "Classes" , url: "Javascript/Classes"},
+      { name: "Gestion d'erreur" , url: "Javascript/GestionErreur"}
     ];
   }
 }
