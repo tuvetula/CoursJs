@@ -24,7 +24,7 @@ export class JavascriptService {
       { name: "Classes" , url: "Javascript/Classes"},
       { name: "Gestion d'erreur" , url: "Javascript/GestionErreur"},
       { name: "Cookies&LocalStorage" , url: "Javascript/Cookies"},
-      { name: "Canvas" , url: "Javascript/Canvas"}
+      //{ name: "Canvas" , url: "Javascript/Canvas"}
     ];
   }
 }
