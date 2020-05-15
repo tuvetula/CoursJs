@@ -22,6 +22,8 @@ import { FonctionsModule } from './fonctions-container/fonctions.module';
 import { TableauxModule } from './tableaux-container/tableaux.module';
 import { ClassesModule } from './classes-container/classes.module';
 import { GestionErreurModule } from './gestion-erreur-container/gestion-erreur.module';
+import { CanvasModule } from './canvas-container/canvas.module';
+import { CookieModule } from './cookie-container/cookie.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { GestionErreurModule } from './gestion-erreur-container/gestion-erreur.m
     TableauxModule,
     ClassesModule,
     GestionErreurModule,
+    CanvasModule,
+    CookieModule,
     JavascriptRoutingModule
   ],
   providers: []

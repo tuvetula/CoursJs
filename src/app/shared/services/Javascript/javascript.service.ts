@@ -22,7 +22,9 @@ export class JavascriptService {
       { name: "Date" , url: "Javascript/Date"},
       { name: "Location&History" , url: "Javascript/LocationAndHistory"},
       { name: "Classes" , url: "Javascript/Classes"},
-      { name: "Gestion d'erreur" , url: "Javascript/GestionErreur"}
+      { name: "Gestion d'erreur" , url: "Javascript/GestionErreur"},
+      { name: "Cookies&LocalStorage" , url: "Javascript/Cookies"},
+      { name: "Canvas" , url: "Javascript/Canvas"}
     ];
   }
 }
