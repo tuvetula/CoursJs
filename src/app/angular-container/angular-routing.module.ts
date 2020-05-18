@@ -103,6 +103,11 @@ import { FlexBoxComponent } from './flex-layout-container/flex-box/flex-box.comp
 import { StaticApiComponent } from './flex-layout-container/static-api/static-api.component';
 import { ResponsiveApiComponent } from './flex-layout-container/responsive-api/responsive-api.component';
 import { FeaturesComponent } from './flex-layout-container/features/features.component';
+import { OperateursCreationComponent } from './observables-container/operateurs-creation/operateurs-creation.component';
+import { OperateursPipeablesComponent } from './observables-container/operateurs-pipeables/operateurs-pipeables.component';
+import { CreationFonctionFluxComponent } from './observables-container/creation-fonction-flux/creation-fonction-flux.component';
+import { OperateursCombinaisonComponent } from './observables-container/operateurs-combinaison/operateurs-combinaison.component';
+import { OperateursFiltresComponent } from './observables-container/operateurs-filtres/operateurs-filtres.component';
 
 const routes: Route[] = [
   {
@@ -172,6 +177,11 @@ const routes: Route[] = [
             component: UtilisationSubjectsComponent,
           },
           { path: "Operateurs-pipes", component: OperateursPipesRxjsComponent },
+          { path: "Operateurs-creation", component: OperateursCreationComponent },
+          { path: "Operateurs-pipeables", component: OperateursPipeablesComponent },
+          { path: "Creation-fonction-generation-flux", component: CreationFonctionFluxComponent },
+          { path: "Operateurs-combinaison", component: OperateursCombinaisonComponent },
+          { path: "Operateurs-filtre", component: OperateursFiltresComponent },
         ],
       },
       {

@@ -9,6 +9,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
+import { OperateursCreationComponent } from './operateurs-creation/operateurs-creation.component';
+import { OperateursPipeablesComponent } from './operateurs-pipeables/operateurs-pipeables.component';
+import { CreationFonctionFluxComponent } from './creation-fonction-flux/creation-fonction-flux.component';
+import { OperateursCombinaisonComponent } from './operateurs-combinaison/operateurs-combinaison.component';
+import { OperateursFiltresComponent } from './operateurs-filtres/operateurs-filtres.component';
 
 @NgModule({
     declarations:[
@@ -17,7 +22,12 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
         CreationObservableComponent,
         IntroductionSubjectsComponent,
         UtilisationSubjectsComponent,
-        OperateursPipesRxjsComponent
+        OperateursPipesRxjsComponent,
+        OperateursCreationComponent,
+        OperateursPipeablesComponent,
+        CreationFonctionFluxComponent,
+        OperateursCombinaisonComponent,
+        OperateursFiltresComponent
     ],
     imports: [
         CommonModule,
