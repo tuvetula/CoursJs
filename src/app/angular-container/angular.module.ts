@@ -20,6 +20,7 @@ import { AnimationsModule } from "./animations-container/animations.module";
 import { AngularRoutingModule } from './angular-routing.module';
 
 import { AngularContainerComponent } from "./angular-container.component";
+import { MeanModule } from './mean-container/mean.module';
 
 
 
@@ -42,6 +43,7 @@ import { AngularContainerComponent } from "./angular-container.component";
     ServicesModule,
     TestsModule,
     FlexLayoutCoursModule,
+    MeanModule,
     AngularRoutingModule
   ],
   providers: []

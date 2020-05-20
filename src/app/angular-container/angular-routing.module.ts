@@ -108,6 +108,13 @@ import { OperateursPipeablesComponent } from './observables-container/operateurs
 import { CreationFonctionFluxComponent } from './observables-container/creation-fonction-flux/creation-fonction-flux.component';
 import { OperateursCombinaisonComponent } from './observables-container/operateurs-combinaison/operateurs-combinaison.component';
 import { OperateursFiltresComponent } from './observables-container/operateurs-filtres/operateurs-filtres.component';
+import { MeanContainerComponent } from './mean-container/mean-container.component';
+import { MeanPresentationComponent } from './mean-container/mean-presentation/mean-presentation.component';
+import { MeanUtilisationNodeExpressComponent } from './mean-container/mean-utilisation-node-express/mean-utilisation-node-express.component';
+import { MeanInstallationMongodbComponent } from './mean-container/mean-installation-mongodb/mean-installation-mongodb.component';
+import { MeanInstallationAngularComponent } from './mean-container/mean-installation-angular/mean-installation-angular.component';
+import { MeanUtilisationAwsComponent } from './mean-container/mean-utilisation-aws/mean-utilisation-aws.component';
+import { MeanMiseProductionComponent } from './mean-container/mean-mise-production/mean-mise-production.component';
 
 const routes: Route[] = [
   {
@@ -183,6 +190,16 @@ const routes: Route[] = [
           { path: "Operateurs-combinaison", component: OperateursCombinaisonComponent },
           { path: "Operateurs-filtre", component: OperateursFiltresComponent },
         ],
+      },
+      {
+        path: "Mean" , component: MeanContainerComponent , children: [
+          { path: "Presentation" , component: MeanPresentationComponent },
+          { path: "Utilisation-node-express" , component: MeanUtilisationNodeExpressComponent },
+          { path: "Installation-mongoDb-mongoose" , component: MeanInstallationMongodbComponent },
+          { path: "Installation-Angular" , component: MeanInstallationAngularComponent },
+          { path: "Utilisation-Aws" , component: MeanUtilisationAwsComponent },
+          { path: "Mise-en-production" , component: MeanMiseProductionComponent },
+        ]
       },
       {
         path: "Services",
