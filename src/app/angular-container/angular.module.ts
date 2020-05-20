@@ -21,6 +21,7 @@ import { AngularRoutingModule } from './angular-routing.module';
 
 import { AngularContainerComponent } from "./angular-container.component";
 import { MeanModule } from './mean-container/mean.module';
+import { AuthentificationJwtModule } from './authentification-jwt-container/athentification.module';
 
 
 
@@ -44,6 +45,7 @@ import { MeanModule } from './mean-container/mean.module';
     TestsModule,
     FlexLayoutCoursModule,
     MeanModule,
+    AuthentificationJwtModule,
     AngularRoutingModule
   ],
   providers: []

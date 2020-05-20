@@ -115,6 +115,20 @@ import { MeanInstallationMongodbComponent } from './mean-container/mean-installa
 import { MeanInstallationAngularComponent } from './mean-container/mean-installation-angular/mean-installation-angular.component';
 import { MeanUtilisationAwsComponent } from './mean-container/mean-utilisation-aws/mean-utilisation-aws.component';
 import { MeanMiseProductionComponent } from './mean-container/mean-mise-production/mean-mise-production.component';
+import { AuthentificationJwtContainerComponent } from './authentification-jwt-container/authentification-jwt-container.component';
+import { AuthentificationJwtObjectifsComponent } from './authentification-jwt-container/authentification-jwt-objectifs/authentification-jwt-objectifs.component';
+import { AuthentificationJwtPreparationApplicationComponent } from './authentification-jwt-container/authentification-jwt-preparation-application/authentification-jwt-preparation-application.component';
+import { AuthentificationJwtTopbarRoutingComponent } from './authentification-jwt-container/authentification-jwt-topbar-routing/authentification-jwt-topbar-routing.component';
+import { AuthentificationJwtSigninSignupComponent } from './authentification-jwt-container/authentification-jwt-signin-signup/authentification-jwt-signin-signup.component';
+import { AuthentificationJwtServiceAuthComponent } from './authentification-jwt-container/authentification-jwt-service-auth/authentification-jwt-service-auth.component';
+import { AuthentificationJwtMethodeSigninComponent } from './authentification-jwt-container/authentification-jwt-methode-signin/authentification-jwt-methode-signin.component';
+import { AuthentificationJwtCreationRouteExpressComponent } from './authentification-jwt-container/authentification-jwt-creation-route-express/authentification-jwt-creation-route-express.component';
+import { AuthentificationJwtCreationTokenComponent } from './authentification-jwt-container/authentification-jwt-creation-token/authentification-jwt-creation-token.component';
+import { AuthentificationJwtDeconnexionUtilisateurComponent } from './authentification-jwt-container/authentification-jwt-deconnexion-utilisateur/authentification-jwt-deconnexion-utilisateur.component';
+import { AuthentificationJwtCreationPageProfilComponent } from './authentification-jwt-container/authentification-jwt-creation-page-profil/authentification-jwt-creation-page-profil.component';
+import { AuthentificationJwtDetailsProfilComponent } from './authentification-jwt-container/authentification-jwt-details-profil/authentification-jwt-details-profil.component';
+import { AuthentificationJwtCreationIntercepteurComponent } from './authentification-jwt-container/authentification-jwt-creation-intercepteur/authentification-jwt-creation-intercepteur.component';
+import { AuthentificationJwtGestionExpirationTokenComponent } from './authentification-jwt-container/authentification-jwt-gestion-expiration-token/authentification-jwt-gestion-expiration-token.component';
 
 const routes: Route[] = [
   {
@@ -199,6 +213,23 @@ const routes: Route[] = [
           { path: "Installation-Angular" , component: MeanInstallationAngularComponent },
           { path: "Utilisation-Aws" , component: MeanUtilisationAwsComponent },
           { path: "Mise-en-production" , component: MeanMiseProductionComponent },
+        ]
+      },
+      {
+        path: "AuthentificationJwt" , component: AuthentificationJwtContainerComponent , children: [
+          { path: "Objectifs" , component: AuthentificationJwtObjectifsComponent },
+          { path: "Preparation-application" , component: AuthentificationJwtPreparationApplicationComponent },
+          { path: "Topbar-routing" , component: AuthentificationJwtTopbarRoutingComponent },
+          { path: "Signin-signup" , component: AuthentificationJwtSigninSignupComponent },
+          { path: "Service" , component: AuthentificationJwtServiceAuthComponent },
+          { path: "Methode-signin" , component: AuthentificationJwtMethodeSigninComponent },
+          { path: "Creation-route-express" , component: AuthentificationJwtCreationRouteExpressComponent },
+          { path: "Creation-token-express" , component: AuthentificationJwtCreationTokenComponent },
+          { path: "Deconnexion" , component: AuthentificationJwtDeconnexionUtilisateurComponent },
+          { path: "Creation-page-profil" , component: AuthentificationJwtCreationPageProfilComponent },
+          { path: "Details-profil" , component: AuthentificationJwtDetailsProfilComponent },
+          { path: "Creation-intercepteur" , component: AuthentificationJwtCreationIntercepteurComponent },
+          { path: "Gestion-expiration-token" , component: AuthentificationJwtGestionExpirationTokenComponent },
         ]
       },
       {
