@@ -20,3 +20,6 @@ a.back-to-top {
 .codeString {
   color:rgb(102, 153, 0);
 }
+.codeRegex {
+  color:orange;
+}
