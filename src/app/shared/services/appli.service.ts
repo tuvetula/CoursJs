@@ -10,14 +10,13 @@ export class AppliService {
   public currentAppliMenu: BehaviorSubject<string> = new BehaviorSubject(null);
   public appliMenuSelectSection: Subject<AppliMenuModel> = new Subject();
   public title: BehaviorSubject<string> = new BehaviorSubject(null);
-  
 
   constructor(
     private angularService: AngularService,
     private javascriptService: JavascriptService
   ) {
     this.appliMenu = [
-      { name: "Accueil", url: "/", menu: null , darkTheme: false },
+      { name: "Accueil", url: "/", menu: null, darkTheme: false },
       {
         name: "Angular",
         url: "Angular",
@@ -32,13 +31,13 @@ export class AppliService {
       },
     ];
     this.currentAppliMenu.subscribe((currentAppliMenu) => {
-        this.appliMenuSelectSection.next(this.getAppliMenu(currentAppliMenu));
-      });
+      this.appliMenuSelectSection.next(this.getAppliMenu(currentAppliMenu));
+    });
   }
 
   getAppliMenu(name: string): AppliMenuModel {
     let menu: AppliMenuModel;
-    if(name){
+    if (name) {
       this.appliMenu.forEach((element) => {
         if (element.name === name) {
           menu = element;

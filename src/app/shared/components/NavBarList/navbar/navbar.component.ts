@@ -11,6 +11,8 @@ import {
   animate,
   state,
 } from "@angular/animations";
+import { UserStatueModel } from "src/app/shared/models/userStatue.model";
+import { AuthentificationService } from "src/app/shared/services/authentification.service";
 
 @Component({
   selector: "app-navbar",
@@ -55,9 +57,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private titlePageSubscription: Subscription;
   public sectionMenuItemSelected: string = "";
 
+  public userStatue: UserStatueModel;
+  public userStatueSubscription: Subscription;
+
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService
+    private listMenuLeftService: ListMenuLeftService,
+    private authentificationService: AuthentificationService
   ) {}
 
   ngOnInit(): void {
@@ -80,6 +86,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.sectionMenuItemSelected = "";
       }
     });
+    //On souscrit au userStatue
+    this.userStatueSubscription = this.authentificationService.userBehaviourSubject.subscribe(
+      (value) => (this.userStatue = value)
+    );
+  }
+  //Déconnexion
+  public logout() {
+    this.authentificationService.logout();
   }
 
   //Clique sur navbar AppliMenu (version lg)
@@ -117,5 +131,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.currentAppliMenuSelectedSubscription.unsubscribe();
     this.titlePageSubscription.unsubscribe();
+    this.userStatueSubscription.unsubscribe();
   }
 }

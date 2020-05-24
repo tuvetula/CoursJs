@@ -1,12 +1,13 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AngularModule } from "./angular-container/angular.module";
 import { JavascriptModule } from './javascript-container/javascript.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from "./app.component";
 import { HomepageComponent } from "./homepage/homepage.component";
@@ -20,6 +21,13 @@ import { AngularService } from "./shared/services/Angular/angular.service";
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthentificationService } from './shared/services/authentification.service';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { SignupComponent } from './shared/components/signup/signup.component';
+import { SigninComponent } from './shared/components/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -27,18 +35,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomepageComponent,
     NavbarComponent,
     PageNotFound404Component,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularModule,
     JavascriptModule,
     AppRoutingModule,
   ],
   providers: [
+    AuthentificationService,
+    AngularFireAuth,
     ListMenuLeftService,
     AppliService,
     AngularService,

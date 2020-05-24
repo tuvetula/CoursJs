@@ -129,11 +129,12 @@ import { AuthentificationJwtCreationPageProfilComponent } from './authentificati
 import { AuthentificationJwtDetailsProfilComponent } from './authentification-jwt-container/authentification-jwt-details-profil/authentification-jwt-details-profil.component';
 import { AuthentificationJwtCreationIntercepteurComponent } from './authentification-jwt-container/authentification-jwt-creation-intercepteur/authentification-jwt-creation-intercepteur.component';
 import { AuthentificationJwtGestionExpirationTokenComponent } from './authentification-jwt-container/authentification-jwt-gestion-expiration-token/authentification-jwt-gestion-expiration-token.component';
+import { AuthGuard } from '../shared/guard/auth.guard';
 
 const routes: Route[] = [
   {
     path: "Angular",
-    component: AngularContainerComponent,
+    component: AngularContainerComponent, canActivate: [AuthGuard],
     children: [
       {
         path: "Composants",
