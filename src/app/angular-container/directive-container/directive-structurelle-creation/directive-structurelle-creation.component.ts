@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/Angular/authService.service';
+import { AuthDirectiveService } from 'src/app/shared/services/Angular/auth-directive.service';
 
 @Component({
   selector: 'app-directive-structurelle-creation',
@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/shared/services/Angular/authService.service
 })
 export class DirectiveStructurelleCreationComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthDirectiveService) { }
 
   ngOnInit(): void {
   }

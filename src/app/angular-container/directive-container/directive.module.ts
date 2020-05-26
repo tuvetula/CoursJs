@@ -19,7 +19,7 @@ import { SurlignerLiaisonDirective } from "src/app/shared/directives/Angular/dir
 import { SurlignerLiaison1Directive } from "src/app/shared/directives/Angular/directiveModule/surlignageLiaison1.directive";
 import { NgIfCustomDirective } from "src/app/shared/directives/Angular/directiveModule/ngIfCustom.directive";
 import { IfRoleDirective } from "src/app/shared/directives/Angular/directiveModule/ifRole.directive";
-import { AuthService } from "src/app/shared/services/Angular/authService.service";
+import { AuthDirectiveService } from "src/app/shared/services/Angular/auth-directive.service";
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
 
 @NgModule({
@@ -43,6 +43,6 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
     IfRoleDirective,
   ],
   imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule],
-  providers: [AuthService],
+  providers: [AuthDirectiveService],
 })
 export class DirectiveModule {}

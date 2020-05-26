@@ -1,19 +1,17 @@
 import { Directive, Input, TemplateRef, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
 import { tap } from "rxjs/operators";
-import { AuthService } from 'src/app/shared/services/Angular/authService.service';
+import { AuthDirectiveService } from 'src/app/shared/services/Angular/auth-directive.service';
 import { Subscription } from 'rxjs';
 
 @Directive({selector: '[ifRole]'})
 
 export class IfRoleDirective implements OnInit, OnDestroy {
-  
   private subscription: Subscription;
-  
   @Input("ifRole") role : string;
 
   constructor( private templateRef : TemplateRef<any>,
                private viewContainer : ViewContainerRef,
-               private authService : AuthService ) {
+               private authService : AuthDirectiveService ) {
   }
 
   ngOnInit() {
@@ -31,3 +29,4 @@ export class IfRoleDirective implements OnInit, OnDestroy {
   }
   
 }
+
