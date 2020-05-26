@@ -15,5 +15,4 @@ export class NgContentComponent implements OnInit {
       "Lenny","Barbara","Roxane","Rundee","Tuvetula"
     ];
   }
-
 }
