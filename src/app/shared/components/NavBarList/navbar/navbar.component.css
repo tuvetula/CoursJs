@@ -12,14 +12,18 @@
   cursor: pointer;
 
 }
-.navbarDark a{
+.navbarDark a , .navbarDark span{
   color:whitesmoke;
 }
 
-.navbarLight a {
+
+.navbarLight a , .navbarLight span{
   color: black;
 }
 
+.navbarDark span , .navbarLight span {
+  font-size: small;
+}
 .active {
   font-weight: bold;
 }

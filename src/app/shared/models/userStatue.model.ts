@@ -1,3 +1,5 @@
 export interface UserStatueModel {
-  isAuthenticated: boolean;
+  isAuthenticated: boolean,
+  uid: string,
+  displayName: string
 }

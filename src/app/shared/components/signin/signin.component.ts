@@ -24,12 +24,15 @@ export class SigninComponent implements OnInit {
     });
   }
 
-  public signin() {
+  public async signin() {
     if (this.signinForm.valid) {
-      this.authentificationService.signIn(this.signinForm.value).then(() => {
+      try {
+        await this.authentificationService.signIn(this.signinForm.value);
         document.getElementById("closeModalSignin").click();
         this.signinError = null;
-      }).catch((err) => this.signinError = err);
+      } catch (error) {
+        this.signinError = error.message;
+      }
     } else {
       this.signinError = "Erreur !!!";
     }
