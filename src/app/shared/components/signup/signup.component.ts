@@ -14,12 +14,12 @@ export class SignupComponent implements OnInit {
   public signupForm: FormGroup;
   public signupError: string;
   public showSignupForm: boolean;
-
+  
   constructor(
     private fb: FormBuilder,
     private authentificationService: AuthentificationService,
     private userCrudService: UserCrudService,
-    private stringFunctions: StringFunctions
+    private stringFunctions: StringFunctions,
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +34,11 @@ export class SignupComponent implements OnInit {
     });
     this.showSignupForm = true;
   }
+
+  public signupFormReset(): void{
+    this.signupForm.reset();
+  }
+
   public async signUp(): Promise<void> {
     if (
       this.signupForm.valid &&

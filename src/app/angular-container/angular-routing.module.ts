@@ -134,7 +134,7 @@ import { AuthGuard } from '../shared/guard/auth.guard';
 const routes: Route[] = [
   {
     path: "Angular",
-    component: AngularContainerComponent, canActivate: [AuthGuard],
+    component: AngularContainerComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard],
     children: [
       {
         path: "Composants",

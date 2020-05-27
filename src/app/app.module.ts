@@ -28,6 +28,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { SignupComponent } from './shared/components/signup/signup.component';
 import { SigninComponent } from './shared/components/signin/signin.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { SigninComponent } from './shared/components/signin/signin.component';
   ],
   providers: [
     AuthentificationService,
+    AuthGuard,
     AngularFireAuth,
     ListMenuLeftService,
     AppliService,

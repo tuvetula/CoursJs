@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthentificationService } from "../../services/authentification.service";
-import * as $ from "jquery";
+import { UserStatueModel } from '../../models/userStatue.model';
 
 @Component({
   selector: "app-signin",
@@ -11,6 +11,8 @@ import * as $ from "jquery";
 export class SigninComponent implements OnInit {
   public signinForm: FormGroup;
   public signinError: string;
+  public showSigninForm: boolean;
+  @Input() userStatue: UserStatueModel;
 
   constructor(
     private fb: FormBuilder,
@@ -22,14 +24,26 @@ export class SigninComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(8)]],
     });
+    this.showSigninForm = true;
   }
-
+  public signinFormReset(): void{
+    this.signinForm.reset();
+  }
+  
   public async signin() {
     if (this.signinForm.valid) {
       try {
         await this.authentificationService.signIn(this.signinForm.value);
-        document.getElementById("closeModalSignin").click();
-        this.signinError = null;
+        this.showSigninForm = false;
+        setTimeout(() => {
+          const buttonCloseModal = document.getElementById("closeModalSignin");
+          if(buttonCloseModal){
+            buttonCloseModal.click();
+          }
+          this.signinError = null;
+          this.showSigninForm = true;
+          this.signinFormReset();
+        },3000);
       } catch (error) {
         this.signinError = error.message;
       }

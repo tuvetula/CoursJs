@@ -85,7 +85,6 @@ import { LocationMethodesComponent } from "./location-history-container/location
 import { LocationWebApiHistoryComponent } from "./location-history-container/location-web-api-history/location-web-api-history.component";
 import { LocationStateHistoryComponent } from "./location-history-container/location-state-history/location-state-history.component";
 import { ObjetsContainerComponent } from "./objets-container/objets-container.component";
-import { ObservablesIntroductionComponent } from "../angular-container/observables-container/observables-introduction/observables-introduction.component";
 import { ObjetsIntroductionComponent } from "./objets-container/objets-introduction/objets-introduction.component";
 import { ObjetsProprietesComponent } from "./objets-container/objets-proprietes/objets-proprietes.component";
 import { ObjetsRaccourcisSyntaxiquesComponent } from "./objets-container/objets-raccourcis-syntaxiques/objets-raccourcis-syntaxiques.component";
@@ -169,7 +168,7 @@ import { AuthGuard } from '../shared/guard/auth.guard';
 const routes: Route[] = [
   {
     path: "Javascript",
-    component: JavascriptContainerComponent, canActivate: [AuthGuard] ,
+    component: JavascriptContainerComponent, canActivate: [AuthGuard] , canActivateChild: [AuthGuard] ,
     children: [
       {
         path: "Bases",
