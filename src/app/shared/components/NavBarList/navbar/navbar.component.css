@@ -16,7 +16,6 @@
   color:whitesmoke;
 }
 
-
 .navbarLight a , .navbarLight span{
   color: black;
 }
@@ -24,6 +23,7 @@
 .navbarDark span , .navbarLight span {
   font-size: small;
 }
+
 .active {
   font-weight: bold;
 }
@@ -32,3 +32,18 @@
   display: flex;
 }
 
+#badgeMonCompte {
+  max-height: 30px;
+}
+
+/* Navbar Mobile */
+#navbarMobile {
+  height: 40px;
+}
+
+.style80{
+  height: 80%;
+}
+.style100 {
+  height: 100%;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppliService } from '../shared/services/appli.service';
+import { ThemesService } from '../shared/services/Themes/themes.service.ts.service';
 
 @Component({
   selector: "app-homepage",
@@ -10,7 +11,8 @@ export class HomepageComponent implements OnInit {
   public nameSection: string = "Accueil";
 
   constructor(
-    private appliService: AppliService) {}
+    private appliService: AppliService,
+  ) {}
 
   ngOnInit(): void {
      //On paramètre la section en cours

@@ -1,0 +1,12 @@
+@import '../../../../../styles.css';
+
+.list-group-item.active {
+    background-color: var(--listMenuLeftServiceBackgroundColorActive);
+    color: #FFFFFF;
+}
+.list-group-item{
+    background-color: var(--listMenuLeftServiceBackgroundColor);
+    color: var(--listMenuLeftServiceColor);
+    border-color: var(--listMenuLeftServiceBorderColor);
+}
+

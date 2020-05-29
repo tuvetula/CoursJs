@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
-import { AuthFormModel } from "../models/authFormValues.model";
+import { AuthFormModel } from "../models/Forms/authFormValues.model";
 import { UserStatueModel } from "../models/userStatue.model";
 import { BehaviorSubject } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -69,9 +69,9 @@ export class AuthentificationService {
     }
   }
 
-  public async logout() {
+  public async logout(): Promise<void> {
     try {
-      await this.afAuth.signOut();
+      return await this.afAuth.signOut();
     } catch (error) {
       throw new Error(error.message);
     }

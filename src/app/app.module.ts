@@ -29,6 +29,8 @@ import { environment } from 'src/environments/environment';
 import { SignupComponent } from './shared/components/signup/signup.component';
 import { SigninComponent } from './shared/components/signin/signin.component';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { ThemesService } from './shared/services/Themes/themes.service.ts.service';
+import { MyAccountModule } from './my-account-container/my-account.module';
 
 @NgModule({
   declarations: [
@@ -52,12 +54,14 @@ import { AuthGuard } from './shared/guard/auth.guard';
     AngularFirestoreModule,
     AngularModule,
     JavascriptModule,
+    MyAccountModule,
     AppRoutingModule,
   ],
   providers: [
     AuthentificationService,
     AuthGuard,
     AngularFireAuth,
+    ThemesService,
     ListMenuLeftService,
     AppliService,
     AngularService,

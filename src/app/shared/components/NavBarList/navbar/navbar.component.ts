@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { Subscription } from "rxjs";
+import { Subscription, pipe } from "rxjs";
 import { AppliService } from "src/app/shared/services/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/appliMenu.model";
 import { MenuModel } from "src/app/shared/models/menu.model";
@@ -13,6 +13,8 @@ import {
 } from "@angular/animations";
 import { UserStatueModel } from "src/app/shared/models/userStatue.model";
 import { AuthentificationService } from "src/app/shared/services/authentification.service";
+import { ThemesService } from 'src/app/shared/services/Themes/themes.service.ts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-navbar",
@@ -59,11 +61,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public userStatue: UserStatueModel;
   public userStatueSubscription: Subscription;
+  public nonAppliThemeNameSubscription: Subscription;
+  public nonActiveAppliThemeName: string;
 
   constructor(
+    private router: Router,
     private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService,
-    private authentificationService: AuthentificationService
+    private authentificationService: AuthentificationService,
+    private themesService: ThemesService
   ) {}
 
   ngOnInit(): void {
@@ -90,10 +96,22 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userStatueSubscription = this.authentificationService.userBehaviourSubject.subscribe(
       (value) => (this.userStatue = value)
     );
+    //On souscrit au nom du thème qui n'est pas actif pour l'afficher dans la modal myAccount
+    this.nonAppliThemeNameSubscription = this.themesService.nonActiveThemeName.subscribe(
+      value => {
+        console.log(value);
+        this.nonActiveAppliThemeName = value
+      }
+    )
+  }
+  // Changer appliTheme (themeDark ou ThemeLight)
+  public changeAppliTheme(){
+    this.themesService.changeTheme(this.nonActiveAppliThemeName);
   }
   //Déconnexion
   public logout() {
-    this.authentificationService.logout();
+    this.authentificationService.logout()
+    .then(() => this.router.navigate(['/']));
   }
 
   //Clique sur navbar AppliMenu (version lg)
@@ -102,7 +120,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.appliService.title.next(name);
   }
 
-  //Clique sur le bouton de choix de l'appliMenu (Version mobile)(bouton en haut à gauche)
+  //Clique sur le burgerMenu de choix de l'appliMenu (Version mobile)(bouton en haut à gauche)
   public onAppliMenuButtonClick(): void {
     this.isAppliMenuDisplay = !this.isAppliMenuDisplay;
     if (this.isSectionMenuDisplay) {
@@ -132,5 +150,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.currentAppliMenuSelectedSubscription.unsubscribe();
     this.titlePageSubscription.unsubscribe();
     this.userStatueSubscription.unsubscribe();
+    this.nonAppliThemeNameSubscription.unsubscribe();
   }
 }
