@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CookiesService } from 'src/app/shared/services/Javascript/cookie.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
+import { CookiesService } from 'src/app/shared/services/Menus/Javascript/cookie.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
 
 @Component({
   selector: 'app-cookie-container',

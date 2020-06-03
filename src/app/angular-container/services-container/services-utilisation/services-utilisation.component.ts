@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PanierService } from 'src/app/shared/services/Angular/panier.service';
+import { PanierService } from 'src/app/shared/services/Menus/Angular/panier.service';
 
 @Component({
   selector: 'app-services-utilisation',

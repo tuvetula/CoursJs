@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
-import { AppliService } from "../../services/appli.service";
+import { AppliService } from "../../services/Menus/appli.service";
 
 @Component({
   selector: "app-title-page",

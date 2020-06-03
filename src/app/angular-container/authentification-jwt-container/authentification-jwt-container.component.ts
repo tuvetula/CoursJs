@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthentificationJwtService } from 'src/app/shared/services/Angular/authentification.jwt.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
+import { AuthentificationJwtService } from 'src/app/shared/services/Menus/Angular/authentification.jwt.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
 
 @Component({
   selector: 'app-authentification-jwt-container',

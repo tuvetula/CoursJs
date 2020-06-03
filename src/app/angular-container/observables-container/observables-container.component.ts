@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ObservableService } from '../../shared/services/Angular/observable.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AngularService } from 'src/app/shared/services/Angular/angular.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ObservableService } from '../../shared/services/Menus/Angular/observable.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { AngularService } from 'src/app/shared/services/Menus/Angular/angular.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-observables-container',

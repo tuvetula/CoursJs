@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { MenuModel } from "../../models/menu.model";
+import { MenuModel } from "../../../models/menu.model";
 
 @Injectable()
 export class AngularService {

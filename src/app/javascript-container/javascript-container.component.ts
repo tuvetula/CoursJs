@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked, ChangeDetectorRef } from "@angular/core";
-import { AppliService } from "../shared/services/appli.service";
-import { ListMenuLeftService } from '../shared/services/list-menu-left.service';
-import { JavascriptService } from '../shared/services/Javascript/javascript.service';
+import { AppliService } from "../shared/services/Menus/appli.service";
+import { ListMenuLeftService } from '../shared/services/Menus/list-menu-left.service';
+import { JavascriptService } from '../shared/services/Menus/Javascript/javascript.service';
 import { MenuModel } from '../shared/models/menu.model';
-import { BasesService } from '../shared/services/Javascript/bases.service';
-import { ConditionsBouclesService } from '../shared/services/Javascript/conditions-boucles.service';
+import { BasesService } from '../shared/services/Menus/Javascript/bases.service';
+import { ConditionsBouclesService } from '../shared/services/Menus/Javascript/conditions-boucles.service';
 
 @Component({
   selector: "app-javascript-container",

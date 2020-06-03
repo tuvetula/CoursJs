@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { Subscription, pipe } from "rxjs";
-import { AppliService } from "src/app/shared/services/appli.service";
+import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { Subscription } from "rxjs";
+import { AppliService } from "src/app/shared/services/Menus/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/appliMenu.model";
 import { MenuModel } from "src/app/shared/models/menu.model";
 import {
@@ -11,10 +11,12 @@ import {
   animate,
   state,
 } from "@angular/animations";
-import { UserStatueModel } from "src/app/shared/models/userStatue.model";
-import { AuthentificationService } from "src/app/shared/services/authentification.service";
-import { ThemesService } from 'src/app/shared/services/Themes/themes.service.ts.service';
+import { UserStatueModel } from "src/app/shared/models/User/userStatue.model";
+import { AuthentificationService } from "src/app/shared/services/User/authentification.service";
 import { Router } from '@angular/router';
+import { ThemesService } from 'src/app/shared/services/Themes/themes.service.ts.service';
+import { CurrentUserModel } from 'src/app/shared/models/User/current-user.model';
+import { CurrentUserService } from 'src/app/shared/services/User/current-user.service';
 
 @Component({
   selector: "app-navbar",
@@ -46,13 +48,13 @@ import { Router } from '@angular/router';
   ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  public isNavbarThemeIsDark: boolean;
-  public currentStateSectionNavbar: string = "hide";
-
   public appliMenu: AppliMenuModel[];
   public isAppliMenuDisplay: boolean = false;
   private currentAppliMenuSelectedSubscription: Subscription;
   public appliMenuItemSelected: string;
+  public isNavbarThemeIsDark: boolean;
+  public currentStateSectionNavbar: string = "hide";
+  public classToAdd: string;
 
   public sectionMenu: MenuModel[];
   public isSectionMenuDisplay: boolean = false;
@@ -61,15 +63,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public userStatue: UserStatueModel;
   public userStatueSubscription: Subscription;
-  public nonAppliThemeNameSubscription: Subscription;
-  public nonActiveAppliThemeName: string;
+
+  public currentUserSubscription: Subscription;
+  public currentUser: CurrentUserModel;
+
+  public profilPictureUrl: string;
 
   constructor(
     private router: Router,
     private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService,
     private authentificationService: AuthentificationService,
-    private themesService: ThemesService
+    private currentUserService: CurrentUserService
   ) {}
 
   ngOnInit(): void {
@@ -81,10 +86,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.appliMenuItemSelected = appliMenu.name;
         this.isNavbarThemeIsDark = appliMenu.darkTheme;
         this.sectionMenu = appliMenu.menu;
+        this.classToAdd = appliMenu.classToAdd;
         this.currentStateSectionNavbar = this.sectionMenu ? "show" : "hide";
       }
     );
-    //Utile pour la version lg
+    //Utile pour la version lg (Titre)
     this.titlePageSubscription = this.appliService.title.subscribe((title) => {
       if (title !== this.appliMenuItemSelected) {
         this.sectionMenuItemSelected = title;
@@ -96,17 +102,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userStatueSubscription = this.authentificationService.userBehaviourSubject.subscribe(
       (value) => (this.userStatue = value)
     );
-    //On souscrit au nom du thème qui n'est pas actif pour l'afficher dans la modal myAccount
-    this.nonAppliThemeNameSubscription = this.themesService.nonActiveThemeName.subscribe(
-      value => {
-        console.log(value);
-        this.nonActiveAppliThemeName = value
+    //On souscrit au currentUser
+    this.currentUserSubscription = this.currentUserService.currentUser.subscribe(
+      currentUser => {
+        this.currentUser = currentUser;
+        this.profilPictureUrl = this.currentUser && this.currentUser.user.profilPictureUrl 
+          ? this.currentUser.user.profilPictureUrl
+          : "../../../../../assets/Pictures/Logo/AccountBadge48.png";
       }
     )
-  }
-  // Changer appliTheme (themeDark ou ThemeLight)
-  public changeAppliTheme(){
-    this.themesService.changeTheme(this.nonActiveAppliThemeName);
   }
   //Déconnexion
   public logout() {
@@ -150,6 +154,5 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.currentAppliMenuSelectedSubscription.unsubscribe();
     this.titlePageSubscription.unsubscribe();
     this.userStatueSubscription.unsubscribe();
-    this.nonAppliThemeNameSubscription.unsubscribe();
   }
 }

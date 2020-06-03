@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ReseauService } from 'src/app/shared/services/Javascript/reseau.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
+import { ReseauService } from 'src/app/shared/services/Menus/Javascript/reseau.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
 
 @Component({
   selector: 'app-reseau-container',

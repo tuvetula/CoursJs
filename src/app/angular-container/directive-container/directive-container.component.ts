@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DirectiveService } from "src/app/shared/services/Angular/directive.service";
-import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { AppliService } from "src/app/shared/services/appli.service";
+import { DirectiveService } from "src/app/shared/services/Menus/Angular/directive.service";
+import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { AppliService } from "src/app/shared/services/Menus/appli.service";
 import { Router } from "@angular/router";
 
 @Component({

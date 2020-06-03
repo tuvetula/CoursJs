@@ -5,22 +5,22 @@ import {
   AfterViewChecked,
   ChangeDetectorRef,
 } from "@angular/core";
-import { AngularService } from "../shared/services/Angular/angular.service";
-import { ListMenuLeftService } from "../shared/services/list-menu-left.service";
-import { ComposantService } from "../shared/services/Angular/composant.service";
-import { DirectiveService } from "../shared/services/Angular/directive.service";
-import { ObservableService } from "../shared/services/Angular/observable.service";
-import { ServicesService } from "../shared/services/Angular/services.service";
-import { RoutingService } from "../shared/services/Angular/routing.service";
-import { FormulairesService } from "../shared/services/Angular/formulaires.service";
-import { PipeService } from "../shared/services/Angular/pipe.service";
-import { RequetesHttpService } from "../shared/services/Angular/requetes-http.service";
-import { ModuleService } from "../shared/services/Angular/module.service";
-import { AnimationsService } from "../shared/services/Angular/animations.service";
-import { TestsService } from "../shared/services/Angular/tests.service";
-import { AppliService } from "../shared/services/appli.service";
+import { AngularService } from "../shared/services/Menus/Angular/angular.service";
+import { ListMenuLeftService } from "../shared/services/Menus/list-menu-left.service";
+import { ComposantService } from "../shared/services/Menus/Angular/composant.service";
+import { DirectiveService } from "../shared/services/Menus/Angular/directive.service";
+import { ObservableService } from "../shared/services/Menus/Angular/observable.service";
+import { ServicesService } from "../shared/services/Menus/Angular/services.service";
+import { RoutingService } from "../shared/services/Menus/Angular/routing.service";
+import { FormulairesService } from "../shared/services/Menus/Angular/formulaires.service";
+import { PipeService } from "../shared/services/Menus/Angular/pipe.service";
+import { RequetesHttpService } from "../shared/services/Menus/Angular/requetes-http.service";
+import { ModuleService } from "../shared/services/Menus/Angular/module.service";
+import { AnimationsService } from "../shared/services/Menus/Angular/animations.service";
+import { TestsService } from "../shared/services/Menus/Angular/tests.service";
+import { AppliService } from "../shared/services/Menus/appli.service";
 import { MenuModel } from '../shared/models/menu.model';
-import { FlexLayoutService } from '../shared/services/Angular/flex-layout.service';
+import { FlexLayoutService } from '../shared/services/Menus/Angular/flex-layout.service';
 
 @Component({
   selector: "app-angular-container",
@@ -60,7 +60,6 @@ export class AngularContainerComponent
     this.modifyAngularMenuUrl();
     //Configuration title
     this.appliService.title.next(this.nameSection);
-    
   }
 
   ngAfterViewChecked(): void {

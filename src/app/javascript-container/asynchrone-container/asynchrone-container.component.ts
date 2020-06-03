@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { AsynchroneService } from 'src/app/shared/services/Javascript/asynchrone.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { AsynchroneService } from 'src/app/shared/services/Menus/Javascript/asynchrone.service';
 
 @Component({
   selector: 'app-asynchrone-container',

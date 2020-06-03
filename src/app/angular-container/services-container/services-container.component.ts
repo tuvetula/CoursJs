@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ServicesService } from "src/app/shared/services/Angular/services.service";
-import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ServicesService } from "src/app/shared/services/Menus/Angular/services.service";
+import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: "app-services-container",

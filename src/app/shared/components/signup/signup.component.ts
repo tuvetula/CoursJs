@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthentificationService } from "../../services/authentification.service";
-import { UserCrudService } from "../../services/user-crud.service";
+import { AuthentificationService } from "../../services/User/authentification.service";
+import { UserCrudService } from "../../services/User/user-crud.service";
 import { StringFunctions } from '../../services/string-functions.service';
 
 @Component({

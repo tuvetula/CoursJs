@@ -1,6 +1,6 @@
 import { Directive, Input, TemplateRef, ViewContainerRef, OnInit, OnDestroy } from '@angular/core';
 import { tap } from "rxjs/operators";
-import { AuthDirectiveService } from 'src/app/shared/services/Angular/auth-directive.service';
+import { AuthDirectiveService } from 'src/app/shared/services/Menus/Angular/auth-directive.service';
 import { Subscription } from 'rxjs';
 
 @Directive({selector: '[ifRole]'})

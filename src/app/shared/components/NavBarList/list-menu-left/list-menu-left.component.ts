@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ListMenuLeftService } from "../../../services/list-menu-left.service";
+import { ListMenuLeftService } from "../../../services/Menus/list-menu-left.service";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 import {
@@ -63,7 +63,7 @@ export class ListMenuLeftComponent implements OnInit, OnDestroy {
             this.selectMenu = this.listMenu[menuMatchingIndex].name;
             //sinon on redirige vers le premier chapitre
           } else {
-            this.selectMenu = "Sélectionner un chapitre"
+            this.selectMenu = "Sélectionner une section"
             this.currentStateMenu = "show";
           }
         }

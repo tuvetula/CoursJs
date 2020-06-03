@@ -2,7 +2,7 @@
 
 .list-group-item.active {
     background-color: var(--listMenuLeftServiceBackgroundColorActive);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 .list-group-item{
     background-color: var(--listMenuLeftServiceBackgroundColor);

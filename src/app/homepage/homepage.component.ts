@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AppliService } from '../shared/services/appli.service';
+import { AppliService } from '../shared/services/Menus/appli.service';
 import { ThemesService } from '../shared/services/Themes/themes.service.ts.service';
 
 @Component({

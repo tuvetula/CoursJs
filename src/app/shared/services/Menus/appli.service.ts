@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Subject } from "rxjs";
-import { AppliMenuModel } from "../models/appliMenu.model";
+import { AppliMenuModel } from "../../models/appliMenu.model";
 import { AngularService } from "./Angular/angular.service";
 import { JavascriptService } from "./Javascript/javascript.service";
 
@@ -13,22 +13,51 @@ export class AppliService {
 
   constructor(
     private angularService: AngularService,
-    private javascriptService: JavascriptService
+    private javascriptService: JavascriptService,
   ) {
     this.appliMenu = [
-      { name: "Accueil", url: "/", menu: null, darkTheme: false },
+      { name: "Accueil",
+        url: "/",
+        classToAdd: "Accueil",
+        iconeUrl: "../../../../../assets/Pictures/Logo/home48.png",
+        menu: null,
+        darkTheme: false,
+        isOnNavbarLg: false,
+        isOnNavbarMobile: true,
+        showNonConnectedUser: true },
       {
         name: "Angular",
         url: "Angular",
+        classToAdd: "Angular",
+        iconeUrl: "../../../../../assets/Pictures/Logo/AngularPng.png",
         menu: this.angularService.angularMenu,
         darkTheme: true,
+        isOnNavbarLg: true,
+        isOnNavbarMobile: true,
+        showNonConnectedUser: false
       },
       {
         name: "Javascript",
         url: "Javascript",
+        classToAdd: "Javascript",
+        iconeUrl: "../../../../../assets/Pictures/Logo/JavascriptLogo.png",
         menu: this.javascriptService.javascriptMenu,
         darkTheme: false,
+        isOnNavbarLg: true,
+        isOnNavbarMobile: true,
+        showNonConnectedUser: false
       },
+      {
+        name: "Mon compte",
+        url: "MonCompte",
+        classToAdd: "MonCompte",
+        iconeUrl: "../../../../../assets/Pictures/Logo/AccountBadge48.png",
+        menu: null,
+        darkTheme: false,
+        isOnNavbarLg: false,
+        isOnNavbarMobile: false,
+        showNonConnectedUser: false
+      }
     ];
     this.currentAppliMenu.subscribe((currentAppliMenu) => {
       this.appliMenuSelectSection.next(this.getAppliMenu(currentAppliMenu));

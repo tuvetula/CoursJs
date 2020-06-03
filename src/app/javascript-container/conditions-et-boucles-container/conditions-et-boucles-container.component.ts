@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { ConditionsBouclesService } from 'src/app/shared/services/Javascript/conditions-boucles.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { ConditionsBouclesService } from 'src/app/shared/services/Menus/Javascript/conditions-boucles.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-conditions-et-boucles-container',

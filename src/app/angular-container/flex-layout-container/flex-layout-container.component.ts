@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { FlexLayoutService } from 'src/app/shared/services/Angular/flex-layout.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { FlexLayoutService } from 'src/app/shared/services/Menus/Angular/flex-layout.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-flex-layout-container',

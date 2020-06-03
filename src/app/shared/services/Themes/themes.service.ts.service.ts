@@ -9,7 +9,6 @@ export class ThemesService {
   private availableThemes: ThemesModel[] = [{name:"Theme Light" , class:"lightTheme"} , {name:"Theme Dark" , class:"darkTheme"}];
 
   constructor() {
-    console.log(document.querySelector("body"));
       const themeLocalStorage = localStorage.getItem('Theme');
       if(themeLocalStorage){
         if(themeLocalStorage === "darkTheme"){
@@ -31,7 +30,7 @@ export class ThemesService {
       }else{
         body.classList.add(newTheme.class);
       }
-      //On envoi le nom du theme non-actif au composant navbar pour modal account
+      //On envoi le nom du theme non-actif au composant
       if(this.activeTheme.name){
         this.nonActiveThemeName.next(this.activeTheme.name);
       } else {
@@ -68,8 +67,6 @@ export class ThemesService {
   }
 
   public changeTheme(newThemeName: string): void{
-    console.log('changeTheme: ' + newThemeName);
-    
     this.getAvailableThemes().filter(
       (value) => value.name === newThemeName
     ).map(el => this.setActiveTheme(el));

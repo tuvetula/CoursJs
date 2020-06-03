@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AnimationsService } from 'src/app/shared/services/Angular/animations.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { AnimationsService } from 'src/app/shared/services/Menus/Angular/animations.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-animations-container',

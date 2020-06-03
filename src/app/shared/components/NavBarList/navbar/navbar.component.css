@@ -1,11 +1,19 @@
-.Angular {
-  background-color: rgb(226, 50, 55);
-}
+/* Couleur navbar */
 .Accueil {
   background-color: rgb(208,208,208);
+  --menuBurgerColor: invert(0);
+}
+.Angular {
+  background-color: rgb(226, 50, 55);
+  --menuBurgerColor: invert(1);
 }
 .Javascript {
   background-color: rgb(240, 217, 29);
+  --menuBurgerColor: invert(0);
+}
+.MonCompte {
+  background-color: rgb(208,208,208);
+  --menuBurgerColor: invert(0);
 }
 
 .nav-link {
@@ -33,12 +41,22 @@
 }
 
 #badgeMonCompte {
-  max-height: 30px;
+  border-radius: 50%;
+  max-height: 35px;
 }
 
 /* Navbar Mobile */
 #navbarMobile {
-  height: 40px;
+  height: 50px;
+}
+#menuBurger {
+  filter: var(--menuBurgerColor);
+}
+#appliMenuMobile , #sectionMenuMobile {
+  z-index: 1;
+}
+.appliMenuItemMobile{
+  height: 50px;
 }
 
 .style80{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { MeanService } from 'src/app/shared/services/Angular/mean.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { MeanService } from 'src/app/shared/services/Menus/Angular/mean.service';
 
 @Component({
   selector: 'app-mean-container',

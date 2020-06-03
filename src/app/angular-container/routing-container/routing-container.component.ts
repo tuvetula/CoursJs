@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { RoutingService } from "src/app/shared/services/Angular/routing.service";
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { RoutingService } from "src/app/shared/services/Menus/Angular/routing.service";
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: "app-routing-container",

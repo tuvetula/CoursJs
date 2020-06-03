@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EvenementsService } from 'src/app/shared/services/Javascript/evenements.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { EvenementsService } from 'src/app/shared/services/Menus/Javascript/evenements.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-evenements-container',

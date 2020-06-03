@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationHistoryService } from 'src/app/shared/services/Javascript/location-history.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { LocationHistoryService } from 'src/app/shared/services/Menus/Javascript/location-history.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-location-history-container',

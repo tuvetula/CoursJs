@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CanvasService } from 'src/app/shared/services/Javascript/canvas.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
+import { CanvasService } from 'src/app/shared/services/Menus/Javascript/canvas.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
 
 @Component({
   selector: 'app-canvas-container',

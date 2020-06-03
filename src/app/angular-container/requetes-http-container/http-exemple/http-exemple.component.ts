@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpUserService } from "src/app/shared/services/Angular/http-user.service";
+import { HttpUserService } from "src/app/shared/services/Menus/Angular/http-user.service";
 import { HttpUserModel } from "src/app/shared/models/Angular/http-requete-user.model";
 import { HttpErrorResponse } from "@angular/common/http";
 import { retry } from "rxjs/operators";

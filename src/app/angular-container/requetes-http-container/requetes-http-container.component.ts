@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/list-menu-left.service";
-import { RequetesHttpService } from "src/app/shared/services/Angular/requetes-http.service";
-import { AngularService } from 'src/app/shared/services/Angular/angular.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
+import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { RequetesHttpService } from "src/app/shared/services/Menus/Angular/requetes-http.service";
+import { AngularService } from 'src/app/shared/services/Menus/Angular/angular.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: "app-requetes-http-container",

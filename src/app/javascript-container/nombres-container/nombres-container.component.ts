@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/list-menu-left.service';
-import { AppliService } from 'src/app/shared/services/appli.service';
-import { NombresService } from 'src/app/shared/services/Javascript/nombres.service'
+import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { AppliService } from 'src/app/shared/services/Menus/appli.service';
+import { NombresService } from 'src/app/shared/services/Menus/Javascript/nombres.service'
 
 @Component({
   selector: 'app-nombres-container',

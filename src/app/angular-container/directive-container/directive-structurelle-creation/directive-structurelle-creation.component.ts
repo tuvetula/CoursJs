@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthDirectiveService } from 'src/app/shared/services/Angular/auth-directive.service';
+import { AuthDirectiveService } from 'src/app/shared/services/Menus/Angular/auth-directive.service';
 
 @Component({
   selector: 'app-directive-structurelle-creation',
