@@ -9,6 +9,7 @@ import { CurrentUserModel } from "src/app/shared/models/User/current-user.model"
   styleUrls: ["./my-account-profil.component.css"],
 })
 export class MyAccountProfilComponent implements OnInit, OnDestroy {
+  public source: string = "myAccount";
   private currentUserSubscription: Subscription;
   public currentUser: CurrentUserModel;
   public profilPictureUrl: string;
@@ -19,11 +20,6 @@ export class MyAccountProfilComponent implements OnInit, OnDestroy {
     this.currentUserSubscription = this.currentUserService.currentUser.subscribe(
       (currentUser: CurrentUserModel) => {
         this.currentUser = currentUser;
-        if(this.currentUser){
-          this.profilPictureUrl = this.currentUser.user.profilPictureUrl
-            ? this.currentUser.user.profilPictureUrl
-            : "../../../assets/Pictures/Logo/AccountBadge48.png";
-        }
       }
     );
   }

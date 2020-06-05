@@ -11,6 +11,7 @@ import { TitlePageModule } from '../shared/modules/titlePage.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DatePipeModule } from '../shared/modules/date-pipe.module';
 import { ModifyAvatarFormModule } from '../shared/modules/modifyAvatar.module'
+import { ProfilPictureModule } from '../shared/modules/profilPicture.module';
 
 @NgModule({
     declarations:[
@@ -26,6 +27,7 @@ import { ModifyAvatarFormModule } from '../shared/modules/modifyAvatar.module'
         TitlePageModule,
         DatePipeModule,
         ModifyAvatarFormModule,
+        ProfilPictureModule,
         MyAccountRoutingModule],
     providers:[]
 })

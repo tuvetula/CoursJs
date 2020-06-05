@@ -73,7 +73,7 @@ export class AuthentificationService {
     }
   }
 
-  public async signIn(formValues: AuthFormModel): Promise<any> {
+  public async signIn(formValues: AuthFormModel): Promise<firebase.auth.UserCredential> {
     const email = formValues.email;
     const password = formValues.password;
     try {
@@ -96,7 +96,7 @@ export class AuthentificationService {
     return user ? true : false;
   }
 
-  public async getCurrentUser() {
+  public async getCurrentUser(): Promise<firebase.User> {
     try {
       return await this.afAuth.currentUser;
     } catch (error) {

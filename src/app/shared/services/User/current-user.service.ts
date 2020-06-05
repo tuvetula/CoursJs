@@ -1,13 +1,10 @@
 import { Injectable } from "@angular/core";
 import { CurrentUserModel } from "../../models/User/current-user.model";
-import { AuthentificationService } from "./authentification.service";
-import { BehaviorSubject, Subscription } from "rxjs";
-import { UserStatueModel } from "../../models/User/userStatue.model";
+import { BehaviorSubject } from "rxjs";
 import { UserCrudService } from "./user-crud.service";
 
 @Injectable()
 export class CurrentUserService {
-  private user: UserStatueModel;
   public currentUser = new BehaviorSubject<CurrentUserModel>(null);
 
   constructor(private userCrudService: UserCrudService) {}

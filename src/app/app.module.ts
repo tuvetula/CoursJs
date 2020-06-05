@@ -24,6 +24,7 @@ import { MyAccountService } from './shared/services/Menus/MyAccount/my-account.s
 import { UserCrudService } from './shared/services/User/user-crud.service';
 import { CurrentUserService } from './shared/services/User/current-user.service';
 import { ThemesService } from './shared/services/Themes/themes.service.ts.service';
+import { NgxImageCompressService } from '../../node_modules/ngx-image-compress';
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,7 +37,7 @@ import { SignupComponent } from './shared/components/signup/signup.component';
 import { SigninComponent } from './shared/components/signin/signin.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { ScrollUpButtonComponent } from './shared/components/scroll-up-button/scroll-up-button.component';
-import { ModifyAvatarFormComponent } from './shared/components/modify-avatar-form/modify-avatar-form.component';
+import { ProfilPictureModule } from './shared/modules/profilPicture.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { ModifyAvatarFormComponent } from './shared/components/modify-avatar-for
     PageNotFound404Component,
     SignupComponent,
     SigninComponent,
-    ScrollUpButtonComponent
+    ScrollUpButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +56,7 @@ import { ModifyAvatarFormComponent } from './shared/components/modify-avatar-for
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    ProfilPictureModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
@@ -69,6 +71,7 @@ import { ModifyAvatarFormComponent } from './shared/components/modify-avatar-for
     AuthentificationService,
     UserCrudService,
     CurrentUserService,
+    NgxImageCompressService,
     AuthGuard,
     AngularFireAuth,
     ThemesService,

@@ -48,6 +48,9 @@ import { CurrentUserService } from 'src/app/shared/services/User/current-user.se
   ],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  //export Input pour composant enfant profilPicture
+  public source: string = "navbar";
+  //AppliMenu
   public appliMenu: AppliMenuModel[];
   public isAppliMenuDisplay: boolean = false;
   private currentAppliMenuSelectedSubscription: Subscription;
@@ -64,17 +67,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public userStatue: UserStatueModel;
   public userStatueSubscription: Subscription;
 
-  public currentUserSubscription: Subscription;
-  public currentUser: CurrentUserModel;
-
-  public profilPictureUrl: string;
-
   constructor(
     private router: Router,
     private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService,
     private authentificationService: AuthentificationService,
-    private currentUserService: CurrentUserService
   ) {}
 
   ngOnInit(): void {
@@ -102,15 +99,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userStatueSubscription = this.authentificationService.userBehaviourSubject.subscribe(
       (value) => (this.userStatue = value)
     );
-    //On souscrit au currentUser
-    this.currentUserSubscription = this.currentUserService.currentUser.subscribe(
-      currentUser => {
-        this.currentUser = currentUser;
-        this.profilPictureUrl = this.currentUser && this.currentUser.user.profilPictureUrl 
-          ? this.currentUser.user.profilPictureUrl
-          : "../../../../../assets/Pictures/Logo/AccountBadge48.png";
-      }
-    )
   }
   //Déconnexion
   public logout() {
