@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./property-binding.component.css"]
 })
 export class PropertyBindingComponent implements OnInit {
-  public url: string = "../../assets/Pictures/AngularLogo.png";
+  public logoAngularUrl: string = "../../assets/Pictures/Logo/AngularPng.png";
 
   constructor() {}
 

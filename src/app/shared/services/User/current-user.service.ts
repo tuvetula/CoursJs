@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { CurrentUserModel } from "../../models/User/current-user.model";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { UserCrudService } from "./user-crud.service";
 
 @Injectable()
@@ -12,7 +12,7 @@ export class CurrentUserService {
   public configureCurrentUser(user: firebase.User): Promise<any> {
     return new Promise((resolve,reject) => {
       this.userCrudService.getOneUser(user).subscribe(
-        (userData) => {
+        (userData: firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>) => {
           const userDataFirestore = JSON.parse(JSON.stringify(userData.data()));
           this.currentUser.next({
             uid: user.uid,

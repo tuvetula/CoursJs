@@ -8,6 +8,11 @@ import { MyAccountParametresComponent } from "./my-account-parametres/my-account
 const routes: Route[] = [
   {
     path: "MonCompte",
+    redirectTo: "MonCompte/Profil",
+    pathMatch: "full"
+  },
+  {
+    path: "MonCompte",
     component: MyAccountContainerComponent,
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],

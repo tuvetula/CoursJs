@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
         CommonModule,
         FormsModule,
         RouterModule,
-        CodeFormatModule
+        CodeFormatModule,
+        FlexLayoutModule
     ],
     providers: [],
     exports: []

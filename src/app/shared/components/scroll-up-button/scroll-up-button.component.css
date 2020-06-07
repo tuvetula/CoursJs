@@ -1,0 +1,45 @@
+/* Bouton pour remonter en haut de page */
+a.back-to-top {
+  visibility: hidden;
+  width: 48px;
+  height: 48px;
+  text-indent: -9999px;
+  position: fixed;
+  z-index: 999;
+  right: 20px;
+  bottom: 20px;
+  background-image: url("../../../../assets/Pictures/Logo/up-arrow.png");
+  color: white;
+  filter: var(--logoUpArrowColor);
+}
+a.fadeIn {
+  animation: fadeIn 1s;
+  animation-fill-mode: forwards;
+}
+
+a.fadeOut {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

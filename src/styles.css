@@ -1,19 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-/* Bouton pour remonter en haut de page */
-a.back-to-top {
-  display: none;
-  width: 48px;
-  height: 48px;
-  text-indent: -9999px;
-  position: fixed;
-  z-index: 999;
-  right: 20px;
-  bottom: 20px;
-  background-image: url("./assets/Pictures/up-arrow.png");
-  color: white;
-  filter: var(--logoUpArrowColor);
-}
-
 /* Classes Themes */
 .darkTheme{
   background-color: #41474D;
@@ -28,6 +13,8 @@ a.back-to-top {
   --logoUpArrowColor: invert(1);
   --jumbotronBackground: rgb(223,223,223);
   --jumbotronColor: #41474D;
+  --listGroupItemBackgroundColor: #41474D;
+  --listGroupItemBorder: 1px solid rgb(223,223,223);
 }
 .lightTheme{
   background-color: #ffffff;
@@ -42,6 +29,8 @@ a.back-to-top {
   --logoUpArrowColor: invert(0);
   --jumbotronBackground: rgb(223,223,223);
   --jumbotronColor: #41474D;
+  --listGroupItemBackgroundColor: #ffffff;
+  --listGroupItemBorder: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 /* Classes pour extrait de code */
@@ -62,4 +51,8 @@ a.back-to-top {
 .jumbotron {
   background-color: var(--jumbotronBackground);
   color: var(--jumbotronColor);
+}
+.list-group-item {
+  background-color: var(--listGroupItemBackgroundColor);
+  border: var(--listGroupItemBorder);
 }

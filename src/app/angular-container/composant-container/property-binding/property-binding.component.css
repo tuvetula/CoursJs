@@ -1,0 +1,11 @@
+#logoAngularExemple {
+    height: 100px;
+    width: 100px;
+}
+
+@media (max-width:767px){
+    #logoAngularExemple {
+        height: 50px;
+        width: 50px;
+    }
+}

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AuthFormModel } from "../../models/Forms/authFormValues.model";
 import { UserStatueModel } from "../../models/User/userStatue.model";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { CurrentUserService } from "./current-user.service";
 import { UserCrudService } from "./user-crud.service";
 
@@ -23,7 +23,7 @@ export class AuthentificationService {
     "auth/network-request-failed":
       "Une erreur de réseau (telle qu'un dépassement de délai, une connexion interrompue ou un hôte injoignable) s'est produite.",
   };
-  constructor(
+  constructor(    
     private afAuth: AngularFireAuth,
     private currentUserService: CurrentUserService,
   ) {
@@ -96,14 +96,14 @@ export class AuthentificationService {
     return user ? true : false;
   }
 
-  public async getCurrentUser(): Promise<firebase.User> {
-    try {
-      return await this.afAuth.currentUser;
-    } catch (error) {
-      throw new Error(error.message);
-    }
+  public getCurrentUser(): Promise<firebase.User> {
+    return this.afAuth.currentUser;
   }
 
+  public getIdToken():Observable<string> {
+    return this.afAuth.idToken;
+  }
+  
   private setUserStatue(user?: firebase.User) {
     if (user) {
       this.userStatue = {

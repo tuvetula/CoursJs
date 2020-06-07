@@ -28,7 +28,5 @@ export class MyAccountContainerComponent implements OnInit {
     this.listMenuLeftService.listMenu.next(this.myAccountService.myAccountMenu);
     //Configuration title
     this.appliService.title.next(this.nameSection);
-    //On redirige vers Profil
-    this.router.navigate(['MonCompte/Profil']);
   }
 }
