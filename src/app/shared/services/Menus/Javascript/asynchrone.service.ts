@@ -6,13 +6,13 @@ export class AsynchroneService {
 
   constructor() {
     this.asynchroneMenu = [
-      {name:"Introduction à l'asynchrone et timers" , url: "Asynchrone/Introduction"},
-      {name:"Les promesses" , url: "Asynchrone/Promesses"},
-      {name:"Chainer les promesses" , url: "Asynchrone/Chainer-promesses"},
-      {name:"Les méthodes des promesses" , url: "Asynchrone/Methodes-promesses"},
-      {name:"Utilisation de polyfills avec Webpack" , url: "Asynchrone/Polyfills-webpack"},
-      {name:"Les fonctions asynchrones avec async/await" , url: "Asynchrone/Async-await"},
-      {name:"Event loop" , url: "Asynchrone/Event-loop"},
+      {name:"Introduction à l'asynchrone et timers" , url: "/Javascript/Asynchrone/Introduction"},
+      {name:"Les promesses" , url: "/Javascript/Asynchrone/Promesses"},
+      {name:"Chainer les promesses" , url: "/Javascript/Asynchrone/Chainer-promesses"},
+      {name:"Les méthodes des promesses" , url: "/Javascript/Asynchrone/Methodes-promesses"},
+      {name:"Utilisation de polyfills avec Webpack" , url: "/Javascript/Asynchrone/Polyfills-webpack"},
+      {name:"Les fonctions asynchrones avec async/await" , url: "/Javascript/Asynchrone/Async-await"},
+      {name:"Event loop" , url: "/Javascript/Asynchrone/Event-loop"},
     ];
    }
 }

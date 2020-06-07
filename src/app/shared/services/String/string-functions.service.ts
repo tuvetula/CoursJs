@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
 
-@Injectable({
-  providedIn: "root",
-})
-export class StringFunctions {
+@Injectable()
+export class StringFunctionsService {
   constructor() {}
 
   public capitalizeFirstLetter(data: string): string {

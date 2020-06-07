@@ -8,16 +8,16 @@ export class LocationHistoryService {
     this.locationHistoryMenu = [
       {
         name: "La Web Api location",
-        url: "LocationAndHistory/Web-api-location",
+        url: "/Javascript/LocationAndHistory/Web-api-location",
       },
       {
         name: "Les méthodes de l'objet location",
-        url: "LocationAndHistory/Methodes-location",
+        url: "/Javascript/LocationAndHistory/Methodes-location",
       },
-      { name: "La Web Api History", url: "LocationAndHistory/Web-api-history" },
+      { name: "La Web Api History", url: "/Javascript/LocationAndHistory/Web-api-history" },
       {
         name: "L'objet state d'history",
-        url: "LocationAndHistory/State-history",
+        url: "/Javascript/LocationAndHistory/State-history",
       },
     ];
   }

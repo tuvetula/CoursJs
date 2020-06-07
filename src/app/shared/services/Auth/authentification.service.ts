@@ -3,17 +3,13 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AuthFormModel } from "../../models/Forms/authFormValues.model";
 import { UserStatueModel } from "../../models/User/userStatue.model";
 import { BehaviorSubject, Observable } from "rxjs";
-import { CurrentUserService } from "./current-user.service";
-import { UserCrudService } from "./user-crud.service";
+import { CurrentUserService } from "../User/current-user.service";
 
 @Injectable()
 export class AuthentificationService {
-  private userStatue: UserStatueModel = JSON.parse(
-    localStorage.getItem("user")
-  );
   public userBehaviourSubject: BehaviorSubject<
     UserStatueModel
-  > = new BehaviorSubject(this.userStatue);
+  > = new BehaviorSubject(JSON.parse(localStorage.getItem("user")));
 
   private firebaseErrors = {
     "auth/user-not-found": "Aucun utilisateur ne correspond à cet e-mail",
@@ -23,9 +19,10 @@ export class AuthentificationService {
     "auth/network-request-failed":
       "Une erreur de réseau (telle qu'un dépassement de délai, une connexion interrompue ou un hôte injoignable) s'est produite.",
   };
-  constructor(    
+
+  constructor(
     private afAuth: AngularFireAuth,
-    private currentUserService: CurrentUserService,
+    private currentUserService: CurrentUserService
   ) {
     this.afAuth.setPersistence("session").then(() => {
       //Observable changement statue de connexion du user
@@ -38,10 +35,9 @@ export class AuthentificationService {
               .catch((error) => {
                 this.logout();
                 this.setUserStatue();
-              }
-              );
+              });
           } else {
-            console.error('authenticationService authState: no user');
+            console.error("authenticationService authState: no user");
             this.setUserStatue();
             this.currentUserService.currentUser.next(null);
           }
@@ -59,7 +55,7 @@ export class AuthentificationService {
     password: string,
     name: string,
     firstName: string
-  ): Promise<any> {
+  ): Promise<firebase.auth.UserCredential> {
     try {
       const res = await this.afAuth.createUserWithEmailAndPassword(
         email,
@@ -74,7 +70,9 @@ export class AuthentificationService {
     }
   }
 
-  public async signIn(formValues: AuthFormModel): Promise<firebase.auth.UserCredential> {
+  public async signIn(
+    formValues: AuthFormModel
+  ): Promise<firebase.auth.UserCredential> {
     const email = formValues.email;
     const password = formValues.password;
     try {
@@ -101,26 +99,27 @@ export class AuthentificationService {
     return this.afAuth.currentUser;
   }
 
-  public getIdToken():Observable<string> {
+  public getIdToken(): Observable<string> {
     return this.afAuth.idToken;
   }
-  
+
   private setUserStatue(user?: firebase.User) {
+    let userStatue: UserStatueModel;
     if (user) {
-      this.userStatue = {
+      userStatue = {
         isAuthenticated: true,
         uid: user.uid,
         displayName: user.displayName,
       };
-      this.userBehaviourSubject.next(this.userStatue);
-      localStorage.setItem("user", JSON.stringify(this.userStatue));
+      this.userBehaviourSubject.next(userStatue);
+      localStorage.setItem("user", JSON.stringify(userStatue));
     } else {
-      this.userStatue = {
+      userStatue = {
         isAuthenticated: false,
         uid: null,
         displayName: null,
       };
-      this.userBehaviourSubject.next(this.userStatue);
+      this.userBehaviourSubject.next(userStatue);
       localStorage.removeItem("user");
     }
   }

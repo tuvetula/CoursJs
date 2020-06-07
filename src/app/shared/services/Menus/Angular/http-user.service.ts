@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, from } from "rxjs";
 import { HttpUserModel } from "../../../models/Angular/http-requete-user.model";
-import { AuthentificationService } from "../../User/authentification.service";
+import { AuthentificationService } from "../../Auth/authentification.service";
 import { mergeMap } from 'rxjs/operators';
 
 @Injectable()

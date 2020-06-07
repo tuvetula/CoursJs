@@ -27,7 +27,7 @@ export class AppliService {
         showNonConnectedUser: true },
       {
         name: "Angular",
-        url: "Angular",
+        url: "/Angular",
         classToAdd: "Angular",
         iconeUrl: "../../../../../assets/Pictures/Logo/AngularPng.png",
         menu: this.angularService.angularMenu,
@@ -38,7 +38,7 @@ export class AppliService {
       },
       {
         name: "Javascript",
-        url: "Javascript",
+        url: "/Javascript",
         classToAdd: "Javascript",
         iconeUrl: "../../../../../assets/Pictures/Logo/JavascriptLogo.png",
         menu: this.javascriptService.javascriptMenu,
@@ -49,7 +49,7 @@ export class AppliService {
       },
       {
         name: "Mon compte",
-        url: "MonCompte",
+        url: "/MonCompte",
         classToAdd: "MonCompte",
         iconeUrl: "../../../../../assets/Pictures/Logo/AccountBadge48.png",
         menu: null,

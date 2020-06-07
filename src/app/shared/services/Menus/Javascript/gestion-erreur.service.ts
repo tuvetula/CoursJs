@@ -6,10 +6,10 @@ export class GestionErreurService {
 
   constructor() {
     this.gestionErreurMenu = [
-      {name:"Introduction à la gestion d'erreur" , url: "GestionErreur/Introduction"},
-      {name:"Etendre l'objet Error" , url: "GestionErreur/Etendre-objet-error"},
-      {name:"Le debogguer de chrome DevTools" , url: "GestionErreur/Debogguer-chrome"},
-      {name:"Le debogguer de Vs Code" , url: "GestionErreur/Debogguer-Vscode"},
+      {name:"Introduction à la gestion d'erreur" , url: "/Javascript/GestionErreur/Introduction"},
+      {name:"Etendre l'objet Error" , url: "/Javascript/GestionErreur/Etendre-objet-error"},
+      {name:"Le debogguer de chrome DevTools" , url: "/Javascript/GestionErreur/Debogguer-chrome"},
+      {name:"Le debogguer de Vs Code" , url: "/Javascript/GestionErreur/Debogguer-Vscode"},
     ];
    }
 }

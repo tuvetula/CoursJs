@@ -7,7 +7,7 @@ import {
 } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
-import { AuthentificationService } from '../services/User/authentification.service';
+import { AuthentificationService } from '../services/Auth/authentification.service';
 import { mergeMap, take, retry } from 'rxjs/operators';
 
 @Injectable()

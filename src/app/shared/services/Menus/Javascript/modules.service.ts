@@ -6,10 +6,10 @@ export class ModulesJsService {
 
   constructor() {
     this.modulesJsMenu = [
-      {name:"Introduction" , url: "ModulesJs/Introduction"},
-      {name:"Exporter" , url: "ModulesJs/Exporter"},
-      {name:"Importer" , url: "ModulesJs/Importer"},
-      {name:"Reexporter et les imports dynamiques" , url: "ModulesJs/Reexporter"},
+      {name:"Introduction" , url: "/Javascript/ModulesJs/Introduction"},
+      {name:"Exporter" , url: "/Javascript/ModulesJs/Exporter"},
+      {name:"Importer" , url: "/Javascript/ModulesJs/Importer"},
+      {name:"Reexporter et les imports dynamiques" , url: "/Javascript/ModulesJs/Reexporter"},
     ];
    }
 }

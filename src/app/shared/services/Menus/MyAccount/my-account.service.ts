@@ -7,8 +7,8 @@ export class MyAccountService {
 
   constructor() {
     this.myAccountMenu = [
-      { name: "Mon profil", url: "Profil" },
-      { name: "Paramètres", url: "Parametres"}
+      { name: "Mon profil", url: "/MonCompte/Profil" },
+      { name: "Paramètres", url: "/MonCompte/Parametres"}
     ];
   }
 }

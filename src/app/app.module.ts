@@ -25,10 +25,11 @@ import { UserCrudService } from './shared/services/User/user-crud.service';
 import { CurrentUserService } from './shared/services/User/current-user.service';
 import { ThemesService } from './shared/services/Themes/themes.service.ts.service';
 import { NgxImageCompressService } from '../../node_modules/ngx-image-compress';
+import { StringFunctionsService } from './shared/services/String/string-functions.service';
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthentificationService } from './shared/services/User/authentification.service';
+import { AuthentificationService } from './shared/services/Auth/authentification.service';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
@@ -71,6 +72,7 @@ import { ProfilPictureModule } from './shared/modules/profilPicture.module';
     AuthentificationService,
     UserCrudService,
     CurrentUserService,
+    StringFunctionsService,
     NgxImageCompressService,
     AuthGuard,
     AngularFireAuth,

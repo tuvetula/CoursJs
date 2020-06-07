@@ -12,7 +12,7 @@ import {
   state,
 } from "@angular/animations";
 import { UserStatueModel } from "src/app/shared/models/User/userStatue.model";
-import { AuthentificationService } from "src/app/shared/services/User/authentification.service";
+import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
 import { Router } from '@angular/router';
 import { ThemesService } from 'src/app/shared/services/Themes/themes.service.ts.service';
 import { CurrentUserModel } from 'src/app/shared/models/User/current-user.model';

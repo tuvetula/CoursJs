@@ -6,16 +6,16 @@ export class ClassesService {
 
   constructor() {
     this.classesMenu = [
-      { name: "Déclaration d'une classe", url: "Classes/Declaration" },
-      { name: "L'héritage avec les classes", url: "Classes/Heritage" },
-      { name: "Les méthodes statiques", url: "Classes/Methodes-statiques" },
-      { name: "Les propriétés privées", url: "Classes/Proprietes-privees" },
+      { name: "Déclaration d'une classe", url: "/Javascript/Classes/Declaration" },
+      { name: "L'héritage avec les classes", url: "/Javascript/Classes/Heritage" },
+      { name: "Les méthodes statiques", url: "/Javascript/Classes/Methodes-statiques" },
+      { name: "Les propriétés privées", url: "/Javascript/Classes/Proprietes-privees" },
       {
         name: "Etendre les objets natifs avec extends",
-        url: "Classes/Etendre-objets-natifs",
+        url: "/Javascript/Classes/Etendre-objets-natifs",
       },
-      { name: "L'opérateur instanceof", url: "Classes/Instanceof" },
-      { name: "Les mixins", url: "Classes/Mixins" },
+      { name: "L'opérateur instanceof", url: "/Javascript/Classes/Instanceof" },
+      { name: "Les mixins", url: "/Javascript/Classes/Mixins" },
     ];
   }
 }

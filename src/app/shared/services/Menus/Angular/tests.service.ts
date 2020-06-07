@@ -6,13 +6,13 @@ export class TestsService {
 
   constructor() {
     this.testsMenu = [
-      {name: "Introduction test" , url: "Tests/Introduction"},
-      {name: "Setup" , url: "Tests/Setup"},
-      {name: "Environnement pour tester les composants" , url: "Tests/Environnement-tester-composants"},
-      {name: "Tester ses composants" , url: "Tests/Tester-composants"},
-      {name: "Détection des changements et matchers" , url: "Tests/Detection-changements-matchers"},
-      {name: "Tester des composants avec des dépendances" , url: "Tests/Tester-composants-dependances"},
-      {name: "Les tests isolés et tests d'un pipe" , url: "Tests/Tests-isoles-pipes"},
+      {name: "Introduction test" , url: "/Angular/Tests/Introduction"},
+      {name: "Setup" , url: "/Angular/Tests/Setup"},
+      {name: "Environnement pour tester les composants" , url: "/Angular/Tests/Environnement-tester-composants"},
+      {name: "Tester ses composants" , url: "/Angular/Tests/Tester-composants"},
+      {name: "Détection des changements et matchers" , url: "/Angular/Tests/Detection-changements-matchers"},
+      {name: "Tester des composants avec des dépendances" , url: "/Angular/Tests/Tester-composants-dependances"},
+      {name: "Les tests isolés et tests d'un pipe" , url: "/Angular/Tests/Tests-isoles-pipes"},
     ]
    }
 }

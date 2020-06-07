@@ -6,24 +6,24 @@ export class RoutingService {
 
   constructor() {
     this.routingMenu = [
-      { name: "Introduction", url: "Routing/Introduction" },
-      { name: "La directive RouterLink", url: "Routing/RouterLink" },
-      { name: "La directive RouterLinkActive", url: "Routing/RouterLinkActive" },
+      { name: "Introduction", url: "/Angular/Routing/Introduction" },
+      { name: "La directive RouterLink", url: "/Angular/Routing/RouterLink" },
+      { name: "La directive RouterLinkActive", url: "/Angular/Routing/RouterLinkActive" },
       {
         name: "Les services ActivatedRoute et Router",
-        url: "Routing/ActivatedRoute-Router",
+        url: "/Angular/Routing/ActivatedRoute-Router",
       },
-      { name: "Params", url: "Routing/Params" },
-      { name: "QueryParams et Fragment", url: "Routing/QueryParams-Fragment" },
-      { name: "Routes imbriquées", url: "Routing/Routes-imbriquees" },
-      { name: "Redirection et wildcard", url: "Routing/Redirection-wildcard" },
+      { name: "Params", url: "/Angular/Routing/Params" },
+      { name: "QueryParams et Fragment", url: "/Angular/Routing/QueryParams-Fragment" },
+      { name: "Routes imbriquées", url: "/Angular/Routing/Routes-imbriquees" },
+      { name: "Redirection et wildcard", url: "/Angular/Routing/Redirection-wildcard" },
       {
         name: "Séparer les fichiers de routing",
-        url: "Routing/Separer-fichiers-routing",
+        url: "/Angular/Routing/Separer-fichiers-routing",
       },
-      { name: "Le garde canActivate", url: "Routing/CanActivate" },
-      { name: "Le garde canDeactivate", url: "Routing/CanDeactivate" },
-      { name: "Le garde resolver", url: "Routing/Resolver" },
+      { name: "Le garde canActivate", url: "/Angular/Routing/CanActivate" },
+      { name: "Le garde canDeactivate", url: "/Angular/Routing/CanDeactivate" },
+      { name: "Le garde resolver", url: "/Angular/Routing/Resolver" },
     ];
   }
 }

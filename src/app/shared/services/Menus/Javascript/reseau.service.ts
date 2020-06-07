@@ -6,16 +6,16 @@ export class ReseauService {
 
   constructor() {
     this.reseauMenu = [
-      {name:"Introduction aux requêtes" , url: "Reseau/Introduction"},
-      {name:"Première requête Http avec fetch" , url: "Reseau/Fetch"},
-      {name:"Effectuer une requête Post" , url: "Reseau/Requete-post"},
-      {name:"Les CORS" , url: "Reseau/Cors"},
-      {name:"Options avancées des requêtes fetch" , url: "Reseau/Options-fetch"},
-      {name:"Annuler des requêtes en cours" , url: "Reseau/Annuler-requetes"},
-      {name:"Les objets FormData" , url: "Reseau/FormData"},
-      {name:"La Web Api Url" , url: "Reseau/Web-api-url"},
-      {name:"XMLHttpRequest" , url: "Reseau/XMLHttpRequest"},
-      {name:"Utilisations avancées de XMLHttpRequest" , url: "Reseau/Utilisations-avancees-XMLHttpRequest"},
+      {name:"Introduction aux requêtes" , url: "/Javascript/Reseau/Introduction"},
+      {name:"Première requête Http avec fetch" , url: "/Javascript/Reseau/Fetch"},
+      {name:"Effectuer une requête Post" , url: "/Javascript/Reseau/Requete-post"},
+      {name:"Les CORS" , url: "/Javascript/Reseau/Cors"},
+      {name:"Options avancées des requêtes fetch" , url: "/Javascript/Reseau/Options-fetch"},
+      {name:"Annuler des requêtes en cours" , url: "/Javascript/Reseau/Annuler-requetes"},
+      {name:"Les objets FormData" , url: "/Javascript/Reseau/FormData"},
+      {name:"La Web Api Url" , url: "/Javascript/Reseau/Web-api-url"},
+      {name:"XMLHttpRequest" , url: "/Javascript/Reseau/XMLHttpRequest"},
+      {name:"Utilisations avancées de XMLHttpRequest" , url: "/Javascript/Reseau/Utilisations-avancees-XMLHttpRequest"},
     ];
    }
 }

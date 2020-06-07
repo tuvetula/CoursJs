@@ -44,7 +44,6 @@ import { FlexLayoutService } from '../shared/services/Menus/Angular/flex-layout.
 export class AngularContainerComponent
   implements OnInit, OnDestroy, AfterViewChecked {
   private nameSection: string = "Angular";
-  public menu: MenuModel[] = [];
 
   constructor(
     private listMenuLeftService: ListMenuLeftService,
@@ -56,8 +55,6 @@ export class AngularContainerComponent
   ngOnInit(): void {
     //On paramètre la section en cours
     this.appliService.currentAppliMenu.next(this.nameSection);
-    //Récupération et modification menu pour sousMenu
-    this.modifyAngularMenuUrl();
     //Configuration title
     this.appliService.title.next(this.nameSection);
   }
@@ -73,13 +70,5 @@ export class AngularContainerComponent
   public titleIsAngular() {
     return this.appliService.title.value === this.nameSection;
   }
-  private modifyAngularMenuUrl(): void {
-    this.angularService.angularMenu.slice().forEach((element) => {
-      this.menu.push({ name: element.name, url: element.url });
-    });
-    this.menu.forEach(
-      (element) =>
-        (element.url = element.url.slice(element.url.lastIndexOf("/") + 1))
-    );
-  }
+  
 }

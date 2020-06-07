@@ -6,13 +6,13 @@ export class ServicesService {
 
   constructor() {
     this.serviceMenu = [
-      { name: "Definition service", url: "Services/Definition-service" },
+      { name: "Definition service", url: "/Angular/Services/Definition-service" },
       {
         name: "Definition injection de dépendances",
-        url: "Services/Definition-injection-dependances",
+        url: "/Angular/Services/Definition-injection-dependances",
       },
-      { name: "Hiérarchie injection de dépendances", url: "Services/Hierarchie" },
-      { name: "Utilisation d'un service dans un autre service", url: "Services/Utilisation" },
+      { name: "Hiérarchie injection de dépendances", url: "/Angular/Services/Hierarchie" },
+      { name: "Utilisation d'un service dans un autre service", url: "/Angular/Services/Utilisation" },
     ];
   }
 }

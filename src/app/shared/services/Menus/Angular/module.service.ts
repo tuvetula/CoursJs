@@ -6,12 +6,12 @@ export class ModuleService {
 
   constructor() {
     this.modulesMenu = [
-      { name: "Root module", url: "Modules/Root-module" },
-      { name: "Feature module", url: "Modules/Feature-module" },
-      { name: "Module de routing", url: "Modules/Module-routing" },
-      { name: "Shared module", url: "Modules/Shared-module" },
-      { name: "Lazy loading", url: "Modules/Lazy-loading" },
-      { name: "JIT & AOT", url: "Modules/Jit-aot" },
+      { name: "Root module", url: "/Angular/Modules/Root-module" },
+      { name: "Feature module", url: "/Angular/Modules/Feature-module" },
+      { name: "Module de routing", url: "/Angular/Modules/Module-routing" },
+      { name: "Shared module", url: "/Angular/Modules/Shared-module" },
+      { name: "Lazy loading", url: "/Angular/Modules/Lazy-loading" },
+      { name: "JIT & AOT", url: "/Angular/Modules/Jit-aot" },
     ];
   }
 }

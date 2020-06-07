@@ -6,15 +6,15 @@ export class DirectiveService {
 
   constructor() {
     this.directiveMenu = [
-      { name: "ngIf", url: "Directives/ngIf" },
-      { name: "ngFor", url: "Directives/ngFor" },
-      { name: "ngStyle", url: "Directives/ngStyle" },
-      { name: "ngClass", url: "Directives/ngClass" },
-      { name: "Directive d'attribut", url: "Directives/Directive-attribut" },
-      { name: "HostListener", url: "Directives/HostListener" },
-      { name: "HostBinding", url: "Directives/HostBinding" },
-      { name: "Liaison de propriétés et directive" , url: "Directives/Liaison-proprietes-directive"},
-      { name: "Directive structurelle" , url: "Directives/Directive-Structurelle"}
+      { name: "ngIf", url: "/Angular/Directives/ngIf" },
+      { name: "ngFor", url: "/Angular/Directives/ngFor" },
+      { name: "ngStyle", url: "/Angular/Directives/ngStyle" },
+      { name: "ngClass", url: "/Angular/Directives/ngClass" },
+      { name: "Directive d'attribut", url: "/Angular/Directives/Directive-attribut" },
+      { name: "HostListener", url: "/Angular/Directives/HostListener" },
+      { name: "HostBinding", url: "/Angular/Directives/HostBinding" },
+      { name: "Liaison de propriétés et directive" , url: "/Angular/Directives/Liaison-proprietes-directive"},
+      { name: "Directive structurelle" , url: "/Angular/Directives/Directive-Structurelle"}
     ];
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthentificationService } from "../../services/User/authentification.service";
+import { AuthentificationService } from "../../services/Auth/authentification.service";
 import { UserCrudService } from "../../services/User/user-crud.service";
-import { StringFunctions } from '../../services/string-functions.service';
+import { StringFunctionsService } from '../../services/String/string-functions.service';
 
 @Component({
   selector: "app-signup",
@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private authentificationService: AuthentificationService,
     private userCrudService: UserCrudService,
-    private stringFunctions: StringFunctions,
+    private stringFunctionsService: StringFunctionsService,
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +44,8 @@ export class SignupComponent implements OnInit {
       this.signupForm.valid &&
       this.signupForm.value.password === this.signupForm.value.confirmPassword
     ) {
-      const name = this.stringFunctions.capitalizeFirstLetter(this.signupForm.value.completeName.name).trim();
-      const firstName = this.stringFunctions.capitalizeFirstLetter(this.signupForm.value.completeName.firstName).trim();
+      const name = this.stringFunctionsService.capitalizeFirstLetter(this.signupForm.value.completeName.name).trim();
+      const firstName = this.stringFunctionsService.capitalizeFirstLetter(this.signupForm.value.completeName.firstName).trim();
       const email = this.signupForm.value.email;
       const password = this.signupForm.value.password;
 
@@ -73,7 +73,6 @@ export class SignupComponent implements OnInit {
         this.signupError = error.message;
       }
     } else {
-      console.log(this.signupForm);
       this.signupError = "Erreur, veuillez vérifier !!!";
     }
   }
