@@ -39,7 +39,7 @@ import { FlexLayoutService } from '../shared/services/Menus/Angular/flex-layout.
     AnimationsService,
     TestsService,
     FlexLayoutService
-  ],
+  ]
 })
 export class AngularContainerComponent
   implements OnInit, OnDestroy, AfterViewChecked {
@@ -63,6 +63,7 @@ export class AngularContainerComponent
   }
 
   ngAfterViewChecked(): void {
+    //Evite d'afficher erreur dans la console lors de la verif titleIsAngular()
     this.cdRef.detectChanges();
   }
   ngOnDestroy(): void {

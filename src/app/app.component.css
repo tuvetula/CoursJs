@@ -1,0 +1,10 @@
+/* classes Bootstrap en ViewEncapsulation.None (se propage sur tous les templates) */
+.jumbotron {
+    background-color: var(--jumbotronBackground);
+    color: var(--jumbotronColor);
+  }
+  .list-group-item {
+    background-color: var(--listGroupItemBackgroundColor);
+    color: var(--listMenuLeftServiceColor);
+    border: var(--listGroupItemBorder);
+  }

@@ -46,13 +46,3 @@
 .codeRegex {
   color:orange;
 }
-
-/* classes */
-.jumbotron {
-  background-color: var(--jumbotronBackground);
-  color: var(--jumbotronColor);
-}
-.list-group-item {
-  background-color: var(--listGroupItemBackgroundColor);
-  border: var(--listGroupItemBorder);
-}

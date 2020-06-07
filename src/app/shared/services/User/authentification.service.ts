@@ -41,6 +41,7 @@ export class AuthentificationService {
               }
               );
           } else {
+            console.error('authenticationService authState: no user');
             this.setUserStatue();
             this.currentUserService.currentUser.next(null);
           }
