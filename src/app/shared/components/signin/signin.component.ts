@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthentificationService } from "../../services/Auth/authentification.service";
 import { UserStatueModel } from '../../models/User/userStatue.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: "app-signin",
@@ -12,7 +13,7 @@ export class SigninComponent implements OnInit {
   public signinForm: FormGroup;
   public signinError: string;
   public showSigninForm: boolean;
-  @Input() userStatue: UserStatueModel;
+  public userStatueDisplayName;
 
   constructor(
     private fb: FormBuilder,
@@ -25,6 +26,11 @@ export class SigninComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(8)]],
     });
     this.showSigninForm = true;
+    this.userStatueDisplayName = this.authentificationService.userBehaviourSubject.pipe(
+      map(
+        value => value.displayName
+      )
+    )
   }
   
   public signinFormReset(): void{

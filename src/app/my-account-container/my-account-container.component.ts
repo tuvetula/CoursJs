@@ -1,9 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppliService } from '../shared/services/Menus/appli.service';
 import { ListMenuLeftService } from '../shared/services/Menus/list-menu-left.service';
 import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.service';
-import { MenuModel } from '../shared/models/menu.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-account-container',
@@ -18,7 +16,6 @@ export class MyAccountContainerComponent implements OnInit {
     private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService,
     private myAccountService: MyAccountService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {

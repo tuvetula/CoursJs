@@ -41,6 +41,10 @@ export class ProfilPictureComponent implements OnInit, OnDestroy {
       this.classToApply = {
         myAccount: true,
       };
+    } else if (this.source === "searchBar") {
+      this.classToApply = {
+        searchBar: true
+      }
     }
   }
 

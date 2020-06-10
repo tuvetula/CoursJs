@@ -7,39 +7,12 @@ import {
 } from "@angular/core";
 import { AngularService } from "../shared/services/Menus/Angular/angular.service";
 import { ListMenuLeftService } from "../shared/services/Menus/list-menu-left.service";
-import { ComposantService } from "../shared/services/Menus/Angular/composant.service";
-import { DirectiveService } from "../shared/services/Menus/Angular/directive.service";
-import { ObservableService } from "../shared/services/Menus/Angular/observable.service";
-import { ServicesService } from "../shared/services/Menus/Angular/services.service";
-import { RoutingService } from "../shared/services/Menus/Angular/routing.service";
-import { FormulairesService } from "../shared/services/Menus/Angular/formulaires.service";
-import { PipeService } from "../shared/services/Menus/Angular/pipe.service";
-import { RequetesHttpService } from "../shared/services/Menus/Angular/requetes-http.service";
-import { ModuleService } from "../shared/services/Menus/Angular/module.service";
-import { AnimationsService } from "../shared/services/Menus/Angular/animations.service";
-import { TestsService } from "../shared/services/Menus/Angular/tests.service";
 import { AppliService } from "../shared/services/Menus/appli.service";
-import { MenuModel } from '../shared/models/menu.model';
-import { FlexLayoutService } from '../shared/services/Menus/Angular/flex-layout.service';
 
 @Component({
   selector: "app-angular-container",
   templateUrl: "./angular-container.component.html",
-  styleUrls: ["./angular-container.component.css"],
-  providers: [
-    ComposantService,
-    DirectiveService,
-    ObservableService,
-    ServicesService,
-    RoutingService,
-    FormulairesService,
-    PipeService,
-    RequetesHttpService,
-    ModuleService,
-    AnimationsService,
-    TestsService,
-    FlexLayoutService
-  ]
+  styleUrls: ["./angular-container.component.css"]
 })
 export class AngularContainerComponent
   implements OnInit, OnDestroy, AfterViewChecked {
@@ -48,7 +21,6 @@ export class AngularContainerComponent
   constructor(
     private listMenuLeftService: ListMenuLeftService,
     private appliService: AppliService,
-    private angularService: AngularService,
     private cdRef: ChangeDetectorRef
   ) {}
 

@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Subject } from "rxjs";
-import { AppliMenuModel } from "../../models/appliMenu.model";
+import { BehaviorSubject, Subject, from, Observable } from "rxjs";
+import { AppliMenuModel } from "../../models/Menus/appliMenu.model";
 import { AngularService } from "./Angular/angular.service";
 import { JavascriptService } from "./Javascript/javascript.service";
+import { MyAccountService } from './MyAccount/my-account.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AppliService {
   public appliMenu: AppliMenuModel[];
   public currentAppliMenu: BehaviorSubject<string> = new BehaviorSubject(null);
@@ -14,57 +17,69 @@ export class AppliService {
   constructor(
     private angularService: AngularService,
     private javascriptService: JavascriptService,
+    private myAccountService: MyAccountService
   ) {
     this.appliMenu = [
       { name: "Accueil",
         url: "/",
         classToAdd: "Accueil",
         iconeUrl: "../../../../../assets/Pictures/Logo/home48.png",
-        menu: null,
+        chaptersMenu: null,
         darkTheme: false,
         isOnNavbarLg: false,
         isOnNavbarMobile: true,
-        showNonConnectedUser: true },
+        showNonConnectedUser: true,
+        availableForSearchBar: false
+      },
       {
         name: "Angular",
         url: "/Angular",
         classToAdd: "Angular",
         iconeUrl: "../../../../../assets/Pictures/Logo/AngularPng.png",
-        menu: this.angularService.angularMenu,
+        chaptersMenu: this.angularService.angularMenu,
         darkTheme: true,
         isOnNavbarLg: true,
         isOnNavbarMobile: true,
-        showNonConnectedUser: false
+        showNonConnectedUser: false,
+        availableForSearchBar: true,
+        keywords: ['Angular']
       },
       {
         name: "Javascript",
         url: "/Javascript",
         classToAdd: "Javascript",
         iconeUrl: "../../../../../assets/Pictures/Logo/JavascriptLogo.png",
-        menu: this.javascriptService.javascriptMenu,
+        chaptersMenu: this.javascriptService.javascriptMenu,
         darkTheme: false,
         isOnNavbarLg: true,
         isOnNavbarMobile: true,
-        showNonConnectedUser: false
+        showNonConnectedUser: false,
+        availableForSearchBar: true,
+        keywords: ['Javascript','js']
       },
       {
         name: "Mon compte",
         url: "/MonCompte",
         classToAdd: "MonCompte",
         iconeUrl: "../../../../../assets/Pictures/Logo/AccountBadge48.png",
-        menu: null,
+        chaptersMenu: this.myAccountService.myAccountChaptersMenu,
         darkTheme: false,
         isOnNavbarLg: false,
         isOnNavbarMobile: false,
-        showNonConnectedUser: false
+        showNonConnectedUser: false,
+        availableForSearchBar: true,
+        keywords: ['compte']
       }
     ];
     this.currentAppliMenu.subscribe((currentAppliMenu) => {
-      this.appliMenuSelectSection.next(this.getAppliMenu(currentAppliMenu));
+      this.appliMenuSelectSection.next(this.getAppliMenuSelected(currentAppliMenu));
     });
   }
 
-  getAppliMenu(name: string): AppliMenuModel {
+  public getAppliMenu(): Observable<AppliMenuModel>{
+    return from(this.appliMenu);
+  }
+  private getAppliMenuSelected(name: string): AppliMenuModel {
     let menu: AppliMenuModel;
     if (name) {
       this.appliMenu.forEach((element) => {

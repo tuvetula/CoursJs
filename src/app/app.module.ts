@@ -13,7 +13,7 @@ import { AdminModule } from './admin-container/admin.module';
 
 import { AppComponent } from "./app.component";
 import { HomepageComponent } from "./homepage/homepage.component";
-import { NavbarComponent } from "./shared/components/NavBarList/navbar/navbar.component";
+import { NavbarComponent } from "./shared/components/NavBars/navbar/navbar.component";
 import { PageNotFound404Component } from "./page-not-found404/page-not-found404.component";
 
 import { ListMenuLeftService } from "./shared/services/Menus/list-menu-left.service";
@@ -25,7 +25,7 @@ import { UserCrudService } from './shared/services/User/user-crud.service';
 import { CurrentUserService } from './shared/services/User/current-user.service';
 import { ThemesService } from './shared/services/Themes/themes.service.ts.service';
 import { NgxImageCompressService } from '../../node_modules/ngx-image-compress';
-import { StringFunctionsService } from './shared/services/String/string-functions.service';
+import { StringFunctionsService } from './shared/services/Utilities/String/string-functions.service';
 
 import { ReqInterceptor } from "./shared/Interceptor/http.interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -78,9 +78,6 @@ import { SearchBarModule } from './shared/modules/search-bar/search-bar.module';
     NgxImageCompressService,
     AuthGuard,
     AngularFireAuth,
-    ThemesService,
-    ListMenuLeftService,
-    AppliService,
     AngularService,
     JavascriptService,
     MyAccountService,

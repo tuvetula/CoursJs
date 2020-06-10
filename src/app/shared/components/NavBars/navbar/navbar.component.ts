@@ -2,51 +2,18 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
 import { Subscription } from "rxjs";
 import { AppliService } from "src/app/shared/services/Menus/appli.service";
-import { AppliMenuModel } from "src/app/shared/models/appliMenu.model";
-import { MenuModel } from "src/app/shared/models/menu.model";
-import {
-  trigger,
-  style,
-  transition,
-  animate,
-  state,
-} from "@angular/animations";
+import { AppliMenuModel } from "src/app/shared/models/Menus/appliMenu.model";
+import { ChapterMenuModel } from "src/app/shared/models/Menus/menus.model";
 import { UserStatueModel } from "src/app/shared/models/User/userStatue.model";
 import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
-import { Router } from '@angular/router';
-import { ThemesService } from 'src/app/shared/services/Themes/themes.service.ts.service';
-import { CurrentUserModel } from 'src/app/shared/models/User/current-user.model';
-import { CurrentUserService } from 'src/app/shared/services/User/current-user.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.css"],
-  animations: [
-    trigger("MenuDisplay", [
-      transition(":enter", [style({ opacity: 0 }), animate("500ms ease-out")]),
-    ]),
-    trigger("navbarSection", [
-      state(
-        "hide",
-        style({
-          overflow: "hidden",
-          "max-height": "0",
-          padding: "0px",
-        })
-      ),
-      state(
-        "show",
-        style({
-          overflow: "hidden",
-          "max-height": "80px",
-          padding: "2px 6px 2px 6px",
-        })
-      ),
-      transition("hide <=> show", animate("800ms ease-out")),
-    ]),
-  ],
+  styleUrls: ["./navbar.component.css"]
 })
+  
 export class NavbarComponent implements OnInit, OnDestroy {
   //export Input pour composant enfant profilPicture
   public source: string = "navbar";
@@ -56,10 +23,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private currentAppliMenuSelectedSubscription: Subscription;
   public appliMenuItemSelected: string;
   public isNavbarThemeIsDark: boolean;
-  public currentStateSectionNavbar: string = "hide";
   public classToAdd: string;
 
-  public sectionMenu: MenuModel[];
+  public sectionMenu: ChapterMenuModel[];
   public isSectionMenuDisplay: boolean = false;
   private titlePageSubscription: Subscription;
   public sectionMenuItemSelected: string = "";
@@ -71,7 +37,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private router: Router,
     private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService,
-    private authentificationService: AuthentificationService,
+    private authentificationService: AuthentificationService
   ) {}
 
   ngOnInit(): void {
@@ -82,9 +48,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
       (appliMenu: AppliMenuModel) => {
         this.appliMenuItemSelected = appliMenu.name;
         this.isNavbarThemeIsDark = appliMenu.darkTheme;
-        this.sectionMenu = appliMenu.menu;
+        this.sectionMenu =
+          appliMenu.chaptersMenu && appliMenu.chaptersMenu.length && appliMenu.chaptersMenu[0].name
+            ? appliMenu.chaptersMenu
+            : null;
         this.classToAdd = appliMenu.classToAdd;
-        this.currentStateSectionNavbar = this.sectionMenu ? "show" : "hide";
       }
     );
     //Utile pour la version lg (Titre)
@@ -102,8 +70,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   //Déconnexion
   public logout() {
-    this.authentificationService.logout()
-    .then(() => this.router.navigate(['/']));
+    this.authentificationService
+      .logout()
+      .then(() => this.router.navigate(["/"]));
   }
 
   //Clique sur navbar AppliMenu (version lg)
@@ -126,14 +95,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.appliService.title.next(name);
   }
 
-  //Clique sur le bouton SectionMenu de la navbar mobile
+  //Clique sur le bouton SectionMenu (Version mobile)
   public onSectionMenuButtonClick(): void {
     this.isSectionMenuDisplay = !this.isSectionMenuDisplay;
     if (this.isAppliMenuDisplay) {
       this.isAppliMenuDisplay = false;
     }
   }
-  //Clique sur un élément du SectionMenu de la navbar Mobile
+  //Clique sur un élément du SectionMenu (Version mobile)
   public onSectionMenuItemClick(name: string): void {
     this.isSectionMenuDisplay = false;
   }

@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ThemesModel } from '../../models/themes.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ThemesService {
   private activeTheme: ThemesModel = {name: null , class: null};
   public nonActiveThemeName: BehaviorSubject<string> = new BehaviorSubject("Theme Light");

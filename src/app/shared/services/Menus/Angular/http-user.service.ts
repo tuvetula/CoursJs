@@ -14,19 +14,7 @@ export class HttpUserService {
   constructor(
     private http: HttpClient,
     private authenticationService: AuthentificationService
-  ) {
-    // this.currentUserService.currentUser.subscribe(
-    //   (currentUser: CurrentUserModel) => {
-    //     if (currentUser) {
-    //       this.url =
-    //         "https://coursjs-e9340.firebaseio.com/" +
-    //         currentUser.uid +
-    //         "/users.json";
-    //     }
-    //   },
-    //   (error) => console.log("Erreur: " + error)
-    // );
-  }
+  ) {}
 
   public getUsers(): Observable<HttpUserModel[]> {
     try {

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthentificationService } from "../../services/Auth/authentification.service";
 import { UserCrudService } from "../../services/User/user-crud.service";
-import { StringFunctionsService } from '../../services/String/string-functions.service';
+import { StringFunctionsService } from '../../services/Utilities/String/string-functions.service';
 
 @Component({
   selector: "app-signup",

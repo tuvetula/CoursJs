@@ -33,11 +33,12 @@ export class AuthentificationService {
               .configureCurrentUser(user)
               .then(() => this.setUserStatue(user))
               .catch((error) => {
-                this.logout();
-                this.setUserStatue();
+                console.log('authstate user: error catch');
+                //this.logout();
+                //this.setUserStatue();
               });
           } else {
-            console.error("authenticationService authState: no user");
+            console.error("authState: no user");
             this.setUserStatue();
             this.currentUserService.currentUser.next(null);
           }

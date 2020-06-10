@@ -1,11 +1,22 @@
 import { Injectable } from "@angular/core";
-import { MenuModel } from "../../../models/menu.model";
+import { LessonMenuModel, ChapterMenuModel } from "../../../models/Menus/menus.model";
 
 @Injectable()
 export class MyAccountService {
-  public myAccountMenu: MenuModel[];
+  public myAccountChaptersMenu: ChapterMenuModel[];
+  public myAccountMenu: LessonMenuModel[];
 
   constructor() {
+    this.myAccountChaptersMenu = [
+      {
+        name: null,
+        url: null,
+        lessonsMenu:  [
+          { name: "Mon profil", url: "/MonCompte/Profil" },
+          { name: "Paramètres", url: "/MonCompte/Parametres"}
+      ]
+    }];
+    
     this.myAccountMenu = [
       { name: "Mon profil", url: "/MonCompte/Profil" },
       { name: "Paramètres", url: "/MonCompte/Parametres"}

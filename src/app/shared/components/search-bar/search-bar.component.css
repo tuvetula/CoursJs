@@ -1,0 +1,42 @@
+#resultToShow {
+  position: absolute;
+  right: 25%;
+  width: 500px;
+  color: black;
+  background-color: ivory;
+  margin-top: 1px;
+  border: solid 1px black;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+#resultToShow > ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#resultToShow li {
+  border-bottom: solid 1px rgb(238, 232, 232);
+}
+
+#resultToShow li:last-child {
+  border: none;
+}
+
+#resultToShow a {
+    display: block;
+    cursor: pointer;
+    color: #41474D;
+    padding: 3%;
+}
+
+#resultToShow a:hover , #resultToShow a:focus {
+    background-color: rgb(238, 232, 232);
+    text-decoration: none;
+}
+
+.logoSection {
+  width: 20px;
+  max-height: 20px;
+}

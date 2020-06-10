@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { LessonMenuModel } from 'src/app/shared/models/Menus/menus.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class FlexLayoutService {
-  public flexLayoutMenu: {name: string , url: string}[]
+  public flexLayoutMenu: LessonMenuModel[]
   constructor() { 
     this.flexLayoutMenu = [
       {name: 'Introduction' , url: '/Angular/FlexLayout/Introduction'},
-      {name: 'Flexbox' , url: '/Angular/FlexLayout/FlexBox'},
-      {name: 'Static api' , url: '/Angular/FlexLayout/StaticApi'},
-      {name: 'Responsive api' , url: '/Angular/FlexLayout/ResponsiveApi'},
-      {name: 'Features' , url: '/Angular/FlexLayout/Features'},
+      {name: 'Flexbox' , url: '/Angular/FlexLayout/FlexBox' , keywords:['flex','flexbox']},
+      {name: 'Static api' , url: '/Angular/FlexLayout/StaticApi' , keywords:['fxLayout','fxLayoutAlign','fxLayoutGap','fxflex','fxFlexOrder','fxFlexOffset','fxFlexAlign','fxFlexFill']},
+      {name: 'Responsive api' , url: '/Angular/FlexLayout/ResponsiveApi' , keywords:['responsive']},
+      {name: 'Features' , url: '/Angular/FlexLayout/Features' , keywords:['features','fxshow','fxhide']},
     ]
   }
 }

@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
+import { LessonMenuModel } from 'src/app/shared/models/Menus/menus.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ReseauService {
-  public reseauMenu: {name:string , url: string}[];
+  public reseauMenu: LessonMenuModel[];
 
   constructor() {
     this.reseauMenu = [
       {name:"Introduction aux requêtes" , url: "/Javascript/Reseau/Introduction"},
-      {name:"Première requête Http avec fetch" , url: "/Javascript/Reseau/Fetch"},
-      {name:"Effectuer une requête Post" , url: "/Javascript/Reseau/Requete-post"},
-      {name:"Les CORS" , url: "/Javascript/Reseau/Cors"},
-      {name:"Options avancées des requêtes fetch" , url: "/Javascript/Reseau/Options-fetch"},
-      {name:"Annuler des requêtes en cours" , url: "/Javascript/Reseau/Annuler-requetes"},
-      {name:"Les objets FormData" , url: "/Javascript/Reseau/FormData"},
-      {name:"La Web Api Url" , url: "/Javascript/Reseau/Web-api-url"},
-      {name:"XMLHttpRequest" , url: "/Javascript/Reseau/XMLHttpRequest"},
-      {name:"Utilisations avancées de XMLHttpRequest" , url: "/Javascript/Reseau/Utilisations-avancees-XMLHttpRequest"},
+      {name:"Première requête Http avec fetch" , url: "/Javascript/Reseau/Fetch",keywords:['fetch','requetes']},
+      {name:"Effectuer une requête Post" , url: "/Javascript/Reseau/Requete-post",keywords:['post','requetes']},
+      {name:"Les CORS" , url: "/Javascript/Reseau/Cors",keywords:['cors']},
+      {name:"Options avancées des requêtes fetch" , url: "/Javascript/Reseau/Options-fetch",keywords:['fetch','options']},
+      {name:"Annuler des requêtes en cours" , url: "/Javascript/Reseau/Annuler-requetes",keywords:['annuler','requetes']},
+      {name:"Les objets FormData" , url: "/Javascript/Reseau/FormData",keywords:['formdata']},
+      {name:"La Web Api Url" , url: "/Javascript/Reseau/Web-api-url",keywords:['api','url']},
+      {name:"XMLHttpRequest" , url: "/Javascript/Reseau/XMLHttpRequest",keywords:['xmlhttprequest']},
+      {name:"Utilisations avancées de XMLHttpRequest" , url: "/Javascript/Reseau/Utilisations-avancees-XMLHttpRequest",keywords:['xmlhttprequest','utilisation']},
     ];
    }
 }

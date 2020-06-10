@@ -15,7 +15,12 @@
   background-color: rgb(208,208,208);
   --menuBurgerColor: invert(0);
 }
-/* remove dropdown arrow */
+
+/* ChaptersMenu */
+#sectionNavbarLg {
+  background-color: #f8f9fa;
+}
+/* remove dropdown arrow (petite flèche) */
 .dropdown-toggle::after {
   display:none;
 }
