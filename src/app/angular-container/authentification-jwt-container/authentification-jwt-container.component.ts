@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationJwtService } from 'src/app/shared/services/Menus/Angular/authentification.jwt.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-authentification-jwt-container',
@@ -13,12 +13,12 @@ export class AuthentificationJwtContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private authentificationJwtService: AuthentificationJwtService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.authentificationJwtService.authentificationJwtMenu);
+    this.lessonsMenuService.lessonMenu.next(this.authentificationJwtService.authentificationJwtMenu);
     this.appliService.title.next("AuthentificationJwt");
   }
 

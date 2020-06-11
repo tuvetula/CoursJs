@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableauxService } from 'src/app/shared/services/Menus/Javascript/tableaux.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-tableaux-container',
@@ -13,13 +13,12 @@ export class TableauxContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private tableauxService: TableauxService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.tableauxService.tableauxMenu);
+    this.lessonsMenuService.lessonMenu.next(this.tableauxService.tableauxMenu);
     this.appliService.title.next('Tableaux');
   }
-
 }

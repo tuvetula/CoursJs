@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservableService } from '../../shared/services/Menus/Angular/observable.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
-import { AngularService } from 'src/app/shared/services/Menus/Angular/angular.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
@@ -11,12 +10,13 @@ import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 })
 export class ObservablesContainerComponent implements OnInit {
 
-  constructor(private listMenuLeftService: ListMenuLeftService,
+  constructor(
+    private lessonsMenuService: LessonsMenuService,
     private observableServive: ObservableService,
     private appliService: AppliService) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.observableServive.observableMenu);
+    this.lessonsMenuService.lessonMenu.next(this.observableServive.observableMenu);
     this.appliService.title.next('Observables');
   }
 

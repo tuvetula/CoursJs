@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppliService } from '../shared/services/Menus/appli.service';
-import { ListMenuLeftService } from '../shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from '../shared/services/Menus/lessons-menu.service';
 import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.service';
 
 @Component({
@@ -10,20 +10,20 @@ import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.
   providers: [MyAccountService]
 })
 export class MyAccountContainerComponent implements OnInit {
-  private nameSection: string = "Mon compte";
+  private componentName: string = "Mon compte";
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private myAccountService: MyAccountService,
   ) { }
 
   ngOnInit(): void {
     //On paramètre la section en cours
-    this.appliService.currentAppliMenu.next(this.nameSection);
+    this.appliService.currentAppliMenu.next(this.componentName);
     //On paramètre la section en cours
-    this.listMenuLeftService.listMenu.next(this.myAccountService.myAccountMenu);
+    this.lessonsMenuService.lessonMenu.next(this.myAccountService.myAccountMenu);
     //Configuration title
-    this.appliService.title.next(this.nameSection);
+    this.appliService.title.next(this.componentName);
   }
 }

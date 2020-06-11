@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CanvasService } from 'src/app/shared/services/Menus/Javascript/canvas.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-canvas-container',
@@ -13,12 +13,12 @@ export class CanvasContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private canvasService: CanvasService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.canvasService.canvasMenu);
+    this.lessonsMenuService.lessonMenu.next(this.canvasService.canvasMenu);
     this.appliService.title.next('Canvas');
   }
 

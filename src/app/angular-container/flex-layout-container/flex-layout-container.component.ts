@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { FlexLayoutService } from 'src/app/shared/services/Menus/Angular/flex-layout.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
@@ -11,13 +11,13 @@ import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 export class FlexLayoutContainerComponent implements OnInit {
 
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private flexLayoutService: FlexLayoutService,
     private appliService: AppliService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.flexLayoutService.flexLayoutMenu);
+    this.lessonsMenuService.lessonMenu.next(this.flexLayoutService.flexLayoutMenu);
     this.appliService.title.next('Flex-layout');
   }
 

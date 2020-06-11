@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { PipeService } from "src/app/shared/services/Menus/Angular/pipe.service";
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
@@ -10,13 +10,13 @@ import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 })
 export class PipesContainerComponent implements OnInit {
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private pipesService: PipeService,
     private appliService: AppliService
   ) {}
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.pipesService.pipeMenu);
+    this.lessonsMenuService.lessonMenu.next(this.pipesService.pipeMenu);
     this.appliService.title.next('Pipes');
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { GestionErreurService } from 'src/app/shared/services/Menus/Javascript/gestion-erreur.service';
 
 @Component({
@@ -13,12 +13,12 @@ export class GestionErreurContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private gestionErreurService: GestionErreurService 
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.gestionErreurService.gestionErreurMenu);
+    this.lessonsMenuService.lessonMenu.next(this.gestionErreurService.gestionErreurMenu);
     this.appliService.title.next("Gestion d'erreur");
   }
 

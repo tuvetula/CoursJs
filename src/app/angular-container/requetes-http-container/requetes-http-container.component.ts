@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { RequetesHttpService } from "src/app/shared/services/Menus/Angular/requetes-http.service";
-import { AngularService } from 'src/app/shared/services/Menus/Angular/angular.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
@@ -11,13 +10,13 @@ import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 })
 export class RequetesHttpContainerComponent implements OnInit {
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private requeteHttpService: RequetesHttpService,
     private appliService: AppliService
   ) {}
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(
+    this.lessonsMenuService.lessonMenu.next(
       this.requeteHttpService.requeteHttpMenu
     );
     this.appliService.title.next('Requêtes Http');

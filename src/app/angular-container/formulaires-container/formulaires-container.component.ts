@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { FormulairesService } from "src/app/shared/services/Menus/Angular/formulaires.service";
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
@@ -11,13 +11,13 @@ import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 export class FormulairesContainerComponent implements OnInit {
 
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private formulairesService: FormulairesService,
     private appliService: AppliService
   ) {}
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(
+    this.lessonsMenuService.lessonMenu.next(
       this.formulairesService.formulairesMenu
     );
     this.appliService.title.next('Formulaires');

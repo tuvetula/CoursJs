@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MyAccountRoutingModule } from './my-account-routing.module';
 import { MyAccountProfilComponent } from './my-account-profil/my-account-profil.component';
 import { MyAccountParametresComponent } from './my-account-parametres/my-account-parametres.component';
-import { ListMenuLeftModule } from '../shared/modules/listMenuLeft.module';
+import { LessonsMenuModule } from '../shared/modules/lessons-menu.module';
 import { TitlePageModule } from '../shared/modules/titlePage.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DatePipeModule } from '../shared/modules/date-pipe.module';
@@ -23,7 +23,7 @@ import { ProfilPictureModule } from '../shared/modules/profilPicture.module';
         FormsModule,
         RouterModule,
         FlexLayoutModule,
-        ListMenuLeftModule,
+        LessonsMenuModule,
         TitlePageModule,
         DatePipeModule,
         ModifyAvatarFormModule,

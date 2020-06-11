@@ -5,8 +5,7 @@ import {
   AfterViewChecked,
   ChangeDetectorRef,
 } from "@angular/core";
-import { AngularService } from "../shared/services/Menus/Angular/angular.service";
-import { ListMenuLeftService } from "../shared/services/Menus/list-menu-left.service";
+import { LessonsMenuService } from "../shared/services/Menus/lessons-menu.service";
 import { AppliService } from "../shared/services/Menus/appli.service";
 
 @Component({
@@ -19,7 +18,7 @@ export class AngularContainerComponent
   private nameSection: string = "Angular";
 
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private appliService: AppliService,
     private cdRef: ChangeDetectorRef
   ) {}
@@ -29,7 +28,6 @@ export class AngularContainerComponent
     this.appliService.currentAppliMenu.next(this.nameSection);
     //Configuration title
     this.appliService.title.next(this.nameSection);
-    this.listMenuLeftService.listMenu.next([]);
   }
 
   ngAfterViewChecked(): void {
@@ -37,7 +35,7 @@ export class AngularContainerComponent
     this.cdRef.detectChanges();
   }
   ngOnDestroy(): void {
-    this.listMenuLeftService.listMenu.next([]);
+    this.lessonsMenuService.lessonMenu.next([]);
   }
 
   public titleIsAngular() {

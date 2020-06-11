@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { ListMenuLeftComponent } from 'src/app/shared/components/NavBars/list-menu-left/list-menu-left.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { LessonsMenuComponent } from '../components/lessons-menu/lessons-menu.component'
 
 @NgModule({
     declarations:[
-        ListMenuLeftComponent
+        LessonsMenuComponent
     ],
     imports: [
         CommonModule,
@@ -16,8 +16,8 @@ import { RouterModule } from '@angular/router';
         CommonModule,
         FormsModule,
         RouterModule,
-        ListMenuLeftComponent
+        LessonsMenuComponent
     ]
 })
 
-export class ListMenuLeftModule {}
+export class LessonsMenuModule {}

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ListMenuLeftService } from "src/app/shared/services/Menus/list-menu-left.service";
+import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { Subscription, Observable } from "rxjs";
 import { AppliService } from "src/app/shared/services/Menus/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/Menus/appliMenu.model";
@@ -7,6 +7,7 @@ import { ChapterMenuModel } from "src/app/shared/models/Menus/menus.model";
 import { UserStatueModel } from "src/app/shared/models/User/userStatue.model";
 import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
 import { Router } from "@angular/router";
+import { LessonsMenuComponent } from '../../../lessons-menu/lessons-menu.component';
 
 @Component({
   selector: "app-navbar-lg",
@@ -35,7 +36,7 @@ export class NavbarLgComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private authentificationService: AuthentificationService
   ) {}
 
@@ -68,7 +69,7 @@ export class NavbarLgComponent implements OnInit, OnDestroy {
 
   //Clique AppliMenu navbar (version lg)
   public onNavbarButtonClick(name: string): void {
-    this.listMenuLeftService.listMenu.next([]);
+    this.lessonsMenuService.lessonMenu.next([]);
     this.appliService.title.next(name);
   }
 

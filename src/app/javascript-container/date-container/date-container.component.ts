@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 import { DateService } from 'src/app/shared/services/Menus/Javascript/date.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-date-container',
@@ -13,12 +13,12 @@ export class DateContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private dateService: DateService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.dateService.dateMenu);
+    this.lessonsMenuService.lessonMenu.next(this.dateService.dateMenu);
     this.appliService.title.next('Date');
   }
 

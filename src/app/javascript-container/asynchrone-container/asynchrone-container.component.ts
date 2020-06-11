@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 import { AsynchroneService } from 'src/app/shared/services/Menus/Javascript/asynchrone.service';
 
@@ -12,13 +12,13 @@ import { AsynchroneService } from 'src/app/shared/services/Menus/Javascript/asyn
 export class AsynchroneContainerComponent implements OnInit {
 
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private appliService: AppliService,
     private asynchroneService: AsynchroneService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.asynchroneService.asynchroneMenu);
+    this.lessonsMenuService.lessonMenu.next(this.asynchroneService.asynchroneMenu);
     this.appliService.title.next('Asynchrone');
   }
 

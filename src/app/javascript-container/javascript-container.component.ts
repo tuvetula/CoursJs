@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewChecked, ChangeDetectorRef } from "@angular/core";
 import { AppliService } from "../shared/services/Menus/appli.service";
-import { ListMenuLeftService } from '../shared/services/Menus/list-menu-left.service';
-import { ActivatedRoute } from '@angular/router';
+import { LessonsMenuService } from '../shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: "app-javascript-container",
@@ -13,7 +12,7 @@ export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterVie
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private cdRef: ChangeDetectorRef,
     ) {}
 
@@ -29,7 +28,7 @@ export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterVie
   }
 
   ngOnDestroy(): void {
-    this.listMenuLeftService.listMenu.next([]);
+    this.lessonsMenuService.lessonMenu.next([]);
   }
   //Fonction verification si titre dans le service est equivalent à celui du component
   public titleIsJavascript() {

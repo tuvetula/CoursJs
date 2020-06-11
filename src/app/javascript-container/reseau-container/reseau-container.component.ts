@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReseauService } from 'src/app/shared/services/Menus/Javascript/reseau.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-reseau-container',
@@ -14,11 +14,11 @@ export class ReseauContainerComponent implements OnInit {
   constructor(
     private reseauService: ReseauService,
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService
+    private lessonsMenuService: LessonsMenuService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.reseauService.reseauMenu);
+    this.lessonsMenuService.lessonMenu.next(this.reseauService.reseauMenu);
     this.appliService.title.next('Réseau');
   }
 

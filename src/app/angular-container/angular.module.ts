@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
-import { ListMenuLeftModule } from "../shared/modules/listMenuLeft.module";
+import { LessonsMenuModule } from "../shared/modules/lessons-menu.module";
 import { TitlePageModule } from '../shared/modules/titlePage.module';
 
 import { ComposantModule } from "./composant-container/composant.module";
@@ -31,7 +31,7 @@ import { AuthentificationJwtModule } from './authentification-jwt-container/athe
     CommonModule,
     RouterModule,
     TitlePageModule,
-    ListMenuLeftModule,
+    LessonsMenuModule,
     AnimationsModule,
     ComposantModule,
     DirectiveModule,

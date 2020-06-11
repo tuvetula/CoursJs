@@ -5,8 +5,8 @@ import { LessonMenuModel } from '../../models/Menus/menus.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ListMenuLeftService {
-  public listMenu: BehaviorSubject<LessonMenuModel[]> = new BehaviorSubject([]);
+export class LessonsMenuService {
+  public lessonMenu: BehaviorSubject<LessonMenuModel[]> = new BehaviorSubject([]);
 
   constructor() { }
 }

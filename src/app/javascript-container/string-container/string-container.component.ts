@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StringService } from 'src/app/shared/services/Menus/Javascript/string.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-string-container',
@@ -13,12 +13,12 @@ export class StringContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listLeftMenuService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private stringService: StringService
   ) { }
 
   ngOnInit(): void {
-    this.listLeftMenuService.listMenu.next(this.stringService.stringMenu);
+    this.lessonsMenuService.lessonMenu.next(this.stringService.stringMenu);
     this.appliService.title.next('String');
   }
 

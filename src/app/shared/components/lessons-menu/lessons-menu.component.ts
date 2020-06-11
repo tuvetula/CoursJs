@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ListMenuLeftService } from "../../../services/Menus/list-menu-left.service";
+import { LessonsMenuService } from "../../services/Menus/lessons-menu.service";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 import {
@@ -12,9 +12,9 @@ import {
 import { LessonMenuModel } from 'src/app/shared/models/Menus/menus.model';
 
 @Component({
-  selector: "app-list-lessons",
-  templateUrl: "./list-menu-left.component.html",
-  styleUrls: ["./list-menu-left.component.css"],
+  selector: "app-lessons-menu",
+  templateUrl: "./lessons-menu.component.html",
+  styleUrls: ["./lessons-menu.component.css"],
   animations: [
     trigger("menu", [
       state(
@@ -36,19 +36,19 @@ import { LessonMenuModel } from 'src/app/shared/models/Menus/menus.model';
     ]),
   ],
 })
-export class ListMenuLeftComponent implements OnInit, OnDestroy {
+export class LessonsMenuComponent implements OnInit, OnDestroy {
   private listLessonsSubscription: Subscription;
   public LessonMenu: LessonMenuModel[];
   public selectMenu: string;
   public currentStateMenu: string = "hide";
 
   constructor(
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.listLessonsSubscription = this.listMenuLeftService.listMenu.subscribe(
+    this.listLessonsSubscription = this.lessonsMenuService.lessonMenu.subscribe(
       (listMenu) => {
           this.currentStateMenu = "hide";
           this.LessonMenu = listMenu;

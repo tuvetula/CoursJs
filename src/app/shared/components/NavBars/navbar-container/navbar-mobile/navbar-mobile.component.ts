@@ -5,7 +5,7 @@ import { ChapterMenuModel } from 'src/app/shared/models/Menus/menus.model';
 import { UserStatueModel } from 'src/app/shared/models/User/userStatue.model';
 import { Router } from '@angular/router';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { AuthentificationService } from 'src/app/shared/services/Auth/authentification.service';
 import { filter, tap, defaultIfEmpty, map } from 'rxjs/operators';
 
@@ -34,7 +34,7 @@ public userStatue: UserStatueModel;
 constructor(
   private router: Router,
   private appliService: AppliService,
-  private listMenuLeftService: ListMenuLeftService,
+  private lessonsMenuService: LessonsMenuService,
   private authentificationService: AuthentificationService
 ) {}
 
@@ -73,8 +73,10 @@ public logout() {
 
 //Clique sur un choix de appliMenu
 public onAppliMenuItemClick(name: string): void {
-  //this.listMenuLeftService.listMenu.next([]);
-  //this.appliService.title.next(name);
+  if(this.lessonsMenuService.lessonMenu.value.length){
+    this.lessonsMenuService.lessonMenu.next([]);
+  }
+  this.appliService.title.next(name);
 }
 
 ngOnDestroy(): void {

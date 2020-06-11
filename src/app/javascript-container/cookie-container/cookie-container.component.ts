@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookiesService } from 'src/app/shared/services/Menus/Javascript/cookie.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
-import { ListMenuLeftService } from 'src/app/shared/services/Menus/list-menu-left.service';
+import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 
 @Component({
   selector: 'app-cookie-container',
@@ -13,12 +13,12 @@ export class CookieContainerComponent implements OnInit {
 
   constructor(
     private appliService: AppliService,
-    private listMenuLeftService: ListMenuLeftService,
+    private lessonsMenuService: LessonsMenuService,
     private cookiesService: CookiesService
   ) { }
 
   ngOnInit(): void {
-    this.listMenuLeftService.listMenu.next(this.cookiesService.cookiesMenu);
+    this.lessonsMenuService.lessonMenu.next(this.cookiesService.cookiesMenu);
     this.appliService.title.next('Cookies&LocalStorage');
   }
 
