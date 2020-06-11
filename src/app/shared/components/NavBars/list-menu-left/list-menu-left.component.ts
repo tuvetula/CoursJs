@@ -9,6 +9,7 @@ import {
   transition,
   animate,
 } from "@angular/animations";
+import { LessonMenuModel } from 'src/app/shared/models/Menus/menus.model';
 
 @Component({
   selector: "app-list-lessons",
@@ -37,7 +38,7 @@ import {
 })
 export class ListMenuLeftComponent implements OnInit, OnDestroy {
   private listLessonsSubscription: Subscription;
-  public listMenu: { name: string; url: string }[];
+  public LessonMenu: LessonMenuModel[];
   public selectMenu: string;
   public currentStateMenu: string = "hide";
 
@@ -50,17 +51,17 @@ export class ListMenuLeftComponent implements OnInit, OnDestroy {
     this.listLessonsSubscription = this.listMenuLeftService.listMenu.subscribe(
       (listMenu) => {
           this.currentStateMenu = "hide";
-          this.listMenu = listMenu;
-        //Si le nouveau menu contient des données, on change le texte du bouton
-        if (this.listMenu.length > 0) {
+          this.LessonMenu = listMenu;
+        //Si le nouveau LessonMenu contient des données, on change le texte du bouton (version mobile)
+        if (this.LessonMenu.length > 0) {
           const url: string = this.router.url;
-          const section = url.slice(url.lastIndexOf("/") + 1);
-          const menuMatchingIndex = this.listMenu.findIndex(
-            (el) => el.url.slice(el.url.lastIndexOf("/") + 1) === section
+          const chapter = url.slice(url.lastIndexOf("/") + 1);
+          const menuMatchingIndex = this.LessonMenu.findIndex(
+            (el) => el.url.slice(el.url.lastIndexOf("/") + 1) === chapter
           );
           //Si l'url d'entrée sur site est sur chapitre alors on modifie le menu sélectionné
           if (menuMatchingIndex >= 0) {
-            this.selectMenu = this.listMenu[menuMatchingIndex].name;
+            this.selectMenu = this.LessonMenu[menuMatchingIndex].name;
             //sinon on redirige vers le premier chapitre
           } else {
             this.selectMenu = "Sélectionner une section"

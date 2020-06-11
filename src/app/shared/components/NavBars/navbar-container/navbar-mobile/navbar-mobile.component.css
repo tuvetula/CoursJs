@@ -1,0 +1,76 @@
+/* Couleur navbar <nav> */
+.Accueil {
+  --backgroundColor: rgb(208, 208, 208);
+  background-color: var(--backgroundColor);
+  --menuBurgerColor: invert(0);
+}
+.Angular {
+  --backgroundColor: rgb(226, 50, 55);
+  background-color: var(--backgroundColor);
+  --menuBurgerColor: invert(1);
+}
+.Javascript {
+  --backgroundColor: rgb(240, 217, 29);
+  background-color: var(--backgroundColor);
+  --menuBurgerColor: invert(0);
+}
+.MonCompte {
+  --backgroundColor: rgb(208, 208, 208);
+  background-color: var(--backgroundColor);
+  --menuBurgerColor: invert(0);
+}
+/* .navbarDark & .navbarLight */
+.navbarDark span,
+.navbarLight span {
+  font-size: small;
+}
+/* .navbarDark */
+.navbarDark a,
+.navbarDark span {
+  color: whitesmoke;
+}
+/* .navbarLight */
+.navbarLight a,
+.navbarLight span {
+  color: black;
+}
+
+/* Logos menus*/
+img {
+  height: 30px;
+}
+
+/* BOUTONS DROPDOWNMENU */
+/* remove dropdown arrow (petite flèche) */
+.dropdown-toggle::after {
+  display: none;
+}
+/* Bouton burger Menu*/
+#burgerMenuButton {
+  filter: var(--menuBurgerColor);
+}
+/* Bouton chapterMenu */
+#chapterMenuButton {
+  height: 30px;
+}
+#chapterMenuButton.dropdown-toggle::after {
+  display: block;
+}
+
+/* DROPDOWNMENUS */
+#burgerMenuDropdownMenu,
+#chapterMenuMobile {
+  padding: 0;
+}
+
+
+
+.active {
+  font-weight: bold;
+}
+
+#navbarMobile {
+  height: 50px;
+}
+
+

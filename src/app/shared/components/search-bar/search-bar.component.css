@@ -1,15 +1,32 @@
 #resultToShow {
   position: absolute;
-  right: 25%;
-  width: 500px;
-  color: black;
   background-color: ivory;
+  color: black;
+  width: 150%;
   margin-top: 1px;
   border: solid 1px black;
   border-radius: 3px;
   z-index: 1;
 }
 
+@media screen and (min-width: 960px){
+  #resultToShow {
+    right: 25%;
+    width: 500px;
+  }
+}
+/* Version Mobile */
+@media screen and (max-width: 959px){
+  .form-control {
+    background-color: transparent;
+    color: rgb(41, 43, 46);
+    height: 50px;
+    padding: 12px 20px;
+  }
+  ::placeholder {
+    color: rgb(41, 43, 46);
+  }
+}
 #resultToShow > ul {
   list-style-type: none;
   padding: 0px;
@@ -40,3 +57,4 @@
   width: 20px;
   max-height: 20px;
 }
+

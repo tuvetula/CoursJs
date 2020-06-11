@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterViewChecked {
   public nameSection: string = "Javascript";
 
-  constructor(private appliService: AppliService,
+  constructor(
+    private appliService: AppliService,
     private listMenuLeftService: ListMenuLeftService,
     private cdRef: ChangeDetectorRef,
     ) {}
@@ -21,6 +22,7 @@ export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterVie
     this.appliService.currentAppliMenu.next(this.nameSection);
     //On paramètre le titre de la page
     this.appliService.title.next(this.nameSection);
+    // this.listMenuLeftService.listMenu.next([]);
   }
   ngAfterViewChecked(): void {
     this.cdRef.detectChanges();

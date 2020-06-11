@@ -71,8 +71,8 @@ export class AppliService {
         keywords: ['compte']
       }
     ];
-    this.currentAppliMenu.subscribe((currentAppliMenu) => {
-      this.appliMenuSelectSection.next(this.getAppliMenuSelected(currentAppliMenu));
+    this.currentAppliMenu.subscribe((currentAppliMenuName: string) => {
+      this.appliMenuSelectSection.next(this.getAppliMenuSelected(currentAppliMenuName));
     });
   }
 
@@ -80,14 +80,16 @@ export class AppliService {
     return from(this.appliMenu);
   }
   private getAppliMenuSelected(name: string): AppliMenuModel {
-    let menu: AppliMenuModel;
-    if (name) {
-      this.appliMenu.forEach((element) => {
-        if (element.name === name) {
-          menu = element;
-        }
-      });
-    }
-    return menu;
+    // let menu: AppliMenuModel;
+    // if (name) {
+    //   this.appliMenu.forEach((element) => {
+    //     if (element.name === name) {
+    //       menu = element;
+    //     }
+    //   });
+    // }
+    return this.appliMenu.find(
+      element => element.name === name
+    )
   }
 }

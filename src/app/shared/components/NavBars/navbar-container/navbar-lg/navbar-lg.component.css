@@ -1,0 +1,61 @@
+/* Couleur navbar */
+.Accueil {
+  --backgrounColor: rgb(208,208,208);
+  background-color: var( --backgrounColor);
+}
+.Angular {
+  --backgrounColor: rgb(226, 50, 55);
+  background-color: var( --backgrounColor);
+}
+.Javascript {
+  --backgrounColor: rgb(240, 217, 29);
+  background-color: var( --backgrounColor);
+}
+.MonCompte {
+  --backgrounColor: rgb(208,208,208);
+  background-color: var( --backgrounColor);
+}
+#myAccountDropdownMenu {
+  border-width: 2px;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+/* ChaptersMenu */
+#chapterMenuNavbar {
+  background-color: #f8f9fa;
+}
+/* remove dropdown arrow (petite flèche) */
+.dropdown-toggle::after {
+  display:none;
+}
+
+/* NAVBAR DARK */
+.navbarDark a , .navbarDark span{
+  color:whitesmoke;
+}
+.navbarDark span , .navbarLight span {
+  font-size: small;
+}
+/* NAVBAR LIGHT */
+.navbarLight a , .navbarLight span{
+  color: black;
+}
+
+/* AUTRES */
+a {
+  display: block;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: none;
+}
+.active {
+  font-weight: bold;
+}
+
+.containerFlex {
+  display: flex;
+}
+
+.list-group{
+  background-color:var( --backgrounColor);
+}

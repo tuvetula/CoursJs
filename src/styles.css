@@ -3,7 +3,7 @@
 .darkTheme{
   background-color: #41474D;
   color: #E5E5E5;
-  --codeKeyword: rgb(61, 255, 251);
+  --codeKeyword: rgb(59, 126, 214);
   --codeFunction: rgb(255, 145, 167);
   --codeString: rgb(163, 248, 142);
   --listMenuLeftServiceBackgroundColor: #41474D;

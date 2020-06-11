@@ -29,6 +29,7 @@ export class AngularContainerComponent
     this.appliService.currentAppliMenu.next(this.nameSection);
     //Configuration title
     this.appliService.title.next(this.nameSection);
+    this.listMenuLeftService.listMenu.next([]);
   }
 
   ngAfterViewChecked(): void {

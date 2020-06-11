@@ -13,17 +13,16 @@ import { AdminModule } from './admin-container/admin.module';
 
 import { AppComponent } from "./app.component";
 import { HomepageComponent } from "./homepage/homepage.component";
-import { NavbarComponent } from "./shared/components/NavBars/navbar/navbar.component";
+import { NavbarContainerComponent } from './shared/components/NavBars/navbar-container/navbar-container.component';
+import { NavbarLgComponent } from "./shared/components/NavBars/navbar-container/navbar-lg/navbar-lg.component";
+import { NavbarMobileComponent } from './shared/components/NavBars/navbar-container/navbar-mobile/navbar-mobile.component';
 import { PageNotFound404Component } from "./page-not-found404/page-not-found404.component";
 
-import { ListMenuLeftService } from "./shared/services/Menus/list-menu-left.service";
-import { AppliService } from './shared/services/Menus/appli.service';
 import { JavascriptService } from './shared/services/Menus/Javascript/javascript.service';
 import { AngularService } from "./shared/services/Menus/Angular/angular.service";
 import { MyAccountService } from './shared/services/Menus/MyAccount/my-account.service';
 import { UserCrudService } from './shared/services/User/user-crud.service';
 import { CurrentUserService } from './shared/services/User/current-user.service';
-import { ThemesService } from './shared/services/Themes/themes.service.ts.service';
 import { NgxImageCompressService } from '../../node_modules/ngx-image-compress';
 import { StringFunctionsService } from './shared/services/Utilities/String/string-functions.service';
 
@@ -41,15 +40,18 @@ import { ScrollUpButtonComponent } from './shared/components/scroll-up-button/sc
 import { ProfilPictureModule } from './shared/modules/profilPicture.module';
 import { SearchBarModule } from './shared/modules/search-bar/search-bar.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    NavbarComponent,
+    NavbarLgComponent,
     PageNotFound404Component,
     SignupComponent,
     SigninComponent,
     ScrollUpButtonComponent,
+    NavbarContainerComponent,
+    NavbarMobileComponent,
   ],
   imports: [
     BrowserModule,

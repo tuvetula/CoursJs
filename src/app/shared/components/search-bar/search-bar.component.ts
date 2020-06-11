@@ -12,9 +12,7 @@ import { AppliMenuModel } from "../../models/Menus/appliMenu.model";
 import { Subscription } from "rxjs";
 import { DocumentClickService } from "../../services/Utilities/document-click.service";
 import { StringFunctionsService } from "../../services/Utilities/String/string-functions.service";
-import { ChapterMenuModel } from "../../models/Menus/menus.model";
 import { SearchResultsModel } from "../../models/search-bar/search-results";
-import { element } from "protractor";
 
 @Component({
   selector: "app-search-bar",
@@ -178,7 +176,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
       if(result.length > 0){
         //On trie par keywordFound
         result = result.sort((a,b) => {
-          const nameA = a.keywordFound.toUpperCase();
+          const nameA = a.input.toUpperCase();
           const nameB =  b.keywordFound.toUpperCase();
           let compare: number;
           if (nameA > nameB) {
