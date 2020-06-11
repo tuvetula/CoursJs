@@ -13,9 +13,9 @@ import { AdminModule } from './admin-container/admin.module';
 
 import { AppComponent } from "./app.component";
 import { HomepageComponent } from "./homepage/homepage.component";
-import { NavbarContainerComponent } from './shared/components/NavBars/navbar-container/navbar-container.component';
-import { NavbarLgComponent } from "./shared/components/NavBars/navbar-container/navbar-lg/navbar-lg.component";
-import { NavbarMobileComponent } from './shared/components/NavBars/navbar-container/navbar-mobile/navbar-mobile.component';
+import { NavbarContainerComponent } from './shared/components/navbar-container/navbar-container.component';
+import { NavbarLgComponent } from "./shared/components/navbar-container/navbar-lg/navbar-lg.component";
+import { NavbarMobileComponent } from './shared/components/navbar-container/navbar-mobile/navbar-mobile.component';
 import { PageNotFound404Component } from "./page-not-found404/page-not-found404.component";
 
 import { JavascriptService } from './shared/services/Menus/Javascript/javascript.service';

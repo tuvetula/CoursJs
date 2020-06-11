@@ -1,13 +1,12 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
-import { Subscription, Observable } from "rxjs";
+import { Subscription } from "rxjs";
 import { AppliService } from "src/app/shared/services/Menus/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/Menus/appliMenu.model";
 import { ChapterMenuModel } from "src/app/shared/models/Menus/menus.model";
 import { UserStatueModel } from "src/app/shared/models/User/userStatue.model";
 import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
 import { Router } from "@angular/router";
-import { LessonsMenuComponent } from '../../../lessons-menu/lessons-menu.component';
 
 @Component({
   selector: "app-navbar-lg",

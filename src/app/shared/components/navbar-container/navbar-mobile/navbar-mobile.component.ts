@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { AuthentificationService } from 'src/app/shared/services/Auth/authentification.service';
-import { filter, tap, defaultIfEmpty, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar-mobile',
