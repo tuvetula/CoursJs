@@ -16,7 +16,7 @@ export class DomService {
       {name:"Attributs et propriétés" , url: "/Javascript/Dom/Attributs-proprietes",keywords:['attributs','proprietes']},
       {name:"L'exemple de l'élément HTMLInputElement" , url: "/Javascript/Dom/HtmlInputElement",keywords:['HTMLInputElement']},
       {name:"Utilisation de css avec webpack" , url: "/Javascript/Dom/Utilisation-css-webpack",keywords:['css','webpack']},
-      {name:"Modification du style et des classes" , url: "/Javascript/Dom/Modification-style-classes",keywords:['style','classes']},
+      {name:"Modification du style et des classes" , url: "/Javascript/Dom/Modification-style-classes",keywords:['className','classList']},
       {name:"Créer des noeuds" , url: "/Javascript/Dom/Creer-noeuds",keywords:['noeuds']},
       {name:"Positionner des noeuds" , url: "/Javascript/Dom/Positionner-noeuds",keywords:['noeuds','positionner']},
       {name:"Supprimer et remplacer des noeuds" , url: "/Javascript/Dom/Supprimer-remplacer-noeuds",keywords:['replacewith','replacechild','removechild']}

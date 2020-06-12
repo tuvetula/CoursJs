@@ -1,3 +1,4 @@
+/* RESULTS TO SHOW */
 #resultToShow {
   position: absolute;
   background-color: ivory;
@@ -15,18 +16,7 @@
     width: 500px;
   }
 }
-/* Version Mobile */
-@media screen and (max-width: 959px){
-  .form-control {
-    background-color: transparent;
-    color: rgb(41, 43, 46);
-    height: 50px;
-    padding: 12px 20px;
-  }
-  ::placeholder {
-    color: rgb(41, 43, 46);
-  }
-}
+
 #resultToShow > ul {
   list-style-type: none;
   padding: 0px;
@@ -58,3 +48,23 @@
   max-height: 20px;
 }
 
+
+
+/* Version Mobile */
+@media screen and (max-width: 959px){
+  .form-control {
+    background-color: transparent;
+    color: rgb(41, 43, 46);
+    padding: 5px 10px;
+    height: 40px;
+    border: none;
+    border-radius: 0px;
+    border-bottom: solid 1px;
+  }
+  .form-control:focus {
+    outline: none;
+  }
+  ::placeholder {
+    color: rgb(41, 43, 46);
+  }
+}

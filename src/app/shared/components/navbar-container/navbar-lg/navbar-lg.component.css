@@ -1,6 +1,6 @@
 /* Couleur navbar */
 .Accueil {
-  --backgrounColor: rgb(208,208,208);
+  --backgrounColor: rgb(248, 249, 250);
   background-color: var( --backgrounColor);
 }
 .Angular {
@@ -12,7 +12,7 @@
   background-color: var( --backgrounColor);
 }
 .MonCompte {
-  --backgrounColor: rgb(208,208,208);
+  --backgrounColor: rgb(248, 249, 250);
   background-color: var( --backgrounColor);
 }
 #myAccountDropdownMenu {

@@ -4,6 +4,7 @@ import {
   OnDestroy,
   ViewChild,
   ElementRef,
+  Input,
 } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { AppliService } from "../../services/Menus/appli.service";
