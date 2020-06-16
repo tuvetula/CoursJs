@@ -2,6 +2,12 @@
 nav{
   --imgHeight: 30px;
 }
+#navbarMobile {
+  height: 50px;
+}
+.active {
+  font-weight: bold;
+}
 /* Couleur navbar <nav> */
 .Accueil {
   --backgroundColor: rgb(248, 249, 250);
@@ -49,42 +55,39 @@ img {
 .dropdown-toggle::after {
   display: none;
 }
+/* DROPDOWNMENUS */
+/* BURGER MENU (appliMenu) */
 /* Bouton burger Menu*/
 #burgerMenuButton {
   filter: var(--menuBurgerColor);
 }
-
-
-/* DROPDOWNMENUS */
-#burgerMenuDropdownMenu,
-#chapterMenuMobile {
-  background-color: var(--backgroundColor);
-}
-.active {
-  font-weight: bold;
-}
-
-#navbarMobile {
-  height: 50px;
-}
 #burgerMenuDropdownMenu{
+  background-color: var(--backgroundColor);
   position: absolute;
-  width: 80%;
+  overflow: hidden;
+  max-height: 1000px;
+  width: 70%;
   top:50px;
-  left:calc(0px - 80%);
-  z-index: 999;
+  left:calc(0px - 70%);
   border-bottom: solid;
   border-color: var(--backgroundColor);
   border-bottom-right-radius: 12px;
   visibility: hidden;
-  transition: all 0.4s ease-out;
+  z-index: 11;
+  transition: left 0.3s ease-out,visibility 0.4s ease-out, max-height 0.3s linear;
 }
 #burgerMenuDropdownMenu.slideIn{
   visibility: visible;
   left: 0px;
+  max-height: 1000px;
 }
-#burgerMenuDropdownMenu:last-child {
-  border:none;
+#burgerMenuDropdownMenu.slideIn.searchFocus{
+  visibility: visible;
+  left: 0px;
+  max-height: 100px;
+}
+.itemBurgerMenu:last-of-type {
+  border-bottom: none;
 }
 .itemBurgerMenu {
   padding: 5px 20px;
@@ -95,7 +98,6 @@ img {
   font-size: 1em;
 }
 
-
 /* CHAPTER MENU */
 /* Bouton chapterMenu */
 #chapterMenuButton {
@@ -103,4 +105,27 @@ img {
 }
 #chapterMenuButton.dropdown-toggle::after {
   display: block;
+}
+#chapterMenuDropdown {
+  position: absolute;
+  max-height: 0px;
+  overflow: hidden;
+  top:50px;
+  right:0px;
+  width: 70%;
+  z-index: 10;
+  transition: max-height 0.4s linear , z-index 0s linear;
+}
+#chapterMenuDropdown.slideIn {
+  max-height: 1000px;
+  z-index: 11;
+}
+.itemChapterMenu {
+  width: 100%;
+  height: 50px;
+  padding: 5px 20px;
+  border-bottom: solid 1px #f8f9fa;
+}
+.itemChapterMenu > span {
+  font-size: 1em;
 }

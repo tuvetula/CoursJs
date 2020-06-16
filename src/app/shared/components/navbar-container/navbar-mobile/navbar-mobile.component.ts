@@ -2,10 +2,9 @@ import {
   Component,
   OnInit,
   ViewChild,
-  HostListener,
-  AfterViewChecked,
-  AfterContentChecked,
+  ElementRef,
   AfterViewInit,
+  Input,
 } from "@angular/core";
 import { Subscription, Observable } from "rxjs";
 import { AppliMenuModel } from "src/app/shared/models/Menus/appliMenu.model";
@@ -16,86 +15,133 @@ import { AppliService } from "src/app/shared/services/Menus/appli.service";
 import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
 import { map } from "rxjs/operators";
+import { DocumentClickService } from "src/app/shared/services/Utilities/document-click.service";
 
 @Component({
   selector: "app-navbar-mobile",
   templateUrl: "./navbar-mobile.component.html",
   styleUrls: ["./navbar-mobile.component.css"],
 })
-export class NavbarMobileComponent implements OnInit {
+export class NavbarMobileComponent implements OnInit, AfterViewInit {
   //export Input pour composant enfant profilPicture
   public source: string = "navbar";
   //AppliMenu
-  private currentAppliMenuSelectedSubscription: Subscription;
-  private userStatueSubscription: Subscription;
-
-  @ViewChild("burgerMenuDropdownMenu") burgerMenuDropdownMenu;
-  public appliMenu: AppliMenuModel[];
-  public appliMenuItemSelected: string;
-  public isNavbarThemeIsDark: boolean;
-  public classToAdd: string;
-
-  public chapterMenu: ChapterMenuModel[];
+  private documentClickSubscription: Subscription;
   public chapterMenuItemSelected: Observable<string>;
 
-  public userStatue: UserStatueModel;
+  @Input() appliMenu: AppliMenuModel[];
+  @Input() appliMenuItemSelected: string;
+  @Input() userStatue: UserStatueModel;
+  @Input() isNavbarThemeIsDark: boolean;
+  @Input() classToAdd: string;
+  @Input() chapterMenu: ChapterMenuModel[];
+
+  public isBurgerMenuDropdownDisplay: () => boolean;
+  @ViewChild("burgerMenuDropdownMenu") burgerMenuDropdownMenu: ElementRef;
+  public isChapterMenuDropdownDisplay: () => boolean;
+  @ViewChild("chapterMenuDropdown") chapterMenuDropdown: ElementRef;
+
+  //Pour burgerMenu lors du focus ou blur du searchBar
+  public hideElements: boolean = false;
 
   constructor(
     private router: Router,
     private appliService: AppliService,
     private lessonsMenuService: LessonsMenuService,
-    private authentificationService: AuthentificationService
+    private authentificationService: AuthentificationService,
+    private documentClickService: DocumentClickService
   ) {}
 
   ngOnInit(): void {
-    //On configure le menu à afficher dans le AppliMenu
-    this.appliMenu = this.appliService.appliMenu;
-    //On souscrit pour recevoir le appliMenu selectionné
-    this.currentAppliMenuSelectedSubscription = this.appliService.appliMenuSelectSection.subscribe(
-      (appliMenu: AppliMenuModel) => {
-        this.appliMenuItemSelected = appliMenu.name;
-        this.isNavbarThemeIsDark = appliMenu.darkTheme;
-        this.chapterMenu =
-          appliMenu.chaptersMenu &&
-          appliMenu.chaptersMenu.length &&
-          appliMenu.chaptersMenu[0].name
-            ? appliMenu.chaptersMenu
-            : null;
-        this.classToAdd = appliMenu.classToAdd;
-      }
-    );
     //On souscrit au titre de la page pour paramétrer le bouton chaptersMenu
     this.chapterMenuItemSelected = this.appliService.title.pipe(
       map((title) => (title === this.appliMenuItemSelected ? "" : title))
     );
-    //On souscrit au userStatue
-    this.userStatueSubscription = this.authentificationService.userBehaviourSubject.subscribe(
-      (value) => (this.userStatue = value)
+    //On souscrit au click
+    this.documentClickSubscription = this.documentClickService.documentClickedTarget.subscribe(
+      (target) => {
+        if (
+          this.isBurgerMenuDropdownDisplay() ||
+          this.isChapterMenuDropdownDisplay()
+        ) {
+          this.documentClickListener(target);
+        }
+      }
     );
   }
-
-  //Déconnexion
-  public logout() {
-    this.authentificationService.logout().then(() => {
-      this.burgerMenuDropdownMenu.nativeElement.classList.toggle("slideIn");
-      this.router.navigate(["/"]);
-    });
+  ngAfterViewInit(): void {
+    this.isBurgerMenuDropdownDisplay = () =>
+      this.burgerMenuDropdownMenu.nativeElement.classList.contains("slideIn");
+    this.isChapterMenuDropdownDisplay = () => {
+      if (this.chapterMenuDropdown) {
+        return this.chapterMenuDropdown.nativeElement.classList.contains(
+          "slideIn"
+        );
+      } else {
+        return false;
+      }
+    };
   }
-
-  //Clique sur un choix de appliMenu
-  public onAppliMenuItemClick(name: string): void {
+  //Methode appellé lors de focus ou blur sur searchBarInput
+  public onSearchBarInputFocus(event: boolean) {
+    if (event) {
+      this.burgerMenuDropdownMenu.nativeElement.classList.add("searchFocus");
+      setTimeout(() => {
+        this.hideElements = true;
+      }, 300);
+    } else {
+      this.burgerMenuDropdownMenu.nativeElement.classList.remove("searchFocus");
+      setTimeout(() => {
+        this.hideElements = false;
+      }, 300);
+    }
+  }
+  //Clique sur bouton burgerMenu
+  public toggleBurgerMenuDropdown(): void {
+    this.burgerMenuDropdownMenu.nativeElement.classList.toggle("slideIn");
+  }
+  //Clique sur un choix de burgerMenuDropdown
+  public burgerMenuDropdownItemClick(name: string): void {
+    //On remet le lessonsMenu à vide (sert pour quand on sort de Mon compte)
     if (this.lessonsMenuService.lessonMenu.value.length) {
       this.lessonsMenuService.lessonMenu.next([]);
     }
-    this.appliService.title.next(name);
-    this.burgerMenuDropdownMenu.nativeElement.classList.remove("slideIn");
+    this.toggleBurgerMenuDropdown();
+  }
+  //Clique sur bouton chapterMenu
+  public toggleChapterMenuDropdown(): void {
+    this.chapterMenuDropdown.nativeElement.classList.toggle("slideIn");
+  }
+  //Clique sur chapterMenuDropdown item
+  public onChapterMenuDropdownItemClick(): void {
+    this.toggleChapterMenuDropdown();
+  }
+  //Déconnexion
+  public logout() {
+    this.authentificationService.logout().then(() => {
+      this.burgerMenuDropdownMenu.nativeElement.classList.remove("slideIn");
+      this.router.navigate(["/"]);
+    });
+  }
+  private documentClickListener(target: HTMLElement): void {
+    //Si le burgerMenuDropdown est affiché et que son élément parent ne contient pas target
+    //(ni le bouton burgerMenu ni le burgerDropdownMenu)
+    if (
+      this.isBurgerMenuDropdownDisplay() &&
+      !this.burgerMenuDropdownMenu.nativeElement.parentNode.contains(target)
+    ) {
+      this.toggleBurgerMenuDropdown();
+    }
+    if (
+      this.chapterMenuDropdown &&
+      this.isChapterMenuDropdownDisplay() &&
+      !this.chapterMenuDropdown.nativeElement.parentNode.contains(target)
+    ) {
+      this.toggleChapterMenuDropdown();
+    }
   }
 
-  public showBurgerMenuDropdownMenu(): void {
-    this.burgerMenuDropdownMenu.nativeElement.classList.toggle("slideIn");
-  }
   ngOnDestroy(): void {
-    this.currentAppliMenuSelectedSubscription.unsubscribe();
-    this.userStatueSubscription.unsubscribe();
+    this.documentClickSubscription.unsubscribe();
   }
 }

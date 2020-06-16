@@ -5,6 +5,8 @@ import {
   ViewChild,
   ElementRef,
   Input,
+  Output,
+  EventEmitter,
 } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { AppliService } from "../../services/Menus/appli.service";
@@ -23,6 +25,8 @@ import { SearchResultsModel } from "../../models/search-bar/search-results";
 })
 export class SearchBarComponent implements OnInit, OnDestroy {
   public source: string = "searchBar";
+  @Input("source") parentComponent: string;
+  @Input() isNavbarThemeIsDark: boolean;
 
   private documentClickSubscription: Subscription;
 
@@ -32,12 +36,15 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   @ViewChild("searchBarFormElement", { read: ElementRef, static: false })
   searchBarFormElement: ElementRef;
 
+  @Output() public inputFocusBlur: EventEmitter<boolean> = new EventEmitter();
+
   private appliMenuSubscription: Subscription;
   private appliMenu: AppliMenuModel[] = [];
 
   private globalTimeout = null;
   public resultToShow: SearchResultsModel[] = [];
   public isDisplayResultPopup: boolean;
+  private isSearchBarFocus: boolean;
 
   public searchBarForm: FormGroup;
 
@@ -64,7 +71,12 @@ export class SearchBarComponent implements OnInit, OnDestroy {
       .subscribe((appliMenu) => this.appliMenu.push(appliMenu));
 
     this.documentClickSubscription = this.documentClickService.documentClickedTarget.subscribe(
-      (target) => this.documentClickListener(target)
+      (target) => {        
+        if (this.isDisplayResultPopup && !this.isSearchBarFocus) {
+          //console.log('searchBarClick');
+          this.documentClickListener(target);
+        }
+      }
     );
   }
 
@@ -76,14 +88,31 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.searchBarForm.reset();
   }
 
+  public onInputFocus(event): void {
+    if (this.parentComponent === "navbarMobile") {
+      this.inputFocusBlur.emit(true);
+      this.isSearchBarFocus = true;
+      this.search();
+    }
+  }
+  public onInputBlur(event): void {
+    if (this.parentComponent === "navbarMobile") {
+      this.inputFocusBlur.emit(false);
+      this.isSearchBarFocus = false;
+    }
+  }
   public showPopup(event?: any) {
     if (this.resultToShow.length) {
       this.isDisplayResultPopup = true;
     }
   }
-  public closePopup(): void {
+  public closePopup(event?: MouseEvent): void {
     this.isDisplayResultPopup = false;
+    if(event){
+      this.searchBarFormReset();
+    }
   }
+
   public logoSectionPath(url: string): string {
     if (url.toLowerCase().includes("angular")) {
       return this.angularLogoPath;
@@ -92,18 +121,18 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     }
   }
 
-  public newInputInSearchBar(){
-    if(this.globalTimeout != null){
+  public newInputInSearchBar() {
+    if (this.globalTimeout != null) {
       clearTimeout(this.globalTimeout);
     }
-    this.globalTimeout = setTimeout(()=> this.search() ,300);
+    this.globalTimeout = setTimeout(() => this.search(), 300);
   }
 
   private search() {
     this.globalTimeout = null;
     let result: SearchResultsModel[] = [];
     const input: string = this.searchBarForm.value.searchInput;
-    if (input.length >= 2) {
+    if (input && input.length >= 2) {
       const inputArray = input.trim().split(" ");
       //on cherche dans appliMenu
       const appliMenuSearchResult = this.searchInAppliMenu(inputArray);
@@ -112,25 +141,31 @@ export class SearchBarComponent implements OnInit, OnDestroy {
       let appliMenuSearchResultAfterVerification: SearchResultsModel[];
       if (appliMenuSearchResult) {
         appliMenuSearchResultAfterVerification = appliMenuSearchResult.filter(
-          (element) => element.input.toLowerCase() === element.keywordFound.toLowerCase()
+          (element) =>
+            element.input.toLowerCase() === element.keywordFound.toLowerCase()
         );
       }
-      if (appliMenuSearchResult && appliMenuSearchResultAfterVerification.length) {
+      if (
+        appliMenuSearchResult &&
+        appliMenuSearchResultAfterVerification.length
+      ) {
         //Si le nombre de mot dans Input Array est le même que dans la verification;
         //on push le resultat
-        if(inputArray.length == appliMenuSearchResultAfterVerification.length){
-          appliMenuSearchResult.forEach(
-            appliMenu => result.push(appliMenu)
-          )
+        if (
+          inputArray.length == appliMenuSearchResultAfterVerification.length
+        ) {
+          appliMenuSearchResult.forEach((appliMenu) => result.push(appliMenu));
         }
         //Si un mot est exactement égal, on continue la recherche
         //dans le chapterMenu et lessonsMenu de l'appliMenu correspondant
         appliMenuSearchResultAfterVerification.forEach((element) => {
           //On supprime du tableau inputArray le mot qui a validé la verification au appliMenuSearch
           //pour ne plus le rechercher dans les mots clés
-          const indexOfWordInputVerification = inputArray.indexOf(element.input);
-          if(indexOfWordInputVerification != -1){
-            inputArray.splice(indexOfWordInputVerification,1);
+          const indexOfWordInputVerification = inputArray.indexOf(
+            element.input
+          );
+          if (indexOfWordInputVerification != -1) {
+            inputArray.splice(indexOfWordInputVerification, 1);
           }
           //on recherche dans chaptersMenu
           const chaptersMenuResult: SearchResultsModel[] = this.searchInAppliMenuChaptersMenu(
@@ -152,10 +187,8 @@ export class SearchBarComponent implements OnInit, OnDestroy {
         });
       } else {
         //Sinon on push les resultats dans result
-        if(appliMenuSearchResult){
-          appliMenuSearchResult.forEach(
-            appliMenu => result.push(appliMenu)
-          )
+        if (appliMenuSearchResult) {
+          appliMenuSearchResult.forEach((appliMenu) => result.push(appliMenu));
         }
         //On cherche dans chaptersMenu
         const chaptersMenuSearchResult = this.searchInAppliMenuChaptersMenu(
@@ -172,13 +205,13 @@ export class SearchBarComponent implements OnInit, OnDestroy {
           lessonsMenuSearchResult.forEach((element) => result.push(element));
         }
       }
-      console.log(result);
-      
-      if(result.length > 0){
+      //console.log(result);
+
+      if (result.length > 0) {
         //On trie par keywordFound
-        result = result.sort((a,b) => {
+        result = result.sort((a, b) => {
           const nameA = a.input.toUpperCase();
-          const nameB =  b.keywordFound.toUpperCase();
+          const nameB = b.keywordFound.toUpperCase();
           let compare: number;
           if (nameA > nameB) {
             compare = 1;
@@ -186,7 +219,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
             compare = -1;
           }
           return compare;
-        })
+        });
 
         this.resultToShow = result;
         this.showPopup();
@@ -204,13 +237,18 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.appliMenu.forEach((appliMenu) => {
       if (appliMenu.keywords.length) {
         inputArray.forEach((inputWord) => {
-          let keywordsFound = this.searchInKeywords(appliMenu.keywords,inputWord);
+          let keywordsFound = this.searchInKeywords(
+            appliMenu.keywords,
+            inputWord
+          );
           if (keywordsFound.length) {
             keywordsFound.forEach((word: string) => {
               result.push({
                 name: appliMenu.name,
                 url: appliMenu.url,
-                keywordFound: this.stringFunctionsService.capitalizeFirstLetter(word),
+                keywordFound: this.stringFunctionsService.capitalizeFirstLetter(
+                  word
+                ),
                 input: inputWord,
                 appliMenu: [appliMenu],
               });
@@ -222,7 +260,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     return result.length ? result : null;
   }
 
-  private searchInAppliMenuChaptersMenu(inputArray: string[],appliMenu = this.appliMenu): SearchResultsModel[] {
+  private searchInAppliMenuChaptersMenu(
+    inputArray: string[],
+    appliMenu = this.appliMenu
+  ): SearchResultsModel[] {
     let result = [];
     appliMenu.forEach((appliMenu) => {
       appliMenu.chaptersMenu
@@ -239,7 +280,9 @@ export class SearchBarComponent implements OnInit, OnDestroy {
                 result.push({
                   name: chapterMenu.name,
                   url: chapterMenu.url,
-                  keywordFound: this.stringFunctionsService.capitalizeFirstLetter(keyword),
+                  keywordFound: this.stringFunctionsService.capitalizeFirstLetter(
+                    keyword
+                  ),
                   input: inputWord,
                 })
               );
@@ -250,7 +293,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     return result.length ? result : null;
   }
 
-  private searchInAppliMenuChaptersMenuLessonsMenu(inputArray: string[],appliMenu = this.appliMenu): SearchResultsModel[] {
+  private searchInAppliMenuChaptersMenuLessonsMenu(
+    inputArray: string[],
+    appliMenu = this.appliMenu
+  ): SearchResultsModel[] {
     let result = [];
     appliMenu.forEach((currentAppliMenu) => {
       currentAppliMenu.chaptersMenu.forEach((chapterMenu) => {
@@ -266,8 +312,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
                 result.push({
                   name: lessonMenu.name,
                   url: lessonMenu.url,
-                  keywordFound: this.stringFunctionsService.capitalizeFirstLetter(keyword),
-                  input: inputWord
+                  keywordFound: this.stringFunctionsService.capitalizeFirstLetter(
+                    keyword
+                  ),
+                  input: inputWord,
                 })
               );
             });
@@ -277,7 +325,10 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     return result.length ? result : null;
   }
 
-  private searchInKeywords(keywordsArray: string[],currentWord: string): string[] {
+  private searchInKeywords(
+    keywordsArray: string[],
+    currentWord: string
+  ): string[] {
     let keywordsFound: string[] = [];
     if (currentWord.length > 1) {
       currentWord = this.stringFunctionsService.removeAccents(currentWord);
@@ -294,16 +345,14 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   private documentClickListener(target: HTMLElement): void {
     //Si le popup est affiché, alors si on clique soit en dehors de la popup
     //ou en dehors de la barre de recherche, on close la popup.
-    if (this.isDisplayResultPopup) {
-      if (
-        !this.searchResultPopup.nativeElement.contains(target) &&
-        !this.searchBarFormElement.nativeElement.contains(target)
-      ) {
-        //console.log("Clicked outside the searchBoxPopup");
-        this.closePopup();
-      } else {
-        //console.log('Clicked inside box');
-      }
+    if (
+      !this.searchResultPopup.nativeElement.contains(target) &&
+      !this.searchBarFormElement.nativeElement.contains(target)
+    ) {
+      //console.log("Clicked outside the searchBoxPopup");
+      this.closePopup();
+    } else {
+      //console.log('Clicked inside box');
     }
   }
 

@@ -18,7 +18,7 @@ export class JavascriptContainerComponent implements OnInit, OnDestroy, AfterVie
 
   ngOnInit(): void {
     //On paramètre la section en cours
-    this.appliService.currentAppliMenu.next(this.nameSection);
+    this.appliService.currentAppliMenuName.next(this.nameSection);
     //On paramètre le titre de la page
     this.appliService.title.next(this.nameSection);
     // this.listMenuLeftService.listMenu.next([]);

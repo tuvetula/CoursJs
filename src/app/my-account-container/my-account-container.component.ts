@@ -20,7 +20,7 @@ export class MyAccountContainerComponent implements OnInit {
 
   ngOnInit(): void {
     //On paramètre la section en cours
-    this.appliService.currentAppliMenu.next(this.componentName);
+    this.appliService.currentAppliMenuName.next(this.componentName);
     //On paramètre la section en cours
     this.lessonsMenuService.lessonMenu.next(this.myAccountService.myAccountMenu);
     //Configuration title

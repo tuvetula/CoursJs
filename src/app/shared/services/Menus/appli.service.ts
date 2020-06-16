@@ -10,7 +10,7 @@ import { MyAccountService } from './MyAccount/my-account.service';
 })
 export class AppliService {
   public appliMenu: AppliMenuModel[];
-  public currentAppliMenu: BehaviorSubject<string> = new BehaviorSubject(null);
+  public currentAppliMenuName: BehaviorSubject<string> = new BehaviorSubject(null);
   public appliMenuSelectSection: Subject<AppliMenuModel> = new Subject();
   public title: BehaviorSubject<string> = new BehaviorSubject(null);
 
@@ -71,23 +71,16 @@ export class AppliService {
         keywords: ['compte']
       }
     ];
-    this.currentAppliMenu.subscribe((currentAppliMenuName: string) => {
+    this.currentAppliMenuName.subscribe((currentAppliMenuName: string) => {
       this.appliMenuSelectSection.next(this.getAppliMenuSelected(currentAppliMenuName));
     });
   }
 
+  //Utile pour searchBarComponent
   public getAppliMenu(): Observable<AppliMenuModel>{
     return from(this.appliMenu);
   }
   private getAppliMenuSelected(name: string): AppliMenuModel {
-    // let menu: AppliMenuModel;
-    // if (name) {
-    //   this.appliMenu.forEach((element) => {
-    //     if (element.name === name) {
-    //       menu = element;
-    //     }
-    //   });
-    // }
     return this.appliMenu.find(
       element => element.name === name
     )

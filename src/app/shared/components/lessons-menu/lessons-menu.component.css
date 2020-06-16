@@ -1,6 +1,8 @@
 .list-group-item.active {
     border-color: var(--listMenuLeftServiceBorderColor);
 }
-
+.list-group {
+    z-index: 1;
+}
 
 

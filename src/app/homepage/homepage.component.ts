@@ -15,6 +15,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
      //On paramètre la section en cours
-     this.appliService.currentAppliMenu.next(this.nameSection);
+     this.appliService.currentAppliMenuName.next(this.nameSection);
   }
 }
