@@ -34,8 +34,8 @@ export class AuthentificationService {
               .then(() => this.setUserStatue(user))
               .catch((error) => {
                 console.log('authstate user: error catch');
-                //this.logout();
-                //this.setUserStatue();
+                this.logout();
+                this.setUserStatue();
               });
           } else {
             console.error("authState: no user");

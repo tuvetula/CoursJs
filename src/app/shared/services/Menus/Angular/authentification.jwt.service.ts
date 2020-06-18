@@ -38,7 +38,7 @@ export class AuthentificationJwtService {
       },
       {
         name: "Création de la page de profil",
-        url: "/Angular/AuthentificationJwt/Creation-page-profil" , keywords:['creation','page','profil']
+        url: "/Angular/AuthentificationJwt/Creation-page-profil" , keywords:['creation','profil','guard']
       },
       { name: "Détails du profil", url: "/Angular/AuthentificationJwt/Details-profil" , keywords:['details','profil'] },
       {
