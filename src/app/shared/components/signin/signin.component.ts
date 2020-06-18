@@ -49,7 +49,7 @@ export class SigninComponent implements OnInit {
           if(buttonCloseModal){
             buttonCloseModal.click();
           }
-          this.signinError = null;
+          //this.signinError = null;
           this.showSigninForm = true;
           this.signinFormReset();
         },3000);
