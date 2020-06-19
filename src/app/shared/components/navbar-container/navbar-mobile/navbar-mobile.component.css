@@ -24,6 +24,11 @@ nav{
   background-color: var(--backgroundColor);
   --menuBurgerColor: invert(0);
 }
+.Node {
+  --backgroundColor: rgb(136, 188, 91);
+  background-color: var(--backgroundColor);
+  --menuBurgerColor: invert(0);
+}
 .MonCompte {
   --backgroundColor: rgb(248, 249, 250);
   background-color: var(--backgroundColor);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppliService } from '../shared/services/Menus/appli.service';
 import { LessonsMenuService } from '../shared/services/Menus/lessons-menu.service';
 import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.service';
@@ -9,7 +9,7 @@ import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.
   styleUrls: ['./my-account-container.component.css'],
   providers: [MyAccountService]
 })
-export class MyAccountContainerComponent implements OnInit {
+export class MyAccountContainerComponent implements OnInit,OnDestroy {
   private componentName: string = "Mon compte";
 
   constructor(
@@ -25,5 +25,8 @@ export class MyAccountContainerComponent implements OnInit {
     this.lessonsMenuService.lessonMenu.next(this.myAccountService.myAccountMenu);
     //Configuration title
     this.appliService.title.next(this.componentName);
+  }
+  ngOnDestroy(): void {
+    this.lessonsMenuService.lessonMenu.next([]);
   }
 }

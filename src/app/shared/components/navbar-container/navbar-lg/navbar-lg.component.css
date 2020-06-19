@@ -11,6 +11,11 @@
   --backgrounColor: rgb(240, 217, 29);
   background-color: var( --backgrounColor);
 }
+.Node {
+  --backgroundColor: rgb(136, 188, 91);
+  background-color: var(--backgroundColor);
+  --menuBurgerColor: invert(0);
+}
 .MonCompte {
   --backgrounColor: rgb(248, 249, 250);
   background-color: var( --backgrounColor);

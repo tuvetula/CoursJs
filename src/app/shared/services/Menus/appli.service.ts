@@ -4,6 +4,7 @@ import { AppliMenuModel } from "../../models/Menus/appliMenu.model";
 import { AngularService } from "./Angular/angular.service";
 import { JavascriptService } from "./Javascript/javascript.service";
 import { MyAccountService } from './MyAccount/my-account.service';
+import { NodeService } from './Node/node.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class AppliService {
   constructor(
     private angularService: AngularService,
     private javascriptService: JavascriptService,
+    private nodeService: NodeService,
     private myAccountService: MyAccountService
   ) {
     this.appliMenu = [
@@ -32,19 +34,6 @@ export class AppliService {
         availableForSearchBar: false
       },
       {
-        name: "Angular",
-        url: "/Angular",
-        classToAdd: "Angular",
-        iconeUrl: "../../../../../assets/Pictures/Logo/AngularPng.png",
-        chaptersMenu: this.angularService.angularMenu,
-        darkTheme: true,
-        isOnNavbarLg: true,
-        isOnNavbarMobile: true,
-        showNonConnectedUser: false,
-        availableForSearchBar: true,
-        keywords: ['Angular']
-      },
-      {
         name: "Javascript",
         url: "/Javascript",
         classToAdd: "Javascript",
@@ -56,6 +45,32 @@ export class AppliService {
         showNonConnectedUser: false,
         availableForSearchBar: true,
         keywords: ['Javascript','js']
+      },
+      {
+        name: "Node",
+        url: "/Node",
+        classToAdd: "Node",
+        iconeUrl:"../../../../../assets/Pictures/Logo/NodePng.png",
+        chaptersMenu: this.nodeService.nodeMenu,
+        darkTheme: true,
+        isOnNavbarLg: true,
+        isOnNavbarMobile: true,
+        showNonConnectedUser: false,
+        availableForSearchBar: true,
+        keywords: ['Node']
+      }, 
+      {
+        name: "Angular",
+        url: "/Angular",
+        classToAdd: "Angular",
+        iconeUrl: "../../../../../assets/Pictures/Logo/AngularPng.png",
+        chaptersMenu: this.angularService.angularMenu,
+        darkTheme: true,
+        isOnNavbarLg: true,
+        isOnNavbarMobile: true,
+        showNonConnectedUser: false,
+        availableForSearchBar: true,
+        keywords: ['Angular']
       },
       {
         name: "Mon compte",

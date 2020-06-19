@@ -1,4 +1,4 @@
-#logoJavascriptHead {
+#logoNodeHead {
     width: 70px;
     float: right;
     margin-right: 30px;
@@ -6,7 +6,7 @@
   }
   
   @media(max-width:959px){
-    #logoJavascriptHead {
+    #logoNodeHead {
       display: none;
     }
   }

@@ -52,6 +52,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     "../../../../assets/Pictures/Logo/AngularPng.png";
   private javascriptLogoPath: string =
     "../../../../assets/Pictures/Logo/JavascriptLogo.png";
+  private nodeLogoPath: string = "../../../../assets/Pictures/Logo/NodePng.png";
 
   constructor(
     private fb: FormBuilder,
@@ -118,6 +119,8 @@ export class SearchBarComponent implements OnInit, OnDestroy {
       return this.angularLogoPath;
     } else if (url.toLowerCase().includes("javascript")) {
       return this.javascriptLogoPath;
+    } else if (url.toLowerCase().includes("node")){
+      return this.nodeLogoPath;
     }
   }
 
@@ -266,6 +269,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
   ): SearchResultsModel[] {
     let result = [];
     appliMenu.forEach((appliMenu) => {
+      if(appliMenu.chaptersMenu){
       appliMenu.chaptersMenu
         //on filtre les chapterMenu de appliMenu qui ont des keywords
         .filter((chapterMenu) => chapterMenu.keywords)
@@ -289,6 +293,7 @@ export class SearchBarComponent implements OnInit, OnDestroy {
             }
           });
         });
+      }
     });
     return result.length ? result : null;
   }
