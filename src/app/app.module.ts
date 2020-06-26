@@ -39,7 +39,6 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { ScrollUpButtonComponent } from './shared/components/scroll-up-button/scroll-up-button.component';
 import { ProfilPictureModule } from './shared/modules/profilPicture.module';
 import { SearchBarModule } from './shared/modules/search-bar/search-bar.module';
-import { NodeContainerComponent } from './node-container/node-container.component';
 import { NodeModule } from './node-container/node.module';
 
 
