@@ -11,6 +11,7 @@ import { ModuleExportRequireContainerComponent } from './module-export-require-c
 import { NpmContainerComponent } from './npm-container/npm-container.component';
 import { ModuleExportRequireModule } from './module-export-require-container/module-export-require.module';
 import { NpmModule } from './npm-container/npm.module';
+import { NodeEvenementsModule } from './evenements-container/node-evenements.module';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { NpmModule } from './npm-container/npm.module';
         NodeRoutingModule,
         NodeIntroductionModule,
         ModuleExportRequireModule,
+        NodeEvenementsModule,
         NpmModule
     ],
     providers:[]

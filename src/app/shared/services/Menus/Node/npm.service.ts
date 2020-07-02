@@ -12,12 +12,12 @@ export class NpmService {
       {
         name: "Introduction",
         url: "/Node/Npm/Introduction",
-        keywords: []
+        keywords: ['Npm','Versioning']
       },
       {
         name: "Utilisation",
         url: "/Node/Npm/Utilisation",
-        keywords: []
+        keywords: ['package.json','Npm','Paquet','Installer','Désinstaller']
       }
     ]
   }
