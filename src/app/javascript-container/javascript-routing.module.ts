@@ -164,11 +164,12 @@ import { CanvasOmbresOpacitesLimitesComponent } from "./canvas-container/canvas-
 import { CanvasPixelsComponent } from "./canvas-container/canvas-pixels/canvas-pixels.component";
 import { CanvasBasesAnimationsComponent } from "./canvas-container/canvas-bases-animations/canvas-bases-animations.component";
 import { AuthGuard } from '../shared/guard/auth.guard';
+import { SubscribeGuard } from '../shared/guard/subscribe.guard';
 
 const routes: Route[] = [
   {
     path: "Javascript",
-    component: JavascriptContainerComponent, canActivate: [AuthGuard] , canActivateChild: [AuthGuard] ,
+    component: JavascriptContainerComponent, canActivate: [AuthGuard] , canActivateChild: [SubscribeGuard] ,
     children: [
       {
         path: "Bases",

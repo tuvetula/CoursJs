@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthentificationService } from "../../services/Auth/authentification.service";
 import { UserCrudService } from "../../services/User/user-crud.service";
@@ -10,6 +10,7 @@ import { StringFunctionsService } from '../../services/Utilities/String/string-f
   styleUrls: ["./signup.component.css"],
 })
 export class SignupComponent implements OnInit {
+  @ViewChild('closeModalSignout') closeModalSignout: ElementRef;
   //FormSignup
   public signupForm: FormGroup;
   public signupError: string;
@@ -60,8 +61,8 @@ export class SignupComponent implements OnInit {
               this.signupError = null;
             }
             setTimeout(() => {
-              if (document.getElementById("closeModalSignout")) {
-                document.getElementById("closeModalSignout").click();
+              if (this.closeModalSignout.nativeElement) {
+                this.closeModalSignout.nativeElement.click();
               }
               this.showSignupForm = true;
             }, 5000);

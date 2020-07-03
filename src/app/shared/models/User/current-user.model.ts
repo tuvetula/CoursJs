@@ -7,6 +7,7 @@ export interface CurrentUserModel {
 export interface UserFirestoreModel {
     name: string,
     firstName: string,
+    hasSubscribed: boolean,
     isAdmin: boolean,
     createdAt: number,
     updatedAt: number,

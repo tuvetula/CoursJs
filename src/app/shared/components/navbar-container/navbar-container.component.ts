@@ -6,6 +6,8 @@ import { AppliMenuModel } from '../../models/Menus/appliMenu.model';
 import { ChapterMenuModel } from '../../models/Menus/menus.model';
 import { AuthentificationService } from '../../services/Auth/authentification.service';
 import { UserStatueModel } from '../../models/User/userStatue.model';
+import { CurrentUserService } from '../../services/User/current-user.service';
+import { CurrentUserModel } from '../../models/User/current-user.model';
 
 @Component({
   selector: 'app-navbar-container',
@@ -18,6 +20,8 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   
   private userStatueSubscription: Subscription;
   private currentAppliMenuSelectedSubscription: Subscription;
+  
+  public currentUser: CurrentUserModel;
   public userStatue: UserStatueModel;
   public appliMenu: AppliMenuModel[];
   public appliMenuItemSelected: string;
@@ -29,7 +33,8 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   constructor(
     private screenSizeService: ScreenSizeService,
     private authenticationService: AuthentificationService,
-    private appliService: AppliService
+    private appliService: AppliService,
+    private currentUserService: CurrentUserService
   ) { }
 
   ngOnInit(): void {
@@ -60,8 +65,14 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
        }
      );
     //On souscrit au userStatue
-    this.userStatueSubscription = this.authenticationService.userBehaviourSubject.subscribe(
-      (value) => (this.userStatue = value)
+    this.userStatueSubscription = this.authenticationService.userStatue.subscribe(
+      (value) => {
+        this.userStatue = value;
+        if(this.userStatue && this.userStatue.uid){
+          //On récupère la valeur du currentUser
+          this.currentUser = this.currentUserService.currentUser.value;
+        }
+      }
     );
   }
   ngOnDestroy(): void {

@@ -9,7 +9,7 @@ export class AdminService {
 
   constructor() { 
     this.adminMenu = [
-      {name: "Utilisateurs" , url: "Utilisateurs"}
+      {name: "Utilisateurs" , url: "/Admin/Utilisateurs"}
     ]
   }
 }

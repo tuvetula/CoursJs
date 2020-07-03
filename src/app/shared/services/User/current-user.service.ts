@@ -11,15 +11,18 @@ export class CurrentUserService {
 
   public configureCurrentUser(user: firebase.User): Promise<any> {
     return new Promise((resolve,reject) => {
-      this.userCrudService.getOneUser(user).subscribe(
+      //On verifie si on arrive à recuperer le user en bdd
+      this.userCrudService.getOneUser(user.uid).subscribe(
         (userData: firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>) => {
-          const userDataFirestore = JSON.parse(JSON.stringify(userData.data()));
-          this.currentUser.next({
-            uid: user.uid,
-            email: user.email,
-            user: userDataFirestore,
-          });
-          resolve();
+          if(userData.exists){
+            const userDataFirestore = JSON.parse(JSON.stringify(userData.data()));
+            this.currentUser.next({
+              uid: user.uid,
+              email: user.email,
+              user: userDataFirestore,
+            });          
+            resolve();
+          }
         },
         (error) => {
           this.currentUser.next(null);

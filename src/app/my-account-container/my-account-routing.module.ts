@@ -14,8 +14,7 @@ const routes: Route[] = [
   {
     path: "MonCompte",
     component: MyAccountContainerComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
+    canActivate: [AuthGuard],canActivateChild: [AuthGuard],
     children: [
       { path: "Profil", component: MyAccountProfilComponent },
       { path: "Parametres", component: MyAccountParametresComponent },

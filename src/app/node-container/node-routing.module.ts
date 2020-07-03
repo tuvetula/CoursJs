@@ -21,13 +21,14 @@ import { NodeEvenementsNodeComponent } from "./evenements-container/node-eveneme
 import { NodeEvenementsSystemesComponent } from "./evenements-container/node-evenements-systemes/node-evenements-systemes.component";
 import { NodeEvenementsPersonnalisesComponent } from "./evenements-container/node-evenements-personnalises/node-evenements-personnalises.component";
 import { NodeEvenementsEventsComponent } from "./evenements-container/node-evenements-events/node-evenements-events.component";
+import { SubscribeGuard } from '../shared/guard/subscribe.guard';
 
 const routes: Route[] = [
   {
     path: "Node",
     component: NodeContainerComponent,
     canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
+    canActivateChild: [SubscribeGuard],
     children: [
       {
         path: "Introduction",

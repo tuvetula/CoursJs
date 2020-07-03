@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore, DocumentData } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
+import { UserFirestoreModel } from '../../models/User/current-user.model';
 
 @Injectable()
 export class UserCrudService {
@@ -13,9 +14,10 @@ export class UserCrudService {
     name: string,
     firstName: string
   ): Promise<any> {
-    const user = {
+    const user:UserFirestoreModel = {
       name: name,
       firstName: firstName,
+      hasSubscribed: false,
       isAdmin: false,
       createdAt: Date.now(),
       updatedAt: Date.now(),
@@ -30,10 +32,10 @@ export class UserCrudService {
     }
   }
 
-  public getOneUser(user: firebase.User):Observable<firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>> {
+  public getOneUser(uid: string):Observable<firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>> {
     return this.afFirestore
       .collection("users")
-      .doc(user.uid)
+      .doc(uid)
       .get();
   }
 }

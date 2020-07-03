@@ -34,6 +34,18 @@ export class AppliService {
         availableForSearchBar: false
       },
       {
+        name: "Administration",
+        url: "/Admin",
+        classToAdd: "Accueil",
+        iconeUrl: null,
+        chaptersMenu: null,
+        darkTheme: false,
+        isOnNavbarLg: false,
+        isOnNavbarMobile: false,
+        showNonConnectedUser: false,
+        availableForSearchBar: false
+      },
+      {
         name: "Javascript",
         url: "/Javascript",
         classToAdd: "Javascript",

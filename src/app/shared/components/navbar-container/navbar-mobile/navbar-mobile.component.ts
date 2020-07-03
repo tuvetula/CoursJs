@@ -16,6 +16,7 @@ import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.s
 import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
 import { map } from "rxjs/operators";
 import { DocumentClickService } from "src/app/shared/services/Utilities/document-click.service";
+import { CurrentUserModel } from 'src/app/shared/models/User/current-user.model';
 
 @Component({
   selector: "app-navbar-mobile",
@@ -32,6 +33,7 @@ export class NavbarMobileComponent implements OnInit, AfterViewInit {
   @Input() appliMenu: AppliMenuModel[];
   @Input() appliMenuItemSelected: string;
   @Input() userStatue: UserStatueModel;
+  @Input() currentUser: CurrentUserModel;
   @Input() isNavbarThemeIsDark: boolean;
   @Input() classToAdd: string;
   @Input() chapterMenu: ChapterMenuModel[];

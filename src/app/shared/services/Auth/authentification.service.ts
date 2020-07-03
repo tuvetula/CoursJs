@@ -7,9 +7,9 @@ import { CurrentUserService } from "../User/current-user.service";
 
 @Injectable()
 export class AuthentificationService {
-  public userBehaviourSubject: BehaviorSubject<
-    UserStatueModel
-  > = new BehaviorSubject(JSON.parse(localStorage.getItem("user")));
+  public userStatue: BehaviorSubject<UserStatueModel> = new BehaviorSubject(
+    JSON.parse(localStorage.getItem("user"))
+  );
 
   private firebaseErrors = {
     "auth/user-not-found": "Aucun utilisateur ne correspond à cet e-mail",
@@ -24,7 +24,8 @@ export class AuthentificationService {
     private afAuth: AngularFireAuth,
     private currentUserService: CurrentUserService
   ) {
-    this.afAuth.setPersistence("session").then(() => {
+    this.afAuth.setPersistence("session")
+    .then(() => {
       //Observable changement statue de connexion du user
       this.afAuth.authState.subscribe(
         (user: firebase.User) => {
@@ -33,7 +34,7 @@ export class AuthentificationService {
               .configureCurrentUser(user)
               .then(() => this.setUserStatue(user))
               .catch((error) => {
-                console.log('authstate user: error catch');
+                console.log("authstate user: error catch");
                 this.logout();
                 this.setUserStatue();
               });
@@ -83,7 +84,7 @@ export class AuthentificationService {
     }
   }
 
-  public async logout(): Promise<void> {
+  public async logout(): Promise<void>{
     try {
       return await this.afAuth.signOut();
     } catch (error) {
@@ -97,13 +98,17 @@ export class AuthentificationService {
   }
 
   public getCurrentUser(): Promise<firebase.User> {
-    return this.afAuth.currentUser;
+    return new Promise((resolve,reject)=>{
+      this.afAuth.onAuthStateChanged(
+        (user)=>{
+          resolve(user)
+      },error => reject(error));
+    })
   }
 
   public getIdToken(): Observable<string> {
     return this.afAuth.idToken;
   }
-
   private setUserStatue(user?: firebase.User) {
     let userStatue: UserStatueModel;
     if (user) {
@@ -112,7 +117,7 @@ export class AuthentificationService {
         uid: user.uid,
         displayName: user.displayName,
       };
-      this.userBehaviourSubject.next(userStatue);
+      this.userStatue.next(userStatue);
       localStorage.setItem("user", JSON.stringify(userStatue));
     } else {
       userStatue = {
@@ -120,7 +125,7 @@ export class AuthentificationService {
         uid: null,
         displayName: null,
       };
-      this.userBehaviourSubject.next(userStatue);
+      this.userStatue.next(userStatue);
       localStorage.removeItem("user");
     }
   }

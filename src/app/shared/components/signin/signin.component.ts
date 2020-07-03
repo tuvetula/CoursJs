@@ -26,8 +26,8 @@ export class SigninComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(8)]],
     });
     this.showSigninForm = true;
-    this.userStatueDisplayName = this.authentificationService.userBehaviourSubject.pipe(
-      map((value) => value.displayName)
+    this.userStatueDisplayName = this.authentificationService.userStatue.pipe(
+      map((value) => value ? value.displayName : null)
     );
   }
 

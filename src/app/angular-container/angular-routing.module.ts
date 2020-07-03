@@ -130,11 +130,12 @@ import { AuthentificationJwtDetailsProfilComponent } from './authentification-jw
 import { AuthentificationJwtCreationIntercepteurComponent } from './authentification-jwt-container/authentification-jwt-creation-intercepteur/authentification-jwt-creation-intercepteur.component';
 import { AuthentificationJwtGestionExpirationTokenComponent } from './authentification-jwt-container/authentification-jwt-gestion-expiration-token/authentification-jwt-gestion-expiration-token.component';
 import { AuthGuard } from '../shared/guard/auth.guard';
+import { SubscribeGuard } from '../shared/guard/subscribe.guard';
 
 const routes: Route[] = [
   {
     path: "Angular",
-    component: AngularContainerComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard],
+    component: AngularContainerComponent, canActivate: [AuthGuard], canActivateChild: [SubscribeGuard],
     children: [
       {
         path: "Composants",
