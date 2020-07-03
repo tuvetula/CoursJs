@@ -12,7 +12,7 @@ export class NodeEvenementsService {
       {
         name: "Les évènements Node.js",
         url: "/Node/Evenements/Evenements-node",
-        keywords: [],
+        keywords: ['core','libuv'],
       },
       {
         name: "Les évènements systèmes avec LIBUV",
