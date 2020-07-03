@@ -9,7 +9,7 @@ import { AdminService } from '../shared/services/Menus/Admin/admin.service';
   styleUrls: ['./admin-container.component.css']
 })
 export class AdminContainerComponent implements OnInit,OnDestroy {
-
+  private nameSection: string = "Administration";
   constructor(
     private appliService: AppliService,
     private lessonsMenuService: LessonsMenuService,
@@ -17,8 +17,12 @@ export class AdminContainerComponent implements OnInit,OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    //On paramètre la section en cours
+    this.appliService.currentAppliMenuName.next(this.nameSection);
+    //Configuration title
+    this.appliService.title.next(this.nameSection);
+    //On paramètre les lessons
     this.lessonsMenuService.lessonMenu.next(this.adminService.adminMenu);
-    this.appliService.title.next('Administration');
   }
   ngOnDestroy(): void {
     this.lessonsMenuService.lessonMenu.next([]);

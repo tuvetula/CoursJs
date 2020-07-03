@@ -37,7 +37,7 @@ export class AppliService {
         name: "Administration",
         url: "/Admin",
         classToAdd: "Accueil",
-        iconeUrl: null,
+        iconeUrl: "../../../../../assets/Pictures/Logo/params.svg",
         chaptersMenu: null,
         darkTheme: false,
         isOnNavbarLg: false,
@@ -92,7 +92,7 @@ export class AppliService {
         chaptersMenu: this.myAccountService.myAccountChaptersMenu,
         darkTheme: false,
         isOnNavbarLg: false,
-        isOnNavbarMobile: false,
+        isOnNavbarMobile: true,
         showNonConnectedUser: false,
         availableForSearchBar: true,
         keywords: ['compte']

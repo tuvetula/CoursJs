@@ -22,6 +22,7 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   private currentAppliMenuSelectedSubscription: Subscription;
   
   public currentUser: CurrentUserModel;
+  private currentUserSubscription: Subscription;
   public userStatue: UserStatueModel;
   public appliMenu: AppliMenuModel[];
   public appliMenuItemSelected: string;
@@ -68,12 +69,12 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
     this.userStatueSubscription = this.authenticationService.userStatue.subscribe(
       (value) => {
         this.userStatue = value;
-        if(this.userStatue && this.userStatue.uid){
-          //On récupère la valeur du currentUser
-          this.currentUser = this.currentUserService.currentUser.value;
-        }
       }
     );
+    //On souscrit au currentUser
+    this.currentUserSubscription = this.currentUserService.currentUser.subscribe(
+      currentUser => this.currentUser = currentUser
+    )
   }
   ngOnDestroy(): void {
     this.screenSizeSubscription.unsubscribe();
