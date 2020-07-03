@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthentificationService } from "../../services/Auth/authentification.service";
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-signin",
@@ -17,7 +17,7 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authentificationService: AuthentificationService,
+    private authentificationService: AuthentificationService
   ) {}
 
   ngOnInit(): void {
@@ -27,18 +27,16 @@ export class SigninComponent implements OnInit {
     });
     this.showSigninForm = true;
     this.userStatueDisplayName = this.authentificationService.userBehaviourSubject.pipe(
-      map(
-        value => value.displayName
-      )
-    )
+      map((value) => value.displayName)
+    );
   }
-  
-  public signinFormReset(): void{
+
+  public signinFormReset(): void {
     this.signinForm.reset();
   }
-  
+
   public async signin() {
-    console.log('signin');
+    // console.log('signin');
     if (this.signinForm.valid) {
       this.signinError = null;
       try {
@@ -46,13 +44,13 @@ export class SigninComponent implements OnInit {
         this.showSigninForm = false;
         setTimeout(() => {
           const buttonCloseModal = document.getElementById("closeModalSignin");
-          if(buttonCloseModal){
+          if (buttonCloseModal) {
             buttonCloseModal.click();
           }
           //this.signinError = null;
           this.showSigninForm = true;
           this.signinFormReset();
-        },3000);
+        }, 3000);
       } catch (error) {
         this.signinError = error.message;
       }

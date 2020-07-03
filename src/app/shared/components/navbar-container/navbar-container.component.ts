@@ -22,7 +22,7 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   public appliMenu: AppliMenuModel[];
   public appliMenuItemSelected: string;
   public isNavbarThemeIsDark: boolean;
-  public classToAdd: string;
+  public classToAdd: string = "Accueil";
   public chapterMenu: ChapterMenuModel[];
   public chapterMenuItemSelected: Observable<string>;
 

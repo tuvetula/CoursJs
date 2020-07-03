@@ -20,6 +20,9 @@
   --backgrounColor: rgb(248, 249, 250);
   background-color: var( --backgrounColor);
 }
+#navbarLg{
+  height: 50px;
+}
 #myAccountDropdownMenu {
   border-width: 2px;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.15);

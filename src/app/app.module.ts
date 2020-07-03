@@ -40,6 +40,7 @@ import { ScrollUpButtonComponent } from './shared/components/scroll-up-button/sc
 import { ProfilPictureModule } from './shared/modules/profilPicture.module';
 import { SearchBarModule } from './shared/modules/search-bar/search-bar.module';
 import { NodeModule } from './node-container/node.module';
+import { AccessDeniedComponent } from './access-denied/access-denied.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { NodeModule } from './node-container/node.module';
     ScrollUpButtonComponent,
     NavbarContainerComponent,
     NavbarMobileComponent,
+    AccessDeniedComponent,
   ],
   imports: [
     BrowserModule,
