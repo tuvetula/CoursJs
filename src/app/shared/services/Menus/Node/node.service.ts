@@ -4,6 +4,7 @@ import { NodeIntroductionService } from './node-introduction.service';
 import { ModuleExportRequireService } from './module-export-require.service';
 import { NpmService } from './npm.service';
 import { NodeEvenementsService } from './node-evenements.service';
+import { NodeSystemeFichiersService } from './node-systeme-fichiers.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class NodeService {
     private nodeIntroductionService: NodeIntroductionService,
     private moduleExportRequireService: ModuleExportRequireService,
     private npmService: NpmService,
-    private NodeEvenementsService: NodeEvenementsService
+    private NodeEvenementsService: NodeEvenementsService,
+    private NodeSystemeFichiersService: NodeSystemeFichiersService
   ) {
     this.nodeMenu = [
       {
@@ -40,6 +42,12 @@ export class NodeService {
         url: "/Node/Evenements",
         lessonsMenu: this.NodeEvenementsService.NodeEvenementsMenu,
         keywords:["Evenements"]
+      },
+      {
+        name: "Système de fichiers",
+        url: "/Node/Systeme-fichiers",
+        lessonsMenu: this.NodeSystemeFichiersService.nodeSystemeFichiersMenu,
+        keywords:["système","Fichiers"]
       }
     ];
   }

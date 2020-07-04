@@ -21,7 +21,14 @@ import { NodeEvenementsNodeComponent } from "./evenements-container/node-eveneme
 import { NodeEvenementsSystemesComponent } from "./evenements-container/node-evenements-systemes/node-evenements-systemes.component";
 import { NodeEvenementsPersonnalisesComponent } from "./evenements-container/node-evenements-personnalises/node-evenements-personnalises.component";
 import { NodeEvenementsEventsComponent } from "./evenements-container/node-evenements-events/node-evenements-events.component";
+import { NodeSystemeFichiersContainerComponent } from "./node-systeme-fichiers-container/node-systeme-fichiers-container.component"
 import { SubscribeGuard } from '../shared/guard/subscribe.guard';
+import { FsIntroductionComponent } from './node-systeme-fichiers-container/fs-introduction/fs-introduction.component';
+import { FsOuvrirFermerComponent } from './node-systeme-fichiers-container/fs-ouvrir-fermer/fs-ouvrir-fermer.component';
+import { FsBinaireEncodageComponent } from './node-systeme-fichiers-container/fs-binaire-encodage/fs-binaire-encodage.component';
+import { FsMethodesComponent } from './node-systeme-fichiers-container/fs-methodes/fs-methodes.component';
+import { FsMethodesRepertoiresComponent } from './node-systeme-fichiers-container/fs-methodes-repertoires/fs-methodes-repertoires.component';
+import { FsMethodesStatsCopyfileComponent } from './node-systeme-fichiers-container/fs-methodes-stats-copyfile/fs-methodes-stats-copyfile.component';
 
 const routes: Route[] = [
   {
@@ -114,6 +121,32 @@ const routes: Route[] = [
           },
         ],
       },
+      {
+        path: "Systeme-fichiers",
+        component: NodeSystemeFichiersContainerComponent,
+        children: [
+          {
+            path: "Introduction",
+            component: FsIntroductionComponent
+          },
+          {
+            path: "Ouvrir-fermer-fichier",
+            component: FsOuvrirFermerComponent
+          },{
+            path: "Binaire-encodage-read-write",
+            component: FsBinaireEncodageComponent
+          },{
+            path: "Methodes",
+            component: FsMethodesComponent
+          },{
+            path: "Methodes-repertoires",
+            component: FsMethodesRepertoiresComponent
+          },{
+            path: "Methodes-stats-copyFile",
+            component: FsMethodesStatsCopyfileComponent
+          },
+        ]
+      }
     ],
   },
 ];

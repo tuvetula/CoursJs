@@ -4,18 +4,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TitlePageModule } from '../shared/modules/titlePage.module';
 import { LessonsMenuModule } from '../shared/modules/lessons-menu.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { NodeRoutingModule } from './node-routing.module';
 import { NodeIntroductionModule } from './introduction-container/node-introduction.module';
-import { ModuleExportRequireContainerComponent } from './module-export-require-container/module-export-require-container.component';
-import { NpmContainerComponent } from './npm-container/npm-container.component';
 import { ModuleExportRequireModule } from './module-export-require-container/module-export-require.module';
 import { NpmModule } from './npm-container/npm.module';
 import { NodeEvenementsModule } from './evenements-container/node-evenements.module';
+import { NodeSystemeFichiersModule } from './node-systeme-fichiers-container/node-systeme-fichiers.module';
 
 @NgModule({
     declarations: [
-        NodeContainerComponent,
+        NodeContainerComponent
     ],
     imports: [
         CommonModule,
@@ -26,6 +24,7 @@ import { NodeEvenementsModule } from './evenements-container/node-evenements.mod
         NodeIntroductionModule,
         ModuleExportRequireModule,
         NodeEvenementsModule,
+        NodeSystemeFichiersModule,
         NpmModule
     ],
     providers:[]
