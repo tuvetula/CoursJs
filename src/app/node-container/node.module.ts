@@ -10,10 +10,11 @@ import { ModuleExportRequireModule } from './module-export-require-container/mod
 import { NpmModule } from './npm-container/npm.module';
 import { NodeEvenementsModule } from './evenements-container/node-evenements.module';
 import { NodeSystemeFichiersModule } from './node-systeme-fichiers-container/node-systeme-fichiers.module';
+import { NodeServeurNodeModule } from './node-serveur-node-container/node-serveur-node.module';
 
 @NgModule({
     declarations: [
-        NodeContainerComponent
+        NodeContainerComponent,
     ],
     imports: [
         CommonModule,
@@ -25,6 +26,7 @@ import { NodeSystemeFichiersModule } from './node-systeme-fichiers-container/nod
         ModuleExportRequireModule,
         NodeEvenementsModule,
         NodeSystemeFichiersModule,
+        NodeServeurNodeModule,
         NpmModule
     ],
     providers:[]

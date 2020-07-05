@@ -5,6 +5,7 @@ import { ModuleExportRequireService } from './module-export-require.service';
 import { NpmService } from './npm.service';
 import { NodeEvenementsService } from './node-evenements.service';
 import { NodeSystemeFichiersService } from './node-systeme-fichiers.service';
+import { NodeServeurNodeService } from './node-serveur-node.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class NodeService {
     private moduleExportRequireService: ModuleExportRequireService,
     private npmService: NpmService,
     private NodeEvenementsService: NodeEvenementsService,
-    private NodeSystemeFichiersService: NodeSystemeFichiersService
+    private NodeSystemeFichiersService: NodeSystemeFichiersService,
+    private NodeServeurNodeService: NodeServeurNodeService
   ) {
     this.nodeMenu = [
       {
@@ -48,6 +50,12 @@ export class NodeService {
         url: "/Node/Systeme-fichiers",
         lessonsMenu: this.NodeSystemeFichiersService.nodeSystemeFichiersMenu,
         keywords:["système","Fichiers"]
+      },
+      {
+        name: "Serveur Node",
+        url: "/Node/Serveur-Node",
+        lessonsMenu: this.NodeServeurNodeService.nodeServeurNodeMenu,
+        keywords:['Serveur']
       }
     ];
   }

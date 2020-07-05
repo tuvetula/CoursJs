@@ -29,6 +29,13 @@ import { FsBinaireEncodageComponent } from './node-systeme-fichiers-container/fs
 import { FsMethodesComponent } from './node-systeme-fichiers-container/fs-methodes/fs-methodes.component';
 import { FsMethodesRepertoiresComponent } from './node-systeme-fichiers-container/fs-methodes-repertoires/fs-methodes-repertoires.component';
 import { FsMethodesStatsCopyfileComponent } from './node-systeme-fichiers-container/fs-methodes-stats-copyfile/fs-methodes-stats-copyfile.component';
+import { NodeServeurNodeIntroductionComponent } from './node-serveur-node-container/node-serveur-node-introduction/node-serveur-node-introduction.component';
+import { NodeServeurNodeCreerComponent } from './node-serveur-node-container/node-serveur-node-creer/node-serveur-node-creer.component';
+import { NodeServeurNodeRequetesComponent } from './node-serveur-node-container/node-serveur-node-requetes/node-serveur-node-requetes.component';
+import { NodeServeurNodeReponsesComponent } from './node-serveur-node-container/node-serveur-node-reponses/node-serveur-node-reponses.component';
+import { NodeServeurNodeTemplatesComponent } from './node-serveur-node-container/node-serveur-node-templates/node-serveur-node-templates.component';
+import { NodeServeurNodeRoutingComponent } from './node-serveur-node-container/node-serveur-node-routing/node-serveur-node-routing.component';
+import { NodeServeurNodeContainerComponent } from './node-serveur-node-container/node-serveur-node-container.component';
 
 const routes: Route[] = [
   {
@@ -144,6 +151,32 @@ const routes: Route[] = [
           },{
             path: "Methodes-stats-copyFile",
             component: FsMethodesStatsCopyfileComponent
+          },
+        ]
+      },
+      {
+        path: "Serveur-Node",
+        component: NodeServeurNodeContainerComponent,
+        children: [
+          {
+            path: "Introduction",
+            component: NodeServeurNodeIntroductionComponent
+          },
+          {
+            path: "Creer",
+            component: NodeServeurNodeCreerComponent
+          },{
+            path: "Requetes",
+            component: NodeServeurNodeRequetesComponent
+          },{
+            path: "Reponses",
+            component: NodeServeurNodeReponsesComponent
+          },{
+            path: "Templates",
+            component: NodeServeurNodeTemplatesComponent
+          },{
+            path: "Routing",
+            component: NodeServeurNodeRoutingComponent
           },
         ]
       }

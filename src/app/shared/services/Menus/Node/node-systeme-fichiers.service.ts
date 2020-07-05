@@ -16,23 +16,23 @@ export class NodeSystemeFichiersService {
       {
         name: "Ouvrir ou fermer un fichier",
         url: "/Node/Systeme-fichiers/Ouvrir-fermer-fichier",
-        keywords: []
+        keywords: ['open','close']
       },{
         name: "Le binaire, l'encodage et les méthodes read et write",
         url: "/Node/Systeme-fichiers/Binaire-encodage-read-write",
-        keywords: []
+        keywords: ['binaire','utf-8','buffer','ArrayBuffer','TypedArray']
       },{
         name: "Les méthodes readFile, writeFile, appendFile et unlink",
         url: "/Node/Systeme-fichiers/Methodes",
-        keywords: []
+        keywords: ['readFile','writeFile','appendFile','unlink']
       },{
         name: "Les méthodes pour gérer les répertoires",
         url: "/Node/Systeme-fichiers/Methodes-repertoires",
-        keywords: []
+        keywords: ['mkdir','rmdir','readdir']
       },{
         name: "Les méthodes stats et copyFile",
         url: "/Node/Systeme-fichiers/Methodes-stats-copyFile",
-        keywords: []
+        keywords: ['copyFile','stats']
       },
     ]
   }
