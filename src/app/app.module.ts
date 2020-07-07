@@ -35,6 +35,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { SignupComponent } from './shared/components/signup/signup.component';
 import { SigninComponent } from './shared/components/signin/signin.component';
+import { ForgetPasswordComponent } from './shared/components/forget-password/forget-password.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { ScrollUpButtonComponent } from './shared/components/scroll-up-button/scroll-up-button.component';
 import { ProfilPictureModule } from './shared/modules/profilPicture.module';
@@ -54,7 +55,8 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
     ScrollUpButtonComponent,
     NavbarContainerComponent,
     NavbarMobileComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,

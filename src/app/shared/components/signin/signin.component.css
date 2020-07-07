@@ -5,3 +5,13 @@ input.ng-touched.ng-invalid{
 input.ng-valid{
     border-color: green;
 }
+
+div{
+    color:#41474d;
+}
+a {
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: underline;
+}

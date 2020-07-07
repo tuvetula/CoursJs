@@ -84,6 +84,9 @@ export class AuthentificationService {
     }
   }
 
+  public sendPasswordResetEmail(passwordResetEmail: string):Promise<void> {
+    return this.afAuth.sendPasswordResetEmail(passwordResetEmail);
+ }
   public async logout(): Promise<void>{
     try {
       return await this.afAuth.signOut();
