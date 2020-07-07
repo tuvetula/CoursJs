@@ -19,6 +19,7 @@ export class ObservableService {
       { name: "Création d'une fonction de génération de flux" , url: "/Angular/Observables/Creation-fonction-generation-flux",keywords:['creation','flux','generation']},
       { name: "Les opérateurs de combinaison" , url: "/Angular/Observables/Operateurs-combinaison",keywords:['combinaison','operateurs','operators','filter','mergeall','concatall','merge','combinelatest','withlatestfrom','forkjoin']},
       { name: "Les opérateurs de filtre" , url: "/Angular/Observables/Operateurs-filtre",keywords:['operateurs','operators','take','skip','filter','first','debouncetime','takeuntil']},
+      { name: "Autres", url: "/Angular/Observables/Autres" , keywords:['untilDestroyed','fromEvent']}
     ];
   }
 }

@@ -9,9 +9,3 @@ input.ng-valid{
 div{
     color:#41474d;
 }
-a {
-    cursor: pointer;
-}
-a:hover{
-    text-decoration: underline;
-}

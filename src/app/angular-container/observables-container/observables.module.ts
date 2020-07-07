@@ -14,6 +14,7 @@ import { OperateursPipeablesComponent } from './operateurs-pipeables/operateurs-
 import { CreationFonctionFluxComponent } from './creation-fonction-flux/creation-fonction-flux.component';
 import { OperateursCombinaisonComponent } from './operateurs-combinaison/operateurs-combinaison.component';
 import { OperateursFiltresComponent } from './operateurs-filtres/operateurs-filtres.component';
+import { OperateursAutresComponent } from './operateurs-autres/operateurs-autres.component';
 
 @NgModule({
     declarations:[
@@ -27,7 +28,8 @@ import { OperateursFiltresComponent } from './operateurs-filtres/operateurs-filt
         OperateursPipeablesComponent,
         CreationFonctionFluxComponent,
         OperateursCombinaisonComponent,
-        OperateursFiltresComponent
+        OperateursFiltresComponent,
+        OperateursAutresComponent
     ],
     imports: [
         CommonModule,

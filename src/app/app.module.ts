@@ -42,6 +42,10 @@ import { ProfilPictureModule } from './shared/modules/profilPicture.module';
 import { SearchBarModule } from './shared/modules/search-bar/search-bar.module';
 import { NodeModule } from './node-container/node.module';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { ControlErrorsDirective } from './shared/directives/formErrors/control-errors.directive';
+import { FormSubmitDirective } from './shared/directives/formErrors/form-submit.directive';
+import { ControlErrorComponent } from './shared/components/control-error/control-error.component';
+import { ControlErrorContainerDirective } from './shared/directives/formErrors/control-error-container.directive';
 
 
 @NgModule({
@@ -56,7 +60,11 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
     NavbarContainerComponent,
     NavbarMobileComponent,
     AccessDeniedComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ControlErrorsDirective,
+    FormSubmitDirective,
+    ControlErrorComponent,
+    ControlErrorContainerDirective
   ],
   imports: [
     BrowserModule,

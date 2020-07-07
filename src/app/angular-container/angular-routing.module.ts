@@ -131,6 +131,7 @@ import { AuthentificationJwtCreationIntercepteurComponent } from './authentifica
 import { AuthentificationJwtGestionExpirationTokenComponent } from './authentification-jwt-container/authentification-jwt-gestion-expiration-token/authentification-jwt-gestion-expiration-token.component';
 import { AuthGuard } from '../shared/guard/auth.guard';
 import { SubscribeGuard } from '../shared/guard/subscribe.guard';
+import { OperateursAutresComponent } from './observables-container/operateurs-autres/operateurs-autres.component';
 
 const routes: Route[] = [
   {
@@ -205,6 +206,7 @@ const routes: Route[] = [
           { path: "Creation-fonction-generation-flux", component: CreationFonctionFluxComponent },
           { path: "Operateurs-combinaison", component: OperateursCombinaisonComponent },
           { path: "Operateurs-filtre", component: OperateursFiltresComponent },
+          { path: "Autres" , component: OperateursAutresComponent}
         ],
       },
       {

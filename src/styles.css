@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* Classes Themes */
 .darkTheme {
-  background-color: var(--backgroundColor);
-  color: var(--color);
   --backgroundColor: #41474d;
   --color: #e5e5e5;
   --codeKeyword: rgb(59, 126, 214);
@@ -17,10 +15,11 @@
   --jumbotronColor: #41474d;
   --listGroupItemBackgroundColor: #41474d;
   --listGroupItemBorder: 1px solid rgb(223, 223, 223);
+  background-color: var(--backgroundColor);
+  color: var(--color);
 }
 .lightTheme {
-  background-color: #ffffff;
-  color: #41474d;
+  --color: #41474d;
   --codeKeyword: rgb(0, 119, 178);
   --codeFunction: rgb(221, 74, 104);
   --codeString: rgb(102, 153, 0);
@@ -33,6 +32,8 @@
   --jumbotronColor: #41474d;
   --listGroupItemBackgroundColor: #ffffff;
   --listGroupItemBorder: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #ffffff;
+  color: var(--color) ;
 }
 
 /* Classes pour extrait de code */
@@ -47,4 +48,11 @@
 }
 .codeRegex {
   color: orange;
+}
+
+a {
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
 }
