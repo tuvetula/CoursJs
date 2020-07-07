@@ -27,6 +27,7 @@
     "@types/jquery": "^3.3.38",
     "bootstrap": "^4.4.1",
     "firebase": "^7.14.5",
+    "firebase-admin": "^8.13.0",
     "jquery": "^3.5.1",
     "ngx-bootstrap": "^5.5.0",
     "ngx-image-compress": "^8.0.4",

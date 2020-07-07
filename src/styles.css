@@ -1,34 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 /* Classes Themes */
-.darkTheme{
-  background-color: #41474D;
-  color: #E5E5E5;
+.darkTheme {
+  background-color: var(--backgroundColor);
+  color: var(--color);
+  --backgroundColor: #41474d;
+  --color: #e5e5e5;
   --codeKeyword: rgb(59, 126, 214);
   --codeFunction: rgb(255, 145, 167);
   --codeString: rgb(163, 248, 142);
-  --listMenuLeftServiceBackgroundColor: #41474D;
-  --listMenuLeftServiceColor: #E5E5E5;
-  --listMenuLeftServiceBorderColor: #F8F9FA;
+  --listMenuLeftServiceBackgroundColor: #41474d;
+  --listMenuLeftServiceColor: #e5e5e5;
+  --listMenuLeftServiceBorderColor: #f8f9fa;
   --listMenuLeftServiceBackgroundColorActive: #3b9aff;
   --logoUpArrowColor: invert(1);
-  --jumbotronBackground: rgb(223,223,223);
-  --jumbotronColor: #41474D;
-  --listGroupItemBackgroundColor: #41474D;
-  --listGroupItemBorder: 1px solid rgb(223,223,223);
+  --jumbotronBackground: rgb(223, 223, 223);
+  --jumbotronColor: #41474d;
+  --listGroupItemBackgroundColor: #41474d;
+  --listGroupItemBorder: 1px solid rgb(223, 223, 223);
 }
-.lightTheme{
+.lightTheme {
   background-color: #ffffff;
-  color: #41474D;
+  color: #41474d;
   --codeKeyword: rgb(0, 119, 178);
   --codeFunction: rgb(221, 74, 104);
   --codeString: rgb(102, 153, 0);
   --listMenuLeftServiceBackgroundColor: #ffffff;
-  --listMenuLeftServiceColor: #41474D;
+  --listMenuLeftServiceColor: #41474d;
   --listMenuLeftServiceBorderColor: rgb(223, 223, 223);
   --listMenuLeftServiceBackgroundColorActive: #3b9aff;
   --logoUpArrowColor: invert(0);
-  --jumbotronBackground: rgb(223,223,223);
-  --jumbotronColor: #41474D;
+  --jumbotronBackground: rgb(223, 223, 223);
+  --jumbotronColor: #41474d;
   --listGroupItemBackgroundColor: #ffffff;
   --listGroupItemBorder: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -44,5 +46,5 @@
   color: var(--codeString);
 }
 .codeRegex {
-  color:orange;
+  color: orange;
 }

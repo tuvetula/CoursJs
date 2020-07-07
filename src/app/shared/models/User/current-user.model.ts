@@ -5,8 +5,10 @@ export interface CurrentUserModel {
 }
 
 export interface UserFirestoreModel {
+    uid: string,
     name: string,
     firstName: string,
+    email: string,
     hasSubscribed: boolean,
     isAdmin: boolean,
     createdAt: number,

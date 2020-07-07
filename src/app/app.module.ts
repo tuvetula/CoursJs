@@ -54,7 +54,7 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
     ScrollUpButtonComponent,
     NavbarContainerComponent,
     NavbarMobileComponent,
-    AccessDeniedComponent,
+    AccessDeniedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+label {
+    font-weight: bold;
+    margin: 0;
+}
+.user{
+    background-color: #f8f9fa;
+    color: #292b2c;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: solid 1px transparent;
+    border-radius: 6px;
+}
+#filterTitle{
+    cursor: pointer;
+}
+#filterFormDiv{
+    overflow: hidden;
+    max-height: 0;
+    margin-bottom: 0;
+    transition: margin-bottom linear 0.1s, max-height 0.3s linear 0.05s ;
+}
+#filterFormDiv.showFilters{
+    max-height: 100px;
+    margin-bottom: 24px;
+}
+@media screen and (max-width:959px){
+    .user{
+        padding: 8px
+    }
+    label {
+        font-size: small;
+    }
+}
