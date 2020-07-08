@@ -1,6 +1,7 @@
 import {
   Directive,
   Optional,
+  Inject,
   ViewContainerRef,
   ComponentFactoryResolver,
   ComponentRef,
@@ -12,12 +13,13 @@ import { ControlErrorContainerDirective } from "./control-error-container.direct
 import { merge, EMPTY, Observable } from "rxjs";
 import { untilDestroyed } from "@orchestrator/ngx-until-destroyed";
 import { ControlErrorComponent } from "../../components/control-error/control-error.component";
-import { ErrorsService } from "../../services/Utilities/errors/errors.service";
+import { FORM_ERRORS } from "../../services/Utilities/errors/errors.service";
 import { FormSubmitDirective } from "./form-submit.directive";
 
 @Directive({
   selector: "[formControl], [formControlName]",
 })
+
 export class ControlErrorsDirective {
   ref: ComponentRef<ControlErrorComponent>;
   container: ViewContainerRef;
@@ -28,7 +30,7 @@ export class ControlErrorsDirective {
     private vcr: ViewContainerRef,
     private resolver: ComponentFactoryResolver,
     @Optional() controlErrorContainer: ControlErrorContainerDirective,
-    private errorsService: ErrorsService,
+    @Inject(FORM_ERRORS) private errors,
     @Optional() @Host() private form: FormSubmitDirective,
     private controlDir: NgControl
   ) {
@@ -45,15 +47,15 @@ export class ControlErrorsDirective {
       .pipe(untilDestroyed(this))
       .subscribe(() => {
         const controlErrors = this.control.errors;
+        console.log(controlErrors);
+        
         if (controlErrors) {
-          //On récupère la nom de la première clé de l'objet controlErrors
+          //On récupère la première clé de l'objet controlErrors
           const firstKey = Object.keys(controlErrors)[0];
-          // On stocke la fonction qui est la valeur de la propriété "firstKey" de l'objet defaultErrors
-          const getError = this.errorsService.defaultErrors[firstKey];
-          //On stocke le text qui est le résultat de la fonction getError
+          console.log(firstKey);
+          const getError = this.errors[firstKey];
           const text =
             this.customErrors[firstKey] || getError(controlErrors[firstKey]);
-          //On paramètre le text à envoyer au composant pour l'afficher
           this.setError(text);
         } else if (this.ref) {
           this.setError(null);
@@ -68,6 +70,7 @@ export class ControlErrorsDirective {
       );
       this.ref = this.container.createComponent(factory);
     }
+
     this.ref.instance.text = text;
   }
 

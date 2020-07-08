@@ -48,6 +48,8 @@ export class ForgetPasswordComponent implements OnInit {
       } catch (error) {
         this.forgetPasswordErrorMessage = error.message;
       }
+    } else {
+      this.forgetPasswordErrorMessage = "Erreur !!!";
     }
   }
 }
