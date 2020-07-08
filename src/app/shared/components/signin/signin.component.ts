@@ -38,23 +38,21 @@ export class SigninComponent implements OnInit {
   }
 
   public async signin() {
-    // console.log('signin');
     if (this.signinForm.valid) {
-      this.signinError = null;
+      if(this.signinError){
+        this.signinError = null;
+      }
       try {
         await this.authentificationService.signIn(this.signinForm.value);
         this.showSigninForm = false;
         setTimeout(() => {
           this.closeModalSignin.nativeElement.click();
-          //this.signinError = null;
           this.showSigninForm = true;
           this.signinFormReset();
         }, 3000);
       } catch (error) {
         this.signinError = error.message;
       }
-    } else {
-      this.signinError = "Erreur !!!";
     }
   }
   public showForgetPasswordModal(){

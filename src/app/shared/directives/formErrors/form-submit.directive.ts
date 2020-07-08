@@ -6,15 +6,18 @@ import { shareReplay, tap } from "rxjs/operators";
   selector: "form",
 })
 export class FormSubmitDirective {
-  submit$ = fromEvent(this.element, "submit").pipe(tap(() => {
-    if (!this.element.classList.contains('submitted')) {
-      this.element.classList.add('submitted');
-    }
-  }), shareReplay(1));
+  public submit$ = fromEvent(this.element, "submit").pipe(
+    tap(() => {
+      if (!this.element.classList.contains("submitted")) {
+        this.element.classList.add("submitted");
+      }
+    }),
+    shareReplay(1)
+  );
 
-  constructor(private host: ElementRef<HTMLFormElement>) {}
+  constructor(private elementRef: ElementRef<HTMLFormElement>) {}
 
   get element() {
-    return this.host.nativeElement;
+    return this.elementRef.nativeElement;
   }
 }

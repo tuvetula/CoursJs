@@ -17,7 +17,7 @@ export class AuthentificationService {
       "Un compte est déjà existant avec cette adresse mail.",
     "auth/wrong-password": "Le mot de passe n'est pas valide.",
     "auth/network-request-failed":
-      "Une erreur de réseau (telle qu'un dépassement de délai, une connexion interrompue ou un hôte injoignable) s'est produite.",
+      "Une erreur de réseau (telle qu'un dépassement de délai, une connexion interrompue ou un hôte injoignable) s'est produite."
   };
 
   constructor(
@@ -84,8 +84,13 @@ export class AuthentificationService {
     }
   }
 
-  public sendPasswordResetEmail(passwordResetEmail: string):Promise<void> {
-    return this.afAuth.sendPasswordResetEmail(passwordResetEmail);
+  public async sendPasswordResetEmail(passwordResetEmail: string):Promise<void> {
+    try {
+      await this.afAuth.sendPasswordResetEmail(passwordResetEmail);  
+    } catch (error) {
+      throw new Error(this.firebaseErrors[error.code]);
+    }
+      
  }
   public async logout(): Promise<void>{
     try {
