@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { AuthentificationService } from "../../services/Auth/authentification.service";
+import { AuthentificationService } from "../../../services/Auth/authentification.service";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ForgetPasswordComponent } from '../forget-password/forget-password.component';
 
 @Component({
   selector: "app-signin",
@@ -16,10 +18,14 @@ export class SigninComponent implements OnInit {
   public showSigninForm: boolean;
   public userStatueDisplayName: Observable<string>;
 
+  public displayForgetPassword: boolean = false;
+
   
   constructor(
     private fb: FormBuilder,
-    private authentificationService: AuthentificationService
+    private authentificationService: AuthentificationService,
+    private modalService: NgbModal,
+    public activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
@@ -53,11 +59,11 @@ export class SigninComponent implements OnInit {
       } catch (error) {
         this.signinError = error.message;
       }
-    } else {
-      this.signinError = "Erreur !!!";
     }
   }
   public showForgetPasswordModal(){
-    this.closeModalSignin.nativeElement.click();
+    this.activeModal.close();
+    this.modalService.open(ForgetPasswordComponent,{centered:true})
+    this.displayForgetPassword = true;
   }
 }

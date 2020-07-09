@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { AppliService } from "src/app/shared/services/Menus/appli.service";
 import { AppliMenuModel } from "src/app/shared/models/Menus/appliMenu.model";
@@ -26,6 +26,8 @@ export class NavbarLgComponent implements OnInit {
 
   public isAppliMenuDisplay: boolean = false;
   public ischapterMenuDisplay: boolean = false;
+
+  @Output('loadComponentEvent') public loadComponentEvent: EventEmitter<string> = new EventEmitter;
 
   constructor(
     private router: Router,

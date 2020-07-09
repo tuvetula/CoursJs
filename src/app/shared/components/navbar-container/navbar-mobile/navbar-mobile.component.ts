@@ -5,6 +5,8 @@ import {
   ElementRef,
   AfterViewInit,
   Input,
+  Output,
+  EventEmitter,
 } from "@angular/core";
 import { Subscription, Observable } from "rxjs";
 import { AppliMenuModel } from "src/app/shared/models/Menus/appliMenu.model";
@@ -37,6 +39,8 @@ export class NavbarMobileComponent implements OnInit, AfterViewInit {
   @Input() isNavbarThemeIsDark: boolean;
   @Input() classToAdd: string;
   @Input() chapterMenu: ChapterMenuModel[];
+
+  @Output('loadComponentEvent') public loadComponentEvent: EventEmitter<string> = new EventEmitter;
 
   public isBurgerMenuDropdownDisplay: () => boolean;
   @ViewChild("burgerMenuDropdownMenu") burgerMenuDropdownMenu: ElementRef;

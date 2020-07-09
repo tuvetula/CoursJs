@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthentificationService } from '../../services/Auth/authentification.service';
+import { AuthentificationService } from '../../../services/Auth/authentification.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-forget-password',
@@ -17,7 +18,8 @@ export class ForgetPasswordComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authentificationService: AuthentificationService
+    private authentificationService: AuthentificationService,
+    public activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
@@ -51,5 +53,10 @@ export class ForgetPasswordComponent implements OnInit {
     } else {
       this.forgetPasswordErrorMessage = "Erreur !!!";
     }
+  }
+
+  public closeModal(){
+    this.activeModal.dismiss();
+    this.forgetPasswordFormReset();
   }
 }

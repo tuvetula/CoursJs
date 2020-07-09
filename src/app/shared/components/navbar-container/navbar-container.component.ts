@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { ScreenSizeService } from '../../services/Utilities/screen-size.service';
 import { AppliService } from '../../services/Menus/appli.service';
@@ -8,6 +8,9 @@ import { AuthentificationService } from '../../services/Auth/authentification.se
 import { UserStatueModel } from '../../models/User/userStatue.model';
 import { CurrentUserService } from '../../services/User/current-user.service';
 import { CurrentUserModel } from '../../models/User/current-user.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SigninComponent } from '../Modals/signin/signin.component';
+import { SignupComponent } from '../Modals/signup/signup.component';
 
 @Component({
   selector: 'app-navbar-container',
@@ -31,11 +34,14 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   public chapterMenu: ChapterMenuModel[];
   public chapterMenuItemSelected: Observable<string>;
 
+  @ViewChild('modalEntry') private modalEntry: ElementRef;
+
   constructor(
     private screenSizeService: ScreenSizeService,
     private authenticationService: AuthentificationService,
     private appliService: AppliService,
-    private currentUserService: CurrentUserService
+    private currentUserService: CurrentUserService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -75,6 +81,17 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
     this.currentUserSubscription = this.currentUserService.currentUser.subscribe(
       currentUser => this.currentUser = currentUser
     )
+  }
+
+  public createComponent(event: string){
+    console.log('coucou create' + event);
+    let component: typeof SigninComponent | typeof SignupComponent
+    if(event === "SignIn"){
+      component = SigninComponent
+    } else if (event === "SignUp"){
+      component = SignupComponent
+    }
+    this.modalService.open(component,{container: this.modalEntry.nativeElement , centered:true})
   }
   ngOnDestroy(): void {
     this.screenSizeSubscription.unsubscribe();
