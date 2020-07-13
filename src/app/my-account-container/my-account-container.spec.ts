@@ -1,21 +1,25 @@
 import { MyAccountContainerComponent } from "./my-account-container.component";
-import { TestBed } from "@angular/core/testing";
-import { AppliService } from '../shared/services/Menus/appli.service';
-import { AngularService } from '../shared/services/Menus/Angular/angular.service';
-import { JavascriptService } from '../shared/services/Menus/Javascript/javascript.service';
-import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.service';
-import { TitlePageComponent } from '../shared/components/title-page/title-page.component';
+import { TestBed, ComponentFixture } from "@angular/core/testing";
+import { AppModule } from '../app.module';
+
+let fixture: ComponentFixture<MyAccountContainerComponent>;
 
 describe("my account container", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MyAccountContainerComponent,TitlePageComponent],
-      providers: [AppliService,AngularService,JavascriptService,MyAccountService]
+      declarations: [MyAccountContainerComponent],
+      imports: [AppModule]
     }).compileComponents();
-});
-it("componentName should be Mon compte", () => {
-    const fixture = TestBed.createComponent(MyAccountContainerComponent);
+    fixture = TestBed.createComponent(MyAccountContainerComponent);
+    fixture.detectChanges();
+  });
+
+  it("componentName should be Mon compte", () => {
     const instance = fixture.componentInstance;
     expect(instance.componentName).toEqual("Mon compte");
+  });
+
+  afterEach(()=>{
+    fixture.destroy();
   });
 });
