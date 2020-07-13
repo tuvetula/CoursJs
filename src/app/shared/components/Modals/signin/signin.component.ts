@@ -1,26 +1,23 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthentificationService } from "../../../services/Auth/authentification.service";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ForgetPasswordComponent } from '../forget-password/forget-password.component';
+import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { untilDestroyed } from "@orchestrator/ngx-until-destroyed";
+import { ForgetPasswordModalComponent } from "../forget-password-modal/forget-password-modal.component";
 
 @Component({
   selector: "app-signin",
   templateUrl: "./signin.component.html",
   styleUrls: ["./signin.component.css"],
 })
-export class SigninComponent implements OnInit {
-  @ViewChild('closeModalSignin') closeModalSignin: ElementRef;
+export class SigninComponent implements OnInit, OnDestroy {
   public signinForm: FormGroup;
-  public signinError: string;
   public showSigninForm: boolean;
+  public signinError: string = null;
   public userStatueDisplayName: Observable<string>;
 
-  public displayForgetPassword: boolean = false;
-
-  
   constructor(
     private fb: FormBuilder,
     private authentificationService: AuthentificationService,
@@ -35,35 +32,34 @@ export class SigninComponent implements OnInit {
     });
     this.showSigninForm = true;
     this.userStatueDisplayName = this.authentificationService.userStatue.pipe(
-      map((value) => value ? value.displayName : null)
+      map((value) => (value ? value.displayName : null))
     );
-  }
-
-  public signinFormReset(): void {
-    this.signinForm.reset();
+    this.signinForm.valueChanges.pipe(untilDestroyed(this)).subscribe(() => {
+      if (this.signinError) {
+        this.signinError = null;
+      }
+    });
   }
 
   public async signin() {
-    // console.log('signin');
     if (this.signinForm.valid) {
       this.signinError = null;
       try {
         await this.authentificationService.signIn(this.signinForm.value);
         this.showSigninForm = false;
         setTimeout(() => {
-          this.closeModalSignin.nativeElement.click();
-          //this.signinError = null;
+          this.activeModal.close();
           this.showSigninForm = true;
-          this.signinFormReset();
+          this.signinError = null;
         }, 3000);
       } catch (error) {
         this.signinError = error.message;
       }
     }
   }
-  public showForgetPasswordModal(){
+  public showForgetPasswordModal() {
     this.activeModal.close();
-    this.modalService.open(ForgetPasswordComponent,{centered:true})
-    this.displayForgetPassword = true;
+    this.modalService.open(ForgetPasswordModalComponent, { centered: true });
   }
+  ngOnDestroy(): void {}
 }

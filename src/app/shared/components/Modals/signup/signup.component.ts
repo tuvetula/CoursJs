@@ -5,6 +5,7 @@ import { UserCrudService } from "../../../services/User/user-crud.service";
 import { StringFunctionsService } from '../../../services/Utilities/String/string-functions.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import { untilDestroyed } from '@orchestrator/ngx-until-destroyed';
 
 @Component({
   selector: "app-signup",
@@ -12,12 +13,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ["./signup.component.css"],
 })
 export class SignupComponent implements OnInit,OnDestroy {
-  @ViewChild('closeModalSignout') closeModalSignout: ElementRef;
   //FormSignup
   public signupForm: FormGroup;
-  public signupError: string;
   public showSignupForm: boolean;
-  private valueChangeSubscription: Subscription;
+  public signupError: string;
   
   constructor(
     private fb: FormBuilder,
@@ -38,8 +37,10 @@ export class SignupComponent implements OnInit,OnDestroy {
       confirmPassword: ["", [Validators.required, Validators.minLength(8)]],
     });
     this.showSignupForm = true;
-    this.valueChangeSubscription = this.signupForm.valueChanges.subscribe(
-      value => {
+    this.signupForm.valueChanges.pipe(
+      untilDestroyed(this)
+    ).subscribe(
+      () => {
         if (this.signupError){
           this.signupError = null;
         }
@@ -47,14 +48,9 @@ export class SignupComponent implements OnInit,OnDestroy {
     )
   }
 
-  public signupFormReset(): void{
-    this.signupForm.reset();
-  }
-
   public async signUp(): Promise<void> {
     if (this.signupForm.valid) {
       if(this.signupForm.value.password === this.signupForm.value.confirmPassword){
-
         const name = this.stringFunctionsService.capitalizeFirstLetter(this.signupForm.value.completeName.name).trim();
         const firstName = this.stringFunctionsService.capitalizeFirstLetter(this.signupForm.value.completeName.firstName).trim();
         const email = this.signupForm.value.email;
@@ -62,24 +58,29 @@ export class SignupComponent implements OnInit,OnDestroy {
   
         try {
           const credentials = await this.authentificationService.signUp(email, password , name , firstName)
-           try {
-              await this.userCrudService.createUser(credentials , name , firstName);
-              await this.authentificationService.logout();
-              this.showSignupForm = false;
-              this.signupForm.reset();
-              if (this.signupError) {
-                this.signupError = null;
-              }
-              setTimeout(() => {
-                if (this.closeModalSignout.nativeElement) {
-                  this.closeModalSignout.nativeElement.click();
+          try {
+            await this.userCrudService.createUser(credentials , name , firstName);
+            try {
+                await this.authentificationService.logout();
+                this.showSignupForm = false;
+                this.signupForm.reset();
+                if (this.signupError) {
+                  this.signupError = null;
                 }
-                this.showSignupForm = true;
-              }, 5000);
-  
-            } catch (error) {
-              console.log('error createUser or logout: ' + error); 
-            }
+                setTimeout(() => {
+                 this.activeModal.close();
+                  this.showSignupForm = true;
+                }, 4000);
+    
+              } catch (error) {
+                console.log('error createUser or logout: ' + error); 
+              }
+          } catch (error) {
+            //L'utilisateur n'a pas été enregistré en bdd, On supprime le compte
+            await this.authentificationService.deleteAccount();
+            this.signupError = error.message;
+          } 
+          
           } catch (error) {
           this.signupError = error.message;
         }
@@ -88,7 +89,5 @@ export class SignupComponent implements OnInit,OnDestroy {
       }
     }
   }
-  ngOnDestroy(): void {
-    this.valueChangeSubscription.unsubscribe();
-  }
+  ngOnDestroy(): void {}
 }

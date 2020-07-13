@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { CurrentUserModel } from "../../models/User/current-user.model";
-import { BehaviorSubject, Observable } from "rxjs";
+import { UserFirestoreModel } from "../../models/User/current-user.model";
+import { BehaviorSubject } from "rxjs";
 import { UserCrudService } from "./user-crud.service";
 
 @Injectable()
 export class CurrentUserService {
-  public currentUser = new BehaviorSubject<CurrentUserModel>(null);
+  public currentUser = new BehaviorSubject<UserFirestoreModel>(null);
 
   constructor(private userCrudService: UserCrudService) {}
 
@@ -15,11 +15,17 @@ export class CurrentUserService {
       this.userCrudService.getOneUser(user.uid).subscribe(
         (userData: firebase.firestore.DocumentSnapshot<firebase.firestore.DocumentData>) => {
           if(userData.exists){
-            const userDataFirestore = JSON.parse(JSON.stringify(userData.data()));
+            const userDataFirestore:UserFirestoreModel = JSON.parse(JSON.stringify(userData.data()));
             this.currentUser.next({
               uid: user.uid,
               email: user.email,
-              user: userDataFirestore,
+              name: userDataFirestore.name,
+              firstName: userDataFirestore.firstName,
+              profilPicture: userDataFirestore.profilPicture ? userDataFirestore.profilPicture : null,
+              hasSubscribed: userDataFirestore.hasSubscribed,
+              isAdmin: userDataFirestore.isAdmin,
+              createdAt: userDataFirestore.createdAt,
+              updatedAt: userDataFirestore.updatedAt
             });          
             resolve();
           }

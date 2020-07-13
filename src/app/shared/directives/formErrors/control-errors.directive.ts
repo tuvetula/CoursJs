@@ -47,12 +47,9 @@ export class ControlErrorsDirective {
       .pipe(untilDestroyed(this))
       .subscribe(() => {
         const controlErrors = this.control.errors;
-        console.log(controlErrors);
-        
         if (controlErrors) {
           //On récupère la première clé de l'objet controlErrors
           const firstKey = Object.keys(controlErrors)[0];
-          console.log(firstKey);
           const getError = this.errors[firstKey];
           const text =
             this.customErrors[firstKey] || getError(controlErrors[firstKey]);

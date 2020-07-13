@@ -1,36 +1,55 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthentificationService } from '../../../services/Auth/authentification.service';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy,
+} from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { AuthentificationService } from "../../../services/Auth/authentification.service";
+import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { SigninModalComponent } from "../signin-modal/signin-modal.component";
+import { untilDestroyed } from "@orchestrator/ngx-until-destroyed";
 
 @Component({
-  selector: 'app-forget-password',
-  templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.css']
+  selector: "app-forget-password",
+  templateUrl: "./forget-password.component.html",
+  styleUrls: ["./forget-password.component.css"],
 })
-export class ForgetPasswordComponent implements OnInit {
-  @ViewChild('closeforgetPasswordModal') closeforgetPasswordModal: ElementRef;
-
+export class ForgetPasswordComponent implements OnInit, OnDestroy {
   public forgetPasswordForm: FormGroup;
   public showForgetPasswordForm: boolean;
-  public forgetPasswordErrorMessage: string;
+  public forgetPasswordErrorMessage: string = null;
   public forgetPasswordSuccessMessage: string;
+
+  public userMail: string;
 
   constructor(
     private fb: FormBuilder,
     private authentificationService: AuthentificationService,
+    private modalService: NgbModal,
     public activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
+    this.authentificationService.getCurrentUser().then(user => {
+      this.userMail = user ? user.email : null;
+    })
+    .catch(error => {
+      console.log(error);
+      this.userMail = null;
+    });
     this.forgetPasswordForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
     });
     this.showForgetPasswordForm = true;
-  }
-
-  public forgetPasswordFormReset(): void {
-    this.forgetPasswordForm.reset();
+    this.forgetPasswordForm.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe(() => {
+        if (this.forgetPasswordErrorMessage) {
+          this.forgetPasswordErrorMessage = null;
+        }
+      });
   }
 
   public async resetPassword() {
@@ -39,24 +58,21 @@ export class ForgetPasswordComponent implements OnInit {
       try {
         const email = this.forgetPasswordForm.value.email;
         await this.authentificationService.sendPasswordResetEmail(email);
-        this.forgetPasswordSuccessMessage = "Vous allez recevoir un email vous permettant de réinitialiser votre mot de passe."
+        this.forgetPasswordSuccessMessage =
+          "Vous allez recevoir un email vous permettant de réinitialiser votre mot de passe.";
         this.showForgetPasswordForm = false;
         setTimeout(() => {
-          this.closeforgetPasswordModal.nativeElement.click()
-          this.showForgetPasswordForm = true;
-          this.forgetPasswordFormReset();
+          this.activeModal.close();
           this.forgetPasswordSuccessMessage = null;
-        }, 5000);
+        }, 4000);
       } catch (error) {
         this.forgetPasswordErrorMessage = error.message;
       }
-    } else {
-      this.forgetPasswordErrorMessage = "Erreur !!!";
     }
   }
-
-  public closeModal(){
-    this.activeModal.dismiss();
-    this.forgetPasswordFormReset();
+  public showSigninModal(): void {
+    this.activeModal.close();
+    this.modalService.open(SigninModalComponent, { centered: true });
   }
+  ngOnDestroy(): void {}
 }

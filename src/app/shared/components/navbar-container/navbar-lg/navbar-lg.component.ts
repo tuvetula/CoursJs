@@ -6,7 +6,7 @@ import { ChapterMenuModel } from "src/app/shared/models/Menus/menus.model";
 import { UserStatueModel } from "src/app/shared/models/User/userStatue.model";
 import { AuthentificationService } from "src/app/shared/services/Auth/authentification.service";
 import { Router } from "@angular/router";
-import { CurrentUserModel } from 'src/app/shared/models/User/current-user.model';
+import { UserFirestoreModel } from 'src/app/shared/models/User/current-user.model';
 
 @Component({
   selector: "app-navbar-lg",
@@ -18,7 +18,7 @@ export class NavbarLgComponent implements OnInit {
   public source: string = "navbar";
 
   @Input() userStatue: UserStatueModel;
-  @Input() currentUser: CurrentUserModel;
+  @Input() currentUser: UserFirestoreModel;
   @Input() appliMenu: AppliMenuModel[];
   @Input() classToAdd: string;
   @Input() isNavbarThemeIsDark: boolean;

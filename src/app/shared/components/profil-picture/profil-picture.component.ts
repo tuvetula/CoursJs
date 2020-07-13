@@ -23,8 +23,8 @@ export class ProfilPictureComponent implements OnInit, OnDestroy {
     this.currentUserSubscription = this.currentUserService.currentUser.subscribe(
       (currentUser) => {
         this.profilPictureUrl =
-          currentUser && currentUser.user.profilPicture && currentUser.user.profilPicture.url
-            ? currentUser.user.profilPicture.url
+          currentUser && currentUser.profilPicture && currentUser.profilPicture.url
+            ? currentUser.profilPicture.url
             : this.profilLogo;
       }
     );

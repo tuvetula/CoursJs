@@ -89,4 +89,12 @@ export class UserCrudService {
       throw new Error(error);
     }
   }
+
+  public async deleteOneUser(uid: string): Promise<void>{
+    try {
+      await this.afFirestore.collection('users').doc(uid).delete();
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
 }

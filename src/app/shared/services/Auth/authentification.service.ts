@@ -4,6 +4,8 @@ import { AuthFormModel } from "../../models/Forms/authFormValues.model";
 import { UserStatueModel } from "../../models/User/userStatue.model";
 import { BehaviorSubject, Observable } from "rxjs";
 import { CurrentUserService } from "../User/current-user.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { UserCrudService } from "../User/user-crud.service";
 
 @Injectable()
 export class AuthentificationService {
@@ -22,10 +24,11 @@ export class AuthentificationService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private currentUserService: CurrentUserService
+    private currentUserService: CurrentUserService,
+    private userCrudService: UserCrudService,
+    private router: Router
   ) {
-    this.afAuth.setPersistence("session")
-    .then(() => {
+    this.afAuth.setPersistence("session").then(() => {
       //Observable changement statue de connexion du user
       this.afAuth.authState.subscribe(
         (user: firebase.User) => {
@@ -39,7 +42,6 @@ export class AuthentificationService {
                 this.setUserStatue();
               });
           } else {
-            console.error("authState: no user");
             this.setUserStatue();
             this.currentUserService.currentUser.next(null);
           }
@@ -84,12 +86,35 @@ export class AuthentificationService {
     }
   }
 
-  public sendPasswordResetEmail(passwordResetEmail: string):Promise<void> {
+  public deleteAccount(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.getCurrentUser().then(
+        (user: firebase.User) => {
+          this.userCrudService
+            .deleteOneUser(user.uid)
+            .then(() => {
+              user
+                .delete()
+                .then(() => {
+                  resolve();
+                })
+                .catch((error) => reject(error));
+            })
+            .catch((error) => reject(error));
+        },
+        (error) => reject(error)
+      );
+    });
+    }
+
+  public sendPasswordResetEmail(passwordResetEmail: string): Promise<void> {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail);
- }
-  public async logout(): Promise<void>{
+  }
+
+  public async logout(): Promise<void> {
     try {
-      return await this.afAuth.signOut();
+      await this.afAuth.signOut();
+      this.router.navigate(["/"]);
     } catch (error) {
       throw new Error(error.message);
     }
@@ -101,33 +126,31 @@ export class AuthentificationService {
   }
 
   public getCurrentUser(): Promise<firebase.User> {
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve, reject) => {
       this.afAuth.onAuthStateChanged(
-        (user)=>{
-          resolve(user)
-      },error => reject(error));
-    })
+        (user) => {
+          resolve(user);
+        },
+        (error) => reject(error)
+      );
+    });
   }
 
   public getIdToken(): Observable<string> {
     return this.afAuth.idToken;
   }
+
   private setUserStatue(user?: firebase.User) {
     let userStatue: UserStatueModel;
     if (user) {
       userStatue = {
         isAuthenticated: true,
-        uid: user.uid,
         displayName: user.displayName,
       };
       this.userStatue.next(userStatue);
       localStorage.setItem("user", JSON.stringify(userStatue));
     } else {
-      userStatue = {
-        isAuthenticated: false,
-        uid: null,
-        displayName: null,
-      };
+      userStatue = null;
       this.userStatue.next(userStatue);
       localStorage.removeItem("user");
     }

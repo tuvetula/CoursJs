@@ -25,7 +25,7 @@ export class SubscribeGuard implements CanActivateChild {
       return false;
     } else {
       let user = this.currentUserService.currentUser.value;
-      if((user && !user.user.hasSubscribed)){
+      if((user && !user.hasSubscribed)){
         this.router.navigate(['/Access-denied']);
         return false;
       } else if (!user){

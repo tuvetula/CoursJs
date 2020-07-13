@@ -21,7 +21,7 @@ export class UploadProfilPictureService {
       //Si le user possede deja une photo de profil, on supprime l'ancienne
       this.afStorage.storage
         .ref(
-          this.currentUserService.currentUser.value.user.profilPicture
+          this.currentUserService.currentUser.value.profilPicture
             .storagePath
         )
         .delete()
@@ -68,7 +68,7 @@ export class UploadProfilPictureService {
   private modifyCurrentUser(
     profilPicture: UserFirestoreProfilPictureModel
   ): void {
-    this.currentUserService.currentUser.value.user.profilPicture = profilPicture;
+    this.currentUserService.currentUser.value.profilPicture = profilPicture;
     this.currentUserService.currentUser.next(
       this.currentUserService.currentUser.value
     );

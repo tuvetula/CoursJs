@@ -52,10 +52,6 @@ export class ThemesService {
     return this.availableThemes;
   }
 
-  // public getActiveTheme(): string {
-  //   return this.activeTheme;
-  // }
-
   public setLightTheme(): void{
     this.setActiveTheme(this.availableThemes[0]);
   }

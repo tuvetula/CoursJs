@@ -1,9 +1,3 @@
-export interface CurrentUserModel {
-    uid: string,
-    email: string,
-    user: UserFirestoreModel
-}
-
 export interface UserFirestoreModel {
     uid: string,
     name: string,

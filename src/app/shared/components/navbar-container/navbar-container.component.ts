@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { ScreenSizeService } from '../../services/Utilities/screen-size.service';
 import { AppliService } from '../../services/Menus/appli.service';
@@ -7,10 +7,10 @@ import { ChapterMenuModel } from '../../models/Menus/menus.model';
 import { AuthentificationService } from '../../services/Auth/authentification.service';
 import { UserStatueModel } from '../../models/User/userStatue.model';
 import { CurrentUserService } from '../../services/User/current-user.service';
-import { CurrentUserModel } from '../../models/User/current-user.model';
+import { UserFirestoreModel } from '../../models/User/current-user.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SigninComponent } from '../Modals/signin/signin.component';
-import { SignupComponent } from '../Modals/signup/signup.component';
+import { SigninModalComponent } from '../Modals/signin-modal/signin-modal.component';
+import { SignupModalComponent } from '../Modals/signup-modal/signup-modal.component';
 
 @Component({
   selector: 'app-navbar-container',
@@ -24,7 +24,7 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   private userStatueSubscription: Subscription;
   private currentAppliMenuSelectedSubscription: Subscription;
   
-  public currentUser: CurrentUserModel;
+  public currentUser: UserFirestoreModel;
   private currentUserSubscription: Subscription;
   public userStatue: UserStatueModel;
   public appliMenu: AppliMenuModel[];
@@ -33,8 +33,6 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   public classToAdd: string = "Accueil";
   public chapterMenu: ChapterMenuModel[];
   public chapterMenuItemSelected: Observable<string>;
-
-  @ViewChild('modalEntry') private modalEntry: ElementRef;
 
   constructor(
     private screenSizeService: ScreenSizeService,
@@ -84,15 +82,15 @@ export class NavbarContainerComponent implements OnInit,OnDestroy {
   }
 
   public createComponent(event: string){
-    console.log('coucou create' + event);
-    let component: typeof SigninComponent | typeof SignupComponent
+    let component: typeof SigninModalComponent | typeof SignupModalComponent
     if(event === "SignIn"){
-      component = SigninComponent
+      component = SigninModalComponent
     } else if (event === "SignUp"){
-      component = SignupComponent
+      component = SignupModalComponent
     }
-    this.modalService.open(component,{container: this.modalEntry.nativeElement , centered:true})
+    this.modalService.open(component,{centered:true})
   }
+  
   ngOnDestroy(): void {
     this.screenSizeSubscription.unsubscribe();
     this.currentAppliMenuSelectedSubscription.unsubscribe();

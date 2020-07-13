@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 import { AuthentificationService } from "../services/Auth/authentification.service";
 import { CurrentUserService } from "../services/User/current-user.service";
 import { UserCrudService } from "../services/User/user-crud.service";
-import { map, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: "root",
@@ -37,7 +37,7 @@ export class AdminGuard implements CanActivate, CanActivateChild {
       return false;
     } else {
       let user = this.currentUserService.currentUser.value;
-      if (user && !user.user.isAdmin) {
+      if (user && !user.isAdmin) {
         this.router.navigate(["/Access-denied"]);
         return false;
       } else if (!user) {
@@ -60,7 +60,7 @@ export class AdminGuard implements CanActivate, CanActivateChild {
       return false;
     } else {
       let user = this.currentUserService.currentUser.value;
-      if (user && !user.user.isAdmin) {
+      if (user && !user.isAdmin) {
         this.router.navigate(["/Access-denied"]);
         return false;
       } else if (!user) {

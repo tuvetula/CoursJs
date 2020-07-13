@@ -46,6 +46,12 @@ import { ControlErrorsDirective } from './shared/directives/formErrors/control-e
 import { FormSubmitDirective } from './shared/directives/formErrors/form-submit.directive';
 import { ControlErrorComponent } from './shared/components/control-error/control-error.component';
 import { ControlErrorContainerDirective } from './shared/directives/formErrors/control-error-container.directive';
+import { ModalComponent } from './shared/components/Modals/modal/modal.component';
+import { SigninModalComponent } from './shared/components/Modals/signin-modal/signin-modal.component';
+import { SignupModalComponent } from './shared/components/Modals/signup-modal/signup-modal.component';
+import { ForgetPasswordModalComponent } from './shared/components/Modals/forget-password-modal/forget-password-modal.component';
+import { DeleteAccountModalComponent } from './shared/components/Modals/delete-account-modal/delete-account-modal.component';
+import { DeleteAccountComponent } from './shared/components/Modals/delete-account/delete-account.component';
 
 
 @NgModule({
@@ -64,7 +70,13 @@ import { ControlErrorContainerDirective } from './shared/directives/formErrors/c
     ControlErrorsDirective,
     FormSubmitDirective,
     ControlErrorComponent,
-    ControlErrorContainerDirective
+    ControlErrorContainerDirective,
+    ModalComponent,
+    SigninModalComponent,
+    SignupModalComponent,
+    ForgetPasswordModalComponent,
+    DeleteAccountModalComponent,
+    DeleteAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -104,5 +116,6 @@ import { ControlErrorContainerDirective } from './shared/directives/formErrors/c
     },
   ],
   bootstrap: [AppComponent],
+  entryComponents: [SigninModalComponent,SignupModalComponent,ForgetPasswordModalComponent]
 })
 export class AppModule {}
