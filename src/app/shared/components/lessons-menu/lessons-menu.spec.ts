@@ -24,7 +24,6 @@ describe("lessonsMenu", () => {
     const instance = fixture.componentInstance;
     const lessonsMenuService = fixture.debugElement.injector.get(LessonsMenuService);
     lessonsMenuService.lessonMenu.subscribe((lessonMenu) => {
-      // fixture.detectChanges();
       expect(lessonMenu).toEqual(instance.LessonMenu);
     });
   });

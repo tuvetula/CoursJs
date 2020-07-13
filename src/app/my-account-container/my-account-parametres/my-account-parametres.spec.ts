@@ -1,6 +1,7 @@
 import { TestBed, async, ComponentFixture } from "@angular/core/testing";
 import { MyAccountParametresComponent } from "./my-account-parametres.component";
 import { ThemesService } from "src/app/shared/services/Themes/themes.service.ts.service";
+import { By } from '@angular/platform-browser';
 
 let fixture: ComponentFixture<MyAccountParametresComponent>;
 
@@ -18,8 +19,7 @@ describe("my account parametres", () => {
   }));
   it("should render nonActiveThemeName in a button tag", () => {
     const instance = fixture.componentInstance;
-    const text = fixture.debugElement.nativeElement.querySelector("button")
-      .textContent;
+    const text = fixture.debugElement.query(By.css('button')).nativeElement.textContent;
     expect(text).toEqual(instance.nonActiveThemeName);
   });
 

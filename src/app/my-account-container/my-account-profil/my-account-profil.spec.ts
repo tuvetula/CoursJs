@@ -5,7 +5,7 @@ import { AppModule } from 'src/app/app.module';
 
 let fixture: ComponentFixture<MyAccountProfilComponent>;
 
-describe("my account profil", () => {
+describe("my-account-profil", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [MyAccountProfilComponent],
@@ -25,8 +25,7 @@ describe("my account profil", () => {
       CurrentUserService
     );
     currentUserService.currentUser.subscribe((user) => {
-      fixture.detectChanges();
-      expect(user).toEqual(instance.currentUser);
+       expect(user).toEqual(instance.currentUser);
     });
   });
   afterEach(()=>{
