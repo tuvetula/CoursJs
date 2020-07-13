@@ -10,7 +10,7 @@ import { MyAccountService } from '../shared/services/Menus/MyAccount/my-account.
   providers: [MyAccountService]
 })
 export class MyAccountContainerComponent implements OnInit,OnDestroy {
-  private componentName: string = "Mon compte";
+  public componentName: string = "Mon compte";
 
   constructor(
     private appliService: AppliService,
