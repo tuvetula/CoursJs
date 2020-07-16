@@ -57,11 +57,11 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Formaulaires */
+/* Formulaires */
 form.submitted input.ng-invalid, input.ng-dirty.ng-invalid {
   border: 1px solid #d9534f;
 }
-input.ng-valid{
+input.ng-valid.ng-dirty{
   border: 1px solid #5cb85c;
 }
 
