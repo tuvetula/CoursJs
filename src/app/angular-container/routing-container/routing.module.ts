@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
 import { RoutingContainerComponent } from "./routing-container.component";
 import { RoutingIntroductionComponent } from "./routing-introduction/routing-introduction.component";
 import { RouterLinkComponent } from "./router-link/router-link.component";
@@ -16,6 +15,7 @@ import { GardeCanDeactivateComponent } from "./garde-can-deactivate/garde-can-de
 import { GardeResolverComponent } from "./garde-resolver/garde-resolver.component";
 import { ActivatedRouteRouterComponent } from "./activated-route-router/activated-route-router.component";
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
+import { RoutingRoutingModule } from './routing-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
     GardeResolverComponent,
     ActivatedRouteRouterComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule],
+  imports: [CommonModule, FormsModule, CodeFormatModule, RoutingRoutingModule],
   providers: [],
 })
 export class RoutingModule {}

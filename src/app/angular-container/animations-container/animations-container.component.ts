@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LessonsMenuService } from 'src/app/shared/services/Menus/lessons-menu.service';
 import { AnimationsService } from 'src/app/shared/services/Menus/Angular/animations.service';
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: 'app-animations-container',
-  templateUrl: './animations-container.component.html',
-  styleUrls: ['./animations-container.component.css']
+  template: '<router-outlet></router-outlet>',
 })
-export class AnimationsContainerComponent implements OnInit {
+export class AnimationsContainerComponent implements OnInit, OnDestroy {
   private componentName: string = "Animations"
   constructor(
     private lessonsMenuService: LessonsMenuService,
@@ -19,6 +18,9 @@ export class AnimationsContainerComponent implements OnInit {
   ngOnInit(): void {
     this.lessonsMenuService.lessonMenu.next(this.animationsService.animationsMenu);
     this.appliService.title.next(this.componentName);
+  }
+  ngOnDestroy(): void {
+    this.lessonsMenuService.lessonMenu.next([]);    
   }
 
 }

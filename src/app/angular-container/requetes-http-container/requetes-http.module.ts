@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
 import { RequetesHttpContainerComponent } from "./requetes-http-container.component";
 import { HttpIntroductionComponent } from "./http-introduction/http-introduction.component";
 import { HttpUtilisationFirebaseComponent } from "./http-utilisation-firebase/http-utilisation-firebase.component";
@@ -10,6 +9,7 @@ import { HttpHeadersGestionErreurComponent } from "./http-headers-gestion-erreur
 import { HttpUsagesAvancesComponent } from "./http-usages-avances/http-usages-avances.component";
 import { HttpExempleComponent } from "./http-exemple/http-exemple.component";
 import { CodeFormatModule } from "src/app/shared/modules/codeFormat.module";
+import { RequetesHttpRoutingModule } from './requetes-http-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { CodeFormatModule } from "src/app/shared/modules/codeFormat.module";
     HttpUsagesAvancesComponent,
     HttpExempleComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule],
+  imports: [CommonModule, FormsModule, CodeFormatModule, RequetesHttpRoutingModule],
   providers: [],
 })
 export class RequetesHttpModule {}

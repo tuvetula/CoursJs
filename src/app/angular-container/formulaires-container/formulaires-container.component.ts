@@ -5,8 +5,7 @@ import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: "app-formulaires-container",
-  templateUrl: "./formulaires-container.component.html",
-  styleUrls: ["./formulaires-container.component.css"],
+  template: "<router-outlet></router-outlet>",
 })
 export class FormulairesContainerComponent implements OnInit {
 

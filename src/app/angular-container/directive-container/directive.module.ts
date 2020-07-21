@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
 import { DirectiveContainerComponent } from "./directive-container.component";
 import { DirectivePersoComponent } from "./directive-perso/directive-perso.component";
 import { DirectiveStructurelleCreationComponent } from "./directive-structurelle-creation/directive-structurelle-creation.component";
@@ -21,6 +20,7 @@ import { NgIfCustomDirective } from "src/app/shared/directives/Angular/directive
 import { IfRoleDirective } from "src/app/shared/directives/Angular/directiveModule/ifRole.directive";
 import { AuthDirectiveService } from "src/app/shared/services/Menus/Angular/auth-directive.service";
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
+import { DirectiveRoutinggModule } from './directive-routing.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
     NgIfCustomDirective,
     IfRoleDirective,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule],
+  imports: [CommonModule, FormsModule, CodeFormatModule, DirectiveRoutinggModule],
   providers: [AuthDirectiveService],
 })
 export class DirectiveModule {}

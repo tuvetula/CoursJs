@@ -10,7 +10,7 @@ import { KeyframesGroupsComponent } from "./keyframes-groups/keyframes-groups.co
 import { CallbacksStartDoneComponent } from "./callbacks-start-done/callbacks-start-done.component";
 import { AnimationsExempleComponent } from "./animations-exemple/animations-exemple.component";
 import { CodeFormatModule } from "src/app/shared/modules/codeFormat.module";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { AnimationsRoutingModule } from './animations-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
     CallbacksStartDoneComponent,
     AnimationsExempleComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule , BrowserAnimationsModule],
+  imports: [CommonModule, FormsModule, RouterModule, CodeFormatModule , AnimationsRoutingModule],
   providers: [],
 })
 export class AnimationsModule {}

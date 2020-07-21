@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { PipesContainerComponent } from './pipes-container.component';
 import { PipesIntroductionComponent } from './pipes-introduction/pipes-introduction.component';
 import { PipesUtilisationComponent } from './pipes-utilisation/pipes-utilisation.component';
@@ -12,6 +11,7 @@ import { PipesExempleComponent } from './pipes-exemple/pipes-exemple.component';
 import { CbPipes } from 'src/app/shared/pipes/Angular/pipesModule/cb.pipe';
 import { FilterPipe } from 'src/app/shared/pipes/Angular/pipesModule/filter.pipe';
 import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
+import { PipesRoutingModule } from './pipes-routing.module';
 
 @NgModule({
     declarations: [
@@ -28,8 +28,8 @@ import { CodeFormatModule } from 'src/app/shared/modules/codeFormat.module';
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule,
-        CodeFormatModule
+        CodeFormatModule,
+        PipesRoutingModule
     ],
     providers: []
 })

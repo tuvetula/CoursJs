@@ -14,6 +14,7 @@ import { TestsService } from './tests.service';
 import { FlexLayoutService } from './flex-layout.service';
 import { MeanService } from './mean.service';
 import { AuthentificationJwtService } from './authentification.jwt.service';
+import { MaterialService } from './material.service';
 
 @Injectable()
 export class AngularService {
@@ -33,7 +34,8 @@ export class AngularService {
     private testsService: TestsService,
     private flexLayoutService: FlexLayoutService,
     private meanService: MeanService,
-    private authentificationJwtService: AuthentificationJwtService
+    private authentificationJwtService: AuthentificationJwtService,
+    private materialService: MaterialService
 
   ) {
     this.angularMenu = [
@@ -50,6 +52,7 @@ export class AngularService {
       { name: "Tests", url: "/Angular/Tests", lessonsMenu: this.testsService.testsMenu, keywords:['Tests'] },
       { name: "Flex-layout", url: "/Angular/FlexLayout", lessonsMenu: this.flexLayoutService.flexLayoutMenu, keywords:['FlexLayout']},
       { name: "Mean", url: "/Angular/Mean", lessonsMenu: this.meanService.meanMenu, keywords:['Mean'] },
+      { name: "Material", url: "/Angular/Material" , lessonsMenu: this.materialService.materialMenu , keywords:['material']},
       { name: "AuthentificationJwt", url: "/Angular/AuthentificationJwt", lessonsMenu: this.authentificationJwtService.authentificationJwtMenu , keywords:['Authentification','Jwt']},
     ];
   }

@@ -16,9 +16,10 @@ import { AuthentificationJwtCreationPageProfilComponent } from './authentificati
 import { AuthentificationJwtDetailsProfilComponent } from './authentification-jwt-details-profil/authentification-jwt-details-profil.component';
 import { AuthentificationJwtCreationIntercepteurComponent } from './authentification-jwt-creation-intercepteur/authentification-jwt-creation-intercepteur.component';
 import { AuthentificationJwtGestionExpirationTokenComponent } from './authentification-jwt-gestion-expiration-token/authentification-jwt-gestion-expiration-token.component';
+import { AuthentificationJwtRoutingModule } from './authentification-jwt-routing.module';
 
 @NgModule({
     declarations: [AuthentificationJwtContainerComponent, AuthentificationJwtObjectifsComponent, AuthentificationJwtPreparationApplicationComponent, AuthentificationJwtTopbarRoutingComponent, AuthentificationJwtSigninSignupComponent, AuthentificationJwtServiceAuthComponent, AuthentificationJwtMethodeSigninComponent, AuthentificationJwtCreationRouteExpressComponent, AuthentificationJwtCreationTokenComponent, AuthentificationJwtDeconnexionUtilisateurComponent, AuthentificationJwtCreationPageProfilComponent, AuthentificationJwtDetailsProfilComponent, AuthentificationJwtCreationIntercepteurComponent, AuthentificationJwtGestionExpirationTokenComponent],
-    imports: [CommonModule, RouterModule , CodeFormatModule]
+    imports: [CommonModule, RouterModule , CodeFormatModule, AuthentificationJwtRoutingModule]
 })
 export class AuthentificationJwtModule{}

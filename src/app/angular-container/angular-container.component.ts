@@ -11,7 +11,7 @@ import { AppliService } from "../shared/services/Menus/appli.service";
 @Component({
   selector: "app-angular-container",
   templateUrl: "./angular-container.component.html",
-  styleUrls: ["./angular-container.component.css"]
+  styleUrls: ["./angular-container.component.css"],
 })
 export class AngularContainerComponent
   implements OnInit, OnDestroy, AfterViewChecked {
@@ -41,5 +41,4 @@ export class AngularContainerComponent
   public titleIsAngular() {
     return this.appliService.title.value === this.nameSection;
   }
-  
 }

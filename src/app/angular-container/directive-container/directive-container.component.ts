@@ -1,18 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { DirectiveService } from "src/app/shared/services/Menus/Angular/directive.service";
 import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { AppliService } from "src/app/shared/services/Menus/appli.service";
 
 @Component({
   selector: "app-directive-container",
-  templateUrl: "./directive-container.component.html",
-  styleUrls: ["./directive-container.component.css"],
+  template: "<router-outlet></router-outlet>",
 })
-export class DirectiveContainerComponent implements OnInit {
+export class DirectiveContainerComponent implements OnInit, OnDestroy {
   constructor(
     private lessonsMenuService: LessonsMenuService,
     private directivesService: DirectiveService,
-    private appliService: AppliService,
+    private appliService: AppliService
   ) {}
 
   ngOnInit(): void {
@@ -20,5 +19,8 @@ export class DirectiveContainerComponent implements OnInit {
       this.directivesService.directiveMenu
     );
     this.appliService.title.next("Directives");
+  }
+  ngOnDestroy(): void {
+    this.lessonsMenuService.lessonMenu.next([]);
   }
 }

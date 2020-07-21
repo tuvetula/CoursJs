@@ -1,14 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { LessonsMenuService } from "src/app/shared/services/Menus/lessons-menu.service";
 import { PipeService } from "src/app/shared/services/Menus/Angular/pipe.service";
 import { AppliService } from 'src/app/shared/services/Menus/appli.service';
 
 @Component({
   selector: "app-pipes-container",
-  templateUrl: "./pipes-container.component.html",
-  styleUrls: ["./pipes-container.component.css"],
+  template: "<router-outlet></router-outlet>",
 })
-export class PipesContainerComponent implements OnInit {
+export class PipesContainerComponent implements OnInit, OnDestroy {
   constructor(
     private lessonsMenuService: LessonsMenuService,
     private pipesService: PipeService,
@@ -18,5 +17,8 @@ export class PipesContainerComponent implements OnInit {
   ngOnInit(): void {
     this.lessonsMenuService.lessonMenu.next(this.pipesService.pipeMenu);
     this.appliService.title.next('Pipes');
+  }
+  ngOnDestroy(): void {
+    this.lessonsMenuService.lessonMenu.next([]);
   }
 }
